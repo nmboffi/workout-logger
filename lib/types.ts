@@ -125,3 +125,24 @@ export interface AccessorySet {
   reps: number | null;
   done: boolean;
 }
+
+// Exercise groups by movement pattern
+export type MovementCategory = "squat" | "bench" | "deadlift" | "ohp";
+
+export interface ExerciseGroup {
+  category: MovementCategory;
+  label: string;
+  main: { name: string; trainingMax: number };
+  auxiliaries: { name: string; slot: string; trainingMax: number }[];
+}
+
+// Program versioning
+export interface ProgramVersion {
+  id: string;
+  name: string;
+  date: string;
+  scheduleType: ScheduleType;
+  trainingMaxes: Record<string, number>;
+  dayConfigs: WorkoutDay[];
+  currentWeek: number;
+}

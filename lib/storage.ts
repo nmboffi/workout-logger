@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import type { WorkoutLog, ExerciseState, WorkoutDay } from "./types";
+import type { WorkoutLog, ExerciseState, WorkoutDay, ProgramVersion } from "./types";
 
 const KEYS = {
   WORKOUT_LOGS: "workout_logs",
@@ -8,6 +8,7 @@ const KEYS = {
   EXERCISE_STATE: "exercise_state",
   TRAINING_MAXES: "training_maxes",
   DAY_CONFIGS: "day_configs",
+  PROGRAM_VERSIONS: "program_versions",
 } as const;
 
 export async function saveWorkoutLogs(logs: WorkoutLog[]): Promise<void> {
@@ -59,6 +60,17 @@ export async function saveDayConfigs(
 export async function loadDayConfigs(): Promise<WorkoutDay[] | null> {
   const data = await AsyncStorage.getItem(KEYS.DAY_CONFIGS);
   return data ? JSON.parse(data) : null;
+}
+
+export async function saveProgramVersions(
+  versions: ProgramVersion[]
+): Promise<void> {
+  await AsyncStorage.setItem(KEYS.PROGRAM_VERSIONS, JSON.stringify(versions));
+}
+
+export async function loadProgramVersions(): Promise<ProgramVersion[]> {
+  const data = await AsyncStorage.getItem(KEYS.PROGRAM_VERSIONS);
+  return data ? JSON.parse(data) : [];
 }
 
 export async function exportAllData(): Promise<string> {

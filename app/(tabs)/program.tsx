@@ -1,120 +1,294 @@
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { useState } from "react";
+import { View, Text, ScrollView, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 import { useStore } from "../../lib/store";
+import { colors, spacing, radius, font, shadow } from "../../lib/theme";
 
-export default function ProgramScreen() {
-  const { program, currentWeek, trainingMaxes, setCurrentWeek } = useStore();
+export default function ProgramTab() {
+  const { program, currentWeek, trainingMaxes, days, exerciseGroups, updateTrainingMax } = useStore();
   const weeks = program.weekSchedule;
+  const [editingTM, setEditingTM] = useState<string | null>(null);
+  const [tmInput, setTmInput] = useState("");
+  const [activeSection, setActiveSection] = useState<"groups" | "days" | "schedule">("groups");
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Program Overview</Text>
-      <Text style={styles.subtitle}>
-        21-Week SBS Hypertrophy — Week {currentWeek}
-      </Text>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.title}>Program</Text>
+      <Text style={styles.subtitle}>SBS Hypertrophy · Week {currentWeek} of 21</Text>
 
-      {/* TM Summary */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Current Training Maxes</Text>
-        {[...program.config.mainLifts, ...program.config.auxiliaries].map(
-          (lift) => (
-            <View key={lift.name} style={styles.tmRow}>
-              <Text style={styles.tmName}>{lift.name}</Text>
-              <Text style={styles.tmValue}>
-                {(trainingMaxes[lift.name] ?? lift.trainingMax).toFixed(1)}
-              </Text>
-            </View>
-          )
-        )}
+      {/* Section tabs */}
+      <View style={styles.sectionTabs}>
+        {(["groups", "days", "schedule"] as const).map((s) => (
+          <TouchableOpacity
+            key={s}
+            style={[styles.sectionTab, activeSection === s && styles.sectionTabActive]}
+            onPress={() => setActiveSection(s)}
+          >
+            <Text style={[styles.sectionTabText, activeSection === s && styles.sectionTabTextActive]}>
+              {s === "groups" ? "Exercise Groups" : s === "days" ? "Day Layout" : "Week Schedule"}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
-      {/* Week grid */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Weeks</Text>
-        <View style={styles.weekGrid}>
-          {weeks.map((w) => {
-            const isCurrent = w.weekNumber === currentWeek;
-            const isPast = w.weekNumber < currentWeek;
-            return (
+      {/* Exercise Groups */}
+      {activeSection === "groups" && (
+        <View style={styles.section}>
+          {exerciseGroups.map((group) => (
+            <View key={group.category} style={styles.groupCard}>
+              <View style={styles.groupHeader}>
+                <View style={styles.groupDot} />
+                <Text style={styles.groupLabel}>{group.label}</Text>
+              </View>
+
+              {/* Main lift */}
               <TouchableOpacity
-                key={w.weekNumber}
-                style={[
-                  styles.weekCell,
-                  isCurrent && styles.weekCellCurrent,
-                  isPast && styles.weekCellPast,
-                ]}
-                onPress={() => setCurrentWeek(w.weekNumber)}
+                style={styles.liftRow}
+                onPress={() => {
+                  setEditingTM(group.main.name);
+                  setTmInput(group.main.trainingMax.toFixed(1));
+                }}
               >
-                <Text
-                  style={[
-                    styles.weekCellText,
-                    isCurrent && styles.weekCellTextCurrent,
-                  ]}
-                >
-                  {w.weekNumber}
-                </Text>
+                <View>
+                  <Text style={styles.liftBadge}>MAIN</Text>
+                  <Text style={styles.liftName}>{group.main.name}</Text>
+                </View>
+                {editingTM === group.main.name ? (
+                  <TextInput
+                    style={styles.tmInput}
+                    value={tmInput}
+                    onChangeText={setTmInput}
+                    onBlur={() => {
+                      const n = parseFloat(tmInput);
+                      if (!isNaN(n) && n > 0) updateTrainingMax(group.main.name, n);
+                      setEditingTM(null);
+                    }}
+                    keyboardType="numeric"
+                    autoFocus
+                  />
+                ) : (
+                  <View style={styles.tmDisplay}>
+                    <Text style={styles.tmValue}>{group.main.trainingMax.toFixed(0)}</Text>
+                    <Text style={styles.tmUnit}>lbs</Text>
+                  </View>
+                )}
               </TouchableOpacity>
+
+              {/* Auxiliaries */}
+              {group.auxiliaries.map((aux) => (
+                <TouchableOpacity
+                  key={aux.name}
+                  style={styles.liftRow}
+                  onPress={() => {
+                    setEditingTM(aux.name);
+                    setTmInput(aux.trainingMax.toFixed(1));
+                  }}
+                >
+                  <View>
+                    <Text style={styles.liftBadgeAux}>AUX</Text>
+                    <Text style={styles.liftNameAux}>{aux.name}</Text>
+                  </View>
+                  {editingTM === aux.name ? (
+                    <TextInput
+                      style={styles.tmInput}
+                      value={tmInput}
+                      onChangeText={setTmInput}
+                      onBlur={() => {
+                        const n = parseFloat(tmInput);
+                        if (!isNaN(n) && n > 0) updateTrainingMax(aux.name, n);
+                        setEditingTM(null);
+                      }}
+                      keyboardType="numeric"
+                      autoFocus
+                    />
+                  ) : (
+                    <View style={styles.tmDisplay}>
+                      <Text style={styles.tmValueAux}>{aux.trainingMax.toFixed(0)}</Text>
+                      <Text style={styles.tmUnit}>lbs</Text>
+                    </View>
+                  )}
+                </TouchableOpacity>
+              ))}
+            </View>
+          ))}
+        </View>
+      )}
+
+      {/* Day Layout */}
+      {activeSection === "days" && (
+        <View style={styles.section}>
+          {days.map((day) => {
+            const mains = day.exercises.filter((e) => e.category === "main");
+            const accs = day.exercises.filter((e) => e.category === "accessory");
+            return (
+              <View key={day.dayIndex} style={styles.dayCard}>
+                <Text style={styles.dayLabel}>{day.label}</Text>
+
+                <Text style={styles.daySectionLabel}>Main / Auxiliary Lifts</Text>
+                {mains.map((ex) => (
+                  <View key={ex.id} style={styles.dayExRow}>
+                    <View style={styles.exerciseDot} />
+                    <Text style={styles.dayExName}>{ex.name}</Text>
+                    <Text style={styles.dayExTM}>
+                      TM {(trainingMaxes[ex.name] ?? ex.trainingMax).toFixed(0)}
+                    </Text>
+                  </View>
+                ))}
+
+                {accs.length > 0 && (
+                  <>
+                    <Text style={[styles.daySectionLabel, { marginTop: spacing.md }]}>Accessories</Text>
+                    {accs.map((ex) => (
+                      <View key={ex.id} style={styles.dayExRow}>
+                        <View style={[styles.exerciseDot, { backgroundColor: colors.textMuted }]} />
+                        <Text style={styles.dayExNameAcc}>{ex.name}</Text>
+                      </View>
+                    ))}
+                  </>
+                )}
+              </View>
             );
           })}
         </View>
-      </View>
+      )}
 
-      {/* Current week detail */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Week {currentWeek} Detail</Text>
-        {Object.entries(
-          weeks.find((w) => w.weekNumber === currentWeek)?.exerciseConfigs ?? {}
-        ).map(([name, config]) => (
-          <View key={name} style={styles.weekDetailRow}>
-            <Text style={styles.weekDetailName}>{name}</Text>
-            <Text style={styles.weekDetailInfo}>
-              {(config.intensity * 100).toFixed(1)}% — {config.reps} reps ×{" "}
-              {config.sets} sets (rep out {config.repOutTarget})
-            </Text>
+      {/* Week Schedule */}
+      {activeSection === "schedule" && (
+        <View style={styles.section}>
+          <View style={styles.weekGrid}>
+            {weeks.map((w) => {
+              const isCurrent = w.weekNumber === currentWeek;
+              const isPast = w.weekNumber < currentWeek;
+              return (
+                <View
+                  key={w.weekNumber}
+                  style={[styles.weekCell, isCurrent && styles.weekCellCurrent, isPast && styles.weekCellPast]}
+                >
+                  <Text style={[styles.weekCellText, isCurrent && styles.weekCellTextCurrent]}>
+                    {w.weekNumber}
+                  </Text>
+                </View>
+              );
+            })}
           </View>
-        ))}
-      </View>
+
+          <View style={styles.weekDetail}>
+            <Text style={styles.weekDetailTitle}>Week {currentWeek}</Text>
+            {Object.entries(
+              weeks.find((w) => w.weekNumber === currentWeek)?.exerciseConfigs ?? {}
+            ).map(([name, config]) => (
+              <View key={name} style={styles.weekDetailRow}>
+                <Text style={styles.weekDetailName}>{name}</Text>
+                <Text style={styles.weekDetailInfo}>
+                  {(config.intensity * 100).toFixed(0)}% · {config.reps} reps · {config.sets} sets
+                </Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      )}
+
+      <View style={{ height: 40 }} />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#0f0f23", padding: 16 },
-  title: { fontSize: 28, fontWeight: "bold", color: "#e0e0e0" },
-  subtitle: { fontSize: 16, color: "#888", marginTop: 4, marginBottom: 16 },
-  section: { marginBottom: 24 },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#4fc3f7",
-    marginBottom: 10,
+  container: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: spacing.xl },
+  title: { fontSize: font.heading, fontWeight: font.heavy, color: colors.text },
+  subtitle: { fontSize: font.body, color: colors.textMuted, marginTop: spacing.xs, marginBottom: spacing.xl },
+
+  // Section tabs
+  sectionTabs: { flexDirection: "row", gap: spacing.sm, marginBottom: spacing.xxl },
+  sectionTab: { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm + 2, borderRadius: radius.pill, backgroundColor: colors.bgCard },
+  sectionTabActive: { backgroundColor: colors.amber },
+  sectionTabText: { fontSize: font.body, fontWeight: font.medium, color: colors.textSecondary },
+  sectionTabTextActive: { color: colors.bg, fontWeight: font.semibold },
+
+  section: {},
+
+  // Exercise Groups
+  groupCard: {
+    backgroundColor: colors.bgCard,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  tmRow: {
+  groupHeader: { flexDirection: "row", alignItems: "center", gap: spacing.sm, marginBottom: spacing.lg },
+  groupDot: { width: 10, height: 10, borderRadius: 5, backgroundColor: colors.amber },
+  groupLabel: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text },
+
+  liftRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 8,
+    alignItems: "center",
+    paddingVertical: spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: "#222",
+    borderBottomColor: colors.border,
   },
-  tmName: { fontSize: 16, color: "#e0e0e0" },
-  tmValue: { fontSize: 16, color: "#4fc3f7", fontWeight: "bold" },
-  weekGrid: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
+  liftBadge: { fontSize: 10, fontWeight: font.bold, color: colors.amber, letterSpacing: 1, marginBottom: 2 },
+  liftBadgeAux: { fontSize: 10, fontWeight: font.bold, color: colors.textMuted, letterSpacing: 1, marginBottom: 2 },
+  liftName: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.text },
+  liftNameAux: { fontSize: font.bodyLarge, color: colors.textSecondary },
+
+  tmDisplay: { flexDirection: "row", alignItems: "baseline", gap: 4 },
+  tmValue: { fontSize: font.title, fontWeight: font.bold, color: colors.amber },
+  tmValueAux: { fontSize: font.subtitle, fontWeight: font.semibold, color: colors.textSecondary },
+  tmUnit: { fontSize: font.caption, color: colors.textMuted },
+  tmInput: {
+    backgroundColor: colors.bgElevated,
+    color: colors.text,
+    fontSize: font.subtitle,
+    fontWeight: font.bold,
+    textAlign: "center",
+    width: 80,
+    height: 40,
+    borderRadius: radius.sm,
+  },
+
+  // Day Layout
+  dayCard: {
+    backgroundColor: colors.bgCard,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  dayLabel: { fontSize: font.title, fontWeight: font.bold, color: colors.text, marginBottom: spacing.lg },
+  daySectionLabel: { fontSize: font.caption, fontWeight: font.medium, color: colors.textMuted, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
+  dayExRow: { flexDirection: "row", alignItems: "center", gap: spacing.sm, paddingVertical: spacing.xs + 2 },
+  exerciseDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.amber },
+  dayExName: { fontSize: font.bodyLarge, color: colors.text, fontWeight: font.medium, flex: 1 },
+  dayExNameAcc: { fontSize: font.body, color: colors.textSecondary, flex: 1 },
+  dayExTM: { fontSize: font.body, color: colors.textMuted },
+
+  // Week Schedule
+  weekGrid: { flexDirection: "row", flexWrap: "wrap", gap: spacing.sm, marginBottom: spacing.xxl },
   weekCell: {
     width: 44,
     height: 44,
-    borderRadius: 8,
-    backgroundColor: "#1a1a2e",
+    borderRadius: radius.md,
+    backgroundColor: colors.bgCard,
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  weekCellCurrent: { backgroundColor: "#4fc3f7" },
-  weekCellPast: { backgroundColor: "#2a2a4e" },
-  weekCellText: { color: "#888", fontSize: 16, fontWeight: "bold" },
-  weekCellTextCurrent: { color: "#0f0f23" },
+  weekCellCurrent: { backgroundColor: colors.amber, borderColor: colors.amber },
+  weekCellPast: { backgroundColor: colors.bgElevated },
+  weekCellText: { color: colors.textMuted, fontSize: font.bodyLarge, fontWeight: font.bold },
+  weekCellTextCurrent: { color: colors.bg },
+
+  weekDetail: {},
+  weekDetailTitle: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text, marginBottom: spacing.md },
   weekDetailRow: {
-    paddingVertical: 8,
+    paddingVertical: spacing.sm,
     borderBottomWidth: 1,
-    borderBottomColor: "#222",
+    borderBottomColor: colors.border,
   },
-  weekDetailName: { fontSize: 16, color: "#e0e0e0", fontWeight: "600" },
-  weekDetailInfo: { fontSize: 14, color: "#aaa", marginTop: 2 },
+  weekDetailName: { fontSize: font.bodyLarge, color: colors.text, fontWeight: font.medium },
+  weekDetailInfo: { fontSize: font.body, color: colors.textSecondary, marginTop: 2 },
 });

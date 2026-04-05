@@ -1,23 +1,49 @@
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { colors, font } from "../../lib/theme";
+
+function TabIcon({ label, active }: { label: string; active: boolean }) {
+  const icons: Record<string, string> = {
+    Workout: "W",
+    Program: "P",
+    History: "H",
+    Settings: "S",
+  };
+  return (
+    <View style={[styles.iconWrap, active && styles.iconWrapActive]}>
+      <Text style={[styles.iconText, active && styles.iconTextActive]}>
+        {icons[label] ?? "?"}
+      </Text>
+    </View>
+  );
+}
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerStyle: { backgroundColor: "#1a1a2e" },
-        headerTintColor: "#e0e0e0",
-        tabBarStyle: { backgroundColor: "#1a1a2e", borderTopColor: "#333" },
-        tabBarActiveTintColor: "#4fc3f7",
-        tabBarInactiveTintColor: "#888",
+        headerStyle: { backgroundColor: colors.bg },
+        headerTintColor: colors.text,
+        headerTitleStyle: { fontWeight: font.semibold, fontSize: font.subtitle },
+        tabBarStyle: {
+          backgroundColor: colors.tabBar,
+          borderTopColor: colors.border,
+          borderTopWidth: 1,
+          height: 80,
+          paddingBottom: 20,
+          paddingTop: 8,
+        },
+        tabBarActiveTintColor: colors.tabActive,
+        tabBarInactiveTintColor: colors.tabInactive,
+        tabBarLabelStyle: { fontSize: 11, fontWeight: font.medium },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Today",
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>🏋</Text>
+          title: "Workout",
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Workout" active={focused} />
           ),
         }}
       />
@@ -25,8 +51,8 @@ export default function TabsLayout() {
         name="program"
         options={{
           title: "Program",
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>📋</Text>
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Program" active={focused} />
           ),
         }}
       />
@@ -34,8 +60,8 @@ export default function TabsLayout() {
         name="history"
         options={{
           title: "History",
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>📊</Text>
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="History" active={focused} />
           ),
         }}
       />
@@ -43,11 +69,32 @@ export default function TabsLayout() {
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>⚙</Text>
+          tabBarIcon: ({ focused }) => (
+            <TabIcon label="Settings" active={focused} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  iconWrap: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  iconWrapActive: {
+    backgroundColor: colors.amberSubtle,
+  },
+  iconText: {
+    fontSize: 16,
+    fontWeight: font.bold,
+    color: colors.tabInactive,
+  },
+  iconTextActive: {
+    color: colors.amber,
+  },
+});

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
+import { colors, spacing, radius, font, shadow } from "../lib/theme";
 
 export default function WorkoutScreen() {
   const router = useRouter();
@@ -35,12 +36,11 @@ export default function WorkoutScreen() {
     .filter((ex) => ex.category === "main")
     .every((ex) => ex.repsOnLastSet !== null);
 
+  const totalDone = activeWorkout.exercises.filter((ex) => ex.done).length;
+
   const handleComplete = () => {
     if (!allMainsDone) {
-      Alert.alert(
-        "Incomplete",
-        "Log reps on last set for all main lifts before completing."
-      );
+      Alert.alert("Incomplete", "Log reps on last set for all main lifts before completing.");
       return;
     }
     completeWorkout();
@@ -50,14 +50,7 @@ export default function WorkoutScreen() {
   const handleDiscard = () => {
     Alert.alert("Discard Workout?", "This cannot be undone.", [
       { text: "Cancel", style: "cancel" },
-      {
-        text: "Discard",
-        style: "destructive",
-        onPress: () => {
-          discardWorkout();
-          router.back();
-        },
-      },
+      { text: "Discard", style: "destructive", onPress: () => { discardWorkout(); router.back(); } },
     ]);
   };
 
@@ -70,20 +63,29 @@ export default function WorkoutScreen() {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.title}>{activeWorkout.dayLabel}</Text>
-        <Text style={styles.subtitle}>
-          Week {activeWorkout.weekNumber}
-        </Text>
+        <View>
+          <Text style={styles.headerTitle}>{activeWorkout.dayLabel}</Text>
+          <Text style={styles.headerMeta}>Week {activeWorkout.weekNumber}</Text>
+        </View>
+        <View style={styles.progressBadge}>
+          <Text style={styles.progressText}>
+            {totalDone}/{activeWorkout.exercises.length}
+          </Text>
+        </View>
       </View>
 
+      {/* Exercise cards */}
       {[...groups.entries()].map(([groupKey, exercises], gi) => (
         <View key={gi}>
           {groupKey && (
-            <Text style={styles.supersetLabel}>
-              Superset {groupKey}
-            </Text>
+            <View style={styles.supersetHeader}>
+              <View style={styles.supersetLine} />
+              <Text style={styles.supersetLabel}>Superset {groupKey}</Text>
+              <View style={styles.supersetLine} />
+            </View>
           )}
           {exercises.map((ex) => (
             <ExerciseCard key={ex.exerciseId} exercise={ex} />
@@ -91,8 +93,13 @@ export default function WorkoutScreen() {
         </View>
       ))}
 
+      {/* Actions */}
       <View style={styles.actions}>
-        <TouchableOpacity style={styles.completeBtn} onPress={handleComplete}>
+        <TouchableOpacity
+          style={[styles.completeBtn, !allMainsDone && styles.completeBtnDisabled]}
+          onPress={handleComplete}
+          activeOpacity={0.8}
+        >
           <Text style={styles.completeBtnText}>Complete Workout</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.discardBtn} onPress={handleDiscard}>
@@ -103,112 +110,100 @@ export default function WorkoutScreen() {
   );
 }
 
-function ExerciseCard({
-  exercise,
-}: {
-  exercise: ReturnType<typeof useStore.getState>["activeWorkout"] extends
-    | { exercises: (infer E)[] }
-    | null
-    ? E
-    : never;
-}) {
-  const { logRepsOnLastSet, logAccessorySet, toggleAccessoryDone, addExerciseNote } =
-    useStore();
-  const [repsInput, setRepsInput] = useState(
-    exercise.repsOnLastSet?.toString() ?? ""
-  );
+function ExerciseCard({ exercise }: { exercise: any }) {
+  const { logRepsOnLastSet, logAccessorySet, toggleAccessoryDone, addExerciseNote } = useStore();
+  const [repsInput, setRepsInput] = useState(exercise.repsOnLastSet?.toString() ?? "");
   const [showNotes, setShowNotes] = useState(false);
   const [expanded, setExpanded] = useState(exercise.category === "main");
 
   if (exercise.category === "main") {
     return (
-      <View style={styles.card}>
+      <View style={[styles.card, exercise.done && styles.cardDone]}>
+        {/* Title */}
         <View style={styles.cardHeader}>
           <Text style={styles.cardTitle}>{exercise.exerciseName}</Text>
-          {exercise.done && <Text style={styles.doneCheck}>✓</Text>}
+          {exercise.done && (
+            <View style={styles.checkBadge}>
+              <Text style={styles.checkBadgeText}>Done</Text>
+            </View>
+          )}
         </View>
 
+        {/* TM Single */}
         {exercise.tmSingleWeight && (
-          <Text style={styles.tmSingle}>
-            TM Single @8: {exercise.tmSingleWeight} lbs
-          </Text>
+          <View style={styles.tmSingleRow}>
+            <Text style={styles.tmSingleLabel}>TM Single @8</Text>
+            <Text style={styles.tmSingleValue}>{exercise.tmSingleWeight} lbs</Text>
+          </View>
         )}
 
-        <View style={styles.prescription}>
-          <View style={styles.prescriptionItem}>
-            <Text style={styles.prescriptionLabel}>Weight</Text>
-            <Text style={styles.prescriptionValue}>
-              {exercise.prescribedWeight}
-            </Text>
-          </View>
-          <View style={styles.prescriptionItem}>
-            <Text style={styles.prescriptionLabel}>Reps</Text>
-            <Text style={styles.prescriptionValue}>
-              {exercise.prescribedReps}
-            </Text>
-          </View>
-          <View style={styles.prescriptionItem}>
-            <Text style={styles.prescriptionLabel}>Sets</Text>
-            <Text style={styles.prescriptionValue}>{exercise.sets}</Text>
-          </View>
-          <View style={styles.prescriptionItem}>
-            <Text style={styles.prescriptionLabel}>Rep Out</Text>
-            <Text style={styles.prescriptionValue}>
-              {exercise.repOutTarget}
-            </Text>
-          </View>
+        {/* Prescription */}
+        <View style={styles.rxGrid}>
+          <RxItem label="Weight" value={`${exercise.prescribedWeight}`} unit="lbs" />
+          <RxItem label="Reps" value={`${exercise.prescribedReps}`} />
+          <RxItem label="Sets" value={`${exercise.sets}`} />
+          <RxItem label="Rep Out" value={`${exercise.repOutTarget}`} accent />
         </View>
 
-        <View style={styles.lastSetRow}>
-          <Text style={styles.lastSetLabel}>Reps on last set:</Text>
-          <TextInput
-            style={styles.repsInput}
-            value={repsInput}
-            onChangeText={setRepsInput}
-            onBlur={() => {
-              const n = parseInt(repsInput, 10);
-              if (!isNaN(n) && n > 0) {
-                logRepsOnLastSet(exercise.exerciseId, n);
-              }
-            }}
-            keyboardType="number-pad"
-            placeholder="—"
-            placeholderTextColor="#666"
-          />
-          {exercise.repOutTarget !== null &&
-            exercise.repsOnLastSet !== null && (
-              <Text
+        {/* Last set input */}
+        <View style={styles.lastSetSection}>
+          <Text style={styles.lastSetLabel}>Reps on last set</Text>
+          <View style={styles.lastSetRow}>
+            <TextInput
+              style={styles.repsInput}
+              value={repsInput}
+              onChangeText={setRepsInput}
+              onBlur={() => {
+                const n = parseInt(repsInput, 10);
+                if (!isNaN(n) && n > 0) logRepsOnLastSet(exercise.exerciseId, n);
+              }}
+              keyboardType="number-pad"
+              placeholder="—"
+              placeholderTextColor={colors.textDim}
+            />
+            {exercise.repOutTarget !== null && exercise.repsOnLastSet !== null && (
+              <View
                 style={[
-                  styles.repsDiff,
+                  styles.repsDiffBadge,
                   {
-                    color:
+                    backgroundColor:
                       exercise.repsOnLastSet >= exercise.repOutTarget
-                        ? "#4caf50"
-                        : "#f44336",
+                        ? colors.greenSubtle
+                        : colors.redSubtle,
                   },
                 ]}
               >
-                {exercise.repsOnLastSet >= exercise.repOutTarget
-                  ? `+${exercise.repsOnLastSet - exercise.repOutTarget}`
-                  : `${exercise.repsOnLastSet - exercise.repOutTarget}`}
-              </Text>
+                <Text
+                  style={[
+                    styles.repsDiffText,
+                    {
+                      color:
+                        exercise.repsOnLastSet >= exercise.repOutTarget
+                          ? colors.green
+                          : colors.red,
+                    },
+                  ]}
+                >
+                  {exercise.repsOnLastSet >= exercise.repOutTarget
+                    ? `+${exercise.repsOnLastSet - exercise.repOutTarget}`
+                    : `${exercise.repsOnLastSet - exercise.repOutTarget}`}
+                </Text>
+              </View>
             )}
+          </View>
         </View>
 
+        {/* Notes */}
         <TouchableOpacity onPress={() => setShowNotes(!showNotes)}>
-          <Text style={styles.notesToggle}>
-            {showNotes ? "Hide notes" : "Add notes"}
-          </Text>
+          <Text style={styles.notesToggle}>{showNotes ? "Hide notes" : "Add notes"}</Text>
         </TouchableOpacity>
         {showNotes && (
           <TextInput
             style={styles.notesInput}
             value={exercise.notes}
-            onChangeText={(text) =>
-              addExerciseNote(exercise.exerciseId, text)
-            }
+            onChangeText={(text: string) => addExerciseNote(exercise.exerciseId, text)}
             placeholder="Notes..."
-            placeholderTextColor="#666"
+            placeholderTextColor={colors.textDim}
             multiline
           />
         )}
@@ -216,26 +211,18 @@ function ExerciseCard({
     );
   }
 
-  // Accessory
+  // Accessory card
   return (
     <View style={styles.card}>
-      <TouchableOpacity
-        style={styles.cardHeader}
-        onPress={() => setExpanded(!expanded)}
-      >
-        <Text style={styles.cardTitle}>{exercise.exerciseName}</Text>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+      <TouchableOpacity style={styles.cardHeader} onPress={() => setExpanded(!expanded)} activeOpacity={0.7}>
+        <Text style={styles.accTitle}>{exercise.exerciseName}</Text>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.md }}>
           <TouchableOpacity
             onPress={() => toggleAccessoryDone(exercise.exerciseId)}
             hitSlop={12}
           >
-            <View
-              style={[
-                styles.checkbox,
-                exercise.done && styles.checkboxDone,
-              ]}
-            >
-              {exercise.done && <Text style={styles.checkboxText}>✓</Text>}
+            <View style={[styles.checkbox, exercise.done && styles.checkboxDone]}>
+              {exercise.done && <Text style={styles.checkboxMark}>✓</Text>}
             </View>
           </TouchableOpacity>
           <Text style={styles.expandArrow}>{expanded ? "▾" : "▸"}</Text>
@@ -243,51 +230,41 @@ function ExerciseCard({
       </TouchableOpacity>
 
       {expanded && (
-        <View style={styles.accessorySets}>
-          {exercise.accessorySets.map((s, i) => (
-            <View key={i} style={styles.accessorySetRow}>
-              <Text style={styles.setNumber}>Set {i + 1}</Text>
+        <View style={styles.accSets}>
+          {exercise.accessorySets.map((s: any, i: number) => (
+            <View key={i} style={styles.accSetRow}>
+              <Text style={styles.accSetNum}>{i + 1}</Text>
               <TextInput
-                style={styles.smallInput}
+                style={styles.accInput}
                 placeholder="wt"
-                placeholderTextColor="#666"
+                placeholderTextColor={colors.textDim}
                 keyboardType="numeric"
                 value={s.weight?.toString() ?? ""}
-                onChangeText={(t) =>
-                  logAccessorySet(exercise.exerciseId, i, {
-                    weight: t ? parseFloat(t) : null,
-                  })
+                onChangeText={(t: string) =>
+                  logAccessorySet(exercise.exerciseId, i, { weight: t ? parseFloat(t) : null })
                 }
               />
-              <Text style={styles.timesSign}>×</Text>
+              <Text style={styles.accTimes}>×</Text>
               <TextInput
-                style={styles.smallInput}
+                style={styles.accInput}
                 placeholder="reps"
-                placeholderTextColor="#666"
+                placeholderTextColor={colors.textDim}
                 keyboardType="number-pad"
                 value={s.reps?.toString() ?? ""}
-                onChangeText={(t) =>
-                  logAccessorySet(exercise.exerciseId, i, {
-                    reps: t ? parseInt(t, 10) : null,
-                  })
+                onChangeText={(t: string) =>
+                  logAccessorySet(exercise.exerciseId, i, { reps: t ? parseInt(t, 10) : null })
                 }
               />
             </View>
           ))}
           <TouchableOpacity
-            onPress={() => {
-              const { activeWorkout } = useStore.getState();
-              if (!activeWorkout) return;
-              const ex = activeWorkout.exercises.find(
-                (e) => e.exerciseId === exercise.exerciseId
-              );
-              if (!ex) return;
-              logAccessorySet(exercise.exerciseId, ex.accessorySets.length, {
+            onPress={() =>
+              logAccessorySet(exercise.exerciseId, exercise.accessorySets.length, {
                 weight: null,
                 reps: null,
                 done: false,
-              });
-            }}
+              })
+            }
           >
             <Text style={styles.addSetText}>+ Add set</Text>
           </TouchableOpacity>
@@ -297,124 +274,153 @@ function ExerciseCard({
   );
 }
 
+function RxItem({ label, value, unit, accent }: { label: string; value: string; unit?: string; accent?: boolean }) {
+  return (
+    <View style={styles.rxItem}>
+      <Text style={styles.rxLabel}>{label}</Text>
+      <View style={styles.rxValueRow}>
+        <Text style={[styles.rxValue, accent && { color: colors.amber }]}>{value}</Text>
+        {unit && <Text style={styles.rxUnit}>{unit}</Text>}
+      </View>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#0f0f23", padding: 16 },
-  header: { marginBottom: 16 },
-  title: { fontSize: 24, fontWeight: "bold", color: "#e0e0e0" },
-  subtitle: { fontSize: 16, color: "#888", marginTop: 4 },
-  emptyText: { color: "#888", fontSize: 18, textAlign: "center", marginTop: 40 },
-  supersetLabel: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#ff9800",
-    marginTop: 12,
-    marginBottom: 4,
-    paddingLeft: 4,
+  container: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: spacing.xl },
+  emptyText: { color: colors.textMuted, fontSize: font.subtitle, textAlign: "center", marginTop: 60 },
+
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: spacing.xxl,
   },
+  headerTitle: { fontSize: font.heading, fontWeight: font.heavy, color: colors.text },
+  headerMeta: { fontSize: font.body, color: colors.textMuted, marginTop: spacing.xs },
+  progressBadge: { backgroundColor: colors.amberSubtle, paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderRadius: radius.pill },
+  progressText: { fontSize: font.body, fontWeight: font.bold, color: colors.amber },
+
+  supersetHeader: { flexDirection: "row", alignItems: "center", gap: spacing.sm, marginVertical: spacing.md },
+  supersetLine: { flex: 1, height: 1, backgroundColor: colors.border },
+  supersetLabel: { fontSize: font.caption, fontWeight: font.semibold, color: colors.amber },
+
+  // Cards
   card: {
-    backgroundColor: "#1a1a2e",
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 10,
+    backgroundColor: colors.bgCard,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    marginBottom: spacing.md,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  cardHeader: {
+  cardDone: { borderColor: colors.green, borderWidth: 1 },
+  cardHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
+  cardTitle: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text },
+  checkBadge: { backgroundColor: colors.greenSubtle, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.pill },
+  checkBadgeText: { fontSize: font.caption, fontWeight: font.semibold, color: colors.green },
+
+  tmSingleRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: colors.amberSubtle,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.sm,
+    marginTop: spacing.md,
   },
-  cardTitle: { fontSize: 18, fontWeight: "bold", color: "#e0e0e0" },
-  doneCheck: { fontSize: 20, color: "#4caf50" },
-  tmSingle: {
-    fontSize: 13,
-    color: "#ff9800",
-    marginTop: 6,
-    fontStyle: "italic",
-  },
-  prescription: {
-    flexDirection: "row",
-    marginTop: 12,
-    gap: 16,
-  },
-  prescriptionItem: { alignItems: "center" },
-  prescriptionLabel: { fontSize: 12, color: "#888" },
-  prescriptionValue: { fontSize: 20, fontWeight: "bold", color: "#4fc3f7" },
-  lastSetRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 16,
-    gap: 8,
-  },
-  lastSetLabel: { fontSize: 14, color: "#e0e0e0" },
+  tmSingleLabel: { fontSize: font.caption, color: colors.amber, fontWeight: font.medium },
+  tmSingleValue: { fontSize: font.body, color: colors.amber, fontWeight: font.bold },
+
+  // Prescription grid
+  rxGrid: { flexDirection: "row", marginTop: spacing.lg, gap: spacing.sm },
+  rxItem: { flex: 1, alignItems: "center", backgroundColor: colors.bgElevated, paddingVertical: spacing.md, borderRadius: radius.md },
+  rxLabel: { fontSize: 10, color: colors.textMuted, textTransform: "uppercase" as const, letterSpacing: 0.5 },
+  rxValueRow: { flexDirection: "row", alignItems: "baseline", gap: 2, marginTop: spacing.xs },
+  rxValue: { fontSize: font.title, fontWeight: font.bold, color: colors.text },
+  rxUnit: { fontSize: font.caption, color: colors.textMuted },
+
+  // Last set
+  lastSetSection: { marginTop: spacing.xl },
+  lastSetLabel: { fontSize: font.body, color: colors.textSecondary, fontWeight: font.medium, marginBottom: spacing.sm },
+  lastSetRow: { flexDirection: "row", alignItems: "center", gap: spacing.md },
   repsInput: {
-    backgroundColor: "#2a2a4e",
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
+    backgroundColor: colors.bgElevated,
+    color: colors.text,
+    fontSize: font.title,
+    fontWeight: font.bold,
     textAlign: "center",
-    width: 60,
-    height: 44,
-    borderRadius: 8,
+    width: 72,
+    height: 52,
+    borderRadius: radius.md,
     borderWidth: 1,
-    borderColor: "#444",
+    borderColor: colors.border,
   },
-  repsDiff: { fontSize: 16, fontWeight: "bold" },
-  notesToggle: { color: "#4fc3f7", fontSize: 13, marginTop: 8 },
+  repsDiffBadge: { paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.pill },
+  repsDiffText: { fontSize: font.bodyLarge, fontWeight: font.bold },
+
+  notesToggle: { color: colors.amber, fontSize: font.body, marginTop: spacing.md, fontWeight: font.medium },
   notesInput: {
-    backgroundColor: "#2a2a4e",
-    color: "#e0e0e0",
-    borderRadius: 8,
-    padding: 8,
-    marginTop: 6,
-    fontSize: 14,
-    minHeight: 40,
+    backgroundColor: colors.bgElevated,
+    color: colors.text,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    marginTop: spacing.sm,
+    fontSize: font.body,
+    minHeight: 44,
   },
+
+  // Accessory
+  accTitle: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.textSecondary },
   checkbox: {
     width: 28,
     height: 28,
-    borderRadius: 6,
+    borderRadius: radius.sm,
     borderWidth: 2,
-    borderColor: "#555",
+    borderColor: colors.borderLight,
     alignItems: "center",
     justifyContent: "center",
   },
-  checkboxDone: { backgroundColor: "#4caf50", borderColor: "#4caf50" },
-  checkboxText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
-  expandArrow: { color: "#888", fontSize: 16 },
-  accessorySets: { marginTop: 10 },
-  accessorySetRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-    marginBottom: 6,
-  },
-  setNumber: { color: "#888", fontSize: 14, width: 40 },
-  smallInput: {
-    backgroundColor: "#2a2a4e",
-    color: "#fff",
-    fontSize: 16,
+  checkboxDone: { backgroundColor: colors.green, borderColor: colors.green },
+  checkboxMark: { color: "#fff", fontSize: 14, fontWeight: font.bold },
+  expandArrow: { color: colors.textMuted, fontSize: 16 },
+
+  accSets: { marginTop: spacing.md },
+  accSetRow: { flexDirection: "row", alignItems: "center", gap: spacing.sm, marginBottom: spacing.sm },
+  accSetNum: { width: 20, fontSize: font.body, color: colors.textMuted, textAlign: "center" },
+  accInput: {
+    backgroundColor: colors.bgElevated,
+    color: colors.text,
+    fontSize: font.bodyLarge,
     textAlign: "center",
-    width: 60,
-    height: 36,
-    borderRadius: 6,
+    width: 64,
+    height: 40,
+    borderRadius: radius.sm,
     borderWidth: 1,
-    borderColor: "#444",
+    borderColor: colors.border,
   },
-  timesSign: { color: "#888", fontSize: 16 },
-  addSetText: { color: "#4fc3f7", fontSize: 13, marginTop: 4 },
-  actions: { marginTop: 20, gap: 12, marginBottom: 40 },
+  accTimes: { color: colors.textMuted, fontSize: font.body },
+  addSetText: { color: colors.amber, fontSize: font.body, marginTop: spacing.xs, fontWeight: font.medium },
+
+  // Actions
+  actions: { marginTop: spacing.xxl, gap: spacing.md, marginBottom: spacing.section },
   completeBtn: {
-    backgroundColor: "#4caf50",
-    padding: 16,
-    borderRadius: 12,
+    backgroundColor: colors.amber,
+    paddingVertical: spacing.lg,
+    borderRadius: radius.lg,
     alignItems: "center",
+    ...shadow.card,
   },
-  completeBtnText: { color: "#fff", fontSize: 18, fontWeight: "bold" },
+  completeBtnDisabled: { opacity: 0.5 },
+  completeBtnText: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.bg },
   discardBtn: {
-    padding: 12,
-    borderRadius: 12,
+    paddingVertical: spacing.md,
+    borderRadius: radius.lg,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#f44336",
+    borderColor: colors.border,
   },
-  discardBtnText: { color: "#f44336", fontSize: 16 },
+  discardBtnText: { fontSize: font.bodyLarge, color: colors.textMuted },
 });

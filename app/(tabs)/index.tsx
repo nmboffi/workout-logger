@@ -2,8 +2,9 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from "react-nati
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
+import { colors, spacing, radius, font, shadow } from "../../lib/theme";
 
-export default function TodayScreen() {
+export default function WorkoutTab() {
   const router = useRouter();
   const {
     days,
@@ -15,40 +16,51 @@ export default function TodayScreen() {
     workoutLogs,
   } = useStore();
 
-  // Figure out which day to show next
   const logsThisWeek = workoutLogs.filter((l) => l.weekNumber === currentWeek);
   const completedDays = new Set(logsThisWeek.map((l) => l.dayIndex));
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Week {currentWeek} of 21</Text>
-        <Text style={styles.subtitle}>
-          {scheduleType} schedule
-        </Text>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Hero header */}
+      <View style={styles.hero}>
+        <Text style={styles.heroLabel}>This Week</Text>
+        <Text style={styles.heroTitle}>Week {currentWeek}</Text>
+        <View style={styles.heroPills}>
+          <View style={styles.pill}>
+            <Text style={styles.pillText}>{scheduleType}</Text>
+          </View>
+          <View style={styles.pill}>
+            <Text style={styles.pillText}>
+              {completedDays.size}/{days.length} done
+            </Text>
+          </View>
+        </View>
       </View>
 
+      {/* Resume banner */}
       {activeWorkout && (
         <TouchableOpacity
-          style={styles.resumeCard}
+          style={styles.resumeBanner}
           onPress={() => router.push("/workout")}
+          activeOpacity={0.8}
         >
-          <Text style={styles.resumeTitle}>Resume Workout</Text>
-          <Text style={styles.resumeSubtitle}>
-            {activeWorkout.dayLabel} — started{" "}
-            {new Date(activeWorkout.startedAt).toLocaleTimeString()}
-          </Text>
+          <View>
+            <Text style={styles.resumeTitle}>Continue Workout</Text>
+            <Text style={styles.resumeSubtitle}>
+              {activeWorkout.dayLabel}
+            </Text>
+          </View>
+          <View style={styles.resumeArrow}>
+            <Text style={styles.resumeArrowText}>›</Text>
+          </View>
         </TouchableOpacity>
       )}
 
+      {/* Day cards */}
       {days.map((day) => {
         const isDone = completedDays.has(day.dayIndex);
-        const mainExercises = day.exercises.filter(
-          (ex) => ex.category === "main"
-        );
-        const accessoryCount = day.exercises.filter(
-          (ex) => ex.category === "accessory"
-        ).length;
+        const mainExercises = day.exercises.filter((ex) => ex.category === "main");
+        const accessories = day.exercises.filter((ex) => ex.category === "accessory");
 
         return (
           <TouchableOpacity
@@ -61,12 +73,19 @@ export default function TodayScreen() {
               }
             }}
             disabled={!!activeWorkout}
+            activeOpacity={0.7}
           >
+            {/* Day header */}
             <View style={styles.dayHeader}>
               <Text style={styles.dayLabel}>{day.label}</Text>
-              {isDone && <Text style={styles.checkmark}>✓</Text>}
+              {isDone && (
+                <View style={styles.doneBadge}>
+                  <Text style={styles.doneBadgeText}>Done</Text>
+                </View>
+              )}
             </View>
 
+            {/* Main lifts */}
             {mainExercises.map((ex) => {
               const rx = prescribeExercise(
                 ex.name,
@@ -78,59 +97,115 @@ export default function TodayScreen() {
               );
               return (
                 <View key={ex.id} style={styles.exerciseRow}>
-                  <Text style={styles.exerciseName}>{ex.name}</Text>
-                  {rx && (
-                    <Text style={styles.exerciseDetail}>
-                      {rx.workingWeight} × {rx.reps} ({rx.sets} sets, rep out{" "}
-                      {rx.repOutTarget})
-                    </Text>
-                  )}
+                  <View style={styles.exerciseDot} />
+                  <View style={styles.exerciseInfo}>
+                    <Text style={styles.exerciseName}>{ex.name}</Text>
+                    {rx && (
+                      <Text style={styles.exerciseRx}>
+                        {rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets
+                      </Text>
+                    )}
+                  </View>
                 </View>
               );
             })}
 
-            {accessoryCount > 0 && (
-              <Text style={styles.accessoryNote}>
-                + {accessoryCount} accessories
-              </Text>
+            {/* Accessories */}
+            {accessories.length > 0 && (
+              <View style={styles.accessorySection}>
+                <View style={styles.accessoryDivider} />
+                <Text style={styles.accessoryLabel}>Accessories</Text>
+                <View style={styles.accessoryList}>
+                  {accessories.map((ex, i) => (
+                    <View key={ex.id} style={styles.accessoryChip}>
+                      <Text style={styles.accessoryChipText}>{ex.name}</Text>
+                    </View>
+                  ))}
+                </View>
+              </View>
+            )}
+
+            {/* Start prompt */}
+            {!isDone && !activeWorkout && (
+              <View style={styles.startPrompt}>
+                <Text style={styles.startPromptText}>Tap to start</Text>
+              </View>
             )}
           </TouchableOpacity>
         );
       })}
+
+      <View style={{ height: 40 }} />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#0f0f23", padding: 16 },
-  header: { marginBottom: 20 },
-  title: { fontSize: 28, fontWeight: "bold", color: "#e0e0e0" },
-  subtitle: { fontSize: 16, color: "#888", marginTop: 4 },
-  resumeCard: {
-    backgroundColor: "#1b5e20",
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
-  },
-  resumeTitle: { fontSize: 18, fontWeight: "bold", color: "#fff" },
-  resumeSubtitle: { fontSize: 14, color: "#a5d6a7", marginTop: 4 },
-  dayCard: {
-    backgroundColor: "#1a1a2e",
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
-  },
-  dayCardDone: { opacity: 0.6 },
-  dayHeader: {
+  container: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: spacing.xl },
+
+  // Hero
+  hero: { marginBottom: spacing.xxl },
+  heroLabel: { fontSize: font.body, color: colors.textMuted, fontWeight: font.medium, letterSpacing: 1, textTransform: "uppercase" as const },
+  heroTitle: { fontSize: font.hero, fontWeight: font.heavy, color: colors.text, marginTop: spacing.xs },
+  heroPills: { flexDirection: "row", gap: spacing.sm, marginTop: spacing.md },
+  pill: { backgroundColor: colors.bgCard, paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 2, borderRadius: radius.pill },
+  pillText: { fontSize: font.caption, color: colors.textSecondary, fontWeight: font.medium },
+
+  // Resume
+  resumeBanner: {
+    backgroundColor: colors.amber,
+    padding: spacing.lg,
+    borderRadius: radius.lg,
+    marginBottom: spacing.xl,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 8,
+    ...shadow.elevated,
   },
-  dayLabel: { fontSize: 20, fontWeight: "bold", color: "#4fc3f7" },
-  checkmark: { fontSize: 20, color: "#4caf50" },
-  exerciseRow: { marginVertical: 4 },
-  exerciseName: { fontSize: 16, color: "#e0e0e0", fontWeight: "600" },
-  exerciseDetail: { fontSize: 14, color: "#aaa", marginTop: 2 },
-  accessoryNote: { fontSize: 14, color: "#666", marginTop: 8, fontStyle: "italic" },
+  resumeTitle: { fontSize: font.bodyLarge, fontWeight: font.bold, color: colors.bg },
+  resumeSubtitle: { fontSize: font.body, color: "rgba(28,25,23,0.7)", marginTop: 2 },
+  resumeArrow: { width: 32, height: 32, borderRadius: 16, backgroundColor: "rgba(28,25,23,0.15)", alignItems: "center", justifyContent: "center" },
+  resumeArrowText: { fontSize: 20, color: colors.bg, fontWeight: font.bold },
+
+  // Day card
+  dayCard: {
+    backgroundColor: colors.bgCard,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    ...shadow.card,
+  },
+  dayCardDone: { opacity: 0.55 },
+
+  dayHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.lg },
+  dayLabel: { fontSize: font.title, fontWeight: font.bold, color: colors.text },
+  doneBadge: { backgroundColor: colors.greenSubtle, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.pill },
+  doneBadgeText: { fontSize: font.caption, fontWeight: font.semibold, color: colors.green },
+
+  // Exercise rows
+  exerciseRow: { flexDirection: "row", alignItems: "flex-start", marginBottom: spacing.md, gap: spacing.md },
+  exerciseDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.amber, marginTop: 7 },
+  exerciseInfo: { flex: 1 },
+  exerciseName: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.text },
+  exerciseRx: { fontSize: font.body, color: colors.textSecondary, marginTop: 2 },
+
+  // Accessories
+  accessorySection: { marginTop: spacing.md },
+  accessoryDivider: { height: 1, backgroundColor: colors.border, marginBottom: spacing.md },
+  accessoryLabel: { fontSize: font.caption, color: colors.textMuted, fontWeight: font.medium, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
+  accessoryList: { flexDirection: "row", flexWrap: "wrap", gap: spacing.sm },
+  accessoryChip: {
+    backgroundColor: colors.bgElevated,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs + 1,
+    borderRadius: radius.pill,
+  },
+  accessoryChipText: { fontSize: font.caption, color: colors.textSecondary },
+
+  // Start
+  startPrompt: { marginTop: spacing.md, alignItems: "center" },
+  startPromptText: { fontSize: font.body, color: colors.textDim, fontStyle: "italic" },
 });
