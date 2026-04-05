@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
-  Alert,
+  Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
@@ -55,7 +55,11 @@ export default function WorkoutScreen() {
 
   const handleComplete = () => {
     if (!allMainsDone) {
-      Alert.alert("Incomplete", "Log reps on last set for all main lifts before completing.");
+      if (Platform.OS === "web") {
+        window.alert("Log reps on last set for all main lifts before completing.");
+      } else {
+        require("react-native").Alert.alert("Incomplete", "Log reps on last set for all main lifts.");
+      }
       return;
     }
     completeWorkout();
@@ -63,10 +67,15 @@ export default function WorkoutScreen() {
   };
 
   const handleDiscard = () => {
-    Alert.alert("Discard Workout?", "This cannot be undone.", [
-      { text: "Cancel", style: "cancel" },
-      { text: "Discard", style: "destructive", onPress: () => { discardWorkout(); router.back(); } },
-    ]);
+    const doDiscard = () => { discardWorkout(); router.back(); };
+    if (Platform.OS === "web") {
+      if (window.confirm("Discard this workout? This cannot be undone.")) doDiscard();
+    } else {
+      require("react-native").Alert.alert("Discard Workout?", "This cannot be undone.", [
+        { text: "Cancel", style: "cancel" },
+        { text: "Discard", style: "destructive", onPress: doDiscard },
+      ]);
+    }
   };
 
   // Group by superset

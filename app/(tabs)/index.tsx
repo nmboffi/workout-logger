@@ -80,19 +80,38 @@ export default function WorkoutTab() {
 
       {/* Resume banner */}
       {activeWorkout && (
-        <TouchableOpacity
-          style={styles.resumeBanner}
-          onPress={() => router.push("/workout")}
-          activeOpacity={0.8}
-        >
-          <View>
-            <Text style={styles.resumeTitle}>Continue Workout</Text>
-            <Text style={styles.resumeSubtitle}>{activeWorkout.dayLabel}</Text>
-          </View>
-          <View style={styles.resumeArrow}>
-            <Text style={styles.resumeArrowText}>›</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.resumeBanner}>
+          <TouchableOpacity
+            style={styles.resumeMain}
+            onPress={() => router.push("/workout")}
+            activeOpacity={0.8}
+          >
+            <View>
+              <Text style={styles.resumeTitle}>Continue Workout</Text>
+              <Text style={styles.resumeSubtitle}>{activeWorkout.dayLabel}</Text>
+            </View>
+            <View style={styles.resumeArrow}>
+              <Text style={styles.resumeArrowText}>›</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.resumeDismiss}
+            onPress={() => {
+              const doDiscard = () => useStore.getState().discardWorkout();
+              if (Platform.OS === "web") {
+                if (window.confirm("Discard this workout?")) doDiscard();
+              } else {
+                require("react-native").Alert.alert("Discard?", "This cannot be undone.", [
+                  { text: "Cancel", style: "cancel" },
+                  { text: "Discard", style: "destructive", onPress: doDiscard },
+                ]);
+              }
+            }}
+            hitSlop={8}
+          >
+            <Text style={styles.resumeDismissText}>✕</Text>
+          </TouchableOpacity>
+        </View>
       )}
 
       {/* Day cards */}
@@ -221,18 +240,31 @@ const styles = StyleSheet.create({
 
   resumeBanner: {
     backgroundColor: colors.amber,
-    padding: spacing.lg,
     borderRadius: radius.lg,
     marginBottom: spacing.xl,
     flexDirection: "row",
+    alignItems: "stretch",
+    overflow: "hidden" as const,
+    ...shadow.elevated,
+  },
+  resumeMain: {
+    flex: 1,
+    padding: spacing.lg,
+    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    ...shadow.elevated,
   },
   resumeTitle: { fontSize: font.bodyLarge, fontWeight: font.bold, color: "#fff" },
   resumeSubtitle: { fontSize: font.body, color: "rgba(255,255,255,0.7)", marginTop: 2 },
   resumeArrow: { width: 32, height: 32, borderRadius: 16, backgroundColor: "rgba(255,255,255,0.2)", alignItems: "center", justifyContent: "center" },
   resumeArrowText: { fontSize: 20, color: "#fff", fontWeight: font.bold },
+  resumeDismiss: {
+    width: 44,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.1)",
+  },
+  resumeDismissText: { fontSize: 16, color: "rgba(255,255,255,0.8)", fontWeight: font.bold },
 
   dayCard: {
     backgroundColor: colors.bgCard,
