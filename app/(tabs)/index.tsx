@@ -167,16 +167,15 @@ export default function WorkoutTab() {
 
             {/* Accessories */}
             {accessories.length > 0 && (
-              <View style={styles.accessorySection}>
+              <View style={styles.liftSection}>
                 <View style={styles.sectionDivider} />
-                <Text style={styles.accessoryLabel}>Accessories</Text>
-                <View style={styles.accessoryList}>
-                  {accessories.map((ex) => (
-                    <View key={ex.id} style={styles.accessoryChip}>
-                      <Text style={styles.accessoryChipText}>{ex.name}</Text>
-                    </View>
-                  ))}
-                </View>
+                <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>Accessories</Text>
+                {accessories.map((ex) => (
+                  <View key={ex.id} style={styles.accRow}>
+                    <View style={styles.accDot} />
+                    <Text style={styles.accName}>{ex.name}</Text>
+                  </View>
+                ))}
               </View>
             )}
 
@@ -247,12 +246,10 @@ const styles = StyleSheet.create({
   pullName: { fontSize: font.bodyLarge, fontWeight: font.medium, color: colors.text },
 
   // Accessories
-  accessorySection: { marginTop: spacing.sm },
   sectionDivider: { height: 1, backgroundColor: colors.border, marginBottom: spacing.md },
-  accessoryLabel: { fontSize: font.caption, color: colors.textMuted, fontWeight: font.medium, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
-  accessoryList: { flexDirection: "row", flexWrap: "wrap", gap: spacing.sm },
-  accessoryChip: { backgroundColor: colors.bgElevated, paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 1, borderRadius: radius.pill },
-  accessoryChipText: { fontSize: font.caption, color: colors.textSecondary },
+  accRow: { flexDirection: "row", alignItems: "center", marginBottom: spacing.xs + 2, gap: spacing.sm },
+  accDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: colors.textMuted },
+  accName: { fontSize: font.body, color: colors.textSecondary },
 
   startPrompt: { marginTop: spacing.md, alignItems: "center" },
   startPromptText: { fontSize: font.body, color: colors.textDim, fontStyle: "italic" },
