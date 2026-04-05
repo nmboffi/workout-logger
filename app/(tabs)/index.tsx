@@ -117,7 +117,10 @@ export default function WorkoutTab() {
                     <View key={ex.id} style={styles.exerciseRow}>
                       <View style={[styles.exerciseDot, cat && { backgroundColor: cat.color }]} />
                       <View style={styles.exerciseInfo}>
-                        <Text style={styles.exerciseName}>{ex.name}</Text>
+                        <View style={styles.auxNameRow}>
+                          <Text style={styles.exerciseName}>{ex.name}</Text>
+                          {cat && <Text style={[styles.auxCatTag, { color: cat.color }]}>{cat.label}</Text>}
+                        </View>
                         {rx && <Text style={styles.exerciseRx}>{rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
                       </View>
                     </View>
