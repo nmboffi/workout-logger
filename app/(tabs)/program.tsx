@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, ScrollView, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, TextInput, Alert, StyleSheet } from "react-native";
 import { useStore } from "../../lib/store";
 import { colors, spacing, radius, font } from "../../lib/theme";
 
@@ -12,7 +12,7 @@ const categoryInfo: Record<string, { label: string; color: string }> = {
 };
 
 export default function ProgramTab() {
-  const { program, currentWeek, trainingMaxes, days, exerciseGroups, updateTrainingMax } = useStore();
+  const { program, currentWeek, trainingMaxes, days, exerciseGroups, updateTrainingMax, moveExercise } = useStore();
   const weeks = program.weekSchedule;
   const [editingTM, setEditingTM] = useState<string | null>(null);
   const [tmInput, setTmInput] = useState("");
@@ -124,31 +124,48 @@ export default function ProgramTab() {
       {/* Day Layout */}
       {activeSection === "days" && (
         <View style={styles.section}>
+          <Text style={styles.moveHint}>Long-press an exercise to move it to another day</Text>
           {days.map((day) => {
             const mains = day.exercises.filter((e) => e.category === "main");
             const pulls = day.exercises.filter((e) => e.category === "pull");
             const accs = day.exercises.filter((e) => e.category === "accessory");
+
+            const handleMoveExercise = (exerciseId: string, exerciseName: string) => {
+              const otherDays = days.filter((d) => d.dayIndex !== day.dayIndex);
+              Alert.alert(
+                `Move ${exerciseName}`,
+                `Move from ${day.label} to:`,
+                [
+                  ...otherDays.map((d) => ({
+                    text: d.label,
+                    onPress: () => moveExercise(day.dayIndex, exerciseId, d.dayIndex),
+                  })),
+                  { text: "Cancel", style: "cancel" as const },
+                ]
+              );
+            };
+
             return (
               <View key={day.dayIndex} style={styles.dayCard}>
                 <Text style={styles.dayLabel}>{day.label}</Text>
 
                 <Text style={styles.daySectionLabel}>Main / Auxiliary Lifts</Text>
                 {mains.map((ex) => (
-                  <View key={ex.id} style={styles.dayExRow}>
+                  <TouchableOpacity key={ex.id} style={styles.dayExRow} onLongPress={() => handleMoveExercise(ex.id, ex.name)}>
                     <View style={styles.exerciseDot} />
                     <Text style={styles.dayExName}>{ex.name}</Text>
                     <Text style={styles.dayExTM}>TM {(trainingMaxes[ex.name] ?? ex.trainingMax).toFixed(0)}</Text>
-                  </View>
+                  </TouchableOpacity>
                 ))}
 
                 {pulls.length > 0 && (
                   <>
                     <Text style={[styles.daySectionLabel, styles.pullSectionLabel]}>Pull</Text>
                     {pulls.map((ex) => (
-                      <View key={ex.id} style={styles.dayExRow}>
+                      <TouchableOpacity key={ex.id} style={styles.dayExRow} onLongPress={() => handleMoveExercise(ex.id, ex.name)}>
                         <View style={styles.pullDot} />
                         <Text style={styles.dayExName}>{ex.name}</Text>
-                      </View>
+                      </TouchableOpacity>
                     ))}
                   </>
                 )}
@@ -157,10 +174,10 @@ export default function ProgramTab() {
                   <>
                     <Text style={[styles.daySectionLabel, { marginTop: spacing.md }]}>Accessories</Text>
                     {accs.map((ex) => (
-                      <View key={ex.id} style={styles.dayExRow}>
+                      <TouchableOpacity key={ex.id} style={styles.dayExRow} onLongPress={() => handleMoveExercise(ex.id, ex.name)}>
                         <View style={[styles.exerciseDot, { backgroundColor: colors.textMuted }]} />
                         <Text style={styles.dayExNameAcc}>{ex.name}</Text>
-                      </View>
+                      </TouchableOpacity>
                     ))}
                   </>
                 )}
@@ -217,6 +234,7 @@ const styles = StyleSheet.create({
   sectionTabTextActive: { color: colors.bg, fontWeight: font.semibold },
 
   section: {},
+  moveHint: { fontSize: font.caption, color: colors.textDim, fontStyle: "italic", marginBottom: spacing.lg },
 
   // Exercise Groups
   groupCard: {

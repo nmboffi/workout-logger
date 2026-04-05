@@ -108,7 +108,9 @@ interface AppState {
   // Day management
   swapExercise: (dayIndex: number, exerciseId: string, newName: string) => void;
   reorderExercise: (dayIndex: number, fromIndex: number, toIndex: number) => void;
+  moveExercise: (fromDayIndex: number, exerciseId: string, toDayIndex: number) => void;
   setSupersetGroup: (dayIndex: number, exerciseId: string, group: string | null) => void;
+  resetDays: () => void;
 
   // Workout
   startWorkout: (dayIndex: number) => void;
@@ -162,6 +164,17 @@ function buildInitialTrainingMaxes(): Record<string, number> {
   for (const lift of program.config.mainLifts) maxes[lift.name] = lift.trainingMax;
   for (const lift of program.config.auxiliaries) maxes[lift.name] = lift.trainingMax;
   return maxes;
+}
+
+// Re-classify pull exercises on loaded day configs (fixes cached data from before pull category existed)
+function reclassifyPulls(days: WorkoutDay[]): WorkoutDay[] {
+  return days.map((day) => ({
+    ...day,
+    exercises: day.exercises.map((ex) => ({
+      ...ex,
+      category: ex.category === "main" ? "main" : PULL_EXERCISES.has(ex.name) ? "pull" : "accessory",
+    })) as ExerciseState[],
+  }));
 }
 
 function inferCurrentWeek(logs: WorkoutLog[]): number {
@@ -223,7 +236,8 @@ export const useStore = create<AppState>((set, get) => ({
     const trainingMaxes =
       Object.keys(savedTMs).length > 0 ? savedTMs : replayTrainingMaxes(logs, baseTMs);
     const currentWeek = logs.length > 0 ? inferCurrentWeek(logs) : savedWeek;
-    const days = savedDays || buildInitialDays(savedSchedule, trainingMaxes);
+    const rawDays = savedDays || buildInitialDays(savedSchedule, trainingMaxes);
+    const days = reclassifyPulls(rawDays);
     const exerciseGroups = buildExerciseGroups(trainingMaxes);
 
     set({
@@ -293,6 +307,35 @@ export const useStore = create<AppState>((set, get) => ({
     });
     set({ days });
     saveDayConfigs(days);
+  },
+
+  moveExercise: (fromDayIndex, exerciseId, toDayIndex) => {
+    const days = get().days.map((day) => ({ ...day, exercises: [...day.exercises] }));
+    const fromDay = days.find((d) => d.dayIndex === fromDayIndex);
+    const toDay = days.find((d) => d.dayIndex === toDayIndex);
+    if (!fromDay || !toDay || fromDayIndex === toDayIndex) return;
+
+    const exIndex = fromDay.exercises.findIndex((ex) => ex.id === exerciseId);
+    if (exIndex === -1) return;
+
+    const [moved] = fromDay.exercises.splice(exIndex, 1);
+    moved.id = `${toDayIndex}-${toDay.exercises.length}-${moved.name}`;
+    toDay.exercises.push(moved);
+
+    // Reindex orders
+    fromDay.exercises.forEach((ex, i) => { ex.order = i; });
+    toDay.exercises.forEach((ex, i) => { ex.order = i; });
+
+    set({ days });
+    saveDayConfigs(days);
+  },
+
+  resetDays: () => {
+    const { scheduleType, trainingMaxes } = get();
+    const days = buildInitialDays(scheduleType, trainingMaxes);
+    const reclassified = reclassifyPulls(days);
+    set({ days: reclassified });
+    saveDayConfigs(reclassified);
   },
 
   setSupersetGroup: (dayIndex, exerciseId, group) => {

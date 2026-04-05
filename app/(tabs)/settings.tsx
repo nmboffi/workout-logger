@@ -23,6 +23,7 @@ export default function SettingsTab() {
     saveVersion,
     loadVersion,
     deleteVersion,
+    resetDays,
   } = useStore();
 
   const [versionName, setVersionName] = useState("");
@@ -161,6 +162,21 @@ export default function SettingsTab() {
         <Text style={styles.cardTitle}>Data</Text>
         <TouchableOpacity style={styles.actionBtn} onPress={handleExport}>
           <Text style={styles.actionBtnText}>Export All Data</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.actionBtn, { marginTop: spacing.sm }]}
+          onPress={() => {
+            Alert.alert(
+              "Reset Day Layout",
+              "This will restore the default exercise assignments for each day from the original spreadsheet. Your training maxes and workout history will not be affected.",
+              [
+                { text: "Cancel", style: "cancel" },
+                { text: "Reset", style: "destructive", onPress: () => resetDays() },
+              ]
+            );
+          }}
+        >
+          <Text style={[styles.actionBtnText, { color: colors.red }]}>Reset Day Layout to Default</Text>
         </TouchableOpacity>
       </View>
 
