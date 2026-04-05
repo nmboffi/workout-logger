@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, StyleSheet } from "rea
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
-import { colors, spacing, radius, font, shadow } from "../../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES } from "../../lib/theme";
 
 export default function WorkoutTab() {
   const router = useRouter();
@@ -115,11 +115,19 @@ export default function WorkoutTab() {
                 program.weekSchedule,
                 program.config.rounding
               );
+              const cat = EXERCISE_CATEGORIES[ex.name];
               return (
                 <View key={ex.id} style={styles.exerciseRow}>
-                  <View style={styles.exerciseDot} />
+                  <View style={[styles.exerciseDot, cat && { backgroundColor: cat.color }]} />
                   <View style={styles.exerciseInfo}>
-                    <Text style={styles.exerciseName}>{ex.name}</Text>
+                    <View style={styles.exerciseNameRow}>
+                      {cat && (
+                        <View style={[styles.catBadge, { backgroundColor: cat.color + "20" }]}>
+                          <Text style={[styles.catBadgeText, { color: cat.color }]}>{cat.label}</Text>
+                        </View>
+                      )}
+                      <Text style={styles.exerciseName}>{ex.name}</Text>
+                    </View>
                     {rx && (
                       <Text style={styles.exerciseRx}>
                         {rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets
@@ -215,7 +223,10 @@ const styles = StyleSheet.create({
   doneBadgeText: { fontSize: font.caption, fontWeight: font.semibold, color: colors.green },
 
   exerciseRow: { flexDirection: "row", alignItems: "flex-start", marginBottom: spacing.md, gap: spacing.md },
-  exerciseDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.amber, marginTop: 7 },
+  exerciseDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.amber, marginTop: 14 },
+  exerciseNameRow: { flexDirection: "row", alignItems: "center", gap: spacing.sm },
+  catBadge: { paddingHorizontal: spacing.sm, paddingVertical: 1, borderRadius: radius.pill },
+  catBadgeText: { fontSize: 9, fontWeight: font.bold, letterSpacing: 1 },
   exerciseInfo: { flex: 1 },
   exerciseName: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.text },
   exerciseRx: { fontSize: font.body, color: colors.textSecondary, marginTop: 2 },

@@ -101,3 +101,22 @@ export const PULL_EXERCISES = new Set([
   "Pull-downs",
   "Low Row",
 ]);
+
+// Movement category labels + colors for main/aux lifts
+export const EXERCISE_CATEGORIES: Record<string, { label: string; color: string }> = {
+  // Mains
+  "Bulgarian Split Squat": { label: "SQUAT", color: "#E8915A" },
+  "Bench Press":           { label: "BENCH", color: "#F5A623" },
+  "Trap Bar Deadlift":     { label: "DEAD",  color: "#D4891A" },
+  "Overhead Press":        { label: "OHP",   color: "#C4B05A" },
+  // Squat auxiliaries
+  "Reverse Twisting Lunge": { label: "SQUAT", color: "#E8915A" },
+  "Leg Press":              { label: "SQUAT", color: "#E8915A" },
+  // Bench auxiliaries
+  "Incline Press":     { label: "BENCH", color: "#F5A623" },
+  "DB Incline Press":  { label: "BENCH", color: "#F5A623" },
+  // Deadlift auxiliaries
+  "DB RDL": { label: "DEAD", color: "#D4891A" },
+  // OHP auxiliaries
+  "Seated OHP": { label: "OHP", color: "#C4B05A" },
+};

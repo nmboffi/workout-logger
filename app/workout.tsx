@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
-import { colors, spacing, radius, font, shadow } from "../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES } from "../lib/theme";
 
 export default function WorkoutScreen() {
   const router = useRouter();
@@ -117,11 +117,15 @@ function ExerciseCard({ exercise }: { exercise: any }) {
   const [expanded, setExpanded] = useState(exercise.category === "main");
 
   if (exercise.category === "main") {
+    const cat = EXERCISE_CATEGORIES[exercise.exerciseName];
     return (
-      <View style={[styles.card, exercise.done && styles.cardDone]}>
+      <View style={[styles.card, exercise.done && styles.cardDone, cat && { borderLeftWidth: 3, borderLeftColor: cat.color }]}>
         {/* Title */}
         <View style={styles.cardHeader}>
-          <Text style={styles.cardTitle}>{exercise.exerciseName}</Text>
+          <View>
+            {cat && <Text style={[styles.mainCatLabel, { color: cat.color }]}>{cat.label}</Text>}
+            <Text style={styles.cardTitle}>{exercise.exerciseName}</Text>
+          </View>
           {exercise.done && (
             <View style={styles.checkBadge}>
               <Text style={styles.checkBadgeText}>Done</Text>
@@ -321,6 +325,7 @@ const styles = StyleSheet.create({
   },
   cardDone: { borderColor: colors.green, borderWidth: 1 },
   cardHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
+  mainCatLabel: { fontSize: 10, fontWeight: font.bold, letterSpacing: 1.2, marginBottom: 2 },
   cardTitle: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text },
   checkBadge: { backgroundColor: colors.greenSubtle, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.pill },
   checkBadgeText: { fontSize: font.caption, fontWeight: font.semibold, color: colors.green },
