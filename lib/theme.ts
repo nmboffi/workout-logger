@@ -1,42 +1,42 @@
 export const colors = {
-  // Backgrounds — warmer and lighter
-  bg: "#2A2118",            // warm dark brown
-  bgCard: "#362D24",        // warm brown card
-  bgCardHover: "#3F3529",
-  bgElevated: "#4A3F33",    // warm elevated
-  bgInput: "#2A2118",
-  bgOverlay: "rgba(42, 33, 24, 0.85)",
+  // Light warm backgrounds
+  bg: "#FAF7F4",            // warm off-white
+  bgCard: "#FFFFFF",        // white cards
+  bgCardHover: "#F5F1EC",
+  bgElevated: "#F0EBE4",    // warm light gray
+  bgInput: "#F5F1EC",
+  bgOverlay: "rgba(250, 247, 244, 0.9)",
 
-  // Text — warm whites
-  text: "#FFF8F0",          // warm white
-  textSecondary: "#C4B5A5", // warm tan
-  textMuted: "#8C7D6D",     // warm gray
-  textDim: "#6B5D4F",       // muted brown
+  // Text — dark warm tones
+  text: "#2C2420",          // warm near-black
+  textSecondary: "#6B5D52", // warm brown
+  textMuted: "#9B8E82",     // warm gray
+  textDim: "#BDB2A6",       // light warm gray
 
   // Accents
-  amber: "#F5A623",         // golden amber
-  amberLight: "#FFD07A",    // light gold
-  amberDark: "#D4891A",     // deep amber
-  amberSubtle: "rgba(245, 166, 35, 0.15)",
+  amber: "#C4873B",         // muted golden
+  amberLight: "#E0A85C",
+  amberDark: "#A06E2E",
+  amberSubtle: "rgba(196, 135, 59, 0.10)",
 
-  // Category colors
-  pull: "#7CB8E0",          // soft blue for pulls
-  pullSubtle: "rgba(124, 184, 224, 0.12)",
+  // Category colors (muted for light theme)
+  pull: "#5A8FA8",          // muted teal-blue
+  pullSubtle: "rgba(90, 143, 168, 0.10)",
 
   // Status
-  green: "#5EBB7A",         // softer green
-  greenSubtle: "rgba(94, 187, 122, 0.15)",
-  red: "#E06B6B",           // softer red
-  redSubtle: "rgba(224, 107, 107, 0.12)",
+  green: "#4A9960",         // muted green
+  greenSubtle: "rgba(74, 153, 96, 0.10)",
+  red: "#C45454",           // muted red
+  redSubtle: "rgba(196, 84, 84, 0.08)",
 
   // Borders
-  border: "#4A3F33",
-  borderLight: "#5A4D3F",
+  border: "#E8E2DA",
+  borderLight: "#DDD6CC",
 
   // Specific
-  tabBar: "#241C14",
-  tabActive: "#F5A623",
-  tabInactive: "#8C7D6D",
+  tabBar: "#FFFFFF",
+  tabActive: "#C4873B",
+  tabInactive: "#9B8E82",
 } as const;
 
 export const spacing = {
@@ -75,18 +75,18 @@ export const font = {
 
 export const shadow = {
   card: {
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 4,
+    shadowColor: "#8B7D6E",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 2,
   },
   elevated: {
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
-    elevation: 8,
+    shadowColor: "#8B7D6E",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
+    elevation: 4,
   },
 } as const;
 
@@ -102,21 +102,29 @@ export const PULL_EXERCISES = new Set([
   "Low Row",
 ]);
 
+// Main lifts set
+export const MAIN_LIFTS = new Set([
+  "Bulgarian Split Squat",
+  "Bench Press",
+  "Trap Bar Deadlift",
+  "Overhead Press",
+]);
+
 // Movement category labels + colors for main/aux lifts
 export const EXERCISE_CATEGORIES: Record<string, { label: string; color: string }> = {
   // Mains
-  "Bulgarian Split Squat": { label: "SQUAT", color: "#E8915A" },
-  "Bench Press":           { label: "BENCH", color: "#F5A623" },
-  "Trap Bar Deadlift":     { label: "DEAD",  color: "#D4891A" },
-  "Overhead Press":        { label: "OHP",   color: "#C4B05A" },
+  "Bulgarian Split Squat": { label: "Squat", color: "#C17A4A" },
+  "Bench Press":           { label: "Bench", color: "#B8893D" },
+  "Trap Bar Deadlift":     { label: "Dead",  color: "#A07040" },
+  "Overhead Press":        { label: "OHP",   color: "#9A944A" },
   // Squat auxiliaries
-  "Reverse Twisting Lunge": { label: "SQUAT", color: "#E8915A" },
-  "Leg Press":              { label: "SQUAT", color: "#E8915A" },
+  "Reverse Twisting Lunge": { label: "Squat", color: "#C17A4A" },
+  "Leg Press":              { label: "Squat", color: "#C17A4A" },
   // Bench auxiliaries
-  "Incline Press":     { label: "BENCH", color: "#F5A623" },
-  "DB Incline Press":  { label: "BENCH", color: "#F5A623" },
+  "Incline Press":     { label: "Bench", color: "#B8893D" },
+  "DB Incline Press":  { label: "Bench", color: "#B8893D" },
   // Deadlift auxiliaries
-  "DB RDL": { label: "DEAD", color: "#D4891A" },
+  "DB RDL": { label: "Dead", color: "#A07040" },
   // OHP auxiliaries
-  "Seated OHP": { label: "OHP", color: "#C4B05A" },
+  "Seated OHP": { label: "OHP", color: "#9A944A" },
 };

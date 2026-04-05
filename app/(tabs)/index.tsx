@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, StyleSheet } from "rea
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
-import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES } from "../../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS } from "../../lib/theme";
 
 export default function WorkoutTab() {
   const router = useRouter();
@@ -85,7 +85,8 @@ export default function WorkoutTab() {
       {/* Day cards */}
       {days.map((day) => {
         const isDone = completedDays.has(day.dayIndex);
-        const mainExercises = day.exercises.filter((ex) => ex.category === "main");
+        const mains = day.exercises.filter((ex) => ex.category === "main" && MAIN_LIFTS.has(ex.name));
+        const auxes = day.exercises.filter((ex) => ex.category === "main" && !MAIN_LIFTS.has(ex.name));
         const pullExercises = day.exercises.filter((ex) => ex.category === "pull");
         const accessories = day.exercises.filter((ex) => ex.category === "accessory");
 
@@ -105,51 +106,49 @@ export default function WorkoutTab() {
               )}
             </View>
 
-            {/* Group main lifts by movement category */}
-            {(() => {
-              // Build ordered groups: preserve exercise order, group consecutive same-category
-              const groups: { label: string; color: string; exercises: typeof mainExercises }[] = [];
-              for (const ex of mainExercises) {
-                const cat = EXERCISE_CATEGORIES[ex.name];
-                const label = cat?.label ?? "LIFT";
-                const color = cat?.color ?? colors.amber;
-                const last = groups[groups.length - 1];
-                if (last && last.label === label) {
-                  last.exercises.push(ex);
-                } else {
-                  groups.push({ label, color, exercises: [ex] });
-                }
-              }
-              return groups.map((group, gi) => (
-                <View key={gi} style={gi > 0 ? styles.liftSection : undefined}>
-                  {gi > 0 && <View style={styles.sectionDivider} />}
-                  <Text style={[styles.sectionLabel, { color: group.color }]}>{group.label}</Text>
-                  {group.exercises.map((ex) => {
-                    const rx = prescribeExercise(
-                      ex.name,
-                      trainingMaxes[ex.name] ?? ex.trainingMax,
-                      ex.singleAt8Pct,
-                      currentWeek,
-                      program.weekSchedule,
-                      program.config.rounding
-                    );
-                    return (
-                      <View key={ex.id} style={styles.exerciseRow}>
-                        <View style={[styles.exerciseDot, { backgroundColor: group.color }]} />
-                        <View style={styles.exerciseInfo}>
-                          <Text style={styles.exerciseName}>{ex.name}</Text>
-                          {rx && (
-                            <Text style={styles.exerciseRx}>
-                              {rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets
-                            </Text>
-                          )}
-                        </View>
+            {/* Main lifts */}
+            {mains.length > 0 && (
+              <View>
+                <Text style={[styles.sectionLabel, { color: colors.amber }]}>Main</Text>
+                {mains.map((ex) => {
+                  const rx = prescribeExercise(ex.name, trainingMaxes[ex.name] ?? ex.trainingMax, ex.singleAt8Pct, currentWeek, program.weekSchedule, program.config.rounding);
+                  const cat = EXERCISE_CATEGORIES[ex.name];
+                  return (
+                    <View key={ex.id} style={styles.exerciseRow}>
+                      <View style={[styles.exerciseDot, cat && { backgroundColor: cat.color }]} />
+                      <View style={styles.exerciseInfo}>
+                        <Text style={styles.exerciseName}>{ex.name}</Text>
+                        {rx && <Text style={styles.exerciseRx}>{rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
                       </View>
-                    );
-                  })}
-                </View>
-              ));
-            })()}
+                    </View>
+                  );
+                })}
+              </View>
+            )}
+
+            {/* Auxiliary lifts */}
+            {auxes.length > 0 && (
+              <View style={styles.liftSection}>
+                <View style={styles.sectionDivider} />
+                <Text style={[styles.sectionLabel, { color: colors.textSecondary }]}>Aux</Text>
+                {auxes.map((ex) => {
+                  const rx = prescribeExercise(ex.name, trainingMaxes[ex.name] ?? ex.trainingMax, ex.singleAt8Pct, currentWeek, program.weekSchedule, program.config.rounding);
+                  const cat = EXERCISE_CATEGORIES[ex.name];
+                  return (
+                    <View key={ex.id} style={styles.exerciseRow}>
+                      <View style={[styles.exerciseDot, cat && { backgroundColor: cat.color }]} />
+                      <View style={styles.exerciseInfo}>
+                        <View style={styles.auxNameRow}>
+                          <Text style={styles.auxName}>{ex.name}</Text>
+                          {cat && <Text style={[styles.auxCatTag, { color: cat.color }]}>{cat.label}</Text>}
+                        </View>
+                        {rx && <Text style={styles.exerciseRx}>{rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
+                      </View>
+                    </View>
+                  );
+                })}
+              </View>
+            )}
 
             {/* Pull exercises */}
             {pullExercises.length > 0 && (
@@ -201,7 +200,7 @@ const styles = StyleSheet.create({
   heroLabel: { fontSize: font.body, color: colors.textMuted, fontWeight: font.medium, letterSpacing: 1, textTransform: "uppercase" as const },
   heroTitle: { fontSize: font.hero, fontWeight: font.heavy, color: colors.text, marginTop: spacing.xs },
   heroPills: { flexDirection: "row", gap: spacing.sm, marginTop: spacing.md },
-  pill: { backgroundColor: colors.bgCard, paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 2, borderRadius: radius.pill },
+  pill: { backgroundColor: colors.bgElevated, paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 2, borderRadius: radius.pill },
   pillText: { fontSize: font.caption, color: colors.textSecondary, fontWeight: font.medium },
 
   resumeBanner: {
@@ -214,10 +213,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     ...shadow.elevated,
   },
-  resumeTitle: { fontSize: font.bodyLarge, fontWeight: font.bold, color: colors.bg },
-  resumeSubtitle: { fontSize: font.body, color: "rgba(42,33,24,0.7)", marginTop: 2 },
-  resumeArrow: { width: 32, height: 32, borderRadius: 16, backgroundColor: "rgba(42,33,24,0.15)", alignItems: "center", justifyContent: "center" },
-  resumeArrowText: { fontSize: 20, color: colors.bg, fontWeight: font.bold },
+  resumeTitle: { fontSize: font.bodyLarge, fontWeight: font.bold, color: "#fff" },
+  resumeSubtitle: { fontSize: font.body, color: "rgba(255,255,255,0.7)", marginTop: 2 },
+  resumeArrow: { width: 32, height: 32, borderRadius: 16, backgroundColor: "rgba(255,255,255,0.2)", alignItems: "center", justifyContent: "center" },
+  resumeArrowText: { fontSize: 20, color: "#fff", fontWeight: font.bold },
 
   dayCard: {
     backgroundColor: colors.bgCard,
@@ -243,6 +242,9 @@ const styles = StyleSheet.create({
   // Lift sections (squat/bench/dead/ohp/pull)
   liftSection: { marginTop: spacing.sm },
   sectionLabel: { fontSize: font.caption, fontWeight: font.semibold, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
+  auxNameRow: { flexDirection: "row", alignItems: "center", gap: spacing.sm },
+  auxName: { fontSize: font.bodyLarge, fontWeight: font.medium, color: colors.text },
+  auxCatTag: { fontSize: 10, fontWeight: font.medium, letterSpacing: 0.5 },
   pullName: { fontSize: font.bodyLarge, fontWeight: font.medium, color: colors.text },
 
   // Accessories
