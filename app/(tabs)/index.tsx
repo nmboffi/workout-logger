@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Platform, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
@@ -28,30 +28,36 @@ export default function WorkoutTab() {
 
   const handleStartDay = (dayIndex: number, dayLabel: string) => {
     if (activeWorkout) {
-      Alert.alert(
-        "Workout In Progress",
-        `You have an active ${activeWorkout.dayLabel} workout. Resume it or discard first.`,
-        [
+      if (Platform.OS === "web") {
+        if (window.confirm(`You have an active ${activeWorkout.dayLabel} workout. Resume it?`)) {
+          router.push("/workout");
+        }
+      } else {
+        const { Alert } = require("react-native");
+        Alert.alert("Workout In Progress", `Resume ${activeWorkout.dayLabel}?`, [
           { text: "Resume", onPress: () => router.push("/workout") },
           { text: "Cancel", style: "cancel" },
-        ]
-      );
+        ]);
+      }
       return;
     }
-    Alert.alert(
-      `Start ${dayLabel}?`,
-      `Week ${currentWeek} workout`,
-      [
+
+    const doStart = () => {
+      useStore.getState().startWorkout(dayIndex);
+      router.push("/workout");
+    };
+
+    if (Platform.OS === "web") {
+      if (window.confirm(`Start ${dayLabel}? (Week ${currentWeek})`)) {
+        doStart();
+      }
+    } else {
+      const { Alert } = require("react-native");
+      Alert.alert(`Start ${dayLabel}?`, `Week ${currentWeek}`, [
         { text: "Cancel", style: "cancel" },
-        {
-          text: "Start",
-          onPress: () => {
-            useStore.getState().startWorkout(dayIndex);
-            router.push("/workout");
-          },
-        },
-      ]
-    );
+        { text: "Start", onPress: doStart },
+      ]);
+    }
   };
 
   return (
@@ -178,7 +184,7 @@ export default function WorkoutTab() {
             {accessories.length > 0 && (
               <View style={styles.liftSection}>
                 <View style={styles.sectionDivider} />
-                <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>Accessories</Text>
+                <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>Circuit</Text>
                 {accessories.map((ex) => (
                   <View key={ex.id} style={styles.accRow}>
                     <View style={styles.accDot} />
@@ -259,9 +265,9 @@ const styles = StyleSheet.create({
 
   // Accessories
   sectionDivider: { height: 1, backgroundColor: colors.border, marginBottom: spacing.md },
-  accRow: { flexDirection: "row", alignItems: "center", marginBottom: spacing.xs + 2, gap: spacing.sm },
-  accDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: colors.textMuted },
-  accName: { fontSize: font.body, color: colors.textSecondary },
+  accRow: { flexDirection: "row", alignItems: "center", marginBottom: spacing.sm, gap: spacing.sm },
+  accDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.textMuted },
+  accName: { fontSize: font.bodyLarge, color: colors.textSecondary },
 
   startPrompt: { marginTop: spacing.md, alignItems: "center" },
   startPromptText: { fontSize: font.body, color: colors.textDim, fontStyle: "italic" },

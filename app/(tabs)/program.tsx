@@ -172,7 +172,7 @@ export default function ProgramTab() {
 
                 {accs.length > 0 && (
                   <>
-                    <Text style={[styles.daySectionLabel, { marginTop: spacing.md }]}>Accessories</Text>
+                    <Text style={[styles.daySectionLabel, { marginTop: spacing.md }]}>Circuit</Text>
                     {accs.map((ex) => (
                       <TouchableOpacity key={ex.id} style={styles.dayExRow} onLongPress={() => handleMoveExercise(ex.id, ex.name)}>
                         <View style={[styles.exerciseDot, { backgroundColor: colors.textMuted }]} />
