@@ -2,7 +2,14 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, StyleSheet } from "rea
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
-import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS } from "../../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS, DB_EXERCISES } from "../../lib/theme";
+
+function formatWeight(weight: number, exerciseName: string): string {
+  if (DB_EXERCISES.has(exerciseName)) {
+    return `${weight * 2} lbs (${weight} ea)`;
+  }
+  return `${weight} lbs`;
+}
 
 export default function WorkoutTab() {
   const router = useRouter();
@@ -121,7 +128,7 @@ export default function WorkoutTab() {
                           <Text style={styles.exerciseName}>{ex.name}</Text>
                           {cat && <Text style={[styles.auxCatTag, { color: cat.color }]}>{cat.label}</Text>}
                         </View>
-                        {rx && <Text style={styles.exerciseRx}>{rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
+                        {rx && <Text style={styles.exerciseRx}>{formatWeight(rx.workingWeight, ex.name)}  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
                       </View>
                     </View>
                   );
@@ -145,7 +152,7 @@ export default function WorkoutTab() {
                           <Text style={styles.auxName}>{ex.name}</Text>
                           {cat && <Text style={[styles.auxCatTag, { color: cat.color }]}>{cat.label}</Text>}
                         </View>
-                        {rx && <Text style={styles.exerciseRx}>{rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
+                        {rx && <Text style={styles.exerciseRx}>{formatWeight(rx.workingWeight, ex.name)}  ·  {rx.reps} reps  ·  {rx.sets} sets</Text>}
                       </View>
                     </View>
                   );

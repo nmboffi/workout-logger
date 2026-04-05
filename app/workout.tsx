@@ -10,7 +10,22 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
-import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES } from "../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, DB_EXERCISES } from "../lib/theme";
+import type { ExerciseFeel } from "../lib/types";
+
+function formatWeight(weight: number, exerciseName: string): string {
+  if (DB_EXERCISES.has(exerciseName)) {
+    return `${weight * 2} lbs (${weight} ea)`;
+  }
+  return `${weight} lbs`;
+}
+
+const FEEL_OPTIONS: { value: ExerciseFeel; label: string; emoji: string }[] = [
+  { value: "easy", label: "Easy", emoji: "🟢" },
+  { value: "moderate", label: "Moderate", emoji: "🟡" },
+  { value: "hard", label: "Hard", emoji: "🟠" },
+  { value: "grinder", label: "Grinder", emoji: "🔴" },
+];
 
 export default function WorkoutScreen() {
   const router = useRouter();
@@ -137,13 +152,17 @@ function ExerciseCard({ exercise }: { exercise: any }) {
         {exercise.tmSingleWeight && (
           <View style={styles.tmSingleRow}>
             <Text style={styles.tmSingleLabel}>TM Single @8</Text>
-            <Text style={styles.tmSingleValue}>{exercise.tmSingleWeight} lbs</Text>
+            <Text style={styles.tmSingleValue}>{formatWeight(exercise.tmSingleWeight!, exercise.exerciseName)}</Text>
           </View>
         )}
 
         {/* Prescription */}
         <View style={styles.rxGrid}>
-          <RxItem label="Weight" value={`${exercise.prescribedWeight}`} unit="lbs" />
+          <RxItem
+            label={DB_EXERCISES.has(exercise.exerciseName) ? "Total" : "Weight"}
+            value={DB_EXERCISES.has(exercise.exerciseName) && exercise.prescribedWeight ? `${exercise.prescribedWeight * 2}` : `${exercise.prescribedWeight}`}
+            unit={DB_EXERCISES.has(exercise.exerciseName) && exercise.prescribedWeight ? `(${exercise.prescribedWeight} ea)` : "lbs"}
+          />
           <RxItem label="Reps" value={`${exercise.prescribedReps}`} />
           <RxItem label="Sets" value={`${exercise.sets}`} />
           <RxItem label="Rep Out" value={`${exercise.repOutTarget}`} accent />
@@ -194,6 +213,26 @@ function ExerciseCard({ exercise }: { exercise: any }) {
                 </Text>
               </View>
             )}
+          </View>
+        </View>
+
+        {/* Feel */}
+        <View style={styles.feelSection}>
+          <Text style={styles.feelLabel}>How did it feel?</Text>
+          <View style={styles.feelRow}>
+            {FEEL_OPTIONS.map((opt) => (
+              <TouchableOpacity
+                key={opt.value}
+                style={[styles.feelBtn, exercise.feel === opt.value && styles.feelBtnActive]}
+                onPress={() => useStore.getState().setExerciseFeel(
+                  exercise.exerciseId,
+                  exercise.feel === opt.value ? null : opt.value
+                )}
+              >
+                <Text style={styles.feelEmoji}>{opt.emoji}</Text>
+                <Text style={[styles.feelBtnText, exercise.feel === opt.value && styles.feelBtnTextActive]}>{opt.label}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
 
@@ -369,6 +408,24 @@ const styles = StyleSheet.create({
   },
   repsDiffBadge: { paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.pill },
   repsDiffText: { fontSize: font.bodyLarge, fontWeight: font.bold },
+
+  // Feel
+  feelSection: { marginTop: spacing.lg },
+  feelLabel: { fontSize: font.body, color: colors.textSecondary, fontWeight: font.medium, marginBottom: spacing.sm },
+  feelRow: { flexDirection: "row", gap: spacing.sm },
+  feelBtn: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: colors.bgElevated,
+    borderWidth: 1,
+    borderColor: "transparent",
+  },
+  feelBtnActive: { borderColor: colors.amber, backgroundColor: colors.amberSubtle },
+  feelEmoji: { fontSize: 14, marginBottom: 2 },
+  feelBtnText: { fontSize: 10, color: colors.textMuted, fontWeight: font.medium },
+  feelBtnTextActive: { color: colors.amber },
 
   notesToggle: { color: colors.amber, fontSize: font.body, marginTop: spacing.md, fontWeight: font.medium },
   notesInput: {

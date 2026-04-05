@@ -118,6 +118,7 @@ interface AppState {
   logAccessorySet: (exerciseId: string, setIndex: number, data: Partial<AccessorySet>) => void;
   toggleAccessoryDone: (exerciseId: string) => void;
   addExerciseNote: (exerciseId: string, note: string) => void;
+  setExerciseFeel: (exerciseId: string, feel: "easy" | "moderate" | "hard" | "grinder" | null) => void;
   completeWorkout: () => void;
   discardWorkout: () => void;
 
@@ -401,6 +402,7 @@ export const useStore = create<AppState>((set, get) => ({
         ],
         supersetGroup: ex.supersetGroup,
         notes: "",
+        feel: null,
         done: false,
       };
     });
@@ -475,6 +477,19 @@ export const useStore = create<AppState>((set, get) => ({
         ...activeWorkout,
         exercises: activeWorkout.exercises.map((ex) =>
           ex.exerciseId === exerciseId ? { ...ex, notes: note } : ex
+        ),
+      },
+    });
+  },
+
+  setExerciseFeel: (exerciseId, feel) => {
+    const { activeWorkout } = get();
+    if (!activeWorkout) return;
+    set({
+      activeWorkout: {
+        ...activeWorkout,
+        exercises: activeWorkout.exercises.map((ex) =>
+          ex.exerciseId === exerciseId ? { ...ex, feel } : ex
         ),
       },
     });

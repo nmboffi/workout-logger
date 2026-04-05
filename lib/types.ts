@@ -117,8 +117,11 @@ export interface ExerciseLogEntry {
   accessorySets: AccessorySet[];
   supersetGroup: string | null;
   notes: string;
+  feel: "easy" | "moderate" | "hard" | "grinder" | null;
   done: boolean;
 }
+
+export type ExerciseFeel = "easy" | "moderate" | "hard" | "grinder";
 
 export interface AccessorySet {
   weight: number | null;
