@@ -29,6 +29,7 @@ import {
   saveProgramVersions,
   loadProgramVersions,
 } from "./storage";
+import { PULL_EXERCISES } from "./theme";
 import programData from "../data/program.json";
 
 const program = programData as unknown as ProgramData;
@@ -145,7 +146,7 @@ function buildInitialDays(
       return {
         id: `${dayIndex}-${order}-${ex.name}`,
         name: ex.name,
-        category: ex.category as "main" | "accessory",
+        category: (ex.category === "main" ? "main" : PULL_EXERCISES.has(ex.name) ? "pull" : "accessory") as "main" | "pull" | "accessory",
         trainingMax: trainingMaxes[ex.name] ?? lift?.trainingMax ?? 0,
         singleAt8Pct: lift?.singleAt8Pct ?? 0.9,
         sets: program.config.autoregulation[ex.name]?.sets ?? 0,
@@ -273,7 +274,7 @@ export const useStore = create<AppState>((set, get) => ({
             id: `${dayIndex}-${ex.order}-${newName}`,
             trainingMax: get().trainingMaxes[newName] ?? lift?.trainingMax ?? 0,
             singleAt8Pct: lift?.singleAt8Pct ?? 0.9,
-            category: lift ? ("main" as const) : ("accessory" as const),
+            category: lift ? ("main" as const) : PULL_EXERCISES.has(newName) ? ("pull" as const) : ("accessory" as const),
           };
         }),
       };
@@ -342,7 +343,7 @@ export const useStore = create<AppState>((set, get) => ({
       return {
         exerciseId: ex.id,
         exerciseName: ex.name,
-        category: "accessory" as const,
+        category: ex.category as "main" | "pull" | "accessory",
         prescribedWeight: null,
         prescribedReps: null,
         repOutTarget: null,
@@ -353,6 +354,7 @@ export const useStore = create<AppState>((set, get) => ({
           { weight: null, reps: null, done: false },
           { weight: null, reps: null, done: false },
           { weight: null, reps: null, done: false },
+          ...(ex.category === "pull" ? [{ weight: null, reps: null, done: false }] : []),
         ],
         supersetGroup: ex.supersetGroup,
         notes: "",

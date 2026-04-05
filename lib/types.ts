@@ -77,7 +77,7 @@ export interface ProgramData {
 export interface ExerciseState {
   id: string;
   name: string;
-  category: "main" | "accessory";
+  category: "main" | "pull" | "accessory";
   trainingMax: number;
   singleAt8Pct: number;
   sets: number;
@@ -107,7 +107,7 @@ export interface WorkoutLog {
 export interface ExerciseLogEntry {
   exerciseId: string;
   exerciseName: string;
-  category: "main" | "accessory";
+  category: "main" | "pull" | "accessory";
   prescribedWeight: number | null;
   prescribedReps: number | null;
   repOutTarget: number | null;

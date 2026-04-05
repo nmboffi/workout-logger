@@ -1,38 +1,42 @@
 export const colors = {
-  // Backgrounds
-  bg: "#1C1917",          // stone-900
-  bgCard: "#292524",      // stone-800
-  bgCardHover: "#322F2C",
-  bgElevated: "#44403C",  // stone-700
-  bgInput: "#1C1917",
-  bgOverlay: "rgba(28, 25, 23, 0.85)",
+  // Backgrounds — warmer and lighter
+  bg: "#2A2118",            // warm dark brown
+  bgCard: "#362D24",        // warm brown card
+  bgCardHover: "#3F3529",
+  bgElevated: "#4A3F33",    // warm elevated
+  bgInput: "#2A2118",
+  bgOverlay: "rgba(42, 33, 24, 0.85)",
 
-  // Text
-  text: "#FAFAF9",        // stone-50
-  textSecondary: "#A8A29E", // stone-400
-  textMuted: "#78716C",   // stone-500
-  textDim: "#57534E",     // stone-600
+  // Text — warm whites
+  text: "#FFF8F0",          // warm white
+  textSecondary: "#C4B5A5", // warm tan
+  textMuted: "#8C7D6D",     // warm gray
+  textDim: "#6B5D4F",       // muted brown
 
   // Accents
-  amber: "#F59E0B",       // amber-500
-  amberLight: "#FCD34D",  // amber-300
-  amberDark: "#D97706",   // amber-600
-  amberSubtle: "rgba(245, 158, 11, 0.12)",
+  amber: "#F5A623",         // golden amber
+  amberLight: "#FFD07A",    // light gold
+  amberDark: "#D4891A",     // deep amber
+  amberSubtle: "rgba(245, 166, 35, 0.15)",
+
+  // Category colors
+  pull: "#7CB8E0",          // soft blue for pulls
+  pullSubtle: "rgba(124, 184, 224, 0.12)",
 
   // Status
-  green: "#22C55E",       // green-500
-  greenSubtle: "rgba(34, 197, 94, 0.12)",
-  red: "#EF4444",         // red-500
-  redSubtle: "rgba(239, 68, 68, 0.10)",
+  green: "#5EBB7A",         // softer green
+  greenSubtle: "rgba(94, 187, 122, 0.15)",
+  red: "#E06B6B",           // softer red
+  redSubtle: "rgba(224, 107, 107, 0.12)",
 
   // Borders
-  border: "#3D3835",
-  borderLight: "#44403C",
+  border: "#4A3F33",
+  borderLight: "#5A4D3F",
 
   // Specific
-  tabBar: "#1C1917",
-  tabActive: "#F59E0B",
-  tabInactive: "#78716C",
+  tabBar: "#241C14",
+  tabActive: "#F5A623",
+  tabInactive: "#8C7D6D",
 } as const;
 
 export const spacing = {
@@ -55,7 +59,6 @@ export const radius = {
 } as const;
 
 export const font = {
-  // Sizes
   caption: 12,
   body: 14,
   bodyLarge: 16,
@@ -63,8 +66,6 @@ export const font = {
   title: 22,
   heading: 28,
   hero: 34,
-
-  // Weights
   normal: "400" as const,
   medium: "500" as const,
   semibold: "600" as const,
@@ -88,3 +89,15 @@ export const shadow = {
     elevation: 8,
   },
 } as const;
+
+// Pull exercises (back work) — shown as their own category
+export const PULL_EXERCISES = new Set([
+  "Barbell rows",
+  "DB rows",
+  "Chest supported rows",
+  "Pull-ups",
+  "Chin-ups",
+  "KB Clean",
+  "Pull-downs",
+  "Low Row",
+]);

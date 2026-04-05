@@ -211,11 +211,15 @@ function ExerciseCard({ exercise }: { exercise: any }) {
     );
   }
 
-  // Accessory card
+  // Pull / Accessory card
+  const isPull = exercise.category === "pull";
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, isPull && styles.pullCard]}>
       <TouchableOpacity style={styles.cardHeader} onPress={() => setExpanded(!expanded)} activeOpacity={0.7}>
-        <Text style={styles.accTitle}>{exercise.exerciseName}</Text>
+        <View>
+          {isPull && <Text style={styles.pullBadge}>PULL</Text>}
+          <Text style={[styles.accTitle, isPull && styles.pullTitle]}>{exercise.exerciseName}</Text>
+        </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.md }}>
           <TouchableOpacity
             onPress={() => toggleAccessoryDone(exercise.exerciseId)}
@@ -373,6 +377,9 @@ const styles = StyleSheet.create({
   },
 
   // Accessory
+  pullCard: { borderColor: colors.pull, borderWidth: 1 },
+  pullBadge: { fontSize: 10, fontWeight: font.bold, color: colors.pull, letterSpacing: 1, marginBottom: 2 },
+  pullTitle: { color: colors.text },
   accTitle: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.textSecondary },
   checkbox: {
     width: 28,
