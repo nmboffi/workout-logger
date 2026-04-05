@@ -105,47 +105,60 @@ export default function WorkoutTab() {
               )}
             </View>
 
-            {/* Main lifts */}
-            {mainExercises.map((ex) => {
-              const rx = prescribeExercise(
-                ex.name,
-                trainingMaxes[ex.name] ?? ex.trainingMax,
-                ex.singleAt8Pct,
-                currentWeek,
-                program.weekSchedule,
-                program.config.rounding
-              );
-              const cat = EXERCISE_CATEGORIES[ex.name];
-              return (
-                <View key={ex.id} style={styles.exerciseRow}>
-                  <View style={[styles.exerciseDot, cat && { backgroundColor: cat.color }]} />
-                  <View style={styles.exerciseInfo}>
-                    <View style={styles.exerciseNameRow}>
-                      {cat && (
-                        <View style={[styles.catBadge, { backgroundColor: cat.color + "20" }]}>
-                          <Text style={[styles.catBadgeText, { color: cat.color }]}>{cat.label}</Text>
+            {/* Group main lifts by movement category */}
+            {(() => {
+              // Build ordered groups: preserve exercise order, group consecutive same-category
+              const groups: { label: string; color: string; exercises: typeof mainExercises }[] = [];
+              for (const ex of mainExercises) {
+                const cat = EXERCISE_CATEGORIES[ex.name];
+                const label = cat?.label ?? "LIFT";
+                const color = cat?.color ?? colors.amber;
+                const last = groups[groups.length - 1];
+                if (last && last.label === label) {
+                  last.exercises.push(ex);
+                } else {
+                  groups.push({ label, color, exercises: [ex] });
+                }
+              }
+              return groups.map((group, gi) => (
+                <View key={gi} style={gi > 0 ? styles.liftSection : undefined}>
+                  {gi > 0 && <View style={styles.sectionDivider} />}
+                  <Text style={[styles.sectionLabel, { color: group.color }]}>{group.label}</Text>
+                  {group.exercises.map((ex) => {
+                    const rx = prescribeExercise(
+                      ex.name,
+                      trainingMaxes[ex.name] ?? ex.trainingMax,
+                      ex.singleAt8Pct,
+                      currentWeek,
+                      program.weekSchedule,
+                      program.config.rounding
+                    );
+                    return (
+                      <View key={ex.id} style={styles.exerciseRow}>
+                        <View style={[styles.exerciseDot, { backgroundColor: group.color }]} />
+                        <View style={styles.exerciseInfo}>
+                          <Text style={styles.exerciseName}>{ex.name}</Text>
+                          {rx && (
+                            <Text style={styles.exerciseRx}>
+                              {rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets
+                            </Text>
+                          )}
                         </View>
-                      )}
-                      <Text style={styles.exerciseName}>{ex.name}</Text>
-                    </View>
-                    {rx && (
-                      <Text style={styles.exerciseRx}>
-                        {rx.workingWeight} lbs  ·  {rx.reps} reps  ·  {rx.sets} sets
-                      </Text>
-                    )}
-                  </View>
+                      </View>
+                    );
+                  })}
                 </View>
-              );
-            })}
+              ));
+            })()}
 
             {/* Pull exercises */}
             {pullExercises.length > 0 && (
-              <View style={styles.pullSection}>
+              <View style={styles.liftSection}>
                 <View style={styles.sectionDivider} />
-                <Text style={styles.pullLabel}>Pull</Text>
+                <Text style={[styles.sectionLabel, { color: colors.pull }]}>Pull</Text>
                 {pullExercises.map((ex) => (
                   <View key={ex.id} style={styles.exerciseRow}>
-                    <View style={styles.pullDot} />
+                    <View style={[styles.exerciseDot, { backgroundColor: colors.pull }]} />
                     <Text style={styles.pullName}>{ex.name}</Text>
                   </View>
                 ))}
@@ -223,18 +236,14 @@ const styles = StyleSheet.create({
   doneBadgeText: { fontSize: font.caption, fontWeight: font.semibold, color: colors.green },
 
   exerciseRow: { flexDirection: "row", alignItems: "flex-start", marginBottom: spacing.md, gap: spacing.md },
-  exerciseDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.amber, marginTop: 14 },
-  exerciseNameRow: { flexDirection: "row", alignItems: "center", gap: spacing.sm },
-  catBadge: { paddingHorizontal: spacing.sm, paddingVertical: 1, borderRadius: radius.pill },
-  catBadgeText: { fontSize: 9, fontWeight: font.bold, letterSpacing: 1 },
+  exerciseDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.amber, marginTop: 7 },
   exerciseInfo: { flex: 1 },
   exerciseName: { fontSize: font.bodyLarge, fontWeight: font.semibold, color: colors.text },
   exerciseRx: { fontSize: font.body, color: colors.textSecondary, marginTop: 2 },
 
-  // Pull section
-  pullSection: { marginTop: spacing.sm },
-  pullLabel: { fontSize: font.caption, color: colors.pull, fontWeight: font.semibold, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
-  pullDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.pull, marginTop: 5 },
+  // Lift sections (squat/bench/dead/ohp/pull)
+  liftSection: { marginTop: spacing.sm },
+  sectionLabel: { fontSize: font.caption, fontWeight: font.semibold, textTransform: "uppercase" as const, letterSpacing: 0.8, marginBottom: spacing.sm },
   pullName: { fontSize: font.bodyLarge, fontWeight: font.medium, color: colors.text },
 
   // Accessories
