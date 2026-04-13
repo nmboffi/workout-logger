@@ -114,7 +114,7 @@ export const PULL_EXERCISES = new Set([
 
 // Main lifts set
 export const MAIN_LIFTS = new Set([
-  "Bulgarian Split Squat",
+  "Leg Press",
   "Bench Press",
   "Trap Bar Deadlift",
   "Overhead Press",
@@ -123,6 +123,7 @@ export const MAIN_LIFTS = new Set([
 // Movement category labels + colors for main/aux lifts
 export const EXERCISE_CATEGORIES: Record<string, { label: string; color: string }> = {
   // Mains
+  "Leg Press":              { label: "Squat", color: "#C17A4A" },
   "Bulgarian Split Squat": { label: "Squat", color: "#C17A4A" },
   "Bench Press":           { label: "Bench", color: "#B8893D" },
   "Trap Bar Deadlift":     { label: "Dead",  color: "#A07040" },
