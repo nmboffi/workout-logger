@@ -89,14 +89,17 @@
         "GHR",
         "Leg Curls",
         "Leg Extensions",
-        "KB Swings"
+        "KB Swings",
+        "Hip Thrusts",
+        "Hyperextensions"
       ],
       "Shoulder Accessories": [
         "Lateral Raise",
         "Get-Ups",
         "KB Snatch",
         "Shrugs",
-        "Landmine Press"
+        "Landmine Press",
+        "Cable Lateral Raise"
       ],
       "Chest Accessories": [
         "Cable Crossovers",
@@ -112,6 +115,14 @@
         "Cable Crunches",
         "Oblique Raises",
         "Crunch Machine"
+      ],
+      "Rehab / Core": [
+        "McGill Big 3",
+        "Bird Dog",
+        "Side Plank",
+        "Dead Bug",
+        "Reverse Hyperextensions",
+        "Glute Bridge"
       ]
     },
     "autoregulation": {
@@ -5955,6 +5966,1645 @@
           },
           {
             "name": "Calves",
+            "category": "accessory",
+            "weekData": []
+          }
+        ]
+      }
+    ],
+    "rehab": [
+      {
+        "label": "Day 1",
+        "exercises": [
+          {
+            "name": "Bulgarian Split Squat",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 60.0,
+                "weight": 42.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 60.0,
+                "weight": 42.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 60.9,
+                "weight": 45.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 62.118,
+                "weight": 45.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 62.73918,
+                "weight": 47.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 63.9939636,
+                "weight": 50.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 64.95387305,
+                "weight": 40.0,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 64.95387305,
+                "weight": 47.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 65.27864242,
+                "weight": 50.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 66.25782206,
+                "weight": 52.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 67.25168939,
+                "weight": 50.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 67.25168939,
+                "weight": 52.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 67.58794783,
+                "weight": 55.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 68.26382731,
+                "weight": 40.0,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 68.26382731,
+                "weight": 50.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 68.94646558,
+                "weight": 52.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 68.94646558,
+                "weight": 55.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 69.63593024,
+                "weight": 55.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 69.98410989,
+                "weight": 55.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 70.68395099,
+                "weight": 57.5,
+                "reps": 5,
+                "repOutTarget": 6,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 70.68395099,
+                "weight": 42.5,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "DB Incline Press",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 85.0,
+                "weight": 55.0,
+                "reps": 12,
+                "repOutTarget": 15,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 85.0,
+                "weight": 57.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 85.0,
+                "weight": 60.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 85.0,
+                "weight": 57.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 85.0,
+                "weight": 60.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 85.425,
+                "weight": 62.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 85.852125,
+                "weight": 47.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 85.852125,
+                "weight": 57.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 85.852125,
+                "weight": 60.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 16
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 87.5691675,
+                "weight": 62.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 88.00701334,
+                "weight": 62.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 88.00701334,
+                "weight": 65.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 88.00701334,
+                "weight": 65.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 88.00701334,
+                "weight": 47.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 88.00701334,
+                "weight": 62.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 88.4470484,
+                "weight": 65.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 88.4470484,
+                "weight": 67.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 88.88928365,
+                "weight": 65.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 89.33373006,
+                "weight": 67.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 89.78039871,
+                "weight": 70.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 89.78039871,
+                "weight": 50.0,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Hyperextensions",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Chest supported rows",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Lateral Raises",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Triceps",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Abs",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "McGill Big 3",
+            "category": "accessory",
+            "weekData": []
+          }
+        ]
+      },
+      {
+        "label": "Day 2",
+        "exercises": [
+          {
+            "name": "Bench Press",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 200.0,
+                "weight": 140.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 203.0,
+                "weight": 147.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 207.06,
+                "weight": 155.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 211.2012,
+                "weight": 152.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 214.369218,
+                "weight": 160.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 216.5129102,
+                "weight": 167.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 7
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 205.6872647,
+                "weight": 122.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 205.6872647,
+                "weight": 150.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 208.7725736,
+                "weight": 157.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 212.9480251,
+                "weight": 165.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 216.1422455,
+                "weight": 162.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 217.2229567,
+                "weight": 167.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 220.4813011,
+                "weight": 177.5,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 222.6861141,
+                "weight": 132.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 222.6861141,
+                "weight": 167.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 224.9129752,
+                "weight": 175.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 224.9129752,
+                "weight": 180.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 227.162105,
+                "weight": 175.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 9
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 227.162105,
+                "weight": 182.5,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 9
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 228.2979155,
+                "weight": 187.5,
+                "reps": 5,
+                "repOutTarget": 6,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 228.2979155,
+                "weight": 137.5,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Reverse Twisting Lunge",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 100.0,
+                "weight": 65.0,
+                "reps": 12,
+                "repOutTarget": 15,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 100.0,
+                "weight": 67.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 98.0,
+                "weight": 67.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 98.0,
+                "weight": 65.0,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 98.49,
+                "weight": 70.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 98.98245,
+                "weight": 72.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 99.47736225,
+                "weight": 55.0,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 99.47736225,
+                "weight": 67.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 99.97474906,
+                "weight": 70.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 100.4746228,
+                "weight": 72.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 101.9817421,
+                "weight": 72.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 102.4916509,
+                "weight": 75.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 103.0041091,
+                "weight": 77.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 103.0041091,
+                "weight": 57.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 103.0041091,
+                "weight": 72.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 104.0341502,
+                "weight": 75.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 104.0341502,
+                "weight": 77.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 105.0744917,
+                "weight": 75.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 105.5998642,
+                "weight": 80.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 105.5998642,
+                "weight": 82.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 105.5998642,
+                "weight": 57.5,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Seated OHP",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 70.0,
+                "weight": 45.0,
+                "reps": 12,
+                "repOutTarget": 15,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 70.0,
+                "weight": 47.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 70.0,
+                "weight": 50.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 66.5,
+                "weight": 45.0,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 66.8325,
+                "weight": 47.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 66.8325,
+                "weight": 47.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 67.1666625,
+                "weight": 37.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 67.1666625,
+                "weight": 45.0,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 67.1666625,
+                "weight": 47.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 67.50249581,
+                "weight": 50.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 68.51503325,
+                "weight": 47.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 69.20018358,
+                "weight": 50.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 69.5461845,
+                "weight": 52.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 69.89391542,
+                "weight": 37.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 69.89391542,
+                "weight": 50.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 69.89391542,
+                "weight": 50.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 69.89391542,
+                "weight": 52.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 70.59285458,
+                "weight": 50.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 70.94581885,
+                "weight": 52.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 71.65527704,
+                "weight": 55.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 71.65527704,
+                "weight": 40.0,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Pull-downs",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Curls",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Leg Curls",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Abs",
+            "category": "accessory",
+            "weekData": []
+          }
+        ]
+      },
+      {
+        "label": "Day 3",
+        "exercises": [
+          {
+            "name": "Incline Press",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 195.0,
+                "weight": 127.5,
+                "reps": 12,
+                "repOutTarget": 15,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 195.0,
+                "weight": 132.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 195.0,
+                "weight": 137.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 195.0,
+                "weight": 132.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 195.975,
+                "weight": 137.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 195.975,
+                "weight": 142.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 196.954875,
+                "weight": 107.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 196.954875,
+                "weight": 132.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 196.954875,
+                "weight": 137.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 197.9396494,
+                "weight": 142.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 200.9087441,
+                "weight": 140.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 201.9132878,
+                "weight": 147.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 201.9132878,
+                "weight": 152.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 203.9324207,
+                "weight": 112.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 203.9324207,
+                "weight": 142.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 204.9520828,
+                "weight": 147.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 204.9520828,
+                "weight": 152.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 204.9520828,
+                "weight": 147.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 205.9768432,
+                "weight": 155.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 208.0366117,
+                "weight": 160.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 208.0366117,
+                "weight": 115.0,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Hip Thrusts",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "DB rows",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Leg Extensions",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Reverse Flyes",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Cable Lateral Raises",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Abs",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "McGill Big 3",
+            "category": "accessory",
+            "weekData": []
+          }
+        ]
+      },
+      {
+        "label": "Day 4",
+        "exercises": [
+          {
+            "name": "Overhead Press",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 125.0,
+                "weight": 87.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 125.0,
+                "weight": 90.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 126.25,
+                "weight": 95.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 127.5125,
+                "weight": 92.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 129.4251875,
+                "weight": 97.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 129.4251875,
+                "weight": 100.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 130.0723134,
+                "weight": 77.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 130.0723134,
+                "weight": 95.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 130.722675,
+                "weight": 97.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 11
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 131.3762884,
+                "weight": 102.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 133.3469327,
+                "weight": 100.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 133.3469327,
+                "weight": 102.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 135.3471367,
+                "weight": 107.5,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 9
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 136.0238724,
+                "weight": 82.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 136.0238724,
+                "weight": 102.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 10
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 136.0238724,
+                "weight": 105.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 136.0238724,
+                "weight": 110.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 8
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 136.0238724,
+                "weight": 105.0,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 138.0642305,
+                "weight": 110.0,
+                "reps": 6,
+                "repOutTarget": 8,
+                "sets": 4,
+                "repsOnLastSet": 8
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 138.0642305,
+                "weight": 115.0,
+                "reps": 5,
+                "repOutTarget": 6,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 138.0642305,
+                "weight": 82.5,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Leg Press",
+            "category": "main",
+            "weekData": [
+              {
+                "weekNumber": 1,
+                "trainingMax": 420.0,
+                "weight": 272.5,
+                "reps": 12,
+                "repOutTarget": 15,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 2,
+                "trainingMax": 420.0,
+                "weight": 282.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 3,
+                "trainingMax": 420.0,
+                "weight": 295.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 4,
+                "trainingMax": 424.2,
+                "weight": 287.5,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 5,
+                "trainingMax": 428.442,
+                "weight": 300.0,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 6,
+                "trainingMax": 430.58421,
+                "weight": 312.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 7,
+                "trainingMax": 437.0429732,
+                "weight": 240.0,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 8,
+                "trainingMax": 437.0429732,
+                "weight": 295.0,
+                "reps": 11,
+                "repOutTarget": 13,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 9,
+                "trainingMax": 439.228188,
+                "weight": 307.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 10,
+                "trainingMax": 443.6204699,
+                "weight": 322.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 13
+              },
+              {
+                "weekNumber": 11,
+                "trainingMax": 448.0566746,
+                "weight": 312.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 12,
+                "trainingMax": 452.5372413,
+                "weight": 327.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 12
+              },
+              {
+                "weekNumber": 13,
+                "trainingMax": 454.7999275,
+                "weight": 340.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 15
+              },
+              {
+                "weekNumber": 14,
+                "trainingMax": 468.4439254,
+                "weight": 257.5,
+                "reps": 5,
+                "sets": 4,
+                "repsOnLastSet": 5
+              },
+              {
+                "weekNumber": 15,
+                "trainingMax": 468.4439254,
+                "weight": 327.5,
+                "reps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 16,
+                "trainingMax": 473.1283646,
+                "weight": 342.5,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4
+              },
+              {
+                "weekNumber": 17,
+                "trainingMax": 473.1283646,
+                "weight": 355.0,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 18,
+                "trainingMax": 482.5909319,
+                "weight": 350.0,
+                "reps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 19,
+                "trainingMax": 489.8297959,
+                "weight": 367.5,
+                "reps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "repsOnLastSet": 14
+              },
+              {
+                "weekNumber": 20,
+                "trainingMax": 499.6263918,
+                "weight": 387.5,
+                "reps": 7,
+                "repOutTarget": 9,
+                "sets": 4
+              },
+              {
+                "weekNumber": 21,
+                "trainingMax": 499.6263918,
+                "weight": 275.0,
+                "reps": 5,
+                "sets": 4
+              }
+            ]
+          },
+          {
+            "name": "Curls",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Pull-ups",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Dips",
+            "category": "accessory",
+            "weekData": []
+          },
+          {
+            "name": "Abs",
             "category": "accessory",
             "weekData": []
           }

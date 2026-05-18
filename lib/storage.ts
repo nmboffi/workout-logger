@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import type { WorkoutLog, ExerciseState, WorkoutDay, ProgramVersion } from "./types";
+import type { WorkoutLog, ExerciseState, WorkoutDay, ProgramVersion, ScheduleType } from "./types";
 
 const KEYS = {
   WORKOUT_LOGS: "workout_logs",
@@ -30,14 +30,14 @@ export async function loadCurrentWeek(): Promise<number> {
 }
 
 export async function saveScheduleType(
-  type: "(3+1)x" | "4x"
+  type: ScheduleType
 ): Promise<void> {
   await AsyncStorage.setItem(KEYS.SCHEDULE_TYPE, type);
 }
 
-export async function loadScheduleType(): Promise<"(3+1)x" | "4x"> {
+export async function loadScheduleType(): Promise<ScheduleType> {
   const data = await AsyncStorage.getItem(KEYS.SCHEDULE_TYPE);
-  return (data as "(3+1)x" | "4x") || "4x";
+  return (data as ScheduleType) || "4x";
 }
 
 export async function saveTrainingMaxes(

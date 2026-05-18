@@ -62,7 +62,7 @@ export interface TemplateDay {
   exercises: TemplateExercise[];
 }
 
-export type ScheduleType = "(3+1)x" | "4x";
+export type ScheduleType = "(3+1)x" | "4x" | "rehab";
 
 export interface ProgramData {
   name: string;

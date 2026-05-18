@@ -29,7 +29,7 @@ export default function SettingsTab() {
   const [versionName, setVersionName] = useState("");
   const [showNewVersion, setShowNewVersion] = useState(false);
 
-  const scheduleOptions: ScheduleType[] = ["(3+1)x", "4x"];
+  const scheduleOptions: ScheduleType[] = ["(3+1)x", "4x", "rehab"];
 
   const handleSaveVersion = () => {
     const name = versionName.trim() || `Snapshot ${new Date().toLocaleDateString()}`;
