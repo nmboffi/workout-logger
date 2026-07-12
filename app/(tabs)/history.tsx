@@ -44,10 +44,19 @@ export default function HistoryTab() {
                   <View style={styles.logHeaderLeft}>
                     <Text style={styles.logDate}>{formatDate(log.date)}</Text>
                     <Text style={styles.logMeta}>
-                      Week {log.weekNumber} · {log.dayLabel}
+                      {(log.mode ?? "sbs") === "sbs"
+                        ? `Week ${log.weekNumber} · ${log.dayLabel}`
+                        : log.dayLabel}
                     </Text>
                   </View>
                   <View style={styles.logHeaderRight}>
+                    {log.mode === "random" && (
+                      <View style={[styles.countBadge, { marginBottom: spacing.xs }]}>
+                        <Text style={[styles.countBadgeText, { color: colors.amber }]}>
+                          RANDOM
+                        </Text>
+                      </View>
+                    )}
                     <View style={styles.countBadge}>
                       <Text style={styles.countBadgeText}>
                         {doneCount}/{log.exercises.length}
@@ -107,7 +116,7 @@ export default function HistoryTab() {
                           </View>
                         )}
 
-                        {ex.category === "accessory" &&
+                        {(ex.category === "accessory" || ex.category === "pull") &&
                           ex.accessorySets.some((s) => s.weight || s.reps) && (
                             <Text style={styles.logExAccessory}>
                               {ex.accessorySets
