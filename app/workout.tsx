@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
+import { getLastPerformance, lastPerformanceLine } from "../lib/history";
 import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, DB_EXERCISES } from "../lib/theme";
 import type { ExerciseFeel } from "../lib/types";
 
@@ -92,7 +93,11 @@ export default function WorkoutScreen() {
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTitle}>{activeWorkout.dayLabel}</Text>
-          <Text style={styles.headerMeta}>Week {activeWorkout.weekNumber}</Text>
+          <Text style={styles.headerMeta}>
+            {activeWorkout.mode === "random"
+              ? "Randomized"
+              : `Week ${activeWorkout.weekNumber}`}
+          </Text>
         </View>
         <View style={styles.progressBadge}>
           <Text style={styles.progressText}>
@@ -135,10 +140,11 @@ export default function WorkoutScreen() {
 }
 
 function ExerciseCard({ exercise }: { exercise: any }) {
-  const { logRepsOnLastSet, logAccessorySet, toggleAccessoryDone, addExerciseNote } = useStore();
+  const { logRepsOnLastSet, logAccessorySet, toggleAccessoryDone, addExerciseNote, workoutLogs } = useStore();
   const [repsInput, setRepsInput] = useState(exercise.repsOnLastSet?.toString() ?? "");
   const [showNotes, setShowNotes] = useState(false);
   const [expanded, setExpanded] = useState(exercise.category === "main");
+  const lastPerf = getLastPerformance(workoutLogs, exercise.exerciseName);
 
   if (exercise.category === "main") {
     const cat = EXERCISE_CATEGORIES[exercise.exerciseName];
@@ -176,6 +182,10 @@ function ExerciseCard({ exercise }: { exercise: any }) {
           <RxItem label="Sets" value={`${exercise.sets}`} />
           <RxItem label="Rep Out" value={`${exercise.repOutTarget}`} accent />
         </View>
+
+        {lastPerf && (
+          <Text style={styles.lastTimeLine}>Last: {lastPerformanceLine(lastPerf)}</Text>
+        )}
 
         {/* Last set input */}
         <View style={styles.lastSetSection}>
@@ -268,9 +278,15 @@ function ExerciseCard({ exercise }: { exercise: any }) {
   return (
     <View style={[styles.card, isPull && styles.pullCard]}>
       <TouchableOpacity style={styles.cardHeader} onPress={() => setExpanded(!expanded)} activeOpacity={0.7}>
-        <View>
+        <View style={{ flex: 1, marginRight: spacing.sm }}>
           {isPull && <Text style={styles.pullBadge}>PULL</Text>}
           <Text style={[styles.accTitle, isPull && styles.pullTitle]}>{exercise.exerciseName}</Text>
+          {exercise.notes !== "" && exercise.calibration && (
+            <Text style={styles.calibrationNote}>{exercise.notes}</Text>
+          )}
+          {lastPerf && (
+            <Text style={styles.lastTimeLineCompact}>Last: {lastPerformanceLine(lastPerf)}</Text>
+          )}
         </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.md }}>
           <TouchableOpacity
@@ -390,6 +406,10 @@ const styles = StyleSheet.create({
   },
   tmSingleLabel: { fontSize: font.caption, color: colors.amber, fontWeight: font.medium },
   tmSingleValue: { fontSize: font.body, color: colors.amber, fontWeight: font.bold },
+
+  lastTimeLine: { fontSize: font.body, color: colors.textMuted, marginTop: spacing.md, fontStyle: "italic" as const },
+  lastTimeLineCompact: { fontSize: font.caption, color: colors.textMuted, marginTop: 2, fontStyle: "italic" as const },
+  calibrationNote: { fontSize: font.caption, color: colors.amber, marginTop: 2 },
 
   // Prescription grid
   rxGrid: { flexDirection: "row", marginTop: spacing.lg, gap: spacing.sm },
