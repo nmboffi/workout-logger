@@ -6,14 +6,49 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  Platform,
+  Share,
   StyleSheet,
 } from "react-native";
+import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { exportAllData } from "../../lib/storage";
-import type { ScheduleType } from "../../lib/types";
+import type { ScheduleType, ProgramMode } from "../../lib/types";
 import { colors, spacing, radius, font } from "../../lib/theme";
 
+// Alert.alert is a silent no-op on react-native-web; every dialog goes
+// through these helpers so the deployed web build actually shows them.
+function notify(title: string, message: string) {
+  if (Platform.OS === "web") {
+    window.alert(`${title}\n\n${message}`);
+  } else {
+    Alert.alert(title, message);
+  }
+}
+
+function confirmDialog(
+  title: string,
+  message: string,
+  onConfirm: () => void,
+  confirmLabel = "OK",
+  destructive = false
+) {
+  if (Platform.OS === "web") {
+    if (window.confirm(`${title}\n\n${message}`)) onConfirm();
+  } else {
+    Alert.alert(title, message, [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: confirmLabel,
+        style: destructive ? "destructive" : "default",
+        onPress: onConfirm,
+      },
+    ]);
+  }
+}
+
 export default function SettingsTab() {
+  const router = useRouter();
   const {
     scheduleType,
     setScheduleType,
@@ -24,12 +59,18 @@ export default function SettingsTab() {
     loadVersion,
     deleteVersion,
     resetDays,
+    programMode,
+    setProgramMode,
   } = useStore();
 
   const [versionName, setVersionName] = useState("");
   const [showNewVersion, setShowNewVersion] = useState(false);
 
   const scheduleOptions: ScheduleType[] = ["(3+1)x", "4x", "rehab"];
+  const modeOptions: { value: ProgramMode; label: string }[] = [
+    { value: "sbs", label: "SBS Program" },
+    { value: "random", label: "Randomized" },
+  ];
 
   const handleSaveVersion = () => {
     const name = versionName.trim() || `Snapshot ${new Date().toLocaleDateString()}`;
@@ -40,13 +81,49 @@ export default function SettingsTab() {
 
   const handleExport = async () => {
     const data = await exportAllData();
-    Alert.alert("Exported", `${data.length} chars. Check console for JSON data.`);
-    console.log("EXPORT:", data);
+    if (Platform.OS === "web") {
+      try {
+        await navigator.clipboard.writeText(data);
+        notify("Exported", `${data.length} chars copied to clipboard.`);
+      } catch {
+        console.log("EXPORT:", data);
+        notify("Exported", `Clipboard unavailable — ${data.length} chars logged to console.`);
+      }
+    } else {
+      try {
+        await Share.share({ message: data });
+      } catch {
+        console.log("EXPORT:", data);
+      }
+    }
   };
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Settings</Text>
+
+      {/* Program mode */}
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Mode</Text>
+        <View style={styles.toggleRow}>
+          {modeOptions.map((opt) => (
+            <TouchableOpacity
+              key={opt.value}
+              style={[styles.toggle, programMode === opt.value && styles.toggleActive]}
+              onPress={() => setProgramMode(opt.value)}
+            >
+              <Text
+                style={[styles.toggleText, programMode === opt.value && styles.toggleTextActive]}
+              >
+                {opt.label}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <Text style={styles.helperText}>
+          Switching modes never changes your history, training maxes, or SBS day layout.
+        </Text>
+      </View>
 
       {/* Schedule */}
       <View style={styles.card}>
@@ -133,22 +210,21 @@ export default function SettingsTab() {
             <View style={styles.versionActions}>
               <TouchableOpacity
                 style={styles.versionBtn}
-                onPress={() => {
-                  Alert.alert("Load Version", `Restore "${v.name}"?`, [
-                    { text: "Cancel", style: "cancel" },
-                    { text: "Load", onPress: () => loadVersion(v.id) },
-                  ]);
-                }}
+                onPress={() =>
+                  confirmDialog(
+                    "Load Version",
+                    `Restore "${v.name}"? Training maxes roll back to this snapshot, including progress made in randomized mode.`,
+                    () => loadVersion(v.id),
+                    "Load"
+                  )
+                }
               >
                 <Text style={styles.versionBtnText}>Load</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => {
-                  Alert.alert("Delete", `Delete "${v.name}"?`, [
-                    { text: "Cancel", style: "cancel" },
-                    { text: "Delete", style: "destructive", onPress: () => deleteVersion(v.id) },
-                  ]);
-                }}
+                onPress={() =>
+                  confirmDialog("Delete", `Delete "${v.name}"?`, () => deleteVersion(v.id), "Delete", true)
+                }
               >
                 <Text style={styles.deleteText}>Delete</Text>
               </TouchableOpacity>
@@ -165,16 +241,21 @@ export default function SettingsTab() {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionBtn, { marginTop: spacing.sm }]}
-          onPress={() => {
-            Alert.alert(
+          onPress={() => router.push("/import")}
+        >
+          <Text style={styles.actionBtnText}>Import Data…</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.actionBtn, { marginTop: spacing.sm }]}
+          onPress={() =>
+            confirmDialog(
               "Reset Day Layout",
               "This will restore the default exercise assignments for each day from the original spreadsheet. Your training maxes and workout history will not be affected.",
-              [
-                { text: "Cancel", style: "cancel" },
-                { text: "Reset", style: "destructive", onPress: () => resetDays() },
-              ]
-            );
-          }}
+              () => resetDays(),
+              "Reset",
+              true
+            )
+          }
         >
           <Text style={[styles.actionBtnText, { color: colors.red }]}>Reset Day Layout to Default</Text>
         </TouchableOpacity>
@@ -200,6 +281,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text, marginBottom: spacing.lg },
   cardHeaderRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.lg },
+  helperText: { fontSize: font.caption, color: colors.textMuted, marginTop: spacing.md, lineHeight: 18 },
 
   // Schedule toggle
   toggleRow: { flexDirection: "row", gap: spacing.md },
