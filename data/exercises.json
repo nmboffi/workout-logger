@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "defaults": {
+    "singleAt8Pct": 0.9,
+    "sets": 4,
+    "intensityBand": [0.6, 0.75],
+    "autoreg": {
+      "sets": 4,
+      "adjustments": {
+        "below_by_2plus": -0.05,
+        "below_by_1": -0.02,
+        "hit_target": 0.0,
+        "beat_by_1": 0.005,
+        "beat_by_2": 0.01,
+        "beat_by_3": 0.015,
+        "beat_by_4": 0.02
+      }
+    },
+    "normalRepTargets": {
+      "0.5": 20, "0.525": 18, "0.55": 17, "0.575": 15, "0.6": 14,
+      "0.625": 13, "0.65": 12, "0.675": 11, "0.7": 10, "0.725": 9,
+      "0.75": 8, "0.775": 7, "0.8": 6
+    },
+    "lastSetRepTargets": {
+      "0.5": 25, "0.525": 23, "0.55": 21, "0.575": 19, "0.6": 18,
+      "0.625": 16, "0.65": 15, "0.675": 13, "0.7": 12, "0.725": 11,
+      "0.75": 10, "0.775": 9, "0.8": 8
+    },
+    "tmSeedFactor": 0.9
+  },
+  "intensityLevels": [0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8],
+  "anchorPatterns": ["squat", "bench", "deadlift", "ohp"],
+  "complementaryPatterns": {
+    "squat": ["deadlift"],
+    "deadlift": ["squat"],
+    "bench": ["ohp"],
+    "ohp": ["bench"]
+  },
+  "dayTemplates": [
+    {
+      "id": "full",
+      "label": "Full Workout",
+      "slots": [
+        { "slot": "main", "role": "main", "anchor": true },
+        { "slot": "aux1", "role": "aux", "relation": "same-pattern" },
+        { "slot": "aux2", "role": "aux", "relation": "complementary", "optional": true },
+        { "slot": "pull", "role": "pull" },
+        { "slot": "acc1", "role": "accessory", "distinctGroup": "circuit" },
+        { "slot": "acc2", "role": "accessory", "distinctGroup": "circuit" },
+        { "slot": "acc3", "role": "accessory", "distinctGroup": "circuit", "pools": ["Ab Accessories", "Rehab / Core"] }
+      ]
+    },
+    {
+      "id": "light",
+      "label": "Light Day",
+      "slots": [
+        { "slot": "kb1", "role": "accessory", "lightOnly": true, "distinctGroup": "circuit" },
+        { "slot": "kb2", "role": "accessory", "lightOnly": true, "distinctGroup": "circuit" },
+        { "slot": "pull", "role": "pull", "lightOnly": true, "optional": true },
+        { "slot": "core", "role": "accessory", "lightOnly": true, "distinctGroup": "circuit", "pools": ["Ab Accessories", "Rehab / Core"] },
+        { "slot": "sauna", "role": "fixed", "fixed": { "name": "Sauna" } }
+      ]
+    },
+    {
+      "id": "rest",
+      "label": "Rest Day",
+      "slots": [
+        { "slot": "roll", "role": "fixed", "fixed": { "name": "Foam Rolling" } },
+        { "slot": "sauna", "role": "fixed", "fixed": { "name": "Sauna" } }
+      ]
+    }
+  ],
+  "exercises": [
+    { "id": "leg-press", "name": "Leg Press", "pattern": "squat", "roles": ["main", "aux"], "equipment": "machine", "muscles": ["quads", "glutes"], "intensityBand": [0.65, 0.8] },
+    { "id": "bench-press", "name": "Bench Press", "pattern": "bench", "roles": ["main"], "equipment": "barbell", "muscles": ["chest", "triceps"], "intensityBand": [0.65, 0.8] },
+    { "id": "trap-bar-deadlift", "name": "Trap Bar Deadlift", "pattern": "deadlift", "roles": ["main"], "equipment": "trapbar", "muscles": ["hamstrings", "glutes", "back"], "intensityBand": [0.65, 0.8] },
+    { "id": "overhead-press", "name": "Overhead Press", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.65, 0.8] },
+
+    { "id": "bulgarian-split-squat", "name": "Bulgarian Split Squat", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
+    { "id": "reverse-twisting-lunge", "name": "Reverse Twisting Lunge", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes", "obliques"], "intensityBand": [0.6, 0.725] },
+    { "id": "incline-press", "name": "Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.625, 0.75] },
+    { "id": "db-incline-press", "name": "DB Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.725] },
+    { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
+    { "id": "seated-ohp", "name": "Seated OHP", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
+
+    { "id": "barbell-rows", "name": "Barbell rows", "pattern": "pull", "roles": ["pull"], "equipment": "barbell", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
+    { "id": "db-rows", "name": "DB rows", "pattern": "pull", "roles": ["pull"], "equipment": "dumbbell", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
+    { "id": "chest-supported-rows", "name": "Chest supported rows", "pattern": "pull", "roles": ["pull"], "equipment": "machine", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
+    { "id": "pull-ups", "name": "Pull-ups", "pattern": "pull", "roles": ["pull"], "equipment": "bodyweight", "muscles": ["lats", "biceps"], "accessoryPool": "Back exercises" },
+    { "id": "chin-ups", "name": "Chin-ups", "pattern": "pull", "roles": ["pull"], "equipment": "bodyweight", "muscles": ["lats", "biceps"], "accessoryPool": "Back exercises" },
+    { "id": "kb-clean", "name": "KB Clean", "pattern": "pull", "roles": ["pull", "accessory"], "equipment": "kettlebell", "muscles": ["upper-back", "glutes"], "accessoryPool": "Back exercises" },
+    { "id": "pull-downs", "name": "Pull-downs", "pattern": "pull", "roles": ["pull"], "equipment": "cable", "muscles": ["lats"], "accessoryPool": "Back exercises" },
+    { "id": "low-row", "name": "Low Row", "pattern": "pull", "roles": ["pull"], "equipment": "cable", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
+
+    { "id": "db-hammer-curls", "name": "DB Hammer Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["biceps", "forearms"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "skullcrushers", "name": "Skullcrushers", "pattern": "bench", "roles": ["accessory"], "equipment": "barbell", "muscles": ["triceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "push-downs", "name": "Push-Downs", "pattern": "bench", "roles": ["accessory"], "equipment": "cable", "muscles": ["triceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "french-press", "name": "French Press", "pattern": "bench", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["triceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "ez-bar-curls", "name": "EZ Bar Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "barbell", "muscles": ["biceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "straight-bar-curls", "name": "Straight Bar Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "barbell", "muscles": ["biceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+    { "id": "preacher-curls", "name": "Preacher Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "machine", "muscles": ["biceps"], "accessoryPool": "Bicep / Tricep", "supersetTag": "arms" },
+
+    { "id": "lunges", "name": "Lunges", "pattern": "squat", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "accessoryPool": "Leg Accessories" },
+    { "id": "calf-raises", "name": "Calf Raises", "pattern": "squat", "roles": ["accessory"], "equipment": "machine", "muscles": ["calves"], "accessoryPool": "Leg Accessories" },
+    { "id": "ghr", "name": "GHR", "pattern": "deadlift", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["hamstrings", "glutes"], "accessoryPool": "Leg Accessories" },
+    { "id": "leg-curls", "name": "Leg Curls", "pattern": "deadlift", "roles": ["accessory"], "equipment": "machine", "muscles": ["hamstrings"], "accessoryPool": "Leg Accessories" },
+    { "id": "leg-extensions", "name": "Leg Extensions", "pattern": "squat", "roles": ["accessory"], "equipment": "machine", "muscles": ["quads"], "accessoryPool": "Leg Accessories" },
+    { "id": "kb-swings", "name": "KB Swings", "pattern": "deadlift", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["glutes", "hamstrings"], "accessoryPool": "Leg Accessories" },
+    { "id": "hip-thrusts", "name": "Hip Thrusts", "pattern": "deadlift", "roles": ["accessory"], "equipment": "barbell", "muscles": ["glutes"], "accessoryPool": "Leg Accessories" },
+    { "id": "hyperextensions", "name": "Hyperextensions", "pattern": "deadlift", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["lower-back", "glutes"], "accessoryPool": "Leg Accessories" },
+    { "id": "goblet-squat", "name": "Goblet Squat", "pattern": "squat", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["quads", "glutes"], "accessoryPool": "Leg Accessories" },
+
+    { "id": "lateral-raise", "name": "Lateral Raise", "pattern": "ohp", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["side-delts"], "accessoryPool": "Shoulder Accessories", "supersetTag": "shoulders" },
+    { "id": "get-ups", "name": "Get-Ups", "pattern": "core", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["shoulders", "abs"], "accessoryPool": "Shoulder Accessories" },
+    { "id": "kb-snatch", "name": "KB Snatch", "pattern": "ohp", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["shoulders", "glutes"], "accessoryPool": "Shoulder Accessories" },
+    { "id": "kb-press", "name": "KB Press", "pattern": "ohp", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["shoulders", "triceps"], "accessoryPool": "Shoulder Accessories" },
+    { "id": "shrugs", "name": "Shrugs", "pattern": "pull", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["traps"], "accessoryPool": "Shoulder Accessories" },
+    { "id": "landmine-press", "name": "Landmine Press", "pattern": "ohp", "roles": ["accessory"], "equipment": "barbell", "muscles": ["shoulders", "chest"], "accessoryPool": "Shoulder Accessories" },
+    { "id": "cable-lateral-raise", "name": "Cable Lateral Raise", "pattern": "ohp", "roles": ["accessory"], "equipment": "cable", "muscles": ["side-delts"], "accessoryPool": "Shoulder Accessories", "supersetTag": "shoulders" },
+    { "id": "reverse-flyes", "name": "Reverse Flyes", "pattern": "pull", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["rear-delts", "upper-back"], "accessoryPool": "Shoulder Accessories", "supersetTag": "shoulders" },
+
+    { "id": "cable-crossovers", "name": "Cable Crossovers", "pattern": "bench", "roles": ["accessory"], "equipment": "cable", "muscles": ["chest"], "accessoryPool": "Chest Accessories" },
+    { "id": "pullovers", "name": "Pullovers", "pattern": "bench", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["chest", "lats"], "accessoryPool": "Chest Accessories" },
+    { "id": "push-up-variations", "name": "Push-Up Variations", "pattern": "bench", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["chest", "triceps"], "accessoryPool": "Chest Accessories" },
+    { "id": "face-pulls", "name": "Face Pulls", "pattern": "pull", "roles": ["accessory"], "equipment": "cable", "muscles": ["rear-delts", "upper-back"], "accessoryPool": "Chest Accessories" },
+    { "id": "dip-variations", "name": "Dip Variations", "pattern": "bench", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["chest", "triceps"], "accessoryPool": "Chest Accessories" },
+
+    { "id": "weighted-sit-ups", "name": "Weighted Sit-Ups", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "landmine-rotations", "name": "Landmine Rotations", "pattern": "core", "roles": ["accessory"], "equipment": "barbell", "muscles": ["obliques", "abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "hanging-leg-raises", "name": "Hanging Leg Raises", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs", "hip-flexors"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "cable-crunches", "name": "Cable Crunches", "pattern": "core", "roles": ["accessory"], "equipment": "cable", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "oblique-raises", "name": "Oblique Raises", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["obliques"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "crunch-machine", "name": "Crunch Machine", "pattern": "core", "roles": ["accessory"], "equipment": "machine", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+
+    { "id": "mcgill-big-3", "name": "McGill Big 3", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs", "lower-back"], "accessoryPool": "Rehab / Core" },
+    { "id": "bird-dog", "name": "Bird Dog", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs", "lower-back"], "accessoryPool": "Rehab / Core" },
+    { "id": "side-plank", "name": "Side Plank", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["obliques", "abs"], "accessoryPool": "Rehab / Core" },
+    { "id": "dead-bug", "name": "Dead Bug", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs"], "accessoryPool": "Rehab / Core" },
+    { "id": "reverse-hyperextensions", "name": "Reverse Hyperextensions", "pattern": "deadlift", "roles": ["accessory"], "equipment": "machine", "muscles": ["lower-back", "glutes"], "accessoryPool": "Rehab / Core" },
+    { "id": "glute-bridge", "name": "Glute Bridge", "pattern": "deadlift", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["glutes"], "accessoryPool": "Rehab / Core" },
+
+    { "id": "farmer-carry", "name": "Farmer Carry", "pattern": "carry", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["grip", "traps", "abs"], "accessoryPool": "Carries / Conditioning" },
+    { "id": "suitcase-carry", "name": "Suitcase Carry", "pattern": "carry", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["grip", "obliques"], "accessoryPool": "Carries / Conditioning" },
+    { "id": "kb-goblet-reverse-lunge", "name": "KB Goblet Reverse Lunge", "pattern": "squat", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["quads", "glutes"], "accessoryPool": "Leg Accessories" }
+  ]
+}
