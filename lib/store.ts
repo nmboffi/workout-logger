@@ -10,10 +10,13 @@ import type {
   ExerciseGroup,
   MovementCategory,
   ProgramVersion,
+  AutoregConfig,
+  ExercisePoolFile,
 } from "./types";
 import {
   newTrainingMax,
   prescribeExercise,
+  roundWeight,
 } from "./sbs";
 import {
   saveWorkoutLogs,
@@ -31,8 +34,69 @@ import {
 } from "./storage";
 import { PULL_EXERCISES } from "./theme";
 import programData from "../data/program.json";
+import exercisesData from "../data/exercises.json";
 
 const program = programData as unknown as ProgramData;
+const exercisePool = exercisesData as unknown as ExercisePoolFile;
+const poolByName = new Map(exercisePool.exercises.map((e) => [e.name, e]));
+
+function isSbsLog(log: WorkoutLog): boolean {
+  return (log.mode ?? "sbs") === "sbs";
+}
+
+// Autoreg config for a lift: the SBS program's table, falling back to the
+// pool default for lifts that only exist in the randomized-mode pool.
+function getAutoregFor(name: string): AutoregConfig | null {
+  return (
+    program.config.autoregulation[name] ??
+    (poolByName.has(name) ? exercisePool.defaults.autoreg : null)
+  );
+}
+
+// Epley e1RM; accurate in the 5-15 rep range this program lives in.
+function estimateOneRepMax(weight: number, reps: number): number {
+  return weight * (1 + reps / 30);
+}
+
+// Apply one completed workout's TM effects: calibration entries seed a TM
+// from their best logged set; main entries autoregulate off the rep-out.
+// Mutates and returns `tms`. Shared by completeWorkout, importWorkouts, and
+// replayTrainingMaxes so all three stay in lockstep.
+function applyWorkoutTmEffects(
+  entries: ExerciseLogEntry[],
+  tms: Record<string, number>
+): Record<string, number> {
+  for (const entry of entries) {
+    if (entry.calibration) {
+      if (tms[entry.exerciseName] != null) continue;
+      let bestE1rm = 0;
+      for (const s of entry.accessorySets) {
+        if (s.weight != null && s.reps != null && s.reps > 0) {
+          bestE1rm = Math.max(bestE1rm, estimateOneRepMax(s.weight, s.reps));
+        }
+      }
+      if (bestE1rm > 0) {
+        tms[entry.exerciseName] = roundWeight(
+          bestE1rm * exercisePool.defaults.tmSeedFactor,
+          program.config.rounding
+        );
+      }
+      continue;
+    }
+    if (entry.category === "main" && entry.repsOnLastSet !== null && entry.repOutTarget !== null) {
+      const autoreg = getAutoregFor(entry.exerciseName);
+      if (autoreg && tms[entry.exerciseName] != null) {
+        tms[entry.exerciseName] = newTrainingMax(
+          tms[entry.exerciseName],
+          entry.repsOnLastSet,
+          entry.repOutTarget,
+          autoreg
+        );
+      }
+    }
+  }
+  return tms;
+}
 
 // Derive exercise groups from the slot field on auxiliaries
 function buildExerciseGroups(
@@ -178,36 +242,98 @@ function reclassifyPulls(days: WorkoutDay[]): WorkoutDay[] {
   }));
 }
 
+// Week inference only makes sense for SBS logs; random-mode logs use the
+// weekNumber: 0 sentinel and must not participate.
 function inferCurrentWeek(logs: WorkoutLog[]): number {
-  if (logs.length === 0) return 1;
-  const maxWeek = Math.max(...logs.map((l) => l.weekNumber));
+  const sbsLogs = logs.filter(isSbsLog);
+  if (sbsLogs.length === 0) return 1;
+  const maxWeek = Math.max(...sbsLogs.map((l) => l.weekNumber));
   const template = program.templates["4x"];
-  const logsThisWeek = logs.filter((l) => l.weekNumber === maxWeek);
+  const logsThisWeek = sbsLogs.filter((l) => l.weekNumber === maxWeek);
   if (logsThisWeek.length >= (template?.length ?? 4)) {
     return Math.min(maxWeek + 1, 21);
   }
   return maxWeek;
 }
 
+// TMs are shared across modes, so replay covers logs from both, in date order.
 function replayTrainingMaxes(
   logs: WorkoutLog[],
   baseTMs: Record<string, number>
 ): Record<string, number> {
   const tms = { ...baseTMs };
   const sortedLogs = [...logs].sort(
-    (a, b) => a.weekNumber - b.weekNumber || a.dayIndex - b.dayIndex
+    (a, b) =>
+      a.date.localeCompare(b.date) ||
+      a.weekNumber - b.weekNumber ||
+      a.dayIndex - b.dayIndex
   );
   for (const log of sortedLogs) {
-    for (const entry of log.exercises) {
-      if (entry.category === "main" && entry.repsOnLastSet !== null && entry.repOutTarget !== null) {
-        const autoreg = program.config.autoregulation[entry.exerciseName];
-        if (autoreg) {
-          tms[entry.exerciseName] = newTrainingMax(tms[entry.exerciseName] ?? 0, entry.repsOnLastSet, entry.repOutTarget, autoreg);
-        }
-      }
-    }
+    applyWorkoutTmEffects(log.exercises, tms);
   }
   return tms;
+}
+
+// Empty set rows for a pull/accessory entry: 3 sets, 4 for pulls.
+function emptyAccessorySets(category: "main" | "pull" | "accessory"): AccessorySet[] {
+  return [
+    { weight: null, reps: null, done: false },
+    { weight: null, reps: null, done: false },
+    { weight: null, reps: null, done: false },
+    ...(category === "pull" ? [{ weight: null, reps: null, done: false }] : []),
+  ];
+}
+
+// Build log entries for an SBS day (week-based prescriptions).
+function buildSbsLogEntries(
+  exercises: ExerciseState[],
+  currentWeek: number,
+  trainingMaxes: Record<string, number>
+): ExerciseLogEntry[] {
+  return exercises.map((ex) => {
+    if (ex.category === "main" && ex.trainingMax > 0) {
+      const prescription = prescribeExercise(
+        ex.name,
+        trainingMaxes[ex.name] ?? ex.trainingMax,
+        ex.singleAt8Pct,
+        currentWeek,
+        program.weekSchedule,
+        program.config.rounding
+      );
+      return {
+        exerciseId: ex.id,
+        exerciseName: ex.name,
+        category: "main" as const,
+        prescribedWeight: prescription?.workingWeight ?? null,
+        prescribedReps: prescription?.reps ?? null,
+        repOutTarget: prescription?.repOutTarget ?? null,
+        sets: prescription?.sets ?? null,
+        repsOnLastSet: null,
+        tmSingleWeight: prescription?.tmSingleWeight ?? null,
+        accessorySets: [],
+        supersetGroup: ex.supersetGroup,
+        notes: "",
+        feel: null,
+        done: false,
+      };
+    }
+    return {
+      exerciseId: ex.id,
+      exerciseName: ex.name,
+      category: ex.category as "main" | "pull" | "accessory",
+      prescribedWeight: null,
+      prescribedReps: null,
+      repOutTarget: null,
+      sets: null,
+      repsOnLastSet: null,
+      tmSingleWeight: null,
+      accessorySets: emptyAccessorySets(ex.category),
+      supersetGroup: ex.supersetGroup,
+      notes: "",
+      feel: null,
+      done: false,
+    };
+  });
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -236,7 +362,7 @@ export const useStore = create<AppState>((set, get) => ({
     const baseTMs = buildInitialTrainingMaxes();
     const trainingMaxes =
       Object.keys(savedTMs).length > 0 ? savedTMs : replayTrainingMaxes(logs, baseTMs);
-    const currentWeek = logs.length > 0 ? inferCurrentWeek(logs) : savedWeek;
+    const currentWeek = logs.some(isSbsLog) ? inferCurrentWeek(logs) : savedWeek;
     const rawDays = savedDays || buildInitialDays(savedSchedule, trainingMaxes);
     const days = reclassifyPulls(rawDays);
     const exerciseGroups = buildExerciseGroups(trainingMaxes);
@@ -358,55 +484,7 @@ export const useStore = create<AppState>((set, get) => ({
     const day = days[dayIndex];
     if (!day) return;
 
-    const exercises: ExerciseLogEntry[] = day.exercises.map((ex) => {
-      if (ex.category === "main" && ex.trainingMax > 0) {
-        const prescription = prescribeExercise(
-          ex.name,
-          trainingMaxes[ex.name] ?? ex.trainingMax,
-          ex.singleAt8Pct,
-          currentWeek,
-          program.weekSchedule,
-          program.config.rounding
-        );
-        return {
-          exerciseId: ex.id,
-          exerciseName: ex.name,
-          category: "main" as const,
-          prescribedWeight: prescription?.workingWeight ?? null,
-          prescribedReps: prescription?.reps ?? null,
-          repOutTarget: prescription?.repOutTarget ?? null,
-          sets: prescription?.sets ?? null,
-          repsOnLastSet: null,
-          tmSingleWeight: prescription?.tmSingleWeight ?? null,
-          accessorySets: [],
-          supersetGroup: ex.supersetGroup,
-          notes: "",
-          feel: null,
-          done: false,
-        };
-      }
-      return {
-        exerciseId: ex.id,
-        exerciseName: ex.name,
-        category: ex.category as "main" | "pull" | "accessory",
-        prescribedWeight: null,
-        prescribedReps: null,
-        repOutTarget: null,
-        sets: null,
-        repsOnLastSet: null,
-        tmSingleWeight: null,
-        accessorySets: [
-          { weight: null, reps: null, done: false },
-          { weight: null, reps: null, done: false },
-          { weight: null, reps: null, done: false },
-          ...(ex.category === "pull" ? [{ weight: null, reps: null, done: false }] : []),
-        ],
-        supersetGroup: ex.supersetGroup,
-        notes: "",
-        feel: null,
-        done: false,
-      };
-    });
+    const exercises = buildSbsLogEntries(day.exercises, currentWeek, trainingMaxes);
 
     set({
       activeWorkout: {
@@ -506,20 +584,9 @@ export const useStore = create<AppState>((set, get) => ({
       completedAt: new Date().toISOString(),
     };
 
-    const newTMs = { ...trainingMaxes };
-    for (const entry of completedWorkout.exercises) {
-      if (entry.category === "main" && entry.repsOnLastSet !== null && entry.repOutTarget !== null) {
-        const autoreg = program.config.autoregulation[entry.exerciseName];
-        if (autoreg && newTMs[entry.exerciseName] != null) {
-          newTMs[entry.exerciseName] = newTrainingMax(
-            newTMs[entry.exerciseName],
-            entry.repsOnLastSet,
-            entry.repOutTarget,
-            autoreg
-          );
-        }
-      }
-    }
+    const newTMs = applyWorkoutTmEffects(completedWorkout.exercises, {
+      ...trainingMaxes,
+    });
 
     const newLogs = [...workoutLogs, completedWorkout];
     const exerciseGroups = buildExerciseGroups(newTMs);
