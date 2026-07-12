@@ -21,11 +21,24 @@ function TabIcon({ label, active }: { label: string; active: boolean }) {
 
 export default function TabsLayout() {
   // Opening an #import=<payload> link lands on the home route (after the PIN
-  // gate); hand off to the import screen, which reads the fragment itself.
+  // gate). router.push replaces the URL — and with it the fragment — so stash
+  // the payload in sessionStorage for the import screen before navigating.
+  // The hashchange listener covers links opened into an already-loaded tab,
+  // where the document doesn't reload and mount effects don't re-run.
   useEffect(() => {
-    if (Platform.OS === "web" && window.location.hash.startsWith("#import=")) {
+    if (Platform.OS !== "web") return;
+    const handleImportFragment = () => {
+      if (!window.location.hash.startsWith("#import=")) return;
+      sessionStorage.setItem(
+        "pending_import_fragment",
+        window.location.hash.slice("#import=".length)
+      );
+      window.history.replaceState(null, "", window.location.pathname);
       router.push("/import");
-    }
+    };
+    handleImportFragment();
+    window.addEventListener("hashchange", handleImportFragment);
+    return () => window.removeEventListener("hashchange", handleImportFragment);
   }, []);
 
   return (

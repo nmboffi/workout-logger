@@ -37,14 +37,23 @@ export default function ImportScreen() {
     setPreview(p.type === "workouts" ? importWorkouts(p.payload, true) : null);
   };
 
-  // Prefill from an #import=<base64url> link (Claude produces these), then
-  // clear the fragment so refreshes don't re-trigger.
+  // Prefill from an #import=<base64url> link (Claude produces these). The
+  // fragment arrives either directly in the URL or stashed in sessionStorage
+  // by the tabs layout (router.push drops URL fragments). Clear both so
+  // refreshes don't re-trigger.
   useEffect(() => {
     if (Platform.OS !== "web") return;
     const hash = window.location.hash;
+    let fragment: string | null = null;
     if (hash.startsWith("#import=")) {
-      const decoded = decodeImportFragment(hash.slice("#import=".length));
+      fragment = hash.slice("#import=".length);
       window.history.replaceState(null, "", window.location.pathname);
+    } else {
+      fragment = sessionStorage.getItem("pending_import_fragment");
+      sessionStorage.removeItem("pending_import_fragment");
+    }
+    if (fragment) {
+      const decoded = decodeImportFragment(fragment);
       if (decoded) {
         setText(decoded);
         runPreview(decoded);
