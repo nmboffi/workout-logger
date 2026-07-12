@@ -1,5 +1,6 @@
-import { Tabs } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { useEffect } from "react";
+import { Tabs, router } from "expo-router";
+import { View, Text, StyleSheet, Platform } from "react-native";
 import { colors, font } from "../../lib/theme";
 
 function TabIcon({ label, active }: { label: string; active: boolean }) {
@@ -19,6 +20,14 @@ function TabIcon({ label, active }: { label: string; active: boolean }) {
 }
 
 export default function TabsLayout() {
+  // Opening an #import=<payload> link lands on the home route (after the PIN
+  // gate); hand off to the import screen, which reads the fragment itself.
+  useEffect(() => {
+    if (Platform.OS === "web" && window.location.hash.startsWith("#import=")) {
+      router.push("/import");
+    }
+  }, []);
+
   return (
     <Tabs
       screenOptions={{

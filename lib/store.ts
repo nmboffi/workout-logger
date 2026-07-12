@@ -34,6 +34,12 @@ import {
   type GeneratorInputs,
 } from "./generator";
 import {
+  computeImportId,
+  type ImportPayload,
+  type ImportWorkoutPayload,
+  type ImportExercisePayload,
+} from "./import";
+import {
   saveWorkoutLogs,
   loadWorkoutLogs,
   saveCurrentWeek,
@@ -239,6 +245,9 @@ interface AppState {
   discardGeneratedWorkout: () => void;
   startGeneratedWorkout: () => void;
 
+  // Dictation import
+  importWorkouts: (payload: ImportPayload, dryRun?: boolean) => ImportResult;
+
   // Helpers
   getPrescription: (exerciseName: string, trainingMax: number, singleAt8Pct: number) => ReturnType<typeof prescribeExercise>;
 }
@@ -320,6 +329,70 @@ function replayTrainingMaxes(
     applyWorkoutTmEffects(log.exercises, tms);
   }
   return tms;
+}
+
+export interface ImportResult {
+  imported: { date: string; dayLabel: string; attached: boolean }[];
+  skipped: { date: string; dayLabel: string; reason: string }[];
+  tmChanges: { name: string; from: number; to: number }[];
+}
+
+// Build a log entry directly from an import payload exercise (standalone
+// path — no pending generated workout to attach to).
+function buildImportEntry(e: ImportExercisePayload, idx: number): ExerciseLogEntry {
+  const poolEx = poolByName.get(e.exerciseName);
+  const category =
+    e.category ??
+    (e.repsOnLastSet != null
+      ? "main"
+      : poolEx?.roles.includes("pull") || PULL_EXERCISES.has(e.exerciseName)
+        ? "pull"
+        : "accessory");
+  const accessorySets = (e.accessorySets ?? []).map((s) => ({
+    weight: s.weight ?? null,
+    reps: s.reps ?? null,
+    done: s.done ?? (s.weight != null || s.reps != null),
+  }));
+  return {
+    exerciseId: `imp-${idx}-${e.exerciseName}`,
+    exerciseName: e.exerciseName,
+    category,
+    prescribedWeight: e.prescribedWeight ?? null,
+    prescribedReps: e.prescribedReps ?? null,
+    repOutTarget: e.repOutTarget ?? null,
+    sets: e.sets ?? null,
+    repsOnLastSet: e.repsOnLastSet ?? null,
+    tmSingleWeight: null,
+    accessorySets,
+    supersetGroup: null,
+    notes: e.notes ?? "",
+    feel: e.feel ?? null,
+    done: e.done ?? (e.repsOnLastSet != null || accessorySets.some((s) => s.done)),
+  };
+}
+
+// Overlay dictated results onto an entry built from the pending generated
+// workout, which carries the authoritative prescriptions.
+function overlayImportData(entry: ExerciseLogEntry, e: ImportExercisePayload): void {
+  if (e.repsOnLastSet != null) {
+    entry.repsOnLastSet = e.repsOnLastSet;
+    entry.done = true;
+  }
+  if (e.accessorySets && e.accessorySets.length > 0) {
+    entry.accessorySets = e.accessorySets.map((s) => ({
+      weight: s.weight ?? null,
+      reps: s.reps ?? null,
+      done: s.done ?? (s.weight != null || s.reps != null),
+    }));
+    entry.done = true;
+  }
+  if (e.feel != null) entry.feel = e.feel;
+  if (e.notes) entry.notes = e.notes;
+  if (e.done != null) entry.done = e.done;
+}
+
+function exerciseNameKey(names: string[]): string {
+  return [...names].sort().join("|");
 }
 
 // Empty set rows for a pull/accessory entry: 3 sets, 4 for pulls.
@@ -857,5 +930,154 @@ export const useStore = create<AppState>((set, get) => ({
         dayType: gw.dayType,
       },
     });
+  },
+
+  importWorkouts: (payload, dryRun = false) => {
+    const { workoutLogs, trainingMaxes, pendingGeneratedWorkout } = get();
+    const result: ImportResult = { imported: [], skipped: [], tmChanges: [] };
+    const logs = [...workoutLogs];
+    let tms = { ...trainingMaxes };
+    let pending = pendingGeneratedWorkout;
+    const today = new Date().toISOString().split("T")[0];
+
+    for (const w of payload.workouts) {
+      const importId = w.importId ?? computeImportId(w);
+      const mode: ProgramMode = w.mode ?? "random";
+      const nameKey = exerciseNameKey(w.exercises.map((e) => e.exerciseName));
+
+      // Dedup strictly before autoreg: importing the same recap twice must
+      // never double-adjust TMs.
+      const duplicate = logs.find(
+        (l) =>
+          l.importId === importId ||
+          (l.date === w.date &&
+            (l.mode ?? "sbs") === mode &&
+            exerciseNameKey(l.exercises.map((e) => e.exerciseName)) === nameKey)
+      );
+      if (duplicate) {
+        result.skipped.push({
+          date: w.date,
+          dayLabel: w.dayLabel ?? duplicate.dayLabel,
+          reason: "duplicate",
+        });
+        continue;
+      }
+
+      let entries: ExerciseLogEntry[] | null = null;
+      let dayLabel = w.dayLabel ?? "";
+      let dayType = w.dayType;
+      let attached = false;
+
+      // Attach to today's pending generated workout when it plausibly is that
+      // workout: prescriptions come from the plan, so autoreg is exact even
+      // when the dictation carried no numbers.
+      if (pending && mode === "random" && (!w.dayType || w.dayType === pending.dayType)) {
+        const pendingNames = new Set(pending.slots.map((s) => s.exerciseName));
+        const matchCount = w.exercises.filter((e) => pendingNames.has(e.exerciseName)).length;
+        if (w.date === today || matchCount * 2 >= w.exercises.length) {
+          const base = buildGeneratedLogEntries(pending, tms);
+          const used = new Set<string>();
+          for (const entry of base) {
+            const p = w.exercises.find(
+              (e) => e.exerciseName === entry.exerciseName && !used.has(e.exerciseName)
+            );
+            if (!p) continue;
+            used.add(p.exerciseName);
+            overlayImportData(entry, p);
+          }
+          let extraIdx = base.length;
+          for (const e of w.exercises) {
+            if (!used.has(e.exerciseName)) {
+              base.push(buildImportEntry(e, extraIdx++));
+            }
+          }
+          entries = base;
+          dayLabel = pending.label;
+          dayType = pending.dayType;
+          attached = true;
+        }
+      }
+
+      if (!entries) {
+        entries = w.exercises.map((e, i) => buildImportEntry(e, i));
+        // SBS recaps with a week number: recompute missing prescriptions so
+        // autoregulation still applies.
+        if (mode === "sbs" && w.weekNumber) {
+          for (const entry of entries) {
+            if (entry.category !== "main" || entry.repOutTarget != null) continue;
+            const tm = tms[entry.exerciseName];
+            if (tm == null) continue;
+            const lift =
+              program.config.mainLifts.find((l) => l.name === entry.exerciseName) ??
+              program.config.auxiliaries.find((l) => l.name === entry.exerciseName);
+            const rx = prescribeExercise(
+              entry.exerciseName,
+              tm,
+              lift?.singleAt8Pct ?? 0.9,
+              w.weekNumber,
+              program.weekSchedule,
+              program.config.rounding
+            );
+            if (rx) {
+              entry.prescribedWeight = entry.prescribedWeight ?? rx.workingWeight;
+              entry.prescribedReps = entry.prescribedReps ?? rx.reps;
+              entry.repOutTarget = rx.repOutTarget;
+              entry.sets = entry.sets ?? rx.sets;
+            }
+          }
+        }
+      }
+
+      if (!dayLabel) {
+        dayLabel =
+          mode === "random"
+            ? dayType === "light"
+              ? "Light Day"
+              : dayType === "rest"
+                ? "Rest Day"
+                : "Random Workout"
+            : `Imported Workout`;
+      }
+
+      tms = applyWorkoutTmEffects(entries, tms);
+
+      logs.push({
+        id: `import-${importId}`,
+        date: w.date,
+        weekNumber: mode === "sbs" ? (w.weekNumber ?? 0) : 0,
+        dayIndex: w.dayIndex ?? -1,
+        dayLabel,
+        exercises: entries,
+        notes: w.notes ?? "",
+        completed: true,
+        startedAt: `${w.date}T12:00:00`,
+        completedAt: `${w.date}T12:00:00`,
+        mode,
+        dayType,
+        importId,
+      });
+      if (attached) pending = null;
+      result.imported.push({ date: w.date, dayLabel, attached });
+    }
+
+    for (const name of Object.keys(tms)) {
+      if (tms[name] !== trainingMaxes[name]) {
+        result.tmChanges.push({ name, from: trainingMaxes[name] ?? 0, to: tms[name] });
+      }
+    }
+
+    if (!dryRun && result.imported.length > 0) {
+      const exerciseGroups = buildExerciseGroups(tms);
+      set({
+        workoutLogs: logs,
+        trainingMaxes: tms,
+        exerciseGroups,
+        pendingGeneratedWorkout: pending,
+      });
+      saveWorkoutLogs(logs);
+      saveTrainingMaxes(tms);
+      saveGeneratedWorkout(pending);
+    }
+    return result;
   },
 }));

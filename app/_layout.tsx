@@ -45,6 +45,17 @@ export default function RootLayout() {
             headerTitleStyle: { fontWeight: font.semibold },
           }}
         />
+        <Stack.Screen
+          name="import"
+          options={{
+            presentation: "modal",
+            headerShown: true,
+            title: "Import",
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerTitleStyle: { fontWeight: font.semibold },
+          }}
+        />
       </Stack>
     </PinGate>
   );
