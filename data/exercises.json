@@ -122,8 +122,8 @@
     { "id": "cable-crossovers", "name": "Cable Crossovers", "pattern": "bench", "roles": ["accessory"], "equipment": "cable", "muscles": ["chest"], "accessoryPool": "Chest Accessories" },
     { "id": "pullovers", "name": "Pullovers", "pattern": "bench", "roles": ["accessory"], "equipment": "dumbbell", "muscles": ["chest", "lats"], "accessoryPool": "Chest Accessories" },
     { "id": "push-up-variations", "name": "Push-Up Variations", "pattern": "bench", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["chest", "triceps"], "accessoryPool": "Chest Accessories" },
-    { "id": "face-pulls", "name": "Face Pulls", "pattern": "pull", "roles": ["accessory"], "equipment": "cable", "muscles": ["rear-delts", "upper-back"], "accessoryPool": "Chest Accessories" },
-    { "id": "dip-variations", "name": "Dip Variations", "pattern": "bench", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["chest", "triceps"], "accessoryPool": "Chest Accessories" },
+    { "id": "face-pulls", "name": "Face Pulls", "pattern": "pull", "roles": ["accessory"], "equipment": "cable", "muscles": ["rear-delts", "upper-back"], "accessoryPool": "Chest Accessories", "supersetTag": "shoulders" },
+    { "id": "dip-variations", "name": "Dip Variations", "pattern": "bench", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["chest", "triceps"], "accessoryPool": "Chest Accessories", "supersetTag": "arms" },
 
     { "id": "weighted-sit-ups", "name": "Weighted Sit-Ups", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
     { "id": "landmine-rotations", "name": "Landmine Rotations", "pattern": "core", "roles": ["accessory"], "equipment": "barbell", "muscles": ["obliques", "abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },

@@ -94,7 +94,10 @@ export function buildRecency(
     // nor unblock lift choices.
     if (log.dayType === "rest") continue;
     const performed = log.exercises.filter(entryPerformed);
-    if (performed.length === 0) continue;
+    // A day only counts as a training day if some performed lift maps to the
+    // pool — recovery-only logs (imported rest days without a dayType, foam
+    // rolling checklists) must not advance the index.
+    if (!performed.some((e) => nameToEx.has(e.exerciseName))) continue;
     const i = dayIndex++;
 
     let anchorAssigned = false;
@@ -295,6 +298,29 @@ function pickForSlot(
   );
 }
 
+// Superset post-pass: clear all groups, then pair accessory-circuit picks
+// that share a tag. Clearing first prevents stale labels surviving on kept
+// slots whose partner was rerolled or swapped away.
+function applySupersetGroups(slots: GeneratedSlot[], pool: ExercisePoolFile): void {
+  const idToTag = new Map(pool.exercises.map((e) => [e.id, e.supersetTag]));
+  const byTag = new Map<string, GeneratedSlot[]>();
+  for (const s of slots) {
+    s.supersetGroup = null;
+    if (s.role !== "accessory" || !s.exerciseId) continue;
+    const tag = idToTag.get(s.exerciseId);
+    if (!tag) continue;
+    const group = byTag.get(tag) ?? [];
+    group.push(s);
+    byTag.set(tag, group);
+  }
+  let groupLabel = "A".charCodeAt(0);
+  for (const group of byTag.values()) {
+    if (group.length < 2) continue;
+    const label = String.fromCharCode(groupLabel++);
+    for (const s of group) s.supersetGroup = label;
+  }
+}
+
 function generate(ctx: GenerateContext): GeneratedWorkout {
   const { pool, dayType } = ctx;
   const template = pool.dayTemplates.find((t) => t.id === dayType);
@@ -403,23 +429,7 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
     });
   }
 
-  // Superset post-pass: pair accessory-circuit picks that share a tag.
-  const idToTag = new Map(pool.exercises.map((e) => [e.id, e.supersetTag]));
-  const byTag = new Map<string, GeneratedSlot[]>();
-  for (const s of slots) {
-    if (s.role !== "accessory" || !s.exerciseId) continue;
-    const tag = idToTag.get(s.exerciseId);
-    if (!tag) continue;
-    const group = byTag.get(tag) ?? [];
-    group.push(s);
-    byTag.set(tag, group);
-  }
-  let groupLabel = "A".charCodeAt(0);
-  for (const group of byTag.values()) {
-    if (group.length < 2) continue;
-    const label = String.fromCharCode(groupLabel++);
-    for (const s of group) s.supersetGroup = label;
-  }
+  applySupersetGroups(slots, pool);
 
   const label =
     dayType === "full"
@@ -465,17 +475,23 @@ export function generateWorkout(
 }
 
 // Whole-workout reroll: fresh seed, preserves locked slots and any anchor
-// override.
+// override. With no override, a locked (manually swapped) main lift pins the
+// anchor to its own pattern — re-picking freely would produce e.g. a "Bench
+// Day" whose kept main is a squat, with bench auxiliaries around it.
 export function rerollWorkout(
   gw: GeneratedWorkout,
   inputs: GeneratorInputs
 ): GeneratedWorkout {
+  const keep = gw.slots.filter((s) => s.locked);
+  const lockedMain = keep.find(
+    (s) => s.role === "main" && s.pattern && ANCHOR_SET.has(s.pattern)
+  );
   return generate({
     dayType: gw.dayType,
     ...inputs,
-    anchor: gw.anchorOverride ? gw.anchorPattern : null,
+    anchor: gw.anchorOverride ? gw.anchorPattern : lockedMain?.pattern ?? null,
     anchorIsOverride: gw.anchorOverride,
-    keep: gw.slots.filter((s) => s.locked),
+    keep,
   });
 }
 
@@ -526,7 +542,7 @@ export function setSlotExercise(
 ): GeneratedWorkout {
   const recency = buildRecency(inputs.logs, inputs.pool);
   const slots = gw.slots.map((s) => {
-    if (s.slot !== slotKey) return s;
+    if (s.slot !== slotKey) return { ...s };
     const isTmSlot = s.role === "main" || s.role === "aux";
     const useTM = isTmSlot && gw.dayType === "full";
     const hasTM = useTM && inputs.trainingMaxes[exercise.name] != null;
@@ -544,6 +560,9 @@ export function setSlotExercise(
       locked: true,
     };
   });
+  // Re-pair supersets: the swapped-in exercise may create or break a pairing,
+  // and the replaced slot must not inherit its predecessor's group.
+  applySupersetGroups(slots, inputs.pool);
   return { ...gw, slots };
 }
 

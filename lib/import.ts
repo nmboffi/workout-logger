@@ -15,6 +15,9 @@ export interface ImportExercisePayload {
   prescribedReps?: number | null;
   repOutTarget?: number | null;
   sets?: number | null;
+  // TM-calibration exposure: the app seeds a training max from the best
+  // logged set (Epley e1RM x seed factor).
+  calibration?: boolean;
 }
 
 export interface ImportWorkoutPayload {
@@ -111,6 +114,11 @@ export function parseImportText(
     if (w.dayType != null && !VALID_DAY_TYPES.has(w.dayType)) {
       errors.push(`${tag}: invalid dayType "${w.dayType}".`);
     }
+    if ((w.mode ?? "random") === "sbs" && typeof w.weekNumber !== "number") {
+      warnings.push(
+        `${tag}: SBS workout without a weekNumber — prescriptions can't be recomputed, so main lifts won't autoregulate.`
+      );
+    }
     if (!Array.isArray(w.exercises) || w.exercises.length === 0) {
       errors.push(`${tag}: no exercises.`);
       return;
@@ -154,12 +162,14 @@ export function parseImportText(
   return { type: "workouts", payload: data as ImportPayload, warnings };
 }
 
-// base64url helpers for the #import= link (ASCII JSON payloads).
+// base64url decoding for the #import= link. atob yields a byte string; decode
+// it as UTF-8 so non-ASCII characters in notes survive the round trip.
 export function decodeImportFragment(fragment: string): string | null {
   try {
     let b64 = fragment.replace(/-/g, "+").replace(/_/g, "/");
     while (b64.length % 4 !== 0) b64 += "=";
-    return atob(b64);
+    const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    return new TextDecoder().decode(bytes);
   } catch {
     return null;
   }

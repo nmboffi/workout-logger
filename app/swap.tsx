@@ -27,7 +27,18 @@ export default function SwapScreen() {
   } = useStore();
 
   // Randomized mode: replace one slot of the pending generated workout with a
-  // pool exercise that fits the same slot.
+  // pool exercise that fits the same slot. If the pending workout is gone
+  // (completed/discarded while this screen was open), don't fall through to
+  // the SBS swap UI — that would silently edit SBS day configs.
+  if (params.mode === "random" && (!params.slotKey || !pendingGeneratedWorkout)) {
+    return (
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+        <Text style={styles.title}>Replace</Text>
+        <Text style={styles.emptyText}>No pending generated workout to edit.</Text>
+      </ScrollView>
+    );
+  }
+
   if (params.mode === "random" && params.slotKey && pendingGeneratedWorkout) {
     const slot = pendingGeneratedWorkout.slots.find((s) => s.slot === params.slotKey);
     const candidates = swapCandidates(pendingGeneratedWorkout, params.slotKey, {

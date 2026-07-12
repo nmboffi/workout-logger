@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -144,7 +144,10 @@ function ExerciseCard({ exercise }: { exercise: any }) {
   const [repsInput, setRepsInput] = useState(exercise.repsOnLastSet?.toString() ?? "");
   const [showNotes, setShowNotes] = useState(false);
   const [expanded, setExpanded] = useState(exercise.category === "main");
-  const lastPerf = getLastPerformance(workoutLogs, exercise.exerciseName);
+  const lastPerf = useMemo(
+    () => getLastPerformance(workoutLogs, exercise.exerciseName),
+    [workoutLogs, exercise.exerciseName]
+  );
 
   if (exercise.category === "main") {
     const cat = EXERCISE_CATEGORIES[exercise.exerciseName];
@@ -197,7 +200,13 @@ function ExerciseCard({ exercise }: { exercise: any }) {
               onChangeText={setRepsInput}
               onBlur={() => {
                 const n = parseInt(repsInput, 10);
-                if (!isNaN(n) && n > 0) logRepsOnLastSet(exercise.exerciseId, n);
+                if (!isNaN(n) && n > 0) {
+                  logRepsOnLastSet(exercise.exerciseId, n);
+                } else if (repsInput.trim() === "" && exercise.repsOnLastSet !== null) {
+                  // Clearing the input un-logs the lift so a mistaken entry
+                  // can't autoregulate the TM on completion.
+                  logRepsOnLastSet(exercise.exerciseId, null);
+                }
               }}
               keyboardType="number-pad"
               placeholder="—"

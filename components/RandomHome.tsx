@@ -62,8 +62,10 @@ export default function RandomHome() {
   const [anchorChoice, setAnchorChoice] = useState<MovementPattern | null>(null);
 
   const completedCount = workoutLogs.filter((l) => l.completed).length;
+  // Rest days don't affect the generator's constraints, so they shouldn't
+  // flag a pending plan as stale.
   const lastCompleted = workoutLogs
-    .filter((l) => l.completed && l.completedAt)
+    .filter((l) => l.completed && l.completedAt && l.dayType !== "rest")
     .map((l) => l.completedAt as string)
     .sort()
     .pop();
@@ -82,6 +84,16 @@ export default function RandomHome() {
 
   const handleDiscard = () => {
     confirmWeb("Discard this generated workout?", discardGeneratedWorkout);
+  };
+
+  const slotCtx: SlotCtx = {
+    workoutLogs,
+    trainingMaxes,
+    program,
+    exercisePool,
+    rerollGeneratedSlot,
+    openSwap: (slotKey) =>
+      router.push(`/swap?mode=random&slotKey=${encodeURIComponent(slotKey)}`),
   };
 
   return (
@@ -210,7 +222,11 @@ export default function RandomHome() {
                   <TouchableOpacity
                     key={opt.label}
                     style={[styles.anchorPill, active && styles.anchorPillActive]}
-                    onPress={() => setGeneratedAnchor(opt.value)}
+                    onPress={() => {
+                      // Re-tapping the active pill would regenerate main/aux
+                      // for no reason and discard manual swaps.
+                      if (!active) setGeneratedAnchor(opt.value);
+                    }}
                   >
                     <Text style={[styles.anchorPillText, active && styles.anchorPillTextActive]}>
                       {opt.label}
@@ -221,31 +237,11 @@ export default function RandomHome() {
             </View>
           )}
 
-          <SlotSection
-            title="Main"
-            color={colors.amber}
-            slots={pending.slots.filter((s) => s.role === "main")}
-          />
-          <SlotSection
-            title="Aux"
-            color={colors.textSecondary}
-            slots={pending.slots.filter((s) => s.role === "aux")}
-          />
-          <SlotSection
-            title="Pull"
-            color={colors.pull}
-            slots={pending.slots.filter((s) => s.role === "pull")}
-          />
-          <SlotSection
-            title="Circuit"
-            color={colors.textMuted}
-            slots={pending.slots.filter((s) => s.role === "accessory")}
-          />
-          <SlotSection
-            title="Recovery"
-            color={colors.green}
-            slots={pending.slots.filter((s) => s.role === "fixed")}
-          />
+          <SlotSection title="Main" color={colors.amber} slots={pending.slots.filter((s) => s.role === "main")} ctx={slotCtx} />
+          <SlotSection title="Aux" color={colors.textSecondary} slots={pending.slots.filter((s) => s.role === "aux")} ctx={slotCtx} />
+          <SlotSection title="Pull" color={colors.pull} slots={pending.slots.filter((s) => s.role === "pull")} ctx={slotCtx} />
+          <SlotSection title="Circuit" color={colors.textMuted} slots={pending.slots.filter((s) => s.role === "accessory")} ctx={slotCtx} />
+          <SlotSection title="Recovery" color={colors.green} slots={pending.slots.filter((s) => s.role === "fixed")} ctx={slotCtx} />
 
           <TouchableOpacity style={styles.startBtn} onPress={handleStart} activeOpacity={0.8}>
             <Text style={styles.startBtnText}>Start Workout</Text>
@@ -256,75 +252,89 @@ export default function RandomHome() {
       <View style={{ height: 40 }} />
     </ScrollView>
   );
+}
 
-  function SlotSection({
-    title,
-    color,
-    slots,
-  }: {
-    title: string;
-    color: string;
-    slots: GeneratedSlot[];
-  }) {
-    if (slots.length === 0) return null;
-    return (
-      <View style={styles.liftSection}>
-        <View style={styles.sectionDivider} />
-        <Text style={[styles.sectionLabel, { color }]}>{title}</Text>
-        {slots.map((slot) => (
-          <SlotRow key={slot.slot} slot={slot} />
-        ))}
-      </View>
-    );
+// Everything SlotRow needs from the parent — passed explicitly so these can
+// live at module scope (components defined inside a component are a new type
+// every render, remounting the whole slot list on each store change).
+interface SlotCtx {
+  workoutLogs: ReturnType<typeof useStore.getState>["workoutLogs"];
+  trainingMaxes: Record<string, number>;
+  program: ReturnType<typeof useStore.getState>["program"];
+  exercisePool: ReturnType<typeof useStore.getState>["exercisePool"];
+  rerollGeneratedSlot: (slotKey: string) => void;
+  openSwap: (slotKey: string) => void;
+}
+
+function SlotSection({
+  title,
+  color,
+  slots,
+  ctx,
+}: {
+  title: string;
+  color: string;
+  slots: GeneratedSlot[];
+  ctx: SlotCtx;
+}) {
+  if (slots.length === 0) return null;
+  return (
+    <View style={styles.liftSection}>
+      <View style={styles.sectionDivider} />
+      <Text style={[styles.sectionLabel, { color }]}>{title}</Text>
+      {slots.map((slot) => (
+        <SlotRow key={slot.slot} slot={slot} ctx={ctx} />
+      ))}
+    </View>
+  );
+}
+
+function SlotRow({ slot, ctx }: { slot: GeneratedSlot; ctx: SlotCtx }) {
+  const meta = slot.pattern ? PATTERN_META[slot.pattern] : null;
+  const tm = ctx.trainingMaxes[slot.exerciseName];
+  const last = getLastPerformance(ctx.workoutLogs, slot.exerciseName);
+
+  let rxLine: string | null = null;
+  if (slot.category === "main" && slot.intensity != null && tm != null) {
+    const weight = workingWeight(tm, slot.intensity, ctx.program.config.rounding);
+    const targets = repTargetsFor(slot.intensity, ctx.exercisePool);
+    rxLine = `${formatWeight(weight, slot.exerciseName)}  ·  ${targets.reps} reps  ·  rep out ${targets.repOutTarget}`;
+  } else if (slot.calibration) {
+    rxLine = "Calibration: work up to one hard set of 5-10 reps";
   }
 
-  function SlotRow({ slot }: { slot: GeneratedSlot }) {
-    const meta = slot.pattern ? PATTERN_META[slot.pattern] : null;
-    const tm = trainingMaxes[slot.exerciseName];
-    const last = getLastPerformance(workoutLogs, slot.exerciseName);
-
-    let rxLine: string | null = null;
-    if (slot.category === "main" && slot.intensity != null && tm != null) {
-      const weight = workingWeight(tm, slot.intensity, program.config.rounding);
-      const targets = repTargetsFor(slot.intensity, exercisePool);
-      rxLine = `${formatWeight(weight, slot.exerciseName)}  ·  ${targets.reps} reps  ·  rep out ${targets.repOutTarget}`;
-    } else if (slot.calibration) {
-      rxLine = "Calibration: work up to one hard set of 5-10 reps";
-    }
-
-    const isFixed = slot.role === "fixed";
-    return (
-      <TouchableOpacity
-        style={styles.exerciseRow}
-        disabled={isFixed}
-        onPress={() => router.push(`/swap?mode=random&slotKey=${encodeURIComponent(slot.slot)}`)}
-        activeOpacity={0.6}
-      >
-        <View style={[styles.exerciseDot, meta && { backgroundColor: meta.color }]} />
-        <View style={styles.exerciseInfo}>
-          <View style={styles.auxNameRow}>
-            <Text style={styles.exerciseName}>{slot.exerciseName}</Text>
-            {meta && <Text style={[styles.auxCatTag, { color: meta.color }]}>{meta.label}</Text>}
-            {slot.locked && <Text style={styles.lockTag}>manual</Text>}
-            {slot.supersetGroup && (
-              <Text style={styles.ssTag}>SS {slot.supersetGroup}</Text>
-            )}
-          </View>
-          {rxLine && <Text style={styles.exerciseRx}>{rxLine}</Text>}
-          {last && <Text style={styles.lastLine}>Last: {lastPerformanceLine(last)}</Text>}
+  const isFixed = slot.role === "fixed";
+  return (
+    <TouchableOpacity
+      style={styles.exerciseRow}
+      disabled={isFixed}
+      onPress={() => ctx.openSwap(slot.slot)}
+      activeOpacity={0.6}
+    >
+      <View style={[styles.exerciseDot, meta && { backgroundColor: meta.color }]} />
+      <View style={styles.exerciseInfo}>
+        <View style={styles.auxNameRow}>
+          <Text style={styles.exerciseName}>{slot.exerciseName}</Text>
+          {meta && <Text style={[styles.auxCatTag, { color: meta.color }]}>{meta.label}</Text>}
+          {slot.locked && <Text style={styles.lockTag}>manual</Text>}
+          {slot.supersetGroup && (
+            <Text style={styles.ssTag}>SS {slot.supersetGroup}</Text>
+          )}
         </View>
-        {!isFixed && (
-          <TouchableOpacity
-            onPress={() => rerollGeneratedSlot(slot.slot)}
-            hitSlop={10}
-            style={styles.rerollBtn}
-          >
-            <Text style={styles.rerollBtnText}>↻</Text>
-          </TouchableOpacity>
-        )}
-      </TouchableOpacity>
-    );
-  }
+        {rxLine && <Text style={styles.exerciseRx}>{rxLine}</Text>}
+        {last && <Text style={styles.lastLine}>Last: {lastPerformanceLine(last)}</Text>}
+      </View>
+      {!isFixed && (
+        <TouchableOpacity
+          onPress={() => ctx.rerollGeneratedSlot(slot.slot)}
+          hitSlop={10}
+          style={styles.rerollBtn}
+        >
+          <Text style={styles.rerollBtnText}>↻</Text>
+        </TouchableOpacity>
+      )}
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({

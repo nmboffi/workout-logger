@@ -112,15 +112,27 @@ export async function exportAllData(): Promise<string> {
   const pairs = await AsyncStorage.multiGet(keys);
   const data: Record<string, unknown> = {};
   for (const [key, value] of pairs) {
-    if (value) data[key] = JSON.parse(value);
+    if (!value) continue;
+    // Some keys (schedule_type, program_mode, current_week) are stored as raw
+    // strings, not JSON — keep them verbatim.
+    try {
+      data[key] = JSON.parse(value);
+    } catch {
+      data[key] = value;
+    }
   }
   return JSON.stringify(data, null, 2);
 }
 
 export async function importAllData(jsonString: string): Promise<void> {
   const data = JSON.parse(jsonString) as Record<string, unknown>;
-  const pairs: [string, string][] = Object.entries(data).map(
-    ([key, value]) => [key, JSON.stringify(value)]
-  );
+  // A restore replaces ALL app data: clear known keys first so state absent
+  // from the backup (e.g. a pending generated workout) doesn't survive.
+  await AsyncStorage.multiRemove(Object.values(KEYS));
+  const pairs: [string, string][] = Object.entries(data).map(([key, value]) => [
+    key,
+    // Raw-string keys round-trip as strings; JSON keys get re-stringified.
+    typeof value === "string" ? value : JSON.stringify(value),
+  ]);
   await AsyncStorage.multiSet(pairs);
 }

@@ -68,13 +68,19 @@ export default function ImportScreen() {
     setPreview(null);
   };
 
+  // Deep-linked opens (#import= links) may have no history to go back to.
+  const closeScreen = () => {
+    if (router.canGoBack()) router.back();
+    else router.replace("/");
+  };
+
   const handleRestoreBackup = () => {
     if (!parsed || parsed.type !== "backup") return;
     const doRestore = async () => {
       await importAllData(parsed.raw);
       await initialize();
       if (Platform.OS === "web") window.alert("Backup restored.");
-      router.back();
+      closeScreen();
     };
     const message =
       "This is a full data export. Restoring it REPLACES ALL app data (logs, training maxes, day layouts). Continue?";
@@ -220,7 +226,7 @@ export default function ImportScreen() {
           ))}
           <TouchableOpacity
             style={[styles.primaryBtn, { marginTop: spacing.lg }]}
-            onPress={() => router.back()}
+            onPress={closeScreen}
             activeOpacity={0.8}
           >
             <Text style={styles.primaryBtnText}>Done</Text>

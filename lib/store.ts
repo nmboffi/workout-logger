@@ -83,6 +83,16 @@ function isSbsLog(log: WorkoutLog): boolean {
   return (log.mode ?? "sbs") === "sbs";
 }
 
+// Local calendar date (YYYY-MM-DD). toISOString() is UTC and rolls to
+// tomorrow during evening workouts, which breaks import dedupe and the
+// attach-to-pending heuristic against locally-dated dictation payloads.
+function localDate(): string {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${m}-${day}`;
+}
+
 // Autoreg config for a lift: the SBS program's table, falling back to the
 // pool default for lifts that only exist in the randomized-mode pool.
 function getAutoregFor(name: string): AutoregConfig | null {
@@ -222,7 +232,7 @@ interface AppState {
 
   // Workout
   startWorkout: (dayIndex: number) => void;
-  logRepsOnLastSet: (exerciseId: string, reps: number) => void;
+  logRepsOnLastSet: (exerciseId: string, reps: number | null) => void;
   logAccessorySet: (exerciseId: string, setIndex: number, data: Partial<AccessorySet>) => void;
   toggleAccessoryDone: (exerciseId: string) => void;
   addExerciseNote: (exerciseId: string, note: string) => void;
@@ -299,10 +309,11 @@ function reclassifyPulls(days: WorkoutDay[]): WorkoutDay[] {
   }));
 }
 
-// Week inference only makes sense for SBS logs; random-mode logs use the
-// weekNumber: 0 sentinel and must not participate.
+// Week inference only makes sense for SBS logs with a real week; random-mode
+// logs use the weekNumber: 0 sentinel, and imported SBS logs may lack a week —
+// neither must participate (a week-0 max would pin currentWeek to 0 forever).
 function inferCurrentWeek(logs: WorkoutLog[]): number {
-  const sbsLogs = logs.filter(isSbsLog);
+  const sbsLogs = logs.filter((l) => isSbsLog(l) && l.weekNumber >= 1);
   if (sbsLogs.length === 0) return 1;
   const maxWeek = Math.max(...sbsLogs.map((l) => l.weekNumber));
   const template = program.templates["4x"];
@@ -368,6 +379,9 @@ function buildImportEntry(e: ImportExercisePayload, idx: number): ExerciseLogEnt
     notes: e.notes ?? "",
     feel: e.feel ?? null,
     done: e.done ?? (e.repsOnLastSet != null || accessorySets.some((s) => s.done)),
+    // Standalone calibration exposures seed the TM in applyWorkoutTmEffects,
+    // same as when attached to a pending generated workout.
+    ...(e.calibration ? { calibration: true } : {}),
   };
 }
 
@@ -548,7 +562,9 @@ export const useStore = create<AppState>((set, get) => ({
     const baseTMs = buildInitialTrainingMaxes();
     const trainingMaxes =
       Object.keys(savedTMs).length > 0 ? savedTMs : replayTrainingMaxes(logs, baseTMs);
-    const currentWeek = logs.some(isSbsLog) ? inferCurrentWeek(logs) : savedWeek;
+    const currentWeek = logs.some((l) => isSbsLog(l) && l.weekNumber >= 1)
+      ? inferCurrentWeek(logs)
+      : savedWeek;
     const rawDays = savedDays || buildInitialDays(savedSchedule, trainingMaxes);
     const days = reclassifyPulls(rawDays);
     const exerciseGroups = buildExerciseGroups(trainingMaxes);
@@ -677,7 +693,7 @@ export const useStore = create<AppState>((set, get) => ({
     set({
       activeWorkout: {
         id: `${currentWeek}-${dayIndex}-${Date.now()}`,
-        date: new Date().toISOString().split("T")[0],
+        date: localDate(),
         weekNumber: currentWeek,
         dayIndex,
         dayLabel: day.label,
@@ -697,7 +713,9 @@ export const useStore = create<AppState>((set, get) => ({
       activeWorkout: {
         ...activeWorkout,
         exercises: activeWorkout.exercises.map((ex) =>
-          ex.exerciseId === exerciseId ? { ...ex, repsOnLastSet: reps, done: true } : ex
+          ex.exerciseId === exerciseId
+            ? { ...ex, repsOnLastSet: reps, done: reps !== null }
+            : ex
         ),
       },
     });
@@ -778,14 +796,17 @@ export const useStore = create<AppState>((set, get) => ({
 
     const newLogs = [...workoutLogs, completedWorkout];
     const exerciseGroups = buildExerciseGroups(newTMs);
-    set({ workoutLogs: newLogs, activeWorkout: null, trainingMaxes: newTMs, exerciseGroups });
+    const isRandom = completedWorkout.mode === "random";
+    set({
+      workoutLogs: newLogs,
+      activeWorkout: null,
+      trainingMaxes: newTMs,
+      exerciseGroups,
+      ...(isRandom ? { pendingGeneratedWorkout: null } : {}),
+    });
     saveWorkoutLogs(newLogs);
     saveTrainingMaxes(newTMs);
-
-    if (completedWorkout.mode === "random") {
-      set({ pendingGeneratedWorkout: null });
-      saveGeneratedWorkout(null);
-    }
+    if (isRandom) saveGeneratedWorkout(null);
   },
 
   discardWorkout: () => {
@@ -797,7 +818,7 @@ export const useStore = create<AppState>((set, get) => ({
     const version: ProgramVersion = {
       id: `v-${Date.now()}`,
       name,
-      date: new Date().toISOString().split("T")[0],
+      date: localDate(),
       scheduleType,
       trainingMaxes: { ...trainingMaxes },
       dayConfigs: JSON.parse(JSON.stringify(days)),
@@ -813,16 +834,20 @@ export const useStore = create<AppState>((set, get) => ({
     const version = programVersions.find((v) => v.id === versionId);
     if (!version) return;
 
-    const exerciseGroups = buildExerciseGroups(version.trainingMaxes);
+    // Merge instead of replace: lifts absent from the snapshot (e.g. TMs
+    // seeded by random-mode calibration after the snapshot was taken) keep
+    // their current values instead of being silently erased.
+    const mergedTMs = { ...get().trainingMaxes, ...version.trainingMaxes };
+    const exerciseGroups = buildExerciseGroups(mergedTMs);
     set({
       scheduleType: version.scheduleType,
-      trainingMaxes: version.trainingMaxes,
+      trainingMaxes: mergedTMs,
       days: version.dayConfigs,
       currentWeek: version.currentWeek,
       exerciseGroups,
     });
     saveScheduleType(version.scheduleType);
-    saveTrainingMaxes(version.trainingMaxes);
+    saveTrainingMaxes(mergedTMs);
     saveDayConfigs(version.dayConfigs);
     saveCurrentWeek(version.currentWeek);
   },
@@ -917,7 +942,7 @@ export const useStore = create<AppState>((set, get) => ({
     set({
       activeWorkout: {
         id: `rand-${Date.now()}`,
-        date: new Date().toISOString().split("T")[0],
+        date: localDate(),
         weekNumber: 0,
         dayIndex: -1,
         dayLabel: gw.label,
@@ -938,7 +963,7 @@ export const useStore = create<AppState>((set, get) => ({
     const logs = [...workoutLogs];
     let tms = { ...trainingMaxes };
     let pending = pendingGeneratedWorkout;
-    const today = new Date().toISOString().split("T")[0];
+    const today = localDate();
 
     for (const w of payload.workouts) {
       const importId = w.importId ?? computeImportId(w);
@@ -968,13 +993,15 @@ export const useStore = create<AppState>((set, get) => ({
       let dayType = w.dayType;
       let attached = false;
 
-      // Attach to today's pending generated workout when it plausibly is that
-      // workout: prescriptions come from the plan, so autoreg is exact even
-      // when the dictation carried no numbers.
+      // Attach to the pending generated workout only when it plausibly is
+      // that workout: a majority of the dictated exercises must match pending
+      // slots (date alone is not enough — an unrelated same-day payload must
+      // not consume the pending plan). Prescriptions then come from the plan,
+      // so autoreg is exact even when the dictation carried no numbers.
       if (pending && mode === "random" && (!w.dayType || w.dayType === pending.dayType)) {
         const pendingNames = new Set(pending.slots.map((s) => s.exerciseName));
         const matchCount = w.exercises.filter((e) => pendingNames.has(e.exerciseName)).length;
-        if (w.date === today || matchCount * 2 >= w.exercises.length) {
+        if (matchCount >= 1 && matchCount * 2 >= w.exercises.length) {
           const base = buildGeneratedLogEntries(pending, tms);
           const used = new Set<string>();
           for (const entry of base) {
