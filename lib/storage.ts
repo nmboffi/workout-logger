@@ -1,5 +1,13 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import type { WorkoutLog, ExerciseState, WorkoutDay, ProgramVersion, ScheduleType } from "./types";
+import type {
+  WorkoutLog,
+  ExerciseState,
+  WorkoutDay,
+  ProgramVersion,
+  ScheduleType,
+  ProgramMode,
+  GeneratedWorkout,
+} from "./types";
 
 const KEYS = {
   WORKOUT_LOGS: "workout_logs",
@@ -9,6 +17,8 @@ const KEYS = {
   TRAINING_MAXES: "training_maxes",
   DAY_CONFIGS: "day_configs",
   PROGRAM_VERSIONS: "program_versions",
+  PROGRAM_MODE: "program_mode",
+  GENERATED_WORKOUT: "generated_workout",
 } as const;
 
 export async function saveWorkoutLogs(logs: WorkoutLog[]): Promise<void> {
@@ -71,6 +81,30 @@ export async function saveProgramVersions(
 export async function loadProgramVersions(): Promise<ProgramVersion[]> {
   const data = await AsyncStorage.getItem(KEYS.PROGRAM_VERSIONS);
   return data ? JSON.parse(data) : [];
+}
+
+export async function saveProgramMode(mode: ProgramMode): Promise<void> {
+  await AsyncStorage.setItem(KEYS.PROGRAM_MODE, mode);
+}
+
+export async function loadProgramMode(): Promise<ProgramMode> {
+  const data = await AsyncStorage.getItem(KEYS.PROGRAM_MODE);
+  return (data as ProgramMode) || "sbs";
+}
+
+export async function saveGeneratedWorkout(
+  workout: GeneratedWorkout | null
+): Promise<void> {
+  if (workout === null) {
+    await AsyncStorage.removeItem(KEYS.GENERATED_WORKOUT);
+  } else {
+    await AsyncStorage.setItem(KEYS.GENERATED_WORKOUT, JSON.stringify(workout));
+  }
+}
+
+export async function loadGeneratedWorkout(): Promise<GeneratedWorkout | null> {
+  const data = await AsyncStorage.getItem(KEYS.GENERATED_WORKOUT);
+  return data ? JSON.parse(data) : null;
 }
 
 export async function exportAllData(): Promise<string> {

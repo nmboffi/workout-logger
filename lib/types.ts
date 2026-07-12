@@ -102,6 +102,11 @@ export interface WorkoutLog {
   completed: boolean;
   startedAt: string;
   completedAt: string | null;
+  // Randomized mode (absent => legacy SBS log). Random logs use sentinels
+  // weekNumber: 0, dayIndex: -1.
+  mode?: ProgramMode;
+  dayType?: DayType;
+  importId?: string;
 }
 
 export interface ExerciseLogEntry {
@@ -119,6 +124,10 @@ export interface ExerciseLogEntry {
   notes: string;
   feel: "easy" | "moderate" | "hard" | "grinder" | null;
   done: boolean;
+  // Randomized mode: which template slot produced this entry, and whether it
+  // was a TM-calibration exposure (logged as set rows, seeds the TM on completion).
+  slotRole?: SlotRole | "fixed";
+  calibration?: boolean;
 }
 
 export type ExerciseFeel = "easy" | "moderate" | "hard" | "grinder";
@@ -137,6 +146,120 @@ export interface ExerciseGroup {
   label: string;
   main: { name: string; trainingMax: number };
   auxiliaries: { name: string; slot: string; trainingMax: number }[];
+}
+
+// Randomized program mode
+
+export type ProgramMode = "sbs" | "random";
+export type DayType = "full" | "light" | "rest";
+
+export type MovementPattern =
+  | "squat"
+  | "bench"
+  | "deadlift"
+  | "ohp"
+  | "pull"
+  | "core"
+  | "carry"
+  | "conditioning";
+
+export type SlotRole = "main" | "aux" | "pull" | "accessory";
+
+export type Equipment =
+  | "barbell"
+  | "dumbbell"
+  | "kettlebell"
+  | "machine"
+  | "cable"
+  | "bodyweight"
+  | "trapbar"
+  | "band";
+
+export interface PoolExercise {
+  id: string;
+  // Display name — must match historical exerciseName for carried-over lifts;
+  // this is the join key to trainingMaxes and workout log history.
+  name: string;
+  pattern: MovementPattern;
+  roles: SlotRole[];
+  equipment: Equipment;
+  muscles: string[];
+  accessoryPool?: string;
+  lightEligible?: boolean;
+  intensityBand?: [number, number];
+  singleAt8Pct?: number;
+  sets?: number;
+  supersetTag?: string;
+  notes?: string;
+}
+
+export interface TemplateSlot {
+  slot: string;
+  role: SlotRole | "fixed";
+  anchor?: boolean;
+  relation?: "same-pattern" | "complementary" | "any";
+  optional?: boolean;
+  pools?: string[];
+  distinctGroup?: string;
+  lightOnly?: boolean;
+  fixed?: { name: string };
+}
+
+export interface DayTemplate {
+  id: DayType;
+  label: string;
+  slots: TemplateSlot[];
+}
+
+export interface PoolDefaults {
+  singleAt8Pct: number;
+  sets: number;
+  intensityBand: [number, number];
+  autoreg: AutoregConfig;
+  normalRepTargets: Record<string, number>;
+  lastSetRepTargets: Record<string, number>;
+  // TM = e1RM * tmSeedFactor when seeding from a calibration set
+  tmSeedFactor: number;
+}
+
+export interface ExercisePoolFile {
+  version: number;
+  defaults: PoolDefaults;
+  intensityLevels: number[];
+  anchorPatterns: MovementPattern[];
+  complementaryPatterns: Record<string, MovementPattern[]>;
+  dayTemplates: DayTemplate[];
+  exercises: PoolExercise[];
+}
+
+export interface GeneratedSlot {
+  slot: string;
+  role: SlotRole | "fixed";
+  exerciseId: string | null; // null only for fixed items
+  exerciseName: string;
+  category: "main" | "pull" | "accessory";
+  pattern: MovementPattern | null;
+  accessoryPool: string | null;
+  supersetGroup: string | null;
+  // Chosen intensity is frozen at generation; working weight is recomputed
+  // from the current TM when the workout starts.
+  intensity: number | null;
+  calibration: boolean;
+  locked: boolean;
+  order: number;
+}
+
+export interface GeneratedWorkout {
+  id: string;
+  createdAt: string;
+  dayType: DayType;
+  label: string;
+  anchorPattern: MovementPattern | null;
+  anchorOverride: boolean;
+  // Training-day index this plan was generated against (staleness check).
+  trainingDayIndex: number;
+  seed: number;
+  slots: GeneratedSlot[];
 }
 
 // Program versioning
