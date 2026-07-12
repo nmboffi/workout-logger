@@ -130,7 +130,6 @@ export const EXERCISE_CATEGORIES: Record<string, { label: string; color: string 
   "Overhead Press":        { label: "OHP",   color: "#9A944A" },
   // Squat auxiliaries
   "Reverse Twisting Lunge": { label: "Squat", color: "#C17A4A" },
-  "Leg Press":              { label: "Squat", color: "#C17A4A" },
   // Bench auxiliaries
   "Incline Press":     { label: "Bench", color: "#B8893D" },
   "DB Incline Press":  { label: "Bench", color: "#B8893D" },

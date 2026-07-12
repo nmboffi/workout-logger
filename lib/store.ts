@@ -381,6 +381,7 @@ export const useStore = create<AppState>((set, get) => ({
           accessorySets: [],
           supersetGroup: ex.supersetGroup,
           notes: "",
+          feel: null,
           done: false,
         };
       }
