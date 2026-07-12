@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
 import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS, DB_EXERCISES } from "../../lib/theme";
+import RandomHome from "../../components/RandomHome";
 
 function formatWeight(weight: number, exerciseName: string): string {
   if (DB_EXERCISES.has(exerciseName)) {
@@ -21,9 +22,16 @@ export default function WorkoutTab() {
     program,
     activeWorkout,
     workoutLogs,
+    programMode,
   } = useStore();
 
-  const logsThisWeek = workoutLogs.filter((l) => l.weekNumber === currentWeek);
+  if (programMode === "random") {
+    return <RandomHome />;
+  }
+
+  const logsThisWeek = workoutLogs.filter(
+    (l) => (l.mode ?? "sbs") === "sbs" && l.weekNumber === currentWeek
+  );
   const completedDays = new Set(logsThisWeek.map((l) => l.dayIndex));
 
   const handleStartDay = (dayIndex: number, dayLabel: string) => {
