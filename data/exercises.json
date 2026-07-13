@@ -86,6 +86,7 @@
     { "id": "incline-press", "name": "Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.625, 0.75] },
     { "id": "db-incline-press", "name": "DB Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.725] },
     { "id": "db-bench-press", "name": "DB Bench Press", "pattern": "bench", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["chest", "triceps"], "intensityBand": [0.6, 0.725] },
+    { "id": "hs-incline-press", "name": "Hammer Strength Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "machine", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.75] },
 
     { "id": "hip-thrusts", "name": "Hip Thrusts", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["glutes", "hamstrings"], "intensityBand": [0.6, 0.725] },
     { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
@@ -110,6 +111,7 @@
     { "id": "straight-bar-curls", "name": "Straight Bar Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "barbell", "muscles": ["biceps"], "accessoryPool": "Biceps", "supersetTag": "arms" },
     { "id": "preacher-curls", "name": "Preacher Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "machine", "muscles": ["biceps"], "accessoryPool": "Biceps", "supersetTag": "arms" },
     { "id": "kb-clean", "name": "KB Clean", "pattern": "pull", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["biceps", "upper-back"], "accessoryPool": "Biceps", "supersetTag": "arms" },
+    { "id": "rope-hammer-curls", "name": "Rope Hammer Curls", "pattern": "pull", "roles": ["accessory"], "equipment": "cable", "muscles": ["biceps", "forearms"], "accessoryPool": "Biceps", "supersetTag": "arms" },
 
     { "id": "skullcrushers", "name": "Skullcrushers", "pattern": "bench", "roles": ["accessory"], "equipment": "barbell", "muscles": ["triceps"], "accessoryPool": "Triceps", "supersetTag": "arms" },
     { "id": "push-downs", "name": "Push-Downs", "pattern": "bench", "roles": ["accessory"], "equipment": "cable", "muscles": ["triceps"], "accessoryPool": "Triceps", "supersetTag": "arms" },
