@@ -22,6 +22,7 @@ export default function SwapScreen() {
     workoutLogs,
     trainingMaxes,
     exercisePool,
+    excludedExercises,
     pendingGeneratedWorkout,
     setGeneratedSlotExercise,
   } = useStore();
@@ -47,6 +48,7 @@ export default function SwapScreen() {
       trainingMaxes,
       seed: 0,
       createdAt: "",
+      excluded: excludedExercises,
     });
 
     return (

@@ -98,6 +98,7 @@ export const DB_EXERCISES = new Set([
   "DB RDL",
   "DB rows",
   "DB Hammer Curls",
+  "DB Shoulder Press",
 ]);
 
 // Pull exercises (back work) — shown as their own category

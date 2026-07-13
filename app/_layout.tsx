@@ -56,6 +56,17 @@ export default function RootLayout() {
             headerTitleStyle: { fontWeight: font.semibold },
           }}
         />
+        <Stack.Screen
+          name="pool"
+          options={{
+            presentation: "modal",
+            headerShown: true,
+            title: "Exercise Pool",
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerTitleStyle: { fontWeight: font.semibold },
+          }}
+        />
       </Stack>
     </PinGate>
   );

@@ -19,6 +19,7 @@ const KEYS = {
   PROGRAM_VERSIONS: "program_versions",
   PROGRAM_MODE: "program_mode",
   GENERATED_WORKOUT: "generated_workout",
+  EXCLUDED_EXERCISES: "excluded_exercises",
 } as const;
 
 export async function saveWorkoutLogs(logs: WorkoutLog[]): Promise<void> {
@@ -105,6 +106,15 @@ export async function saveGeneratedWorkout(
 export async function loadGeneratedWorkout(): Promise<GeneratedWorkout | null> {
   const data = await AsyncStorage.getItem(KEYS.GENERATED_WORKOUT);
   return data ? JSON.parse(data) : null;
+}
+
+export async function saveExcludedExercises(ids: string[]): Promise<void> {
+  await AsyncStorage.setItem(KEYS.EXCLUDED_EXERCISES, JSON.stringify(ids));
+}
+
+export async function loadExcludedExercises(): Promise<string[]> {
+  const data = await AsyncStorage.getItem(KEYS.EXCLUDED_EXERCISES);
+  return data ? JSON.parse(data) : [];
 }
 
 export async function exportAllData(): Promise<string> {

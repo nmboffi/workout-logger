@@ -197,7 +197,10 @@ export interface TemplateSlot {
   slot: string;
   role: SlotRole | "fixed";
   anchor?: boolean;
-  relation?: "same-pattern" | "complementary" | "any";
+  // "distinct": a pattern different from the anchor AND from every
+  // already-picked main/aux slot — SBS-style days where the three TM lifts
+  // span three movement patterns.
+  relation?: "same-pattern" | "complementary" | "distinct" | "any";
   optional?: boolean;
   pools?: string[];
   distinctGroup?: string;

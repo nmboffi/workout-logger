@@ -56,6 +56,8 @@ import {
   loadProgramMode,
   saveGeneratedWorkout,
   loadGeneratedWorkout,
+  saveExcludedExercises,
+  loadExcludedExercises,
 } from "./storage";
 import { PULL_EXERCISES } from "./theme";
 import programData from "../data/program.json";
@@ -68,7 +70,8 @@ const poolById = new Map(exercisePool.exercises.map((e) => [e.id, e]));
 
 function makeGeneratorInputs(
   logs: WorkoutLog[],
-  trainingMaxes: Record<string, number>
+  trainingMaxes: Record<string, number>,
+  excluded: string[]
 ): GeneratorInputs {
   return {
     logs,
@@ -76,6 +79,7 @@ function makeGeneratorInputs(
     trainingMaxes,
     seed: Date.now(),
     createdAt: new Date().toISOString(),
+    excluded,
   };
 }
 
@@ -216,6 +220,7 @@ interface AppState {
   programMode: ProgramMode;
   pendingGeneratedWorkout: GeneratedWorkout | null;
   exercisePool: ExercisePoolFile;
+  excludedExercises: string[];
 
   // Actions
   initialize: () => Promise<void>;
@@ -254,6 +259,7 @@ interface AppState {
   setGeneratedSlotExercise: (slotKey: string, exerciseId: string) => void;
   discardGeneratedWorkout: () => void;
   startGeneratedWorkout: () => void;
+  toggleExcludedExercise: (exerciseId: string) => void;
 
   // Dictation import
   importWorkouts: (payload: ImportPayload, dryRun?: boolean) => ImportResult;
@@ -545,9 +551,10 @@ export const useStore = create<AppState>((set, get) => ({
   programMode: "sbs",
   pendingGeneratedWorkout: null,
   exercisePool,
+  excludedExercises: [],
 
   initialize: async () => {
-    const [logs, savedWeek, savedSchedule, savedTMs, savedDays, versions, savedMode, savedGenerated] =
+    const [logs, savedWeek, savedSchedule, savedTMs, savedDays, versions, savedMode, savedGenerated, savedExcluded] =
       await Promise.all([
         loadWorkoutLogs(),
         loadCurrentWeek(),
@@ -557,6 +564,7 @@ export const useStore = create<AppState>((set, get) => ({
         loadProgramVersions(),
         loadProgramMode(),
         loadGeneratedWorkout(),
+        loadExcludedExercises(),
       ]);
 
     const baseTMs = buildInitialTrainingMaxes();
@@ -579,6 +587,7 @@ export const useStore = create<AppState>((set, get) => ({
       programVersions: versions,
       programMode: savedMode,
       pendingGeneratedWorkout: savedGenerated,
+      excludedExercises: savedExcluded,
       initialized: true,
     });
   },
@@ -871,10 +880,10 @@ export const useStore = create<AppState>((set, get) => ({
   },
 
   generateRandomWorkout: (dayType, anchor) => {
-    const { workoutLogs, trainingMaxes } = get();
+    const { workoutLogs, trainingMaxes, excludedExercises } = get();
     const gw = generateWorkout(
       dayType,
-      makeGeneratorInputs(workoutLogs, trainingMaxes),
+      makeGeneratorInputs(workoutLogs, trainingMaxes, excludedExercises),
       anchor
     );
     set({ pendingGeneratedWorkout: gw });
@@ -882,49 +891,49 @@ export const useStore = create<AppState>((set, get) => ({
   },
 
   rerollRandomWorkout: () => {
-    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes } = get();
+    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes, excludedExercises } = get();
     if (!pendingGeneratedWorkout) return;
     const gw = rerollWorkout(
       pendingGeneratedWorkout,
-      makeGeneratorInputs(workoutLogs, trainingMaxes)
+      makeGeneratorInputs(workoutLogs, trainingMaxes, excludedExercises)
     );
     set({ pendingGeneratedWorkout: gw });
     saveGeneratedWorkout(gw);
   },
 
   rerollGeneratedSlot: (slotKey) => {
-    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes } = get();
+    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes, excludedExercises } = get();
     if (!pendingGeneratedWorkout) return;
     const gw = rerollSlot(
       pendingGeneratedWorkout,
       slotKey,
-      makeGeneratorInputs(workoutLogs, trainingMaxes)
+      makeGeneratorInputs(workoutLogs, trainingMaxes, excludedExercises)
     );
     set({ pendingGeneratedWorkout: gw });
     saveGeneratedWorkout(gw);
   },
 
   setGeneratedAnchor: (pattern) => {
-    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes } = get();
+    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes, excludedExercises } = get();
     if (!pendingGeneratedWorkout) return;
     const gw = setWorkoutAnchor(
       pendingGeneratedWorkout,
       pattern,
-      makeGeneratorInputs(workoutLogs, trainingMaxes)
+      makeGeneratorInputs(workoutLogs, trainingMaxes, excludedExercises)
     );
     set({ pendingGeneratedWorkout: gw });
     saveGeneratedWorkout(gw);
   },
 
   setGeneratedSlotExercise: (slotKey, exerciseId) => {
-    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes } = get();
+    const { pendingGeneratedWorkout, workoutLogs, trainingMaxes, excludedExercises } = get();
     const exercise = poolById.get(exerciseId);
     if (!pendingGeneratedWorkout || !exercise) return;
     const gw = setSlotExercise(
       pendingGeneratedWorkout,
       slotKey,
       exercise,
-      makeGeneratorInputs(workoutLogs, trainingMaxes)
+      makeGeneratorInputs(workoutLogs, trainingMaxes, excludedExercises)
     );
     set({ pendingGeneratedWorkout: gw });
     saveGeneratedWorkout(gw);
@@ -933,6 +942,15 @@ export const useStore = create<AppState>((set, get) => ({
   discardGeneratedWorkout: () => {
     set({ pendingGeneratedWorkout: null });
     saveGeneratedWorkout(null);
+  },
+
+  toggleExcludedExercise: (exerciseId) => {
+    const { excludedExercises } = get();
+    const next = excludedExercises.includes(exerciseId)
+      ? excludedExercises.filter((id) => id !== exerciseId)
+      : [...excludedExercises, exerciseId];
+    set({ excludedExercises: next });
+    saveExcludedExercises(next);
   },
 
   startGeneratedWorkout: () => {
@@ -965,7 +983,17 @@ export const useStore = create<AppState>((set, get) => ({
     let pending = pendingGeneratedWorkout;
     const today = localDate();
 
-    for (const w of payload.workouts) {
+    // Explicit TM sets (e.g. dictated "I did 8 at 185" -> Epley-inferred TM)
+    // apply before any workouts so their prescriptions use the new values.
+    let tmsSet = false;
+    for (const [name, value] of Object.entries(payload.trainingMaxes ?? {})) {
+      if (typeof value === "number" && Number.isFinite(value) && value > 0) {
+        tms[name] = roundWeight(value, program.config.rounding);
+        tmsSet = true;
+      }
+    }
+
+    for (const w of payload.workouts ?? []) {
       const importId = w.importId ?? computeImportId(w);
       const mode: ProgramMode = w.mode ?? "random";
       const nameKey = exerciseNameKey(w.exercises.map((e) => e.exerciseName));
@@ -1093,7 +1121,7 @@ export const useStore = create<AppState>((set, get) => ({
       }
     }
 
-    if (!dryRun && result.imported.length > 0) {
+    if (!dryRun && (result.imported.length > 0 || tmsSet)) {
       const exerciseGroups = buildExerciseGroups(tms);
       set({
         workoutLogs: logs,

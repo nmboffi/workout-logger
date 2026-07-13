@@ -183,6 +183,7 @@ interface GenerateContext {
   pool: ExercisePoolFile;
   trainingMaxes: Record<string, number>;
   createdAt: string;
+  excluded?: string[];
   // Forced anchor pattern (user override, or preserved across rerolls).
   anchor?: MovementPattern | null;
   anchorIsOverride?: boolean;
@@ -206,7 +207,9 @@ function candidatesForSlot(
   slot: TemplateSlot,
   anchor: MovementPattern | null,
   picked: Set<string>,
+  pickedPatterns: Set<MovementPattern>,
   usedPools: Set<string>,
+  excluded: Set<string>,
   excludeIds: Set<string>,
   recency: RecencyState,
   pool: ExercisePoolFile,
@@ -216,6 +219,8 @@ function candidatesForSlot(
   return pool.exercises.filter((ex) => {
     if (slot.role === "fixed") return false;
     if (!ex.roles.includes(slot.role)) return false;
+    // User-removed lifts are never candidates, at any relaxation level.
+    if (excluded.has(ex.id)) return false;
     if (slot.lightOnly && !isLightExercise(ex)) return false;
     if (picked.has(ex.id)) return false;
     if (!relax.noExclude && excludeIds.has(ex.id)) return false;
@@ -226,11 +231,15 @@ function candidatesForSlot(
       if (anchor && ex.pattern !== anchor) return false;
     }
     if (slot.role === "aux" && anchor && relation !== "any") {
-      const allowed =
-        relation === "complementary"
-          ? pool.complementaryPatterns[anchor] ?? []
-          : [anchor];
-      if (!allowed.includes(ex.pattern)) return false;
+      if (relation === "distinct") {
+        if (ex.pattern === anchor || pickedPatterns.has(ex.pattern)) return false;
+      } else {
+        const allowed =
+          relation === "complementary"
+            ? pool.complementaryPatterns[anchor] ?? []
+            : [anchor];
+        if (!allowed.includes(ex.pattern)) return false;
+      }
     }
     if (slot.role === "pull" || slot.role === "accessory") {
       if (slot.pools && (!ex.accessoryPool || !slot.pools.includes(ex.accessoryPool))) {
@@ -257,7 +266,9 @@ function pickForSlot(
   slot: TemplateSlot,
   anchor: MovementPattern | null,
   picked: Set<string>,
+  pickedPatterns: Set<MovementPattern>,
   usedPools: Set<string>,
+  excluded: Set<string>,
   excludeIds: Set<string>,
   recency: RecencyState,
   pool: ExercisePoolFile,
@@ -271,7 +282,7 @@ function pickForSlot(
   ];
   for (const relax of ladder) {
     const candidates = candidatesForSlot(
-      slot, anchor, picked, usedPools, excludeIds, recency, pool, relax
+      slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, relax
     );
     if (candidates.length > 0) {
       const cap = Math.max(8, 2 * candidates.length);
@@ -285,7 +296,7 @@ function pickForSlot(
   if (slot.optional) return null;
   // Last resort: allow a consecutive-day repeat, choosing the least-recently
   // used candidate.
-  const candidates = candidatesForSlot(slot, anchor, picked, usedPools, excludeIds, recency, pool, {
+  const candidates = candidatesForSlot(slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, {
     noExclude: true,
     noDistinctPool: true,
     anyRelation: true,
@@ -331,13 +342,18 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
   const recency = buildRecency(ctx.logs, pool);
   const keep = new Map((ctx.keep ?? []).map((s) => [s.slot, s]));
   const excludeIds = new Set(ctx.exclude?.ids ?? []);
+  const excluded = new Set(ctx.excluded ?? []);
 
   const picked = new Set<string>();
+  const pickedPatterns = new Set<MovementPattern>();
   const usedPools = new Set<string>();
   // Register kept slots first so constraints hold against them.
   for (const s of keep.values()) {
     if (s.exerciseId) picked.add(s.exerciseId);
     if (s.accessoryPool) usedPools.add(s.accessoryPool);
+    if ((s.role === "main" || s.role === "aux") && s.pattern) {
+      pickedPatterns.add(s.pattern);
+    }
   }
 
   // Anchor pattern: forced, or recency-weighted pick over anchor patterns.
@@ -354,6 +370,7 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
           (ex) =>
             ex.roles.includes("main") &&
             ex.pattern === p &&
+            !excluded.has(ex.id) &&
             !picked.has(ex.id) &&
             gapFor(ex.id, recency) !== 1
         )
@@ -399,12 +416,13 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
 
     const slotExclude = ctx.exclude?.slotKey === tSlot.slot ? excludeIds : new Set<string>();
     const pick = pickForSlot(
-      tSlot, anchor, picked, usedPools, slotExclude, recency, pool, rng
+      tSlot, anchor, picked, pickedPatterns, usedPools, excluded, slotExclude, recency, pool, rng
     );
     if (!pick) continue;
 
     picked.add(pick.id);
     if (pick.accessoryPool) usedPools.add(pick.accessoryPool);
+    if (tSlot.role === "main" || tSlot.role === "aux") pickedPatterns.add(pick.pattern);
 
     const isTmSlot = tSlot.role === "main" || tSlot.role === "aux";
     // Light-day work is volume, not a TM exposure — no prescription even for
@@ -459,6 +477,8 @@ export interface GeneratorInputs {
   trainingMaxes: Record<string, number>;
   seed: number;
   createdAt: string;
+  // Exercise ids the user has removed from the pool (never candidates).
+  excluded?: string[];
 }
 
 export function generateWorkout(
@@ -580,22 +600,27 @@ export function swapCandidates(
 
   const recency = buildRecency(inputs.logs, inputs.pool);
   const picked = new Set<string>();
+  const pickedPatterns = new Set<MovementPattern>();
   const usedPools = new Set<string>();
   for (const s of gw.slots) {
     if (s.slot === slotKey) continue;
     if (s.exerciseId) picked.add(s.exerciseId);
     if (s.accessoryPool) usedPools.add(s.accessoryPool);
+    if ((s.role === "main" || s.role === "aux") && s.pattern) pickedPatterns.add(s.pattern);
   }
   const candidates = candidatesForSlot(
     tSlot,
     gw.anchorPattern,
     picked,
+    pickedPatterns,
     usedPools,
+    new Set(inputs.excluded ?? []),
     new Set(current?.exerciseId ? [current.exerciseId] : []),
     recency,
     inputs.pool,
-    // Manual choice: only the within-day duplicate and light-day filters
-    // stay hard; show everything else, worst-recency last.
+    // Manual choice: only the within-day duplicate, light-day, and
+    // removed-from-pool filters stay hard; show everything else,
+    // worst-recency last.
     { noExclude: false, noDistinctPool: true, anyRelation: true, noConsecutive: true }
   );
   return candidates.sort((a, b) => gapFor(b.id, recency) - gapFor(a.id, recency));

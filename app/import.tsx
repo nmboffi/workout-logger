@@ -197,14 +197,18 @@ export default function ImportScreen() {
             style={[
               styles.primaryBtn,
               { marginTop: spacing.lg },
-              preview.imported.length === 0 && styles.btnDisabled,
+              preview.imported.length === 0 &&
+                preview.tmChanges.length === 0 &&
+                styles.btnDisabled,
             ]}
-            disabled={preview.imported.length === 0}
+            disabled={preview.imported.length === 0 && preview.tmChanges.length === 0}
             onPress={handleImport}
             activeOpacity={0.8}
           >
             <Text style={styles.primaryBtnText}>
-              Import {preview.imported.length} workout{preview.imported.length !== 1 ? "s" : ""}
+              {preview.imported.length > 0
+                ? `Import ${preview.imported.length} workout${preview.imported.length !== 1 ? "s" : ""}`
+                : "Apply changes"}
             </Text>
           </TouchableOpacity>
         </View>

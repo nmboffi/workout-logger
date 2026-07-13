@@ -106,6 +106,12 @@ export default function RandomHome() {
           <View style={styles.pill}>
             <Text style={styles.pillText}>{completedCount} workouts logged</Text>
           </View>
+          <TouchableOpacity
+            style={[styles.pill, styles.pillAction]}
+            onPress={() => router.push("/pool")}
+          >
+            <Text style={[styles.pillText, { color: colors.amber }]}>Edit Pool</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -346,6 +352,7 @@ const styles = StyleSheet.create({
   heroTitle: { fontSize: font.hero, fontWeight: font.heavy, color: colors.text, marginTop: spacing.xs },
   heroPills: { flexDirection: "row", gap: spacing.sm, marginTop: spacing.md },
   pill: { backgroundColor: colors.bgElevated, paddingHorizontal: spacing.md, paddingVertical: spacing.xs + 2, borderRadius: radius.pill },
+  pillAction: { backgroundColor: colors.amberSubtle },
   pillText: { fontSize: font.caption, color: colors.textSecondary, fontWeight: font.medium },
 
   resumeBanner: {

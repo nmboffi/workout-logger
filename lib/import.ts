@@ -36,6 +36,9 @@ export interface ImportPayload {
   kind: "workout-logger-import";
   version: 1;
   workouts: ImportWorkoutPayload[];
+  // Explicit training-max sets (e.g. Epley-inferred from a dictated
+  // "8 reps at 185"). Applied before any workouts in the payload.
+  trainingMaxes?: Record<string, number>;
 }
 
 export type ParsedImport =
@@ -92,12 +95,29 @@ export function parseImportText(
   if (data.version !== 1) {
     return { type: "error", errors: [`Unsupported payload version: ${data.version}`] };
   }
-  if (!Array.isArray(data.workouts) || data.workouts.length === 0) {
-    return { type: "error", errors: ["Payload has no workouts."] };
-  }
 
   const errors: string[] = [];
   const warnings: string[] = [];
+
+  const hasTMs =
+    data.trainingMaxes != null &&
+    typeof data.trainingMaxes === "object" &&
+    Object.keys(data.trainingMaxes).length > 0;
+  if (hasTMs) {
+    for (const [name, value] of Object.entries(data.trainingMaxes)) {
+      if (typeof value !== "number" || !Number.isFinite(value) || value <= 0) {
+        errors.push(`trainingMaxes["${name}"] must be a positive number.`);
+      }
+      if (!knownNames.has(name)) {
+        warnings.push(`Unknown exercise "${name}" in trainingMaxes.`);
+      }
+    }
+  }
+
+  if (data.workouts == null) data.workouts = [];
+  if (!Array.isArray(data.workouts) || (data.workouts.length === 0 && !hasTMs)) {
+    return { type: "error", errors: ["Payload has no workouts (and no training maxes)."] };
+  }
 
   data.workouts.forEach((w: any, wi: number) => {
     const tag = `Workout ${wi + 1}`;

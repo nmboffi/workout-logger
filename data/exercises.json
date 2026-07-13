@@ -42,8 +42,8 @@
       "label": "Full Workout",
       "slots": [
         { "slot": "main", "role": "main", "anchor": true },
-        { "slot": "aux1", "role": "aux", "relation": "same-pattern" },
-        { "slot": "aux2", "role": "aux", "relation": "complementary", "optional": true },
+        { "slot": "aux1", "role": "aux", "relation": "distinct" },
+        { "slot": "aux2", "role": "aux", "relation": "distinct", "optional": true },
         { "slot": "pull", "role": "pull" },
         { "slot": "acc1", "role": "accessory", "distinctGroup": "circuit" },
         { "slot": "acc2", "role": "accessory", "distinctGroup": "circuit" },
@@ -82,6 +82,8 @@
     { "id": "db-incline-press", "name": "DB Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.725] },
     { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
     { "id": "seated-ohp", "name": "Seated OHP", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
+    { "id": "close-grip-bench", "name": "Close Grip Bench Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["triceps", "chest"], "intensityBand": [0.625, 0.75] },
+    { "id": "db-shoulder-press", "name": "DB Shoulder Press", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
 
     { "id": "barbell-rows", "name": "Barbell rows", "pattern": "pull", "roles": ["pull"], "equipment": "barbell", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
     { "id": "db-rows", "name": "DB rows", "pattern": "pull", "roles": ["pull"], "equipment": "dumbbell", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
@@ -132,12 +134,12 @@
     { "id": "oblique-raises", "name": "Oblique Raises", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["obliques"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
     { "id": "crunch-machine", "name": "Crunch Machine", "pattern": "core", "roles": ["accessory"], "equipment": "machine", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
 
-    { "id": "mcgill-big-3", "name": "McGill Big 3", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs", "lower-back"], "accessoryPool": "Rehab / Core" },
     { "id": "bird-dog", "name": "Bird Dog", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs", "lower-back"], "accessoryPool": "Rehab / Core" },
     { "id": "side-plank", "name": "Side Plank", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["obliques", "abs"], "accessoryPool": "Rehab / Core" },
-    { "id": "dead-bug", "name": "Dead Bug", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs"], "accessoryPool": "Rehab / Core" },
     { "id": "reverse-hyperextensions", "name": "Reverse Hyperextensions", "pattern": "deadlift", "roles": ["accessory"], "equipment": "machine", "muscles": ["lower-back", "glutes"], "accessoryPool": "Rehab / Core" },
     { "id": "glute-bridge", "name": "Glute Bridge", "pattern": "deadlift", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["glutes"], "accessoryPool": "Rehab / Core" },
+    { "id": "ab-wheel", "name": "Ab Wheel Rollouts", "pattern": "core", "roles": ["accessory"], "equipment": "bodyweight", "muscles": ["abs"], "accessoryPool": "Ab Accessories", "supersetTag": "abs" },
+    { "id": "pallof-press", "name": "Pallof Press", "pattern": "core", "roles": ["accessory"], "equipment": "cable", "muscles": ["obliques", "abs"], "accessoryPool": "Rehab / Core", "supersetTag": "abs" },
 
     { "id": "farmer-carry", "name": "Farmer Carry", "pattern": "carry", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["grip", "traps", "abs"], "accessoryPool": "Carries / Conditioning" },
     { "id": "suitcase-carry", "name": "Suitcase Carry", "pattern": "carry", "roles": ["accessory"], "equipment": "kettlebell", "muscles": ["grip", "obliques"], "accessoryPool": "Carries / Conditioning" },
