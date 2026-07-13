@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "inboxId": "2026-07-13-custom-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-13",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Custom Day",
+            "exercises": [
+              {
+                "exerciseName": "Pull-downs",
+                "category": "pull",
+                "notes": "wide grip (pull-up grip)",
+                "accessorySets": [
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "accessory",
+                "calibration": true,
+                "notes": "single-leg",
+                "accessorySets": [
+                  {
+                    "weight": 100,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Hammer Strength Incline Press",
+                "category": "accessory",
+                "calibration": true,
+                "accessorySets": [
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Rope Hammer Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "notes": "low-to-high, 26 per side",
+                "accessorySets": [
+                  {
+                    "weight": 26,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "calibration": true,
+                "notes": "one-hand, 50 lb",
+                "accessorySets": [
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

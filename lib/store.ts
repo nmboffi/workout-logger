@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Platform } from "react-native";
 import type {
   ProgramData,
   WorkoutDay,
@@ -38,6 +39,7 @@ import {
   type ImportPayload,
   type ImportWorkoutPayload,
   type ImportExercisePayload,
+  type InboxFile,
 } from "./import";
 import {
   saveWorkoutLogs,
@@ -58,6 +60,8 @@ import {
   loadGeneratedWorkout,
   saveExcludedExercises,
   loadExcludedExercises,
+  saveProcessedInboxIds,
+  loadProcessedInboxIds,
 } from "./storage";
 import { PULL_EXERCISES } from "./theme";
 import programData from "../data/program.json";
@@ -222,6 +226,10 @@ interface AppState {
   exercisePool: ExercisePoolFile;
   excludedExercises: string[];
 
+  // Remote inbox (Claude-logged workouts)
+  processedInboxIds: string[];
+  inboxNotice: string | null;
+
   // Actions
   initialize: () => Promise<void>;
   setScheduleType: (type: ScheduleType) => void;
@@ -263,6 +271,7 @@ interface AppState {
 
   // Dictation import
   importWorkouts: (payload: ImportPayload, dryRun?: boolean) => ImportResult;
+  syncInbox: () => Promise<{ imported: number; skipped: number } | null>;
 
   // Helpers
   getPrescription: (exerciseName: string, trainingMax: number, singleAt8Pct: number) => ReturnType<typeof prescribeExercise>;
@@ -552,9 +561,11 @@ export const useStore = create<AppState>((set, get) => ({
   pendingGeneratedWorkout: null,
   exercisePool,
   excludedExercises: [],
+  processedInboxIds: [],
+  inboxNotice: null,
 
   initialize: async () => {
-    const [logs, savedWeek, savedSchedule, savedTMs, savedDays, versions, savedMode, savedGenerated, savedExcluded] =
+    const [logs, savedWeek, savedSchedule, savedTMs, savedDays, versions, savedMode, savedGenerated, savedExcluded, savedInboxIds] =
       await Promise.all([
         loadWorkoutLogs(),
         loadCurrentWeek(),
@@ -565,6 +576,7 @@ export const useStore = create<AppState>((set, get) => ({
         loadProgramMode(),
         loadGeneratedWorkout(),
         loadExcludedExercises(),
+        loadProcessedInboxIds(),
       ]);
 
     const baseTMs = buildInitialTrainingMaxes();
@@ -588,8 +600,13 @@ export const useStore = create<AppState>((set, get) => ({
       programMode: savedMode,
       pendingGeneratedWorkout: savedGenerated,
       excludedExercises: savedExcluded,
+      processedInboxIds: savedInboxIds,
       initialized: true,
     });
+
+    // Pull Claude-logged workouts from the deployed inbox in the background;
+    // failures (offline, dev server without the file) are silent.
+    get().syncInbox();
   },
 
   setScheduleType: (type) => {
@@ -1134,5 +1151,63 @@ export const useStore = create<AppState>((set, get) => ({
       saveGeneratedWorkout(pending);
     }
     return result;
+  },
+
+  syncInbox: async () => {
+    // Same-origin on the deployed site; absolute URL covers native and the
+    // dev server (which serves public/ at the root without the baseUrl).
+    const urls =
+      Platform.OS === "web"
+        ? [
+            `${window.location.origin}/workout-logger/inbox.json`,
+            `${window.location.origin}/inbox.json`,
+          ]
+        : ["https://nmboffi.github.io/workout-logger/inbox.json"];
+
+    let file: InboxFile | null = null;
+    for (const url of urls) {
+      try {
+        // Unique query defeats the Pages CDN cache so new logs appear at once.
+        const res = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+        if (res.ok) {
+          file = (await res.json()) as InboxFile;
+          break;
+        }
+      } catch {
+        // try next candidate
+      }
+    }
+    if (!file || file.version !== 1 || !Array.isArray(file.entries)) return null;
+
+    const processed = new Set(get().processedInboxIds);
+    const newIds: string[] = [];
+    let imported = 0;
+    let skipped = 0;
+    for (const entry of file.entries) {
+      if (!entry || typeof entry.inboxId !== "string" || processed.has(entry.inboxId)) {
+        continue;
+      }
+      try {
+        const result = get().importWorkouts(entry.payload, false);
+        imported += result.imported.length;
+        skipped += result.skipped.length;
+        newIds.push(entry.inboxId);
+      } catch {
+        // Malformed entry: skip it but don't mark processed, so a fixed
+        // version of the same inboxId can still land later.
+      }
+    }
+    if (newIds.length > 0) {
+      const all = [...get().processedInboxIds, ...newIds];
+      set({
+        processedInboxIds: all,
+        inboxNotice:
+          imported > 0
+            ? `Synced ${imported} workout${imported === 1 ? "" : "s"} from Claude`
+            : null,
+      });
+      saveProcessedInboxIds(all);
+    }
+    return { imported, skipped };
   },
 }));

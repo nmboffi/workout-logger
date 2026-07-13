@@ -61,6 +61,7 @@ export default function SettingsTab() {
     resetDays,
     programMode,
     setProgramMode,
+    syncInbox,
   } = useStore();
 
   const [versionName, setVersionName] = useState("");
@@ -244,6 +245,21 @@ export default function SettingsTab() {
           onPress={() => router.push("/import")}
         >
           <Text style={styles.actionBtnText}>Import Data…</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.actionBtn, { marginTop: spacing.sm }]}
+          onPress={async () => {
+            const result = await syncInbox();
+            if (!result) {
+              notify("Sync", "Couldn't reach the inbox (offline?).");
+            } else if (result.imported > 0) {
+              notify("Sync", `Imported ${result.imported} workout${result.imported === 1 ? "" : "s"} from Claude.`);
+            } else {
+              notify("Sync", "Nothing new in the inbox.");
+            }
+          }}
+        >
+          <Text style={styles.actionBtnText}>Sync from Claude</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionBtn, { marginTop: spacing.sm }]}

@@ -41,6 +41,18 @@ export interface ImportPayload {
   trainingMaxes?: Record<string, number>;
 }
 
+// Remote inbox: Claude appends import payloads to inbox.json on the deployed
+// site; the app fetches it on launch and imports anything it hasn't processed.
+export interface InboxEntry {
+  inboxId: string;
+  payload: ImportPayload;
+}
+
+export interface InboxFile {
+  version: 1;
+  entries: InboxEntry[];
+}
+
 export type ParsedImport =
   | { type: "workouts"; payload: ImportPayload; warnings: string[] }
   | { type: "backup"; raw: string }

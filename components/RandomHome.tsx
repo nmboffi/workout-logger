@@ -57,6 +57,7 @@ export default function RandomHome() {
     setGeneratedAnchor,
     discardGeneratedWorkout,
     startGeneratedWorkout,
+    inboxNotice,
   } = useStore();
 
   const [anchorChoice, setAnchorChoice] = useState<MovementPattern | null>(null);
@@ -114,6 +115,12 @@ export default function RandomHome() {
           </TouchableOpacity>
         </View>
       </View>
+
+      {inboxNotice && (
+        <View style={styles.inboxNotice}>
+          <Text style={styles.inboxNoticeText}>✓ {inboxNotice}</Text>
+        </View>
+      )}
 
       {/* Resume banner */}
       {activeWorkout && (
@@ -425,6 +432,9 @@ const styles = StyleSheet.create({
 
   staleBanner: { backgroundColor: colors.redSubtle, borderRadius: radius.md, padding: spacing.md, marginBottom: spacing.lg },
   staleText: { fontSize: font.body, color: colors.red },
+
+  inboxNotice: { backgroundColor: colors.greenSubtle, borderRadius: radius.md, padding: spacing.md, marginBottom: spacing.lg },
+  inboxNoticeText: { fontSize: font.body, color: colors.green, fontWeight: font.medium },
 
   liftSection: { marginTop: spacing.sm },
   sectionDivider: { height: 1, backgroundColor: colors.border, marginBottom: spacing.md },

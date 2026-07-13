@@ -20,6 +20,7 @@ const KEYS = {
   PROGRAM_MODE: "program_mode",
   GENERATED_WORKOUT: "generated_workout",
   EXCLUDED_EXERCISES: "excluded_exercises",
+  PROCESSED_INBOX_IDS: "processed_inbox_ids",
 } as const;
 
 export async function saveWorkoutLogs(logs: WorkoutLog[]): Promise<void> {
@@ -114,6 +115,15 @@ export async function saveExcludedExercises(ids: string[]): Promise<void> {
 
 export async function loadExcludedExercises(): Promise<string[]> {
   const data = await AsyncStorage.getItem(KEYS.EXCLUDED_EXERCISES);
+  return data ? JSON.parse(data) : [];
+}
+
+export async function saveProcessedInboxIds(ids: string[]): Promise<void> {
+  await AsyncStorage.setItem(KEYS.PROCESSED_INBOX_IDS, JSON.stringify(ids));
+}
+
+export async function loadProcessedInboxIds(): Promise<string[]> {
+  const data = await AsyncStorage.getItem(KEYS.PROCESSED_INBOX_IDS);
   return data ? JSON.parse(data) : [];
 }
 
