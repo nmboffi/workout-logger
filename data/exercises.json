@@ -71,10 +71,10 @@
     }
   ],
   "exercises": [
-    { "id": "leg-press", "name": "Leg Press", "pattern": "squat", "roles": ["main", "aux"], "equipment": "machine", "muscles": ["quads", "glutes"], "intensityBand": [0.65, 0.8] },
+    { "id": "leg-press", "name": "Leg Press", "pattern": "squat", "roles": ["main"], "equipment": "machine", "muscles": ["quads", "glutes"], "intensityBand": [0.65, 0.8] },
     { "id": "bench-press", "name": "Bench Press", "pattern": "bench", "roles": ["main"], "equipment": "barbell", "muscles": ["chest", "triceps"], "intensityBand": [0.65, 0.8] },
     { "id": "trap-bar-deadlift", "name": "Trap Bar Deadlift", "pattern": "deadlift", "roles": ["main"], "equipment": "trapbar", "muscles": ["hamstrings", "glutes", "back"], "intensityBand": [0.65, 0.8] },
-    { "id": "overhead-press", "name": "Overhead Press", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.65, 0.8] },
+    { "id": "overhead-press", "name": "Overhead Press", "pattern": "ohp", "roles": ["main"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.65, 0.8] },
 
     { "id": "bulgarian-split-squat", "name": "Bulgarian Split Squat", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
     { "id": "reverse-twisting-lunge", "name": "Reverse Twisting Lunge", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes", "obliques"], "intensityBand": [0.6, 0.725] },
