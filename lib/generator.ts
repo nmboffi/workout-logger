@@ -245,6 +245,11 @@ function candidatesForSlot(
       if (slot.pools && (!ex.accessoryPool || !slot.pools.includes(ex.accessoryPool))) {
         return false;
       }
+      // excludePools stays hard at every relaxation level — the abs slot must
+      // be the only source of ab work.
+      if (slot.excludePools && ex.accessoryPool && slot.excludePools.includes(ex.accessoryPool)) {
+        return false;
+      }
       if (
         !relax.noDistinctPool &&
         slot.distinctGroup &&
@@ -280,7 +285,10 @@ function pickForSlot(
     { noExclude: true, noDistinctPool: true, anyRelation: false, noConsecutive: false },
     { noExclude: true, noDistinctPool: true, anyRelation: true, noConsecutive: false },
   ];
-  for (const relax of ladder) {
+  // Optional slots drop rather than relax their pattern relation — a second
+  // aux should never duplicate a pattern just to fill the slot.
+  const rungs = slot.optional ? ladder.slice(0, 3) : ladder;
+  for (const relax of rungs) {
     const candidates = candidatesForSlot(
       slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, relax
     );
@@ -396,6 +404,14 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
       slots.push({ ...kept, order: order++ });
       continue;
     }
+    // Flexible accessory count: skip this slot if the day already has enough
+    // exercises (more aux lifts -> fewer circuit "others").
+    if (
+      tSlot.maxTotal != null &&
+      slots.filter((s) => s.role !== "fixed").length >= tSlot.maxTotal
+    ) {
+      continue;
+    }
     if (tSlot.role === "fixed") {
       slots.push({
         slot: tSlot.slot,
@@ -445,6 +461,21 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
       locked: false,
       order: order++,
     });
+  }
+
+  // Enforce the day-size cap even when kept slots (anchor changes, rerolls of
+  // plans made under a different aux count) push past it: trim unlocked
+  // no-dedicated-pools "other" accessories from the end.
+  if (template.maxExercises != null) {
+    for (let i = slots.length - 1; i >= 0; i--) {
+      if (slots.filter((s) => s.role !== "fixed").length <= template.maxExercises) break;
+      const s = slots[i];
+      const tSlot = template.slots.find((t) => t.slot === s.slot);
+      if (s.role === "accessory" && !s.locked && !tSlot?.pools) {
+        slots.splice(i, 1);
+      }
+    }
+    slots.forEach((s, i) => (s.order = i));
   }
 
   applySupersetGroups(slots, pool);

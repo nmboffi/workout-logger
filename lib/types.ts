@@ -203,14 +203,22 @@ export interface TemplateSlot {
   relation?: "same-pattern" | "complementary" | "distinct" | "any";
   optional?: boolean;
   pools?: string[];
+  // Pools this slot may never draw from (e.g. circuit "other" slots exclude
+  // Ab Accessories so the dedicated abs slot is the only ab work).
+  excludePools?: string[];
   distinctGroup?: string;
   lightOnly?: boolean;
+  // Skip this slot if the workout already has this many exercises — lets the
+  // accessory count flex with how many aux lifts were drawn.
+  maxTotal?: number;
   fixed?: { name: string };
 }
 
 export interface DayTemplate {
   id: DayType;
   label: string;
+  // Hard cap on non-fixed exercises; surplus unlocked accessories are trimmed.
+  maxExercises?: number;
   slots: TemplateSlot[];
 }
 
