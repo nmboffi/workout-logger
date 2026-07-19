@@ -92,13 +92,16 @@ export const shadow = {
 
 // Dumbbell exercises — display total weight with per-DB breakdown
 // TMs stored per-DB, display as "total (per-DB ea)"
+// TM stored per-dumbbell; displayed as "total (per-DB ea)"
 export const DB_EXERCISES = new Set([
-  "Bulgarian Split Squat",
   "DB Incline Press",
   "DB RDL",
   "DB rows",
   "DB Hammer Curls",
   "DB Bench Press",
+  "Reverse Twisting Lunge",
+  "Walking Lunge",
+  "Seated OHP",
 ]);
 
 // Pull exercises (back work) — shown as their own category
