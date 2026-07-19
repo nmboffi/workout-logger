@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, Platform, StyleSheet } from "
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
 import { workingWeight } from "../lib/sbs";
-import { repTargetsFor } from "../lib/generator";
+import { repTargetsFor, nextCycleAnchor } from "../lib/generator";
 import { getLastPerformance, lastPerformanceLine } from "../lib/history";
 import { colors, spacing, radius, font, shadow, DB_EXERCISES } from "../lib/theme";
 import type { GeneratedSlot, MovementPattern } from "../lib/types";
@@ -24,12 +24,19 @@ const PATTERN_META: Record<string, { label: string; color: string }> = {
 };
 
 const ANCHOR_OPTIONS: { value: MovementPattern | null; label: string }[] = [
-  { value: null, label: "Auto" },
+  { value: null, label: "Cycle" },
   { value: "squat", label: "Squat" },
   { value: "bench", label: "Bench" },
   { value: "deadlift", label: "Dead" },
   { value: "ohp", label: "OHP" },
 ];
+
+const DAY_NAMES: Record<string, string> = {
+  squat: "Squat Day",
+  bench: "Bench Day",
+  deadlift: "Deadlift Day",
+  ohp: "OHP Day",
+};
 
 function confirmWeb(message: string, onConfirm: () => void) {
   if (Platform.OS === "web") {
@@ -56,11 +63,20 @@ export default function RandomHome() {
     rerollGeneratedSlot,
     setGeneratedAnchor,
     discardGeneratedWorkout,
-    startGeneratedWorkout,
+    excludedExercises,
     inboxNotice,
   } = useStore();
 
   const [anchorChoice, setAnchorChoice] = useState<MovementPattern | null>(null);
+
+  const nextUp = nextCycleAnchor({
+    logs: workoutLogs,
+    pool: exercisePool,
+    trainingMaxes,
+    seed: 0,
+    createdAt: "",
+    excluded: excludedExercises,
+  });
 
   const completedCount = workoutLogs.filter((l) => l.completed).length;
   // Rest days don't affect the generator's constraints, so they shouldn't
@@ -71,17 +87,6 @@ export default function RandomHome() {
     .sort()
     .pop();
   const stale = !!(pending && lastCompleted && lastCompleted > pending.createdAt);
-
-  const handleStart = () => {
-    if (activeWorkout) {
-      confirmWeb(`You have an active ${activeWorkout.dayLabel} workout. Resume it?`, () =>
-        router.push("/workout")
-      );
-      return;
-    }
-    startGeneratedWorkout();
-    router.push("/workout");
-  };
 
   const handleDiscard = () => {
     confirmWeb("Discard this generated workout?", discardGeneratedWorkout);
@@ -105,7 +110,9 @@ export default function RandomHome() {
         <Text style={styles.heroTitle}>{pending ? pending.label : "Today"}</Text>
         <View style={styles.heroPills}>
           <View style={styles.pill}>
-            <Text style={styles.pillText}>{completedCount} workouts logged</Text>
+            <Text style={styles.pillText}>
+              {completedCount} workout{completedCount === 1 ? "" : "s"} logged
+            </Text>
           </View>
           <TouchableOpacity
             style={[styles.pill, styles.pillAction]}
@@ -152,8 +159,8 @@ export default function RandomHome() {
 
       {!pending ? (
         <View>
-          {/* Anchor picker */}
-          <Text style={styles.sectionHeading}>Focus</Text>
+          {/* Day picker: follow the cycle, or override */}
+          <Text style={styles.sectionHeading}>Day</Text>
           <View style={styles.anchorRow}>
             {ANCHOR_OPTIONS.map((opt) => (
               <TouchableOpacity
@@ -172,6 +179,10 @@ export default function RandomHome() {
               </TouchableOpacity>
             ))}
           </View>
+          <Text style={styles.cycleHint}>
+            Cycle: Squat → Bench → Dead → OHP — picks up wherever your last
+            logged workout left off.
+          </Text>
 
           {/* Generate buttons */}
           <TouchableOpacity
@@ -180,7 +191,13 @@ export default function RandomHome() {
             activeOpacity={0.8}
           >
             <Text style={styles.generateBtnText}>Generate Workout</Text>
-            <Text style={styles.generateBtnSub}>main · aux · pull · circuit</Text>
+            <Text style={styles.generateBtnSub}>
+              {anchorChoice
+                ? `override: ${DAY_NAMES[anchorChoice]}`
+                : nextUp
+                  ? `next in cycle: ${DAY_NAMES[nextUp]}`
+                  : "main · aux · pull · circuit"}
+            </Text>
           </TouchableOpacity>
           <View style={styles.secondaryRow}>
             <TouchableOpacity
@@ -256,9 +273,12 @@ export default function RandomHome() {
           <SlotSection title="Circuit" color={colors.textMuted} slots={pending.slots.filter((s) => s.role === "accessory")} ctx={slotCtx} />
           <SlotSection title="Recovery" color={colors.green} slots={pending.slots.filter((s) => s.role === "fixed")} ctx={slotCtx} />
 
-          <TouchableOpacity style={styles.startBtn} onPress={handleStart} activeOpacity={0.8}>
-            <Text style={styles.startBtnText}>Start Workout</Text>
-          </TouchableOpacity>
+          <View style={styles.dictateHint}>
+            <Text style={styles.dictateHintText}>
+              Do the work, then dictate it to Claude — it logs itself here and
+              advances the cycle.
+            </Text>
+          </View>
         </View>
       )}
 
@@ -460,13 +480,12 @@ const styles = StyleSheet.create({
   },
   rerollBtnText: { fontSize: 16, color: colors.amber, fontWeight: font.bold },
 
-  startBtn: {
-    backgroundColor: colors.amber,
-    paddingVertical: spacing.lg,
-    borderRadius: radius.lg,
-    alignItems: "center",
+  cycleHint: { fontSize: font.caption, color: colors.textMuted, marginTop: -spacing.md, marginBottom: spacing.xl, lineHeight: 18 },
+  dictateHint: {
+    backgroundColor: colors.amberSubtle,
+    borderRadius: radius.md,
+    padding: spacing.md,
     marginTop: spacing.lg,
-    ...shadow.card,
   },
-  startBtnText: { fontSize: font.subtitle, fontWeight: font.bold, color: "#fff" },
+  dictateHintText: { fontSize: font.body, color: colors.amberDark, lineHeight: 20 },
 });

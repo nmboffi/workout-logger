@@ -122,13 +122,18 @@ export default function SettingsTab() {
           ))}
         </View>
         <Text style={styles.helperText}>
-          Switching modes never changes your history, training maxes, or SBS day layout.
+          {programMode === "random"
+            ? "Randomized: days follow a Squat → Bench → Dead → OHP cycle, with the variants and circuit randomized. Switching modes never changes your history or training maxes."
+            : "Switching modes never changes your history, training maxes, or SBS day layout."}
         </Text>
       </View>
 
-      {/* Schedule */}
+      {/* SBS-only settings: the 21-week program's schedule, week, and layout */}
+      {programMode === "sbs" && (
+      <>
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Schedule</Text>
+        <Text style={styles.cardSubtitle}>Training-day layout of the SBS program</Text>
         <View style={styles.toggleRow}>
           {scheduleOptions.map((opt) => (
             <TouchableOpacity
@@ -144,9 +149,9 @@ export default function SettingsTab() {
         </View>
       </View>
 
-      {/* Week */}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Current Week</Text>
+        <Text style={styles.cardSubtitle}>Position in the 21-week SBS program</Text>
         <View style={styles.weekControl}>
           <TouchableOpacity
             style={styles.weekBtn}
@@ -166,8 +171,11 @@ export default function SettingsTab() {
           </TouchableOpacity>
         </View>
       </View>
+      </>
+      )}
 
       {/* Versions */}
+      {programMode === "sbs" && (
       <View style={styles.card}>
         <View style={styles.cardHeaderRow}>
           <Text style={styles.cardTitle}>Program Versions</Text>
@@ -233,6 +241,7 @@ export default function SettingsTab() {
           </View>
         ))}
       </View>
+      )}
 
       {/* Data */}
       <View style={styles.card}>
@@ -261,20 +270,22 @@ export default function SettingsTab() {
         >
           <Text style={styles.actionBtnText}>Sync from Claude</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.actionBtn, { marginTop: spacing.sm }]}
-          onPress={() =>
-            confirmDialog(
-              "Reset Day Layout",
-              "This will restore the default exercise assignments for each day from the original spreadsheet. Your training maxes and workout history will not be affected.",
-              () => resetDays(),
-              "Reset",
-              true
-            )
-          }
-        >
-          <Text style={[styles.actionBtnText, { color: colors.red }]}>Reset Day Layout to Default</Text>
-        </TouchableOpacity>
+        {programMode === "sbs" && (
+          <TouchableOpacity
+            style={[styles.actionBtn, { marginTop: spacing.sm }]}
+            onPress={() =>
+              confirmDialog(
+                "Reset Day Layout",
+                "This will restore the default exercise assignments for each day from the original spreadsheet. Your training maxes and workout history will not be affected.",
+                () => resetDays(),
+                "Reset",
+                true
+              )
+            }
+          >
+            <Text style={[styles.actionBtnText, { color: colors.red }]}>Reset Day Layout to Default</Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       <View style={{ height: 40 }} />
@@ -296,6 +307,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   cardTitle: { fontSize: font.subtitle, fontWeight: font.bold, color: colors.text, marginBottom: spacing.lg },
+  cardSubtitle: { fontSize: font.caption, color: colors.textMuted, marginTop: -spacing.md, marginBottom: spacing.lg },
   cardHeaderRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.lg },
   helperText: { fontSize: font.caption, color: colors.textMuted, marginTop: spacing.md, lineHeight: 18 },
 
