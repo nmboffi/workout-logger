@@ -178,6 +178,33 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-19-tm-reset-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [],
+        "trainingMaxes": {
+          "Leg Press": 107.5,
+          "Bulgarian Split Squat": 80,
+          "Reverse Twisting Lunge": 67.5,
+          "Walking Lunge": 67.5,
+          "Leg Extensions": 120,
+          "Goblet Squat": 72.5,
+          "Bench Press": 205,
+          "Incline Press": 172.5,
+          "DB Incline Press": 75,
+          "DB Bench Press": 77.5,
+          "Trap Bar Deadlift": 235,
+          "Hip Thrusts": 102.5,
+          "DB RDL": 75,
+          "KB Swings": 60,
+          "Overhead Press": 120,
+          "Seated OHP": 62.5,
+          "KB Press": 65
+        }
+      }
     }
   ]
 }
