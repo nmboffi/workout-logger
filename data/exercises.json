@@ -73,27 +73,27 @@
     }
   ],
   "exercises": [
-    { "id": "leg-press", "name": "Leg Press", "pattern": "squat", "roles": ["main"], "equipment": "machine", "muscles": ["quads", "glutes"], "intensityBand": [0.65, 0.8] },
+    { "id": "leg-press", "name": "Leg Press", "pattern": "squat", "roles": ["aux"], "equipment": "machine", "muscles": ["quads", "glutes"], "intensityBand": [0.65, 0.8] },
     { "id": "bench-press", "name": "Bench Press", "pattern": "bench", "roles": ["main"], "equipment": "barbell", "muscles": ["chest", "triceps"], "intensityBand": [0.65, 0.8] },
     { "id": "overhead-press", "name": "Overhead Press", "pattern": "ohp", "roles": ["main"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.65, 0.8] },
 
-    { "id": "bulgarian-split-squat", "name": "Bulgarian Split Squat", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
-    { "id": "reverse-twisting-lunge", "name": "Reverse Twisting Lunge", "pattern": "squat", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes", "obliques"], "intensityBand": [0.6, 0.725] },
+    { "id": "bulgarian-split-squat", "name": "Bulgarian Split Squat", "pattern": "squat", "roles": ["main"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
+    { "id": "reverse-twisting-lunge", "name": "Reverse Twisting Lunge", "pattern": "squat", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes", "obliques"], "intensityBand": [0.6, 0.725] },
     { "id": "walking-lunge", "name": "Walking Lunge", "pattern": "squat", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
     { "id": "leg-extensions", "name": "Leg Extensions", "pattern": "squat", "roles": ["aux"], "equipment": "machine", "muscles": ["quads"], "intensityBand": [0.6, 0.725] },
     { "id": "goblet-squat", "name": "Goblet Squat", "pattern": "squat", "roles": ["aux"], "equipment": "kettlebell", "muscles": ["quads", "glutes"], "intensityBand": [0.6, 0.725] },
 
-    { "id": "incline-press", "name": "Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.625, 0.75] },
-    { "id": "db-incline-press", "name": "DB Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.725] },
+    { "id": "incline-press", "name": "Incline Press", "pattern": "bench", "roles": ["aux"], "equipment": "barbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.625, 0.75] },
+    { "id": "db-incline-press", "name": "DB Incline Press", "pattern": "bench", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.725] },
     { "id": "db-bench-press", "name": "DB Bench Press", "pattern": "bench", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["chest", "triceps"], "intensityBand": [0.6, 0.725] },
-    { "id": "hs-incline-press", "name": "Hammer Strength Incline Press", "pattern": "bench", "roles": ["main", "aux"], "equipment": "machine", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.75] },
+    { "id": "hs-incline-press", "name": "Hammer Strength Incline Press", "pattern": "bench", "roles": ["aux"], "equipment": "machine", "muscles": ["chest", "front-delts"], "intensityBand": [0.6, 0.75] },
 
     { "id": "trap-bar-deadlift", "name": "Trap Bar Deadlift", "pattern": "deadlift", "roles": ["main"], "equipment": "trapbar", "muscles": ["hamstrings", "glutes", "back"], "intensityBand": [0.65, 0.8] },
-    { "id": "hip-thrusts", "name": "Hip Thrusts", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["glutes", "hamstrings"], "intensityBand": [0.6, 0.725] },
-    { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["main", "aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
+    { "id": "hip-thrusts", "name": "Hip Thrusts", "pattern": "deadlift", "roles": ["aux"], "equipment": "barbell", "muscles": ["glutes", "hamstrings"], "intensityBand": [0.6, 0.725] },
+    { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
     { "id": "kb-swings", "name": "KB Swings", "pattern": "deadlift", "roles": ["aux", "accessory"], "equipment": "kettlebell", "muscles": ["glutes", "hamstrings"], "accessoryPool": "Leg Accessories", "intensityBand": [0.6, 0.725] },
 
-    { "id": "seated-ohp", "name": "Seated OHP", "pattern": "ohp", "roles": ["main", "aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
+    { "id": "seated-ohp", "name": "Seated OHP", "pattern": "ohp", "roles": ["aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
     { "id": "kb-press", "name": "KB Press", "pattern": "ohp", "roles": ["aux"], "equipment": "kettlebell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
 
     { "id": "barbell-rows", "name": "Barbell rows", "pattern": "pull", "roles": ["pull"], "equipment": "barbell", "muscles": ["lats", "upper-back"], "accessoryPool": "Back exercises" },
