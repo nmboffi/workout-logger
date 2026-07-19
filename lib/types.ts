@@ -241,6 +241,10 @@ export interface ExercisePoolFile {
   version: number;
   defaults: PoolDefaults;
   intensityLevels: number[];
+  // "rotate": cycle through anchorPatterns in order, indexed by the last
+  // logged full workout (SBS without the spreadsheet — missed or extra days
+  // just continue the cycle). "random": recency-weighted random draw.
+  anchorMode?: "rotate" | "random";
   anchorPatterns: MovementPattern[];
   complementaryPatterns: Record<string, MovementPattern[]>;
   dayTemplates: DayTemplate[];

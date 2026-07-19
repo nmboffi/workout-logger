@@ -365,10 +365,10 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
     }
   }
 
-  // Anchor pattern: forced, or recency-weighted pick over anchor patterns.
-  // An unforced pick only considers patterns with at least one main-role lift
-  // that clears the no-consecutive constraint, so random generation never has
-  // to break it — only an explicit user override can force a repeat.
+  // Anchor pattern: forced, rotated, or recency-weighted random. An unforced
+  // pick only considers patterns with at least one main-role lift that clears
+  // the no-consecutive constraint, so generation never has to break it — only
+  // an explicit user override can force a repeat.
   let anchor: MovementPattern | null = null;
   if (dayType === "full") {
     if (ctx.anchor) {
@@ -384,16 +384,40 @@ function generate(ctx: GenerateContext): GeneratedWorkout {
             gapFor(ex.id, recency) !== 1
         )
       );
-      const cap = 8;
-      anchor = weightedPick(
-        viable.length > 0 ? viable : pool.anchorPatterns,
-        (p) => {
-          const last = recency.lastAnchorDay[p];
-          const gap = last == null ? cap : recency.trainingDayCount - last;
-          return Math.min(gap, cap) ** 2;
-        },
-        rng
-      );
+      if ((pool.anchorMode ?? "random") === "rotate") {
+        // Continue the cycle from the most recently anchored pattern —
+        // indexed by workouts completed, never by calendar, so missed or
+        // extra days just pick up where the cycle left off. An overridden
+        // day also advances the cycle from its pattern.
+        let lastIdx = -1;
+        let lastDay = -1;
+        pool.anchorPatterns.forEach((p, i) => {
+          const day = recency.lastAnchorDay[p];
+          if (day != null && day > lastDay) {
+            lastDay = day;
+            lastIdx = i;
+          }
+        });
+        const n = pool.anchorPatterns.length;
+        for (let step = 1; step <= n && !anchor; step++) {
+          const candidate = pool.anchorPatterns[(lastIdx + step) % n];
+          if (viable.length === 0 || viable.includes(candidate)) {
+            anchor = candidate;
+          }
+        }
+        anchor = anchor ?? pool.anchorPatterns[(lastIdx + 1) % n];
+      } else {
+        const cap = 8;
+        anchor = weightedPick(
+          viable.length > 0 ? viable : pool.anchorPatterns,
+          (p) => {
+            const last = recency.lastAnchorDay[p];
+            const gap = last == null ? cap : recency.trainingDayCount - last;
+            return Math.min(gap, cap) ** 2;
+          },
+          rng
+        );
+      }
     }
   }
 
