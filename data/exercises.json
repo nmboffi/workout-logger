@@ -91,7 +91,7 @@
     { "id": "trap-bar-deadlift", "name": "Trap Bar Deadlift", "pattern": "deadlift", "roles": ["main"], "equipment": "trapbar", "muscles": ["hamstrings", "glutes", "back"], "intensityBand": [0.65, 0.8] },
     { "id": "hip-thrusts", "name": "Hip Thrusts", "pattern": "deadlift", "roles": ["aux"], "equipment": "barbell", "muscles": ["glutes", "hamstrings"], "intensityBand": [0.6, 0.725] },
     { "id": "db-rdl", "name": "DB RDL", "pattern": "deadlift", "roles": ["aux"], "equipment": "dumbbell", "muscles": ["hamstrings", "glutes"], "intensityBand": [0.6, 0.725] },
-    { "id": "kb-swings", "name": "KB Swings", "pattern": "deadlift", "roles": ["aux", "accessory"], "equipment": "kettlebell", "muscles": ["glutes", "hamstrings"], "accessoryPool": "Leg Accessories", "intensityBand": [0.6, 0.725] },
+    { "id": "kb-swings", "name": "KB Swings", "pattern": "deadlift", "roles": ["aux", "accessory"], "equipment": "kettlebell", "muscles": ["glutes", "hamstrings"], "accessoryPool": "Leg Accessories", "intensityBand": [0.6, 0.725], "frequencyBoost": 20 },
 
     { "id": "seated-ohp", "name": "Seated OHP", "pattern": "ohp", "roles": ["aux"], "equipment": "barbell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },
     { "id": "kb-press", "name": "KB Press", "pattern": "ohp", "roles": ["aux"], "equipment": "kettlebell", "muscles": ["shoulders", "triceps"], "intensityBand": [0.6, 0.725] },

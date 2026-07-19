@@ -296,7 +296,8 @@ function pickForSlot(
       const cap = Math.max(8, 2 * candidates.length);
       return weightedPick(
         candidates,
-        (ex) => Math.min(gapFor(ex.id, recency), cap) ** 2,
+        (ex) =>
+          Math.min(gapFor(ex.id, recency), cap) ** 2 * (ex.frequencyBoost ?? 1),
         rng
       );
     }

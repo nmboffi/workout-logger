@@ -190,6 +190,10 @@ export interface PoolExercise {
   singleAt8Pct?: number;
   sets?: number;
   supersetTag?: string;
+  // Multiplies this exercise's selection weight — favorites appear more often
+  // than plain recency cycling would allow. The no-consecutive-day rule still
+  // applies.
+  frequencyBoost?: number;
   notes?: string;
 }
 
