@@ -23,6 +23,20 @@ const PATTERN_META: Record<string, { label: string; color: string }> = {
   pull: { label: "Pull", color: colors.pull },
 };
 
+// Accessories are tagged by their category, not their movement pattern —
+// "Skullcrushers · Bench" reads wrong; "Skullcrushers · Triceps" doesn't.
+const POOL_META: Record<string, { label: string; color: string }> = {
+  "Back exercises": { label: "Back", color: colors.pull },
+  Biceps: { label: "Biceps", color: "#7A6FA0" },
+  Triceps: { label: "Triceps", color: "#7A6FA0" },
+  Forearms: { label: "Forearms", color: "#7A6FA0" },
+  "Shoulder Accessories": { label: "Delts", color: "#9A944A" },
+  "Chest Accessories": { label: "Chest", color: "#B8893D" },
+  "Leg Accessories": { label: "Legs", color: "#C17A4A" },
+  "Ab Accessories": { label: "Abs", color: "#5A8FA8" },
+  Conditioning: { label: "Cond", color: colors.green },
+};
+
 const ANCHOR_OPTIONS: { value: MovementPattern | null; label: string }[] = [
   { value: null, label: "Cycle" },
   { value: "squat", label: "Squat" },
@@ -270,7 +284,7 @@ export default function RandomHome() {
           <SlotSection title="Main" color={colors.amber} slots={pending.slots.filter((s) => s.role === "main")} ctx={slotCtx} />
           <SlotSection title="Aux" color={colors.textSecondary} slots={pending.slots.filter((s) => s.role === "aux")} ctx={slotCtx} />
           <SlotSection title="Pull" color={colors.pull} slots={pending.slots.filter((s) => s.role === "pull")} ctx={slotCtx} />
-          <SlotSection title="Circuit" color={colors.textMuted} slots={pending.slots.filter((s) => s.role === "accessory")} ctx={slotCtx} />
+          <SlotSection title="Accessories" color={colors.textMuted} slots={pending.slots.filter((s) => s.role === "accessory")} ctx={slotCtx} />
           <SlotSection title="Recovery" color={colors.green} slots={pending.slots.filter((s) => s.role === "fixed")} ctx={slotCtx} />
 
           <View style={styles.dictateHint}>
@@ -323,7 +337,12 @@ function SlotSection({
 }
 
 function SlotRow({ slot, ctx }: { slot: GeneratedSlot; ctx: SlotCtx }) {
-  const meta = slot.pattern ? PATTERN_META[slot.pattern] : null;
+  const meta =
+    slot.role === "accessory" && slot.accessoryPool
+      ? POOL_META[slot.accessoryPool] ?? null
+      : slot.pattern
+        ? PATTERN_META[slot.pattern]
+        : null;
   const tm = ctx.trainingMaxes[slot.exerciseName];
   const last = getLastPerformance(ctx.workoutLogs, slot.exerciseName);
 

@@ -814,6 +814,7 @@
       "name": "Leg Curls",
       "pattern": "deadlift",
       "roles": [
+        "aux",
         "accessory"
       ],
       "equipment": "machine",
@@ -821,7 +822,11 @@
         "hamstrings"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "~100 x8"
+      "notes": "~100x8 baseline; machine, back-safe hamstring volume",
+      "intensityBand": [
+        0.675,
+        0.75
+      ]
     },
     {
       "id": "hyperextensions",
