@@ -4,7 +4,7 @@
     "singleAt8Pct": 0.9,
     "sets": 4,
     "intensityBand": [
-      0.6,
+      0.675,
       0.75
     ],
     "autoreg": {
@@ -231,8 +231,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.65,
-        0.8
+        0.675,
+        0.75
       ]
     },
     {
@@ -248,7 +248,7 @@
         "triceps"
       ],
       "intensityBand": [
-        0.65,
+        0.7,
         0.8
       ]
     },
@@ -265,7 +265,7 @@
         "triceps"
       ],
       "intensityBand": [
-        0.65,
+        0.7,
         0.8
       ]
     },
@@ -282,8 +282,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.7,
+        0.8
       ]
     },
     {
@@ -300,8 +300,8 @@
         "obliques"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -317,8 +317,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -333,8 +333,8 @@
         "quads"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -350,8 +350,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -367,7 +367,7 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.625,
+        0.675,
         0.75
       ]
     },
@@ -384,8 +384,8 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -401,8 +401,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -418,7 +418,7 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.6,
+        0.675,
         0.75
       ]
     },
@@ -454,8 +454,8 @@
         "hamstrings"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -471,8 +471,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -490,8 +490,8 @@
       ],
       "accessoryPool": "Leg Accessories",
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -507,8 +507,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {
@@ -524,8 +524,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.6,
-        0.725
+        0.675,
+        0.75
       ]
     },
     {

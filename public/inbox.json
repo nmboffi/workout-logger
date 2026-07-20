@@ -205,6 +205,142 @@
           "KB Press": 65
         }
       }
+    },
+    {
+      "inboxId": "2026-07-19-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-19",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 18,
+                "prescribedWeight": 47.5,
+                "prescribedReps": 14,
+                "repOutTarget": 18,
+                "sets": 4,
+                "notes": "Smith, 50 plate load + bar"
+              },
+              {
+                "exerciseName": "DB Incline Press",
+                "category": "main",
+                "repsOnLastSet": 18,
+                "prescribedWeight": 45,
+                "prescribedReps": 14,
+                "repOutTarget": 18,
+                "sets": 4
+              },
+              {
+                "exerciseName": "Seated OHP",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 37.5,
+                "prescribedReps": 14,
+                "repOutTarget": 18,
+                "sets": 4,
+                "notes": "used 40s, rep-out not reachable"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 12
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 12
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 12
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 12
+                  }
+                ]
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
+                ],
+                "notes": "two-hand"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Reverse Flyes",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "pec deck machine"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
