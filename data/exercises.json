@@ -101,13 +101,15 @@
         {
           "slot": "aux1",
           "role": "aux",
-          "relation": "distinct"
+          "relation": "distinct",
+          "selection": "lru"
         },
         {
           "slot": "aux2",
           "role": "aux",
           "relation": "distinct",
-          "optional": true
+          "optional": true,
+          "selection": "lru"
         },
         {
           "slot": "pull",

@@ -215,6 +215,9 @@ export interface TemplateSlot {
   // Skip this slot if the workout already has this many exercises — lets the
   // accessory count flex with how many aux lifts were drawn.
   maxTotal?: number;
+  // "lru": deterministic least-recently-used pick (even exposure spacing, for
+  // TM-bearing slots). Default "weighted": recency-weighted random.
+  selection?: "lru" | "weighted";
   fixed?: { name: string };
 }
 

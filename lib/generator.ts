@@ -293,6 +293,14 @@ function pickForSlot(
       slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, relax
     );
     if (candidates.length > 0) {
+      if (slot.selection === "lru") {
+        // Deterministic: the least-recently-used candidate wins, so exposures
+        // space out evenly and each lift's TM wave advances at a steady
+        // cadence. Ties (e.g. never-used lifts) break randomly.
+        const maxGap = Math.max(...candidates.map((ex) => gapFor(ex.id, recency)));
+        const tied = candidates.filter((ex) => gapFor(ex.id, recency) === maxGap);
+        return tied[Math.floor(rng() * tied.length)];
+      }
       const cap = Math.max(8, 2 * candidates.length);
       return weightedPick(
         candidates,
