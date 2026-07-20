@@ -4,8 +4,8 @@
     "singleAt8Pct": 0.9,
     "sets": 4,
     "intensityBand": [
-      0.675,
-      0.75
+      0.725,
+      0.775
     ],
     "autoreg": {
       "sets": 4,
@@ -237,8 +237,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -306,8 +306,8 @@
         "obliques"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -323,8 +323,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -339,8 +339,8 @@
         "quads"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -356,7 +356,7 @@
         "glutes"
       ],
       "intensityBand": [
-        0.675,
+        0.7,
         0.75
       ]
     },
@@ -373,8 +373,8 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -390,8 +390,8 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -407,8 +407,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -424,8 +424,8 @@
         "front-delts"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -460,8 +460,8 @@
         "hamstrings"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -477,8 +477,8 @@
         "glutes"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -509,8 +509,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -526,8 +526,8 @@
         "triceps"
       ],
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
@@ -826,8 +826,8 @@
       "accessoryPool": "Leg Accessories",
       "notes": "~100x8 baseline; machine, back-safe hamstring volume",
       "intensityBand": [
-        0.675,
-        0.75
+        0.725,
+        0.775
       ]
     },
     {
