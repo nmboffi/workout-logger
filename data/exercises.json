@@ -117,28 +117,32 @@
           "slot": "acc1",
           "role": "accessory",
           "distinctGroup": "circuit",
-          "excludePools": [
-            "Ab Accessories"
-          ],
-          "maxTotal": 6
+          "maxTotal": 6,
+          "pools": [
+            "Biceps",
+            "Triceps",
+            "Forearms"
+          ]
         },
         {
           "slot": "acc2",
           "role": "accessory",
           "distinctGroup": "circuit",
-          "excludePools": [
-            "Ab Accessories"
-          ],
-          "maxTotal": 6
+          "maxTotal": 6,
+          "pools": [
+            "Shoulder Accessories",
+            "Chest Accessories"
+          ]
         },
         {
           "slot": "acc3",
           "role": "accessory",
           "distinctGroup": "circuit",
-          "excludePools": [
-            "Ab Accessories"
-          ],
-          "maxTotal": 6
+          "maxTotal": 6,
+          "pools": [
+            "Leg Accessories",
+            "Conditioning"
+          ]
         },
         {
           "slot": "abs",
@@ -480,7 +484,6 @@
       "name": "KB Swings",
       "pattern": "deadlift",
       "roles": [
-        "aux",
         "accessory"
       ],
       "equipment": "kettlebell",
@@ -489,10 +492,7 @@
         "hamstrings"
       ],
       "accessoryPool": "Leg Accessories",
-      "intensityBand": [
-        0.675,
-        0.75
-      ]
+      "notes": "ballistic: fixed bell, crisp 10-15s, progress by bell/sets"
     },
     {
       "id": "seated-ohp",
