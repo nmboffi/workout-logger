@@ -361,6 +361,17 @@
           "DB RDL": 77.5
         }
       }
+    },
+    {
+      "inboxId": "2026-07-19-legcurl-tm-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [],
+        "trainingMaxes": {
+          "Leg Curls": 120
+        }
+      }
     }
   ]
 }
