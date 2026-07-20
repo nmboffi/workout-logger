@@ -462,7 +462,8 @@
       "intensityBand": [
         0.725,
         0.775
-      ]
+      ],
+      "notes": "HS machine; TM convention = per-side plate load"
     },
     {
       "id": "db-rdl",
@@ -633,6 +634,21 @@
       ],
       "accessoryPool": "Back exercises",
       "notes": "~145 x8"
+    },
+    {
+      "id": "iso-lateral-row",
+      "name": "Iso-Lateral Row",
+      "pattern": "pull",
+      "roles": [
+        "pull"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "lats",
+        "upper-back"
+      ],
+      "accessoryPool": "Back exercises",
+      "notes": "HS machine; ~80/side (45+35) baseline"
     },
     {
       "id": "db-hammer-curls",
