@@ -341,6 +341,26 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-19-tm-rir-credit-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [],
+        "trainingMaxes": {
+          "Bench Press": 217.5,
+          "Overhead Press": 125,
+          "Incline Press": 182.5,
+          "Leg Press": 112.5,
+          "Leg Extensions": 125,
+          "Reverse Twisting Lunge": 72.5,
+          "Walking Lunge": 72.5,
+          "DB Bench Press": 80,
+          "Hip Thrusts": 107.5,
+          "DB RDL": 77.5
+        }
+      }
     }
   ]
 }
