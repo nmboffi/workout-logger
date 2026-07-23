@@ -1,0 +1,255 @@
+
+<title>Lift Progression — Nick</title>
+<style>
+:root {
+  --paper: #faf7f4; --card: #ffffff; --ink: #2c2420; --ink-2: #6b5d52; --muted: #9b8e82;
+  --hairline: #e8e2da; --accent: #c4873b; --accent-soft: rgba(196,135,59,.12);
+  --data: #2a78d6; --data-soft: rgba(42,120,214,.14); --miss: #e34948; --grid: #efe9e1;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --paper: #171410; --card: #201d18; --ink: #f2eee7; --ink-2: #c9c0b4; --muted: #8f867a;
+  --hairline: #35302a; --accent: #d99a4e; --accent-soft: rgba(217,154,78,.16);
+  --data: #3987e5; --data-soft: rgba(57,135,229,.2); --miss: #e66767; --grid: #2b2722;
+}}
+:root[data-theme="light"] {
+  --paper: #faf7f4; --card: #ffffff; --ink: #2c2420; --ink-2: #6b5d52; --muted: #9b8e82;
+  --hairline: #e8e2da; --accent: #c4873b; --accent-soft: rgba(196,135,59,.12);
+  --data: #2a78d6; --data-soft: rgba(42,120,214,.14); --miss: #e34948; --grid: #efe9e1;
+}
+:root[data-theme="dark"] {
+  --paper: #171410; --card: #201d18; --ink: #f2eee7; --ink-2: #c9c0b4; --muted: #8f867a;
+  --hairline: #35302a; --accent: #d99a4e; --accent-soft: rgba(217,154,78,.16);
+  --data: #3987e5; --data-soft: rgba(57,135,229,.2); --miss: #e66767; --grid: #2b2722;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 20px 16px 64px; }
+.wrap { max-width: 920px; margin: 0 auto; }
+.eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-size: 26px; margin: 2px 0 2px; letter-spacing: -.01em; }
+.sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 20px; }
+.pill { border: 1px solid var(--hairline); background: var(--card); color: var(--ink-2); border-radius: 999px;
+  padding: 5px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pill.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.pill.dim { opacity: .55; font-weight: 500; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.tile { background: var(--card); border: 1px solid var(--hairline); border-radius: 12px; padding: 12px 14px; }
+.tile .k { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.tile .v { font-size: 24px; font-weight: 800; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.tile .d { font-size: 12px; color: var(--ink-2); margin-top: 1px; }
+.card { background: var(--card); border: 1px solid var(--hairline); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+.card h2 { font-size: 14px; margin: 0 0 2px; }
+.card .note { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+svg { display: block; width: 100%; height: auto; }
+.legend { display: flex; gap: 14px; font-size: 12px; color: var(--ink-2); margin-top: 6px; flex-wrap: wrap; }
+.legend .chip { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.tip { position: fixed; pointer-events: none; background: var(--card); border: 1px solid var(--hairline);
+  border-radius: 8px; padding: 7px 10px; font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.14);
+  display: none; z-index: 10; max-width: 240px; }
+.tip b { font-variant-numeric: tabular-nums; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 6px 8px; border-bottom: 1px solid var(--hairline); }
+td { padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+td.beat { color: var(--data); font-weight: 700; } td.missv { color: var(--miss); font-weight: 700; }
+details summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--ink-2); padding: 4px 0; }
+.tablewrap { overflow-x: auto; }
+.unitnote { background: var(--accent-soft); color: var(--accent); border-radius: 8px; font-size: 12px; padding: 6px 10px; margin: 6px 0; }
+@media (prefers-reduced-motion: no-preference) { .pill { transition: background .12s ease; } }
+</style>
+<div class="wrap">
+  <div class="eyebrow">Workout Logger</div>
+  <h1>Lift Progression</h1>
+  <div class="sub">Three years of SBS cycles + the current randomized program · updated __UPDATED__ · training maxes in lbs (per-DB where noted)</div>
+  <div class="pills" id="pills" role="tablist"></div>
+  <div class="tiles" id="tiles"></div>
+  <div class="card">
+    <h2>Training max over time <span id="unitSuffix" style="color:var(--muted);font-weight:400"></span></h2>
+    <div class="note" id="tmNote"></div>
+    <div id="unitWarn"></div>
+    <div id="tmChart"></div>
+  </div>
+  <div class="card">
+    <h2>Rep-outs vs target</h2>
+    <div class="note">Each bar is one session's final set: above zero = beat the target (blue), below = missed (red).</div>
+    <div id="devChart"></div>
+    <div class="legend">
+      <span><span class="chip" style="background:var(--data)"></span>beat target</span>
+      <span><span class="chip" style="background:var(--miss)"></span>missed target</span>
+      <span><span class="chip" style="background:var(--hairline)"></span>hit exactly</span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Sessions</h2>
+    <div class="note">Every recorded exposure of this lift, most recent first.</div>
+    <div class="tablewrap" id="sessions"></div>
+  </div>
+  <div class="card">
+    <h2>All lifts</h2>
+    <div class="tablewrap" id="alltable"></div>
+  </div>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const DATA = /*__DATA__*/null;
+const PER_DB = new Set(["DB Incline Press","DB RDL","DB rows","DB Hammer Curls","DB Bench Press","Reverse Twisting Lunge","Walking Lunge","Seated OHP"]);
+// Plate-loaded machines: how the TM is counted, plus the converted figure.
+const UNITS = {
+  "Hip Thrusts":                   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Hammer Strength Chest Press":   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Iso-Lateral Row":               {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Hammer Strength Incline Press": {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
+  "Bulgarian Split Squat":         {suffix: " total", label: "Smith plate total", conv: tm => fmt(tm/2) + " /side"},
+  "Leg Press":                     {suffix: " /leg",  label: "per leg", conv: tm => fmt(tm/2) + " /side of sled"},
+};
+const NOTES = {
+  "Bulgarian Split Squat": "Points before Jul 2026 are per-dumbbell; current points are Smith-machine plate load (total on the bar, half per side).",
+  "Leg Press": "Points before Jul 2026 are bilateral sled totals; current points are per-leg (single-leg).",
+  "Leg Extensions": "Current points are single-leg.",
+  "Hip Thrusts": "Deadlift-slot main since Jul 23, 2026 (trap bar retired). TM is per-side plate load on the HS machine — 115/side = 230 total.",
+  "Trap Bar Deadlift": "Retired Jul 23, 2026 (low back). Posterior chain volume now comes from hip thrusts, hyperextensions, single-leg DB RDLs, KB swings, and leg curls.",
+  "Hammer Strength Chest Press": "Added Jul 23, 2026 as a bench aux. TM is per-side plate load — 142.5/side = 285 total.",
+  "DB RDL": "Single-leg going forward (easier on the low back); weight is per dumbbell.",
+};
+const tmOrder = Object.keys(DATA.currentTMs);
+const withData = Object.keys(DATA.lifts).filter(n => (DATA.lifts[n].history.length + DATA.lifts[n].recent.length) > 0);
+const lifts = [...new Set([...tmOrder.filter(n => withData.includes(n) || DATA.currentTMs[n]), ...withData])];
+let sel = "Bench Press";
+
+function pts(name) {
+  const L = DATA.lifts[name] || {history: [], recent: []};
+  const seq = [];
+  for (const h of L.history) seq.push({label: `${h.era} · wk ${h.week}`, tm: h.tm, weight: h.weight, reps: h.reps, target: h.target, dev: h.dev, era: h.era});
+  for (const r of L.recent) if (r.kind === "main" && r.tmAfter != null)
+    seq.push({label: r.date, tm: r.tmAfter, weight: r.weight, reps: r.reps, target: r.target, dev: r.dev, era: "current"});
+  return seq;
+}
+function fmt(x) { return x == null ? "—" : (Math.round(x * 10) / 10).toString(); }
+
+function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+function render() {
+  document.getElementById("pills").innerHTML = lifts.map(n =>
+    `<button class="pill ${n===sel?"on":""} ${DATA.currentTMs[n]?"":"dim"}" role="tab" aria-selected="${n===sel}" onclick="sel='${n.replace(/'/g,"\\'")}';render()">${esc(n)}</button>`).join("");
+  const L = DATA.lifts[sel] || {history: [], recent: []};
+  const seq = pts(sel);
+  const devs = seq.filter(p => p.dev != null);
+  const beat = devs.filter(p => p.dev > 0).length;
+  const per = PER_DB.has(sel) ? " /DB" : (UNITS[sel] ? UNITS[sel].suffix : "");
+  const tmNow = DATA.currentTMs[sel];
+  const tmVals = seq.map(p => p.tm);
+  document.getElementById("tiles").innerHTML = [
+    ["Current TM", tmNow != null ? fmt(tmNow) + per : "—", tmNow != null ? (UNITS[sel] ? UNITS[sel].conv(tmNow) + " · autoregulated" : "autoregulated") : "tracked, not programmed"],
+    ["Sessions", seq.length + L.recent.filter(r => r.kind === "sets").length, "2023 → now"],
+    ["Avg rep-out beat", devs.length ? (devs.reduce((a,p)=>a+p.dev,0)/devs.length).toFixed(1).replace(/^([^-])/,"+$1") : "—", devs.length ? `beats target ${Math.round(100*beat/devs.length)}% of the time` : "no rep-out data"],
+    ["TM range", tmVals.length ? `${fmt(Math.min(...tmVals))}–${fmt(Math.max(...tmVals))}` : "—", "all-time"],
+  ].map(([k,v,d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
+  document.getElementById("unitSuffix").textContent = PER_DB.has(sel) ? "(per DB)" : (UNITS[sel] ? "(" + UNITS[sel].label + ")" : "");
+  document.getElementById("tmNote").textContent = seq.length ? "Hover a point for the session behind it." : "No TM history for this lift — it's tracked by baselines only.";
+  document.getElementById("unitWarn").innerHTML = NOTES[sel] ? `<div class="unitnote">${NOTES[sel]}</div>` : "";
+  drawTM(seq);
+  drawDev(devs);
+  drawSessions(L);
+  drawAll();
+}
+
+function drawTM(seq) {
+  const el = document.getElementById("tmChart");
+  if (!seq.length) { el.innerHTML = ""; return; }
+  const W = 880, H = 260, m = {t: 26, r: 14, b: 22, l: 44};
+  const xs = i => m.l + (W - m.l - m.r) * (seq.length === 1 ? .5 : i / (seq.length - 1));
+  const vals = seq.map(p => p.tm);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  if (hi - lo < 8) { lo -= 4; hi += 4; }
+  const pad = (hi - lo) * .12; lo -= pad; hi += pad;
+  const ys = v => m.t + (H - m.t - m.b) * (1 - (v - lo) / (hi - lo));
+  const ticks = 4, tickvals = Array.from({length: ticks + 1}, (_, i) => lo + (hi - lo) * i / ticks);
+  let g = tickvals.map(v => `<line x1="${m.l}" x2="${W-m.r}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--grid)" stroke-width="1"/>
+    <text x="${m.l-8}" y="${ys(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">${Math.round(v)}</text>`).join("");
+  // era boundaries + labels
+  let bounds = "";
+  for (let i = 1; i < seq.length; i++) if (seq[i].era !== seq[i-1].era)
+    bounds += `<line x1="${(xs(i)+xs(i-1))/2}" x2="${(xs(i)+xs(i-1))/2}" y1="${m.t-6}" y2="${H-m.b}" stroke="var(--hairline)" stroke-width="1" stroke-dasharray="3 3"/>`;
+  const eras = [];
+  seq.forEach((p, i) => { if (!i || p.era !== seq[i-1].era) eras.push({era: p.era, start: i}); });
+  eras.forEach((e, k) => { e.end = k + 1 < eras.length ? eras[k+1].start - 1 : seq.length - 1; });
+  const eraLabels = eras.map(e => {
+    const cx = Math.min(Math.max((xs(e.start)+xs(e.end))/2, m.l+30), W-m.r-38);
+    return `<text x="${cx}" y="${m.t-10}" text-anchor="middle" font-size="10" fill="var(--muted)" style="letter-spacing:.08em;text-transform:uppercase">${e.era}</text>`;
+  }).join("");
+  // line segments: break where unit jumps (ratio > 1.8)
+  let paths = [], cur = [];
+  for (let i = 0; i < seq.length; i++) {
+    if (i && Math.max(seq[i].tm, seq[i-1].tm) / Math.min(seq[i].tm, seq[i-1].tm) > 1.8) { paths.push(cur); cur = []; }
+    cur.push(i);
+  }
+  paths.push(cur);
+  const lines = paths.filter(p => p.length > 1).map(p =>
+    `<polyline fill="none" stroke="var(--data)" stroke-width="2" stroke-linejoin="round" points="${p.map(i => `${xs(i)},${ys(seq[i].tm)}`).join(" ")}"/>`).join("");
+  const dots = seq.map((p, i) =>
+    `<circle cx="${xs(i)}" cy="${ys(p.tm)}" r="${i===seq.length-1?4.5:3}" fill="var(--data)" ${i===seq.length-1?'stroke="var(--card)" stroke-width="2"':''}/>`).join("");
+  const hover = seq.map((p, i) =>
+    `<rect x="${xs(i)-((W-m.l-m.r)/(2*Math.max(seq.length-1,1)))}" y="${m.t}" width="${(W-m.l-m.r)/Math.max(seq.length-1,1)}" height="${H-m.t-m.b}" fill="transparent"
+      data-tip="<b>${esc(p.label)}</b><br>TM <b>${fmt(p.tm)}</b>${p.weight!=null?`<br>${fmt(p.weight)} × ${p.reps} (target ${p.target})`:""}"/>`).join("");
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Training max over time for ${esc(sel)}">${g}${bounds}${eraLabels}${lines}${dots}${hover}</svg>`;
+}
+
+function drawDev(devs) {
+  const el = document.getElementById("devChart");
+  if (!devs.length) { el.innerHTML = '<div class="note">No rep-out sessions recorded for this lift.</div>'; return; }
+  const W = 880, H = 150, m = {t: 12, r: 14, b: 16, l: 44};
+  const maxAbs = Math.max(2, ...devs.map(p => Math.abs(p.dev)));
+  const y0 = m.t + (H - m.t - m.b) * (maxAbs / (2 * maxAbs));
+  const ys = v => m.t + (H - m.t - m.b) * (1 - (v + maxAbs) / (2 * maxAbs));
+  const bw = Math.min(18, (W - m.l - m.r) / devs.length - 2);
+  const bars = devs.map((p, i) => {
+    const x = m.l + (W - m.l - m.r) * (i + .5) / devs.length - bw / 2;
+    const zero = p.dev === 0;
+    const h = zero ? 2 : Math.abs(ys(p.dev) - ys(0));
+    const y = p.dev > 0 ? ys(p.dev) : (zero ? ys(0) - 1 : ys(0));
+    const col = zero ? "var(--hairline)" : (p.dev > 0 ? "var(--data)" : "var(--miss)");
+    return `<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="2" fill="${col}"
+      data-tip="<b>${esc(p.label)}</b><br>${fmt(p.weight)} × <b>${p.reps}</b> vs target ${p.target} (${p.dev>0?"+":""}${p.dev})"/>`;
+  }).join("");
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Rep-out deviations for ${esc(sel)}">
+    <line x1="${m.l}" x2="${W-m.r}" y1="${ys(0)}" y2="${ys(0)}" stroke="var(--hairline)" stroke-width="1"/>
+    <text x="${m.l-8}" y="${ys(maxAbs)+4}" text-anchor="end" font-size="11" fill="var(--muted)">+${maxAbs}</text>
+    <text x="${m.l-8}" y="${ys(-maxAbs)+4}" text-anchor="end" font-size="11" fill="var(--muted)">−${maxAbs}</text>
+    <text x="${m.l-8}" y="${ys(0)+4}" text-anchor="end" font-size="11" fill="var(--muted)">0</text>${bars}</svg>`;
+}
+
+function drawSessions(L) {
+  const rows = [];
+  for (const r of [...L.recent].reverse()) {
+    if (r.kind === "main") rows.push(`<tr><td>${r.date}</td><td>${fmt(r.weight)} × ${r.reps} <span style="color:var(--muted)">/ target ${r.target ?? "—"}</span></td>
+      <td class="${r.dev>0?"beat":r.dev<0?"missv":""}">${r.dev==null?"—":(r.dev>0?"+":"")+r.dev}</td><td>${fmt(r.tmAfter)}</td><td style="color:var(--muted)">${esc(r.note||"")}</td></tr>`);
+    else rows.push(`<tr><td>${r.date}</td><td>${(r.sets||[]).map(s=>`${s[0]==null?"BW":fmt(s[0])}×${s[1]}`).join(" · ")}</td><td>—</td><td>—</td><td style="color:var(--muted)">${esc(r.note||"")}</td></tr>`);
+  }
+  for (const h of [...L.history].reverse()) rows.push(`<tr><td style="color:var(--muted)">${h.era} wk ${h.week}</td><td>${fmt(h.weight)} × ${h.reps} <span style="color:var(--muted)">/ target ${h.target}</span></td>
+    <td class="${h.dev>0?"beat":h.dev<0?"missv":""}">${(h.dev>0?"+":"")+h.dev}</td><td>${fmt(h.tm)}</td><td></td></tr>`);
+  document.getElementById("sessions").innerHTML = rows.length
+    ? `<table><thead><tr><th>When</th><th>Last set</th><th>vs target</th><th>TM</th><th>Notes</th></tr></thead><tbody>${rows.join("")}</tbody></table>`
+    : '<div class="note">Nothing logged yet.</div>';
+}
+
+function drawAll() {
+  const rows = Object.entries(DATA.currentTMs).map(([n, tm]) => {
+    const seq = pts(n); const devs = seq.filter(p => p.dev != null);
+    const avg = devs.length ? (devs.reduce((a,p)=>a+p.dev,0)/devs.length) : null;
+    return `<tr><td><a href="#" onclick="sel='${n.replace(/'/g,"\\'")}';render();window.scrollTo({top:0});return false" style="color:var(--accent);font-weight:600;text-decoration:none">${esc(n)}</a></td>
+      <td>${fmt(tm)}${PER_DB.has(n)?" /DB":(UNITS[n]?UNITS[n].suffix:"")}${UNITS[n]?` <span style="color:var(--muted)">(${UNITS[n].conv(tm)})</span>`:""}</td><td>${seq.length}</td>
+      <td class="${avg>0.05?"beat":""}">${avg==null?"—":(avg>0?"+":"")+avg.toFixed(1)}</td></tr>`;
+  });
+  document.getElementById("alltable").innerHTML = `<table><thead><tr><th>Lift</th><th>Current TM</th><th>Sessions</th><th>Avg beat</th></tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+const tip = document.getElementById("tip");
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest("[data-tip]");
+  if (t) { tip.innerHTML = t.dataset.tip; tip.style.display = "block";
+    const x = Math.min(e.clientX + 12, window.innerWidth - 250), y = e.clientY + 14;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  } else tip.style.display = "none";
+});
+render();
+</script>

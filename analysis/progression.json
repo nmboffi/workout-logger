@@ -7,6 +7,7 @@
   "DB Incline Press": 75.0,
   "DB RDL": 77.5,
   "Goblet Squat": 72.5,
+  "Hammer Strength Chest Press": 142.5,
   "Hammer Strength Incline Press": 182.5,
   "Hip Thrusts": 115.0,
   "Incline Press": 182.5,
@@ -14,7 +15,7 @@
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
   "Leg Extensions": 125.0,
-  "Leg Press": 112.5,
+  "Leg Press": 114.8,
   "Overhead Press": 125.0,
   "Reverse Twisting Lunge": 72.5,
   "Seated OHP": 59.4,
@@ -1624,7 +1625,19 @@
      "dev": 4
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "main",
+     "weight": 82.5,
+     "reps": 15,
+     "target": 11,
+     "dev": 4,
+     "tmBefore": 112.5,
+     "tmAfter": 114.8,
+     "note": "single-leg; used 90 (45/side), above the 82.5 prescription"
+    }
+   ]
   },
   "Lunges": {
    "history": [
@@ -3534,6 +3547,162 @@
        8
       ]
      ]
+    }
+   ]
+  },
+  "Trap Bar RDL": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       9
+      ],
+      [
+       155,
+       9
+      ]
+     ],
+     "note": "sub for Trap Bar Deadlift (main slot); rough on low back even light \u2014 last trap bar session"
+    }
+   ]
+  },
+  "Pull-ups": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       25,
+       5
+      ],
+      [
+       25,
+       5
+      ],
+      [
+       25,
+       5
+      ],
+      [
+       25,
+       5
+      ]
+     ],
+     "note": "weighted +25, varied grip; unweighted warm-up sets before"
+    }
+   ]
+  },
+  "Hammer Strength Chest Press": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       90,
+       9
+      ],
+      [
+       115,
+       11
+      ]
+     ],
+     "note": "per-side load; sub for DB bench (superset convenience); exploratory ramp, middle-set reps approximate"
+    }
+   ]
+  },
+  "Pullovers": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ]
+     ],
+     "note": "DB pullovers"
+    }
+   ]
+  },
+  "French Press": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ]
+     ],
+     "note": "DB tricep extensions"
+    }
+   ]
+  },
+  "Cable Crunches": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-23",
+     "kind": "sets",
+     "sets": [
+      [
+       85,
+       9
+      ],
+      [
+       85,
+       9
+      ],
+      [
+       85,
+       12
+      ]
+     ],
+     "note": "machine max 85; final set rep-out 12"
     }
    ]
   }
