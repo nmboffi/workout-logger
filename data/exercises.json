@@ -429,41 +429,22 @@
       ]
     },
     {
-      "id": "trap-bar-deadlift",
-      "name": "Trap Bar Deadlift",
-      "pattern": "deadlift",
-      "roles": [
-        "main"
-      ],
-      "equipment": "trapbar",
-      "muscles": [
-        "hamstrings",
-        "glutes",
-        "back"
-      ],
-      "intensityBand": [
-        0.75,
-        0.8
-      ],
-      "notes": "low-back rehab: moderate reps, no grinding"
-    },
-    {
       "id": "hip-thrusts",
       "name": "Hip Thrusts",
       "pattern": "deadlift",
       "roles": [
-        "aux"
+        "main"
       ],
-      "equipment": "barbell",
+      "equipment": "machine",
       "muscles": [
         "glutes",
         "hamstrings"
       ],
       "intensityBand": [
         0.725,
-        0.775
+        0.8
       ],
-      "notes": "HS machine; TM convention = per-side plate load"
+      "notes": "HS machine; TM convention = per-side plate load. Deadlift-slot main (trap bar retired 2026-07-23, low back)"
     },
     {
       "id": "db-rdl",
@@ -480,7 +461,8 @@
       "intensityBand": [
         0.725,
         0.775
-      ]
+      ],
+      "notes": "single-leg, per-DB weight (back-friendlier)"
     },
     {
       "id": "kb-swings",
