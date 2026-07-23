@@ -497,6 +497,97 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-23-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-23",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "Programming change: Hip Thrusts now the deadlift-slot main; trap bar retired (low back). Posterior chain volume via hyperextensions, single-leg DB RDLs, KB swings, leg curls.",
+            "exercises": [
+              {
+                "exerciseName": "Trap Bar RDL",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 155, "reps": 9 }
+                ],
+                "notes": "sub for Trap Bar Deadlift (main slot); rough on low back even light — last trap bar session"
+              },
+              {
+                "exerciseName": "Pull-ups",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 25, "reps": 5 },
+                  { "weight": 25, "reps": 5 },
+                  { "weight": 25, "reps": 5 },
+                  { "weight": 25, "reps": 5 }
+                ],
+                "notes": "weighted +25, varied grip; unweighted warm-up sets before"
+              },
+              {
+                "exerciseName": "Leg Press",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "prescribedWeight": 82.5,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "single-leg; used 90 (45/side), above the 82.5 prescription"
+              },
+              {
+                "exerciseName": "Hammer Strength Chest Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 45, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 90, "reps": 9 },
+                  { "weight": 115, "reps": 11 }
+                ],
+                "notes": "per-side load; sub for DB bench (superset convenience); exploratory ramp, middle-set reps approximate"
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 }
+                ],
+                "notes": "DB pullovers"
+              },
+              {
+                "exerciseName": "French Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 }
+                ],
+                "notes": "DB tricep extensions"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 85, "reps": 9 },
+                  { "weight": 85, "reps": 9 },
+                  { "weight": 85, "reps": 12 }
+                ],
+                "notes": "machine max 85; final set rep-out 12"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
