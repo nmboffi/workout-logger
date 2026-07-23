@@ -239,7 +239,8 @@
       "intensityBand": [
         0.725,
         0.775
-      ]
+      ],
+      "notes": "single-leg; TM = per-leg sled load (half per side of the sled)"
     },
     {
       "id": "bench-press",
@@ -290,7 +291,8 @@
       "intensityBand": [
         0.725,
         0.8
-      ]
+      ],
+      "notes": "Smith machine; TM = total plate load on the bar (half per side)"
     },
     {
       "id": "reverse-twisting-lunge",
@@ -426,7 +428,26 @@
       "intensityBand": [
         0.725,
         0.775
-      ]
+      ],
+      "notes": "plate-loaded; TM = total machine load (half per side)"
+    },
+    {
+      "id": "hs-chest-press",
+      "name": "Hammer Strength Chest Press",
+      "pattern": "bench",
+      "roles": [
+        "aux"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "chest",
+        "triceps"
+      ],
+      "intensityBand": [
+        0.725,
+        0.775
+      ],
+      "notes": "plate-loaded; TM = per-side load (double for total)"
     },
     {
       "id": "hip-thrusts",
@@ -444,7 +465,7 @@
         0.725,
         0.8
       ],
-      "notes": "HS machine; TM convention = per-side plate load. Deadlift-slot main (trap bar retired 2026-07-23, low back)"
+      "notes": "HS machine, plate-loaded; TM = per-side load (double for total). Deadlift-slot main (trap bar retired 2026-07-23, low back)"
     },
     {
       "id": "db-rdl",
@@ -630,7 +651,7 @@
         "upper-back"
       ],
       "accessoryPool": "Back exercises",
-      "notes": "HS machine; ~80/side (45+35) baseline"
+      "notes": "HS machine, plate-loaded; baseline = per-side load, ~80/side = 160 total (45+35 per side)"
     },
     {
       "id": "db-hammer-curls",
