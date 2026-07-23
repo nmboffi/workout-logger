@@ -71,6 +71,14 @@ function entryPerformed(entry: ExerciseLogEntry): boolean {
   );
 }
 
+// Random-mode day labels name the day after its anchor pattern.
+const LABEL_TO_ANCHOR: Record<string, MovementPattern> = {
+  "squat day": "squat",
+  "bench day": "bench",
+  "deadlift day": "deadlift",
+  "ohp day": "ohp",
+};
+
 export function buildRecency(
   logs: WorkoutLog[],
   pool: ExercisePoolFile
@@ -101,6 +109,16 @@ export function buildRecency(
     const i = dayIndex++;
 
     let anchorAssigned = false;
+    // The label is authoritative for random-mode days: the actual main may
+    // have been subbed to a lift the pool can't map (unknown or retired), in
+    // which case entry inference would attribute the day to the wrong pattern.
+    if ((log.mode ?? "sbs") === "random") {
+      const labeled = LABEL_TO_ANCHOR[(log.dayLabel ?? "").toLowerCase()];
+      if (labeled) {
+        lastAnchorDay[labeled] = i;
+        anchorAssigned = true;
+      }
+    }
     for (const entry of performed) {
       const ex = nameToEx.get(entry.exerciseName);
       if (!ex) continue;
