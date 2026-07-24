@@ -599,6 +599,95 @@
           "Hammer Strength Chest Press": 142.5
         }
       }
+    },
+    {
+      "inboxId": "2026-07-24-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-24",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "Aux supersetted; ~50 min session.",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 90,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "rep-out approximate (12-14)"
+              },
+              {
+                "exerciseName": "Barbell rows",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 145, "reps": 9 },
+                  { "weight": 145, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "DB Bench Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 60,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "per DB; straight sets done at 9"
+              },
+              {
+                "exerciseName": "Reverse Twisting Lunge",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 55,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "per hand; straight sets done at 9"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "Dips",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 30, "reps": 9 },
+                  { "weight": 40, "reps": 9 },
+                  { "weight": 50, "reps": 9 },
+                  { "weight": 40, "reps": 12 }
+                ],
+                "notes": "EZ bar, working up"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
