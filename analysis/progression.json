@@ -3,7 +3,7 @@
  "currentTMs": {
   "Bench Press": 219.7,
   "Bulgarian Split Squat": 80.0,
-  "DB Bench Press": 80.0,
+  "DB Bench Press": 81.2,
   "DB Incline Press": 75.0,
   "DB RDL": 77.5,
   "Goblet Squat": 72.5,
@@ -16,8 +16,8 @@
   "Leg Curls": 120.0,
   "Leg Extensions": 125.0,
   "Leg Press": 114.8,
-  "Overhead Press": 125.0,
-  "Reverse Twisting Lunge": 72.5,
+  "Overhead Press": 126.2,
+  "Reverse Twisting Lunge": 73.2,
   "Seated OHP": 59.4,
   "Trap Bar Deadlift": 235.0,
   "Walking Lunge": 72.5
@@ -2016,7 +2016,19 @@
      "dev": 0
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "main",
+     "weight": 90,
+     "reps": 13,
+     "target": 11,
+     "dev": 2,
+     "tmBefore": 125.0,
+     "tmAfter": 126.2,
+     "note": "rep-out approximate (12-14)"
+    }
+   ]
   },
   "Rack Pulls": {
    "history": [
@@ -2658,7 +2670,30 @@
      "dev": 2
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "sets",
+     "sets": [
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       9
+      ],
+      [
+       145,
+       9
+      ],
+      [
+       145,
+       9
+      ]
+     ]
+    }
+   ]
   },
   "Hyperextensions": {
    "history": [
@@ -3182,7 +3217,19 @@
      "dev": 0
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "main",
+     "weight": 55,
+     "reps": 12,
+     "target": 10,
+     "dev": 2,
+     "tmBefore": 72.5,
+     "tmAfter": 73.2,
+     "note": "per hand; straight sets done at 9"
+    }
+   ]
   },
   "Pull-downs": {
    "history": [],
@@ -3398,6 +3445,28 @@
       [
        60,
        10
+      ]
+     ]
+    },
+    {
+     "date": "2026-07-24",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
       ]
      ]
     }
@@ -3703,6 +3772,77 @@
       ]
      ],
      "note": "machine max 85; final set rep-out 12"
+    }
+   ]
+  },
+  "DB Bench Press": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "main",
+     "weight": 60,
+     "reps": 13,
+     "target": 10,
+     "dev": 3,
+     "tmBefore": 80.0,
+     "tmAfter": 81.2,
+     "note": "per DB; straight sets done at 9"
+    }
+   ]
+  },
+  "Dips": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ]
+     ]
+    }
+   ]
+  },
+  "Reverse Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-24",
+     "kind": "sets",
+     "sets": [
+      [
+       30,
+       9
+      ],
+      [
+       40,
+       9
+      ],
+      [
+       50,
+       9
+      ],
+      [
+       40,
+       12
+      ]
+     ],
+     "note": "EZ bar, working up"
     }
    ]
   }
