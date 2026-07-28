@@ -789,6 +789,101 @@
           "Bulgarian Split Squat": 90
         }
       }
+    },
+    {
+      "inboxId": "2026-07-27-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-27",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "Dictated a day late.",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "prescribedWeight": 165,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "rep-out approximate"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 }
+                ],
+                "notes": "3x8 bodyweight, then 4x4 weighted with 16 kg KB (35 lb)"
+              },
+              {
+                "exerciseName": "KB Press",
+                "category": "main",
+                "repsOnLastSet": 9,
+                "prescribedWeight": 50,
+                "prescribedReps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "notes": "24 kg bell (53 lb); rep-out approximate"
+              },
+              {
+                "exerciseName": "Goblet Squat",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 50,
+                "prescribedReps": 10,
+                "repOutTarget": 12,
+                "sets": 4,
+                "notes": "24 kg bell (53 lb)"
+              },
+              {
+                "exerciseName": "Push-Downs",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 }
+                ],
+                "notes": "rope; weight approximate (~65)"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 85, "reps": 9 },
+                  { "weight": 85, "reps": 9 },
+                  { "weight": 85, "reps": 9 },
+                  { "weight": 85, "reps": 9 }
+                ],
+                "notes": "machine max"
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 26, "reps": 9 },
+                  { "weight": 26, "reps": 9 },
+                  { "weight": 26, "reps": 9 },
+                  { "weight": 26, "reps": 9 }
+                ],
+                "notes": "low-to-high; weight not recorded, ~26/side assumed from last session"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
