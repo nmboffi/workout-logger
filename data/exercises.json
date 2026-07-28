@@ -654,6 +654,20 @@
       "notes": "HS machine, plate-loaded; baseline = per-side load, ~80/side = 160 total (45+35 per side)"
     },
     {
+      "id": "iso-lateral-pulldown",
+      "name": "Iso-Lateral Pulldown",
+      "pattern": "pull",
+      "roles": [
+        "pull"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "lats"
+      ],
+      "accessoryPool": "Back exercises",
+      "notes": "HS machine, plate-loaded; baseline = per-side load, ~70/side = 140 total (45+25 per side)"
+    },
+    {
       "id": "db-hammer-curls",
       "name": "DB Hammer Curls",
       "pattern": "pull",

@@ -688,6 +688,107 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-26-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-26",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Incline supersetted with pulldown.",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 60,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "went heavier: 70 total (35/side) on the Smith vs 60 prescribed; TM reseeded after"
+              },
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 132.5,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "135 on the bar"
+              },
+              {
+                "exerciseName": "Iso-Lateral Pulldown",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 12 }
+                ],
+                "notes": "HS machine, per-side load (45+25 = 70/side, 140 total)"
+              },
+              {
+                "exerciseName": "Leg Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 90, "reps": 9 },
+                  { "weight": 90, "reps": 9 },
+                  { "weight": 90, "reps": 9 },
+                  { "weight": 90, "reps": 9 }
+                ],
+                "notes": "lying leg curl"
+              },
+              {
+                "exerciseName": "DB Hammer Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 55, "reps": 7 },
+                  { "weight": 55, "reps": 7 },
+                  { "weight": 55, "reps": 7 },
+                  { "weight": 55, "reps": 7 }
+                ]
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 27.5, "reps": 8 },
+                  { "weight": 30, "reps": 8 },
+                  { "weight": 30, "reps": 8 }
+                ]
+              },
+              {
+                "exerciseName": "Crunch Machine",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 105, "reps": 9 },
+                  { "weight": 105, "reps": 9 },
+                  { "weight": 105, "reps": 9 },
+                  { "weight": 105, "reps": 9 }
+                ],
+                "notes": "~105, too light — needs loading recalibration"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-07-26-bss-tm-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [],
+        "trainingMaxes": {
+          "Bulgarian Split Squat": 90
+        }
+      }
     }
   ]
 }
