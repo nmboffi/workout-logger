@@ -2,7 +2,7 @@
  "generated": "2026-07-20",
  "currentTMs": {
   "Bench Press": 219.7,
-  "Bulgarian Split Squat": 80.0,
+  "Bulgarian Split Squat": 90.0,
   "DB Bench Press": 81.2,
   "DB Incline Press": 75.0,
   "DB RDL": 77.5,
@@ -10,7 +10,7 @@
   "Hammer Strength Chest Press": 142.5,
   "Hammer Strength Incline Press": 182.5,
   "Hip Thrusts": 115.0,
-  "Incline Press": 182.5,
+  "Incline Press": 184.3,
   "KB Press": 65.0,
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
@@ -657,6 +657,17 @@
      "tmBefore": 80.0,
      "tmAfter": 80.0,
      "note": "Smith, 50 plate load + bar"
+    },
+    {
+     "date": "2026-07-26",
+     "kind": "main",
+     "weight": 60,
+     "reps": 13,
+     "target": 10,
+     "dev": 3,
+     "tmBefore": 80.0,
+     "tmAfter": 81.2,
+     "note": "went heavier: 70 total (35/side) on the Smith vs 60 prescribed; TM reseeded after"
     }
    ]
   },
@@ -1332,7 +1343,19 @@
      "dev": 2
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "main",
+     "weight": 132.5,
+     "reps": 13,
+     "target": 11,
+     "dev": 2,
+     "tmBefore": 182.5,
+     "tmAfter": 184.3,
+     "note": "135 on the bar"
+    }
+   ]
   },
   "Leg Press": {
    "history": [
@@ -3843,6 +3866,140 @@
       ]
      ],
      "note": "EZ bar, working up"
+    }
+   ]
+  },
+  "Iso-Lateral Pulldown": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       12
+      ]
+     ],
+     "note": "HS machine, per-side load (45+25 = 70/side, 140 total)"
+    }
+   ]
+  },
+  "Leg Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "sets",
+     "sets": [
+      [
+       90,
+       9
+      ],
+      [
+       90,
+       9
+      ],
+      [
+       90,
+       9
+      ],
+      [
+       90,
+       9
+      ]
+     ],
+     "note": "lying leg curl"
+    }
+   ]
+  },
+  "DB Hammer Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "sets",
+     "sets": [
+      [
+       55,
+       7
+      ],
+      [
+       55,
+       7
+      ],
+      [
+       55,
+       7
+      ],
+      [
+       55,
+       7
+      ]
+     ]
+    }
+   ]
+  },
+  "Lateral Raise": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "sets",
+     "sets": [
+      [
+       27.5,
+       8
+      ],
+      [
+       30,
+       8
+      ],
+      [
+       30,
+       8
+      ]
+     ]
+    }
+   ]
+  },
+  "Crunch Machine": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-26",
+     "kind": "sets",
+     "sets": [
+      [
+       105,
+       9
+      ],
+      [
+       105,
+       9
+      ],
+      [
+       105,
+       9
+      ],
+      [
+       105,
+       9
+      ]
+     ],
+     "note": "~105, too light \u2014 needs loading recalibration"
     }
    ]
   }
