@@ -1,12 +1,12 @@
 {
  "generated": "2026-07-20",
  "currentTMs": {
-  "Bench Press": 219.7,
+  "Bench Press": 220.8,
   "Bulgarian Split Squat": 90.0,
   "DB Bench Press": 81.2,
   "DB Incline Press": 75.0,
   "DB RDL": 77.5,
-  "Goblet Squat": 72.5,
+  "Goblet Squat": 72.9,
   "Hammer Strength Chest Press": 142.5,
   "Hammer Strength Incline Press": 182.5,
   "Hip Thrusts": 115.0,
@@ -352,6 +352,17 @@
      "tmBefore": 217.5,
      "tmAfter": 219.7,
      "note": "155 on the bar"
+    },
+    {
+     "date": "2026-07-27",
+     "kind": "main",
+     "weight": 165,
+     "reps": 11,
+     "target": 10,
+     "dev": 1,
+     "tmBefore": 219.7,
+     "tmAfter": 220.8,
+     "note": "rep-out approximate"
     }
    ]
   },
@@ -2942,7 +2953,19 @@
      "dev": 0
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-27",
+     "kind": "main",
+     "weight": 50,
+     "reps": 13,
+     "target": 12,
+     "dev": 1,
+     "tmBefore": 72.5,
+     "tmAfter": 72.9,
+     "note": "24 kg bell (53 lb)"
+    }
+   ]
   },
   "Trap Bar Deadlift": {
    "history": [
@@ -3416,6 +3439,29 @@
       ]
      ],
      "note": "low-to-high, 26 per side"
+    },
+    {
+     "date": "2026-07-27",
+     "kind": "sets",
+     "sets": [
+      [
+       26,
+       9
+      ],
+      [
+       26,
+       9
+      ],
+      [
+       26,
+       9
+      ],
+      [
+       26,
+       9
+      ]
+     ],
+     "note": "low-to-high; weight not recorded, ~26/side assumed from last session"
     }
    ]
   },
@@ -3795,6 +3841,29 @@
       ]
      ],
      "note": "machine max 85; final set rep-out 12"
+    },
+    {
+     "date": "2026-07-27",
+     "kind": "sets",
+     "sets": [
+      [
+       85,
+       9
+      ],
+      [
+       85,
+       9
+      ],
+      [
+       85,
+       9
+      ],
+      [
+       85,
+       9
+      ]
+     ],
+     "note": "machine max"
     }
    ]
   },
@@ -4000,6 +4069,90 @@
       ]
      ],
      "note": "~105, too light \u2014 needs loading recalibration"
+    }
+   ]
+  },
+  "Chin-ups": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-27",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ]
+     ],
+     "note": "3x8 bodyweight, then 4x4 weighted with 16 kg KB (35 lb)"
+    }
+   ]
+  },
+  "KB Press": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-27",
+     "kind": "main",
+     "weight": 50,
+     "reps": 9,
+     "target": 9,
+     "dev": 0,
+     "tmBefore": 65.0,
+     "tmAfter": 65.0,
+     "note": "24 kg bell (53 lb); rep-out approximate"
+    }
+   ]
+  },
+  "Push-Downs": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-27",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ]
+     ],
+     "note": "rope; weight approximate (~65)"
     }
    ]
   }
