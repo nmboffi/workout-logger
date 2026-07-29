@@ -95,7 +95,7 @@ const DATA = /*__DATA__*/null;
 const PER_DB = new Set(["DB Incline Press","DB RDL","DB rows","DB Hammer Curls","DB Bench Press","Reverse Twisting Lunge","Walking Lunge","Seated OHP"]);
 // Plate-loaded machines: how the TM is counted, plus the converted figure.
 const UNITS = {
-  "Hip Thrusts":                   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Hip Thrusts":                   {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
   "Hammer Strength Chest Press":   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Iso-Lateral Row":               {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Incline Press": {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
@@ -106,7 +106,7 @@ const NOTES = {
   "Bulgarian Split Squat": "Points before Jul 2026 are per-dumbbell; current points are Smith-machine plate load (total on the bar, half per side).",
   "Leg Press": "Points before Jul 2026 are bilateral sled totals; current points are per-leg (single-leg).",
   "Leg Extensions": "Current points are single-leg.",
-  "Hip Thrusts": "Deadlift-slot main since Jul 23, 2026 (trap bar retired). TM is per-side plate load on the HS machine — 115/side = 230 total.",
+  "Hip Thrusts": "Deadlift-slot main since Jul 23, 2026 (trap bar retired). TM is TOTAL machine load, half per side (convention fixed Jul 29 — was briefly mislabeled per-side).",
   "Trap Bar Deadlift": "Retired Jul 23, 2026 (low back). Posterior chain volume now comes from hip thrusts, hyperextensions, single-leg DB RDLs, KB swings, and leg curls.",
   "Hammer Strength Chest Press": "Added Jul 23, 2026 as a bench aux. TM is per-side plate load — 142.5/side = 285 total.",
   "DB RDL": "Single-leg going forward (easier on the low back); weight is per dumbbell.",

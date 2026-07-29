@@ -431,7 +431,7 @@
                     "reps": 13
                   }
                 ],
-                "notes": "HS machine, 90/side AMRAP; TM reseeded to 115"
+                "notes": "HS machine, 90 total (45/side) AMRAP; TM reseeded to 115 (total-load convention)"
               },
               {
                 "exerciseName": "Preacher Curls",
@@ -906,7 +906,7 @@
                 "prescribedReps": 9,
                 "repOutTarget": 11,
                 "sets": 4,
-                "notes": "went heavier: 90/side (45+45 per side, 180 total) vs 82.5/side prescribed"
+                "notes": "went heavier: 90 total (45/side) vs 82.5 total prescribed"
               },
               {
                 "exerciseName": "Leg Extensions",
