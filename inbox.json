@@ -884,6 +884,96 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-29-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-29",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "First hip-thrust-as-main day.",
+            "exercises": [
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 14,
+                "prescribedWeight": 82.5,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "went heavier: 90/side (45+45 per side, 180 total) vs 82.5/side prescribed"
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 90,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "single-leg; used 100 (machine increments) vs 90 prescribed"
+              },
+              {
+                "exerciseName": "Hammer Strength Incline Press",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "prescribedWeight": 132.5,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "used 140 total (45+25 per side, 70/side) vs 132.5 prescribed"
+              },
+              {
+                "exerciseName": "Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 160, "reps": 10 },
+                  { "weight": 160, "reps": 10 },
+                  { "weight": 160, "reps": 10 },
+                  { "weight": 160, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 },
+                  { "weight": null, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "Cable Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 17.5, "reps": 9 },
+                  { "weight": 17.5, "reps": 9 },
+                  { "weight": 17.5, "reps": 9 },
+                  { "weight": 17.5, "reps": 9 }
+                ],
+                "notes": "stack setting 17.5"
+              },
+              {
+                "exerciseName": "Preacher Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 45, "reps": 9 },
+                  { "weight": 45, "reps": 9 },
+                  { "weight": 45, "reps": 9 },
+                  { "weight": 45, "reps": 9 }
+                ],
+                "notes": "HS machine, 45 plate load"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
