@@ -8,13 +8,13 @@
   "DB RDL": 77.5,
   "Goblet Squat": 72.9,
   "Hammer Strength Chest Press": 142.5,
-  "Hammer Strength Incline Press": 182.5,
-  "Hip Thrusts": 115.0,
+  "Hammer Strength Incline Press": 186.2,
+  "Hip Thrusts": 116.7,
   "Incline Press": 184.3,
   "KB Press": 65.0,
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
-  "Leg Extensions": 125.0,
+  "Leg Extensions": 126.2,
   "Leg Press": 114.8,
   "Overhead Press": 126.2,
   "Reverse Twisting Lunge": 73.2,
@@ -3329,6 +3329,28 @@
        8
       ]
      ]
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -3357,6 +3379,17 @@
       ]
      ],
      "note": "single-leg"
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "main",
+     "weight": 90,
+     "reps": 13,
+     "target": 11,
+     "dev": 2,
+     "tmBefore": 125.0,
+     "tmAfter": 126.2,
+     "note": "single-leg; used 100 (machine increments) vs 90 prescribed"
     }
    ]
   },
@@ -3384,6 +3417,17 @@
        8
       ]
      ]
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "main",
+     "weight": 132.5,
+     "reps": 15,
+     "target": 11,
+     "dev": 4,
+     "tmBefore": 182.5,
+     "tmAfter": 186.2,
+     "note": "used 140 total (45+25 per side, 70/side) vs 132.5 prescribed"
     }
    ]
   },
@@ -3610,6 +3654,17 @@
       ]
      ],
      "note": "HS machine, 90/side AMRAP; TM reseeded to 115"
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "main",
+     "weight": 82.5,
+     "reps": 14,
+     "target": 11,
+     "dev": 3,
+     "tmBefore": 115.0,
+     "tmAfter": 116.7,
+     "note": "went heavier: 90/side (45+45 per side, 180 total) vs 82.5/side prescribed"
     }
    ]
   },
@@ -3638,6 +3693,29 @@
       ]
      ],
      "note": "sub for EZ bar curls (busy)"
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ]
+     ],
+     "note": "HS machine, 45 plate load"
     }
    ]
   },
@@ -3662,6 +3740,29 @@
       ]
      ],
      "note": "stack setting 15, bilateral"
+    },
+    {
+     "date": "2026-07-29",
+     "kind": "sets",
+     "sets": [
+      [
+       17.5,
+       9
+      ],
+      [
+       17.5,
+       9
+      ],
+      [
+       17.5,
+       9
+      ],
+      [
+       17.5,
+       9
+      ]
+     ],
+     "note": "stack setting 17.5"
     }
    ]
   },
@@ -4153,6 +4254,33 @@
       ]
      ],
      "note": "rope; weight approximate (~65)"
+    }
+   ]
+  },
+  "Low Row": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-07-29",
+     "kind": "sets",
+     "sets": [
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ]
+     ]
     }
    ]
   }
