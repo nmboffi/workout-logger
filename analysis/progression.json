@@ -3653,7 +3653,7 @@
        13
       ]
      ],
-     "note": "HS machine, 90/side AMRAP; TM reseeded to 115"
+     "note": "HS machine, 90 total (45/side) AMRAP; TM reseeded to 115 (total-load convention)"
     },
     {
      "date": "2026-07-29",
@@ -3664,7 +3664,7 @@
      "dev": 3,
      "tmBefore": 115.0,
      "tmAfter": 116.7,
-     "note": "went heavier: 90/side (45+45 per side, 180 total) vs 82.5/side prescribed"
+     "note": "went heavier: 90 total (45/side) vs 82.5 total prescribed"
     }
    ]
   },
