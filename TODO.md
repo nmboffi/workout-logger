@@ -1,6 +1,15 @@
 # TODO
 
-## Swap should be pattern-matched, not rotation-queue-based (dictated 2026-08-02)
+## ~~Swap should be pattern-matched, not rotation-queue-based~~ (dictated 2026-08-02 — DONE same day)
+
+Implemented as dictated: every pool exercise now carries a fine-grained
+`movement` tag (18 values — horizontal-row, vertical-pull, hinge,
+knee-dominant, vertical-press, ...) alongside the coarse `pattern` that still
+drives anchor rotation. `swapCandidates` returns two tiers: same-movement
+(cross-role, rotation state ignored, LRU-ranked) then the old role-based menu.
+Generation/rotation untouched. Sanity harness: `npx tsx scripts/swap-sanity.ts`.
+
+### Original notes (dictated 2026-08-02)
 
 Problems with the current swap behavior:
 

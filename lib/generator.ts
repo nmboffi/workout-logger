@@ -694,19 +694,37 @@ export function setSlotExercise(
   return { ...gw, slots };
 }
 
-// Candidates for the swap screen: same filters as generation for that slot,
-// minus the current occupant, ordered least-recently-used first.
+// Candidates for the swap screen, in two tiers. Swap is a semantic query, not
+// a rotation-queue peek: "this station is taken / this bar feels wrong, give
+// me an equivalent movement."
+//
+// - sameMovement: every pool exercise sharing the occupant's movement tag —
+//   any role, any pattern, rotation/consecutive-day state ignored — ranked
+//   least-recently-used first. Swapping across roles is deliberate (a taken
+//   BSS station can become a hack squat even though one is main and the other
+//   aux); setSlotExercise already handles TM/calibration for whatever lands.
+// - others: the old role-based menu for the slot (minus tier one), so every
+//   legal fallback is still reachable.
+//
+// The rotation queue itself is untouched — it still drives default
+// programming; only manual swaps bypass it.
+export interface SwapOptions {
+  sameMovement: PoolExercise[];
+  others: PoolExercise[];
+}
+
 export function swapCandidates(
   gw: GeneratedWorkout,
   slotKey: string,
   inputs: GeneratorInputs
-): PoolExercise[] {
+): SwapOptions {
   const template = inputs.pool.dayTemplates.find((t) => t.id === gw.dayType);
   const tSlot = template?.slots.find((s) => s.slot === slotKey);
   const current = gw.slots.find((s) => s.slot === slotKey);
-  if (!tSlot || tSlot.role === "fixed") return [];
+  if (!tSlot || tSlot.role === "fixed") return { sameMovement: [], others: [] };
 
   const recency = buildRecency(inputs.logs, inputs.pool);
+  const excluded = new Set(inputs.excluded ?? []);
   const picked = new Set<string>();
   const pickedPatterns = new Set<MovementPattern>();
   const usedPools = new Set<string>();
@@ -716,20 +734,42 @@ export function swapCandidates(
     if (s.accessoryPool) usedPools.add(s.accessoryPool);
     if ((s.role === "main" || s.role === "aux") && s.pattern) pickedPatterns.add(s.pattern);
   }
-  const candidates = candidatesForSlot(
+  const byGap = (a: PoolExercise, b: PoolExercise) =>
+    gapFor(b.id, recency) - gapFor(a.id, recency);
+
+  const currentEx = current?.exerciseId
+    ? inputs.pool.exercises.find((e) => e.id === current.exerciseId)
+    : undefined;
+  // Within-day duplicate, light-day, and removed-from-pool filters stay hard
+  // even here — everything else is the lifter's call.
+  const sameMovement = currentEx
+    ? inputs.pool.exercises
+        .filter(
+          (ex) =>
+            ex.movement === currentEx.movement &&
+            ex.id !== currentEx.id &&
+            !picked.has(ex.id) &&
+            !excluded.has(ex.id) &&
+            (!tSlot.lightOnly || isLightExercise(ex))
+        )
+        .sort(byGap)
+    : [];
+  const sameIds = new Set(sameMovement.map((e) => e.id));
+
+  const others = candidatesForSlot(
     tSlot,
     gw.anchorPattern,
     picked,
     pickedPatterns,
     usedPools,
-    new Set(inputs.excluded ?? []),
+    excluded,
     new Set(current?.exerciseId ? [current.exerciseId] : []),
     recency,
     inputs.pool,
-    // Manual choice: only the within-day duplicate, light-day, and
-    // removed-from-pool filters stay hard; show everything else,
-    // worst-recency last.
     { noExclude: false, noDistinctPool: true, anyRelation: true, noConsecutive: true }
-  );
-  return candidates.sort((a, b) => gapFor(b.id, recency) - gapFor(a.id, recency));
+  )
+    .filter((ex) => !sameIds.has(ex.id))
+    .sort(byGap);
+
+  return { sameMovement, others };
 }

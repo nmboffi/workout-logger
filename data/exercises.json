@@ -228,6 +228,7 @@
       "id": "leg-press",
       "name": "Leg Press",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -246,6 +247,7 @@
       "id": "bench-press",
       "name": "Bench Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "main"
       ],
@@ -263,6 +265,7 @@
       "id": "overhead-press",
       "name": "Overhead Press",
       "pattern": "ohp",
+      "movement": "vertical-press",
       "roles": [
         "main"
       ],
@@ -280,6 +283,7 @@
       "id": "bulgarian-split-squat",
       "name": "Bulgarian Split Squat",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "main"
       ],
@@ -298,6 +302,7 @@
       "id": "reverse-twisting-lunge",
       "name": "Reverse Twisting Lunge",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -316,6 +321,7 @@
       "id": "walking-lunge",
       "name": "Walking Lunge",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -333,6 +339,7 @@
       "id": "leg-extensions",
       "name": "Leg Extensions",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -349,6 +356,7 @@
       "id": "goblet-squat",
       "name": "Goblet Squat",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -366,6 +374,7 @@
       "id": "hs-hack-squat",
       "name": "Hammer Strength Hack Squat",
       "pattern": "squat",
+      "movement": "knee-dominant",
       "roles": [
         "aux"
       ],
@@ -384,6 +393,7 @@
       "id": "incline-press",
       "name": "Incline Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "aux"
       ],
@@ -401,6 +411,7 @@
       "id": "db-incline-press",
       "name": "DB Incline Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "aux"
       ],
@@ -418,6 +429,7 @@
       "id": "db-bench-press",
       "name": "DB Bench Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "aux"
       ],
@@ -435,6 +447,7 @@
       "id": "hs-incline-press",
       "name": "Hammer Strength Incline Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "aux"
       ],
@@ -453,6 +466,7 @@
       "id": "hs-chest-press",
       "name": "Hammer Strength Chest Press",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "aux"
       ],
@@ -471,6 +485,7 @@
       "id": "hip-thrusts",
       "name": "Hip Thrusts",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "main"
       ],
@@ -483,12 +498,13 @@
         0.725,
         0.8
       ],
-      "notes": "HS machine, plate-loaded; TM = TOTAL machine load, half per side (fixed 2026-07-29 — was mislabeled per-side). Deadlift-slot main (trap bar retired 2026-07-23, low back)"
+      "notes": "HS machine, plate-loaded; TM = TOTAL machine load, half per side (fixed 2026-07-29 \u2014 was mislabeled per-side). Deadlift-slot main (trap bar retired 2026-07-23, low back)"
     },
     {
       "id": "db-rdl",
       "name": "DB RDL",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "aux"
       ],
@@ -507,6 +523,7 @@
       "id": "kb-swings",
       "name": "KB Swings",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "accessory"
       ],
@@ -522,6 +539,7 @@
       "id": "seated-ohp",
       "name": "Seated OHP",
       "pattern": "ohp",
+      "movement": "vertical-press",
       "roles": [
         "aux"
       ],
@@ -539,6 +557,7 @@
       "id": "kb-press",
       "name": "KB Press",
       "pattern": "ohp",
+      "movement": "vertical-press",
       "roles": [
         "aux"
       ],
@@ -556,6 +575,7 @@
       "id": "barbell-rows",
       "name": "Barbell rows",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -571,6 +591,7 @@
       "id": "db-rows",
       "name": "DB rows",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -586,6 +607,7 @@
       "id": "chest-supported-rows",
       "name": "Chest supported rows",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -601,6 +623,7 @@
       "id": "pull-ups",
       "name": "Pull-ups",
       "pattern": "pull",
+      "movement": "vertical-pull",
       "roles": [
         "pull"
       ],
@@ -616,6 +639,7 @@
       "id": "chin-ups",
       "name": "Chin-ups",
       "pattern": "pull",
+      "movement": "vertical-pull",
       "roles": [
         "pull"
       ],
@@ -631,6 +655,7 @@
       "id": "pull-downs",
       "name": "Pull-downs",
       "pattern": "pull",
+      "movement": "vertical-pull",
       "roles": [
         "pull"
       ],
@@ -645,6 +670,7 @@
       "id": "low-row",
       "name": "Low Row",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -660,6 +686,7 @@
       "id": "iso-lateral-row",
       "name": "Iso-Lateral Row",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -675,6 +702,7 @@
       "id": "hs-low-row",
       "name": "Hammer Strength Low Row",
       "pattern": "pull",
+      "movement": "horizontal-row",
       "roles": [
         "pull"
       ],
@@ -690,6 +718,7 @@
       "id": "iso-lateral-pulldown",
       "name": "Iso-Lateral Pulldown",
       "pattern": "pull",
+      "movement": "vertical-pull",
       "roles": [
         "pull"
       ],
@@ -704,6 +733,7 @@
       "id": "db-hammer-curls",
       "name": "DB Hammer Curls",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -720,6 +750,7 @@
       "id": "ez-bar-curls",
       "name": "EZ Bar Curls",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -735,6 +766,7 @@
       "id": "straight-bar-curls",
       "name": "Straight Bar Curls",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -750,6 +782,7 @@
       "id": "preacher-curls",
       "name": "Preacher Curls",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -765,6 +798,7 @@
       "id": "kb-clean",
       "name": "KB Clean",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -781,6 +815,7 @@
       "id": "rope-hammer-curls",
       "name": "Rope Hammer Curls",
       "pattern": "pull",
+      "movement": "biceps",
       "roles": [
         "accessory"
       ],
@@ -796,6 +831,7 @@
       "id": "skullcrushers",
       "name": "Skullcrushers",
       "pattern": "bench",
+      "movement": "triceps",
       "roles": [
         "accessory"
       ],
@@ -810,6 +846,7 @@
       "id": "push-downs",
       "name": "Push-Downs",
       "pattern": "bench",
+      "movement": "triceps",
       "roles": [
         "accessory"
       ],
@@ -824,6 +861,7 @@
       "id": "french-press",
       "name": "French Press",
       "pattern": "bench",
+      "movement": "triceps",
       "roles": [
         "accessory"
       ],
@@ -839,6 +877,7 @@
       "id": "overhead-rope-extensions",
       "name": "Overhead Rope Extensions",
       "pattern": "bench",
+      "movement": "triceps",
       "roles": [
         "accessory"
       ],
@@ -853,6 +892,7 @@
       "id": "calf-raises",
       "name": "Calf Raises",
       "pattern": "squat",
+      "movement": "calves",
       "roles": [
         "accessory"
       ],
@@ -866,6 +906,7 @@
       "id": "ghr",
       "name": "GHR",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "accessory"
       ],
@@ -881,6 +922,7 @@
       "id": "leg-curls",
       "name": "Leg Curls",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "aux",
         "accessory"
@@ -900,6 +942,7 @@
       "id": "hyperextensions",
       "name": "Hyperextensions",
       "pattern": "deadlift",
+      "movement": "hinge",
       "roles": [
         "accessory"
       ],
@@ -915,6 +958,7 @@
       "id": "lateral-raise",
       "name": "Lateral Raise",
       "pattern": "ohp",
+      "movement": "lateral-raise",
       "roles": [
         "accessory"
       ],
@@ -930,6 +974,7 @@
       "id": "cable-lateral-raise",
       "name": "Cable Lateral Raise",
       "pattern": "ohp",
+      "movement": "lateral-raise",
       "roles": [
         "accessory"
       ],
@@ -944,6 +989,7 @@
       "id": "reverse-flyes",
       "name": "Reverse Flyes",
       "pattern": "pull",
+      "movement": "rear-delt",
       "roles": [
         "accessory"
       ],
@@ -959,6 +1005,7 @@
       "id": "shrugs",
       "name": "Shrugs",
       "pattern": "pull",
+      "movement": "traps",
       "roles": [
         "accessory"
       ],
@@ -972,6 +1019,7 @@
       "id": "get-ups",
       "name": "Get-Ups",
       "pattern": "core",
+      "movement": "core-stability",
       "roles": [
         "accessory"
       ],
@@ -986,6 +1034,7 @@
       "id": "cable-crossovers",
       "name": "Cable Crossovers",
       "pattern": "bench",
+      "movement": "chest-isolation",
       "roles": [
         "accessory"
       ],
@@ -999,6 +1048,7 @@
       "id": "pullovers",
       "name": "Pullovers",
       "pattern": "bench",
+      "movement": "chest-isolation",
       "roles": [
         "accessory"
       ],
@@ -1014,6 +1064,7 @@
       "id": "dips",
       "name": "Dips",
       "pattern": "bench",
+      "movement": "horizontal-press",
       "roles": [
         "accessory"
       ],
@@ -1030,6 +1081,7 @@
       "id": "weighted-sit-ups",
       "name": "Weighted Sit-Ups",
       "pattern": "core",
+      "movement": "core-flexion",
       "roles": [
         "accessory"
       ],
@@ -1044,6 +1096,7 @@
       "id": "hanging-leg-raises",
       "name": "Hanging Leg Raises",
       "pattern": "core",
+      "movement": "core-flexion",
       "roles": [
         "accessory"
       ],
@@ -1060,6 +1113,7 @@
       "id": "cable-crunches",
       "name": "Cable Crunches",
       "pattern": "core",
+      "movement": "core-flexion",
       "roles": [
         "accessory"
       ],
@@ -1075,6 +1129,7 @@
       "id": "oblique-raises",
       "name": "Oblique Raises",
       "pattern": "core",
+      "movement": "core-lateral",
       "roles": [
         "accessory"
       ],
@@ -1090,6 +1145,7 @@
       "id": "ab-wheel",
       "name": "Ab Wheel Rollouts",
       "pattern": "core",
+      "movement": "core-stability",
       "roles": [
         "accessory"
       ],
@@ -1105,6 +1161,7 @@
       "id": "plank-variations",
       "name": "Plank Variations",
       "pattern": "core",
+      "movement": "core-stability",
       "roles": [
         "accessory"
       ],
@@ -1121,6 +1178,7 @@
       "id": "sled-push",
       "name": "Sled Push",
       "pattern": "conditioning",
+      "movement": "conditioning",
       "roles": [
         "accessory"
       ],
@@ -1137,6 +1195,7 @@
       "id": "reverse-curls",
       "name": "Reverse Curls",
       "pattern": "pull",
+      "movement": "forearms",
       "roles": [
         "accessory"
       ],
@@ -1151,6 +1210,7 @@
       "id": "wrist-curls",
       "name": "Wrist Curls",
       "pattern": "pull",
+      "movement": "forearms",
       "roles": [
         "accessory"
       ],

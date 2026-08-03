@@ -42,7 +42,7 @@ export default function SwapScreen() {
 
   if (params.mode === "random" && params.slotKey && pendingGeneratedWorkout) {
     const slot = pendingGeneratedWorkout.slots.find((s) => s.slot === params.slotKey);
-    const candidates = swapCandidates(pendingGeneratedWorkout, params.slotKey, {
+    const { sameMovement, others } = swapCandidates(pendingGeneratedWorkout, params.slotKey, {
       logs: workoutLogs,
       pool: exercisePool,
       trainingMaxes,
@@ -50,39 +50,56 @@ export default function SwapScreen() {
       createdAt: "",
       excluded: excludedExercises,
     });
+    const currentEx = slot?.exerciseId
+      ? exercisePool.exercises.find((e) => e.id === slot.exerciseId)
+      : undefined;
+    const movementLabel = (m: string) => m.replace(/-/g, " ");
+    const sections = [
+      {
+        key: "same",
+        title: currentEx ? `Same movement · ${movementLabel(currentEx.movement)}` : "Same movement",
+        data: sameMovement,
+      },
+      { key: "others", title: "Other options for this slot", data: others },
+    ].filter((s) => s.data.length > 0);
+
+    const renderOption = (ex: (typeof sameMovement)[number]) => {
+      const last = getLastPerformance(workoutLogs, ex.name);
+      return (
+        <TouchableOpacity
+          key={ex.id}
+          style={styles.option}
+          onPress={() => {
+            setGeneratedSlotExercise(params.slotKey!, ex.id);
+            router.back();
+          }}
+          activeOpacity={0.7}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={styles.optionText}>{ex.name}</Text>
+            <Text style={styles.optionMeta}>
+              {movementLabel(ex.movement)} · {ex.equipment}
+              {last ? `  ·  Last: ${lastPerformanceLine(last)}` : ""}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      );
+    };
 
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.content}>
         <Text style={styles.title}>Replace</Text>
         <Text style={styles.currentName}>{slot?.exerciseName ?? params.slotKey}</Text>
 
-        <View style={{ marginTop: spacing.xxl }}>
-          {candidates.map((ex) => {
-            const last = getLastPerformance(workoutLogs, ex.name);
-            return (
-              <TouchableOpacity
-                key={ex.id}
-                style={styles.option}
-                onPress={() => {
-                  setGeneratedSlotExercise(params.slotKey!, ex.id);
-                  router.back();
-                }}
-                activeOpacity={0.7}
-              >
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.optionText}>{ex.name}</Text>
-                  <Text style={styles.optionMeta}>
-                    {ex.accessoryPool ?? ex.pattern}
-                    {last ? `  ·  Last: ${lastPerformanceLine(last)}` : ""}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-          {candidates.length === 0 && (
-            <Text style={styles.emptyText}>No eligible exercises for this slot.</Text>
-          )}
-        </View>
+        {sections.map((section) => (
+          <View key={section.key} style={{ marginTop: spacing.xxl }}>
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+            {section.data.map(renderOption)}
+          </View>
+        ))}
+        {sections.length === 0 && (
+          <Text style={styles.emptyText}>No eligible exercises for this slot.</Text>
+        )}
       </ScrollView>
     );
   }
@@ -142,6 +159,7 @@ const styles = StyleSheet.create({
   content: { padding: spacing.xl },
   title: { fontSize: font.body, color: colors.textMuted, fontWeight: font.medium, textTransform: "uppercase" as const, letterSpacing: 1 },
   currentName: { fontSize: font.heading, fontWeight: font.heavy, color: colors.text, marginTop: spacing.xs },
+  sectionHeader: { fontSize: font.caption, color: colors.textMuted, fontWeight: font.semibold, textTransform: "uppercase" as const, letterSpacing: 1, marginBottom: spacing.sm },
 
   option: {
     backgroundColor: colors.bgCard,

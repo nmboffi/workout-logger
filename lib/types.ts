@@ -163,6 +163,30 @@ export type MovementPattern =
   | "carry"
   | "conditioning";
 
+// Fine-grained semantic movement tag, used ONLY by the swap screen to answer
+// "what's an equivalent lift?" (row for row, hinge for hinge). Deliberately
+// separate from MovementPattern, which drives anchor rotation and the
+// no-consecutive-day constraint and must stay coarse.
+export type Movement =
+  | "knee-dominant"
+  | "hinge"
+  | "horizontal-press"
+  | "vertical-press"
+  | "horizontal-row"
+  | "vertical-pull"
+  | "biceps"
+  | "triceps"
+  | "forearms"
+  | "lateral-raise"
+  | "rear-delt"
+  | "traps"
+  | "chest-isolation"
+  | "core-flexion"
+  | "core-lateral"
+  | "core-stability"
+  | "calves"
+  | "conditioning";
+
 export type SlotRole = "main" | "aux" | "pull" | "accessory";
 
 export type Equipment =
@@ -181,6 +205,7 @@ export interface PoolExercise {
   // this is the join key to trainingMaxes and workout log history.
   name: string;
   pattern: MovementPattern;
+  movement: Movement;
   roles: SlotRole[];
   equipment: Equipment;
   muscles: string[];
