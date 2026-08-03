@@ -98,6 +98,8 @@ const UNITS = {
   "Hip Thrusts":                   {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
   "Hammer Strength Chest Press":   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Iso-Lateral Row":               {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Hammer Strength Hack Squat":    {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
+  "Hammer Strength Low Row":       {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Incline Press": {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
   "Bulgarian Split Squat":         {suffix: " total", label: "Smith plate total", conv: tm => fmt(tm/2) + " /side"},
   "Leg Press":                     {suffix: " /leg",  label: "per leg", conv: tm => fmt(tm/2) + " /side of sled"},
@@ -110,6 +112,8 @@ const NOTES = {
   "Trap Bar Deadlift": "Retired Jul 23, 2026 (low back). Posterior chain volume now comes from hip thrusts, hyperextensions, single-leg DB RDLs, KB swings, and leg curls.",
   "Hammer Strength Chest Press": "Added Jul 23, 2026 as a bench aux. TM is per-side plate load — 142.5/side = 285 total.",
   "DB RDL": "Single-leg going forward (easier on the low back); weight is per dumbbell.",
+  "Hammer Strength Hack Squat": "Added Aug 2, 2026 (calibration day). TM is per-side plate load, sled not counted; top calibration set 70/side = 140 total x12.",
+  "Hammer Strength Low Row": "Bilateral HS machine, distinct from the Iso-Lateral Row. Load is per side — 70/side = 140 total.",
 };
 const tmOrder = Object.keys(DATA.currentTMs);
 const withData = Object.keys(DATA.lifts).filter(n => (DATA.lifts[n].history.length + DATA.lifts[n].recent.length) > 0);

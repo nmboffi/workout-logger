@@ -8,6 +8,7 @@
   "DB RDL": 77.5,
   "Goblet Squat": 72.9,
   "Hammer Strength Chest Press": 142.5,
+  "Hammer Strength Hack Squat": 87.5,
   "Hammer Strength Incline Press": 186.2,
   "Hip Thrusts": 116.7,
   "Incline Press": 184.3,
@@ -1142,7 +1143,19 @@
      "dev": 0
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-07-31",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 77.5,
+     "tmAfter": 77.5,
+     "note": "65/DB, single-leg; 3x9 + rep-out 12"
+    }
+   ]
   },
   "Incline Press": {
    "history": [
@@ -2061,6 +2074,17 @@
      "tmBefore": 125.0,
      "tmAfter": 126.2,
      "note": "rep-out approximate (12-14)"
+    },
+    {
+     "date": "2026-07-31",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "95 on the bar; 3x9 + rep-out 11"
     }
    ]
   },
@@ -2425,6 +2449,17 @@
      "tmBefore": 62.5,
      "tmAfter": 59.4,
      "note": "used 40s, rep-out not reachable"
+    },
+    {
+     "date": "2026-08-02",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 59.4,
+     "tmAfter": 59.4,
+     "note": "50s per DB; 3x9 + rep-out 11"
     }
    ]
   },
@@ -2804,7 +2839,31 @@
      "dev": 0
     }
    ],
-   "recent": []
+   "recent": [
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "+70 held (45+25)"
+    }
+   ]
   },
   "Goblet Squat": {
    "history": [
@@ -3274,6 +3333,17 @@
      "tmBefore": 72.5,
      "tmAfter": 73.2,
      "note": "per hand; straight sets done at 9"
+    },
+    {
+     "date": "2026-07-31",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 73.2,
+     "tmAfter": 73.2,
+     "note": "55/hand; 3x9 + rep-out 12"
     }
    ]
   },
@@ -3533,6 +3603,28 @@
        12
       ]
      ]
+    },
+    {
+     "date": "2026-07-31",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       11
+      ]
+     ]
     }
    ]
   },
@@ -3582,6 +3674,29 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-07-31",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ]
+     ],
+     "note": "dictated once as 'calf raises(?)', corrected recap says obliques"
     }
    ]
   },
@@ -3716,6 +3831,29 @@
       ]
      ],
      "note": "HS machine, 45 plate load"
+    },
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       40,
+       8
+      ],
+      [
+       40,
+       8
+      ],
+      [
+       40,
+       8
+      ],
+      [
+       40,
+       8
+      ]
+     ],
+     "note": "barbell preacher, 20/side = 40 total plate load; thicker/heavier bar than usual, went by feel"
     }
    ]
   },
@@ -3784,6 +3922,28 @@
       [
        null,
        8
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
       ]
      ]
     }
@@ -3894,6 +4054,28 @@
       ]
      ],
      "note": "DB pullovers"
+    },
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -4281,6 +4463,66 @@
        10
       ]
      ]
+    }
+   ]
+  },
+  "Hammer Strength Hack Squat": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       9
+      ],
+      [
+       55,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       12
+      ]
+     ],
+     "note": "NEW lift; per-side plate load, sled not counted (top set 70/side = 140 total)"
+    }
+   ]
+  },
+  "Hammer Strength Low Row": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-02",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       12
+      ]
+     ],
+     "note": "bilateral HS machine (not the iso-lateral); per-side load, 45+25 = 70/side, 140 total"
     }
    ]
   }
