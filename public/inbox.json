@@ -974,6 +974,153 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-07-31-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-07-31",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "Date approximate (dictated later as 'end of last week'). A few additional exercises at the end not recalled — not logged.",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "95 on the bar; 3x9 + rep-out 11"
+              },
+              {
+                "exerciseName": "DB RDL",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "65/DB, single-leg; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Reverse Twisting Lunge",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "55/hand; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 11 }
+                ]
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 }
+                ],
+                "notes": "dictated once as 'calf raises(?)', corrected recap says obliques"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-08-02-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-02",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Hack squat calibration day (new lift).",
+            "exercises": [
+              {
+                "exerciseName": "Hammer Strength Hack Squat",
+                "category": "accessory",
+                "calibration": true,
+                "accessorySets": [
+                  { "weight": 45, "reps": 9 },
+                  { "weight": 55, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 12 }
+                ],
+                "notes": "NEW lift; per-side plate load, sled not counted (top set 70/side = 140 total)"
+              },
+              {
+                "exerciseName": "Hyperextensions",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 }
+                ],
+                "notes": "+70 held (45+25)"
+              },
+              {
+                "exerciseName": "Hammer Strength Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 12 }
+                ],
+                "notes": "bilateral HS machine (not the iso-lateral); per-side load, 45+25 = 70/side, 140 total"
+              },
+              {
+                "exerciseName": "Seated OHP",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "50s per DB; 3x9 + rep-out 11"
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 65, "reps": 9 },
+                  { "weight": 65, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "Preacher Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 40, "reps": 8 },
+                  { "weight": 40, "reps": 8 },
+                  { "weight": 40, "reps": 8 },
+                  { "weight": 40, "reps": 8 }
+                ],
+                "notes": "barbell preacher, 20/side = 40 total plate load; thicker/heavier bar than usual, went by feel"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 7 },
+                  { "weight": null, "reps": 7 },
+                  { "weight": null, "reps": 7 },
+                  { "weight": null, "reps": 7 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

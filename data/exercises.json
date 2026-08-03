@@ -363,6 +363,24 @@
       ]
     },
     {
+      "id": "hs-hack-squat",
+      "name": "Hammer Strength Hack Squat",
+      "pattern": "squat",
+      "roles": [
+        "aux"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "quads",
+        "glutes"
+      ],
+      "intensityBand": [
+        0.725,
+        0.775
+      ],
+      "notes": "plate-loaded; TM = per-side plate load (sled not counted); calibrated 2026-08-02, top set 70/side x12"
+    },
+    {
       "id": "incline-press",
       "name": "Incline Press",
       "pattern": "bench",
@@ -652,6 +670,21 @@
       ],
       "accessoryPool": "Back exercises",
       "notes": "HS machine, plate-loaded; baseline = per-side load, ~80/side = 160 total (45+35 per side)"
+    },
+    {
+      "id": "hs-low-row",
+      "name": "Hammer Strength Low Row",
+      "pattern": "pull",
+      "roles": [
+        "pull"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "lats",
+        "upper-back"
+      ],
+      "accessoryPool": "Back exercises",
+      "notes": "bilateral HS machine (distinct from Iso-Lateral Row); baseline = per-side load, ~70/side = 140 total (45+25 per side)"
     },
     {
       "id": "iso-lateral-pulldown",
