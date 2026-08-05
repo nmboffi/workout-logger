@@ -921,6 +921,17 @@
      "dev": 0,
      "tmBefore": 75.0,
      "tmAfter": 75.0
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 75.0,
+     "tmAfter": 75.0,
+     "note": "60s per DB; 3x9 + rep-out 12"
     }
    ]
   },
@@ -1683,6 +1694,17 @@
      "tmBefore": 112.5,
      "tmAfter": 114.8,
      "note": "single-leg; used 90 (45/side), above the 82.5 prescription"
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "main",
+     "weight": null,
+     "reps": 13,
+     "target": null,
+     "dev": null,
+     "tmBefore": 114.8,
+     "tmAfter": 114.8,
+     "note": "single-leg; 110 total sled (45+10 per side) \u2014 dictation ambiguous, 100 if the extra 10 was one side only; 3x9 + rep-out 13"
     }
    ]
   },
@@ -3372,6 +3394,28 @@
       ]
      ],
      "note": "wide grip (pull-up grip)"
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "sets",
+     "sets": [
+      [
+       140,
+       10
+      ],
+      [
+       140,
+       10
+      ],
+      [
+       140,
+       10
+      ],
+      [
+       140,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -3697,6 +3741,28 @@
       ]
      ],
      "note": "dictated once as 'calf raises(?)', corrected recap says obliques"
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4100,6 +4166,29 @@
       ]
      ],
      "note": "DB tricep extensions"
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ]
+     ],
+     "note": "overhead DB tricep extension"
     }
    ]
   },
@@ -4274,6 +4363,29 @@
       ]
      ],
      "note": "lying leg curl"
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "sets",
+     "sets": [
+      [
+       100,
+       9
+      ],
+      [
+       100,
+       9
+      ],
+      [
+       100,
+       9
+      ],
+      [
+       100,
+       13
+      ]
+     ],
+     "note": "+10 from last session (90 -> ~100), weight approximate; rep-out 13"
     }
    ]
   },
@@ -4322,6 +4434,28 @@
       [
        30,
        8
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-04",
+     "kind": "sets",
+     "sets": [
+      [
+       27.5,
+       10
+      ],
+      [
+       27.5,
+       10
+      ],
+      [
+       27.5,
+       10
+      ],
+      [
+       27.5,
+       10
       ]
      ]
     }
