@@ -1121,6 +1121,88 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-04-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-04",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Ran squat-type work two days in a row by mistake — this was supposed to be Bench Day. Labeled Squat Day so the rotation serves Bench next; plan is Bench Day, then a merged Deadlift+OHP day.",
+            "exercises": [
+              {
+                "exerciseName": "Leg Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "notes": "single-leg; 110 total sled (45+10 per side) — dictation ambiguous, 100 if the extra 10 was one side only; 3x9 + rep-out 13"
+              },
+              {
+                "exerciseName": "DB Incline Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "60s per DB; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Pull-downs",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 140, "reps": 10 },
+                  { "weight": 140, "reps": 10 },
+                  { "weight": 140, "reps": 10 },
+                  { "weight": 140, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Leg Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 100, "reps": 9 },
+                  { "weight": 100, "reps": 9 },
+                  { "weight": 100, "reps": 9 },
+                  { "weight": 100, "reps": 13 }
+                ],
+                "notes": "+10 from last session (90 -> ~100), weight approximate; rep-out 13"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "French Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 }
+                ],
+                "notes": "overhead DB tricep extension"
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 27.5, "reps": 10 },
+                  { "weight": 27.5, "reps": 10 },
+                  { "weight": 27.5, "reps": 10 },
+                  { "weight": 27.5, "reps": 10 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
