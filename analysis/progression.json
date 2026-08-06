@@ -364,6 +364,17 @@
      "tmBefore": 219.7,
      "tmAfter": 220.8,
      "note": "rep-out approximate"
+    },
+    {
+     "date": "2026-08-06",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 220.8,
+     "tmAfter": 220.8,
+     "note": "170 on the bar; 3x7 + rep-out 11"
     }
    ]
   },
@@ -1389,6 +1400,17 @@
      "tmBefore": 182.5,
      "tmAfter": 184.3,
      "note": "135 on the bar"
+    },
+    {
+     "date": "2026-08-05",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 184.3,
+     "tmAfter": 184.3,
+     "note": "155 on the bar; 3x9 + rep-out 11"
     }
    ]
   },
@@ -2107,6 +2129,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "95 on the bar; 3x9 + rep-out 11"
+    },
+    {
+     "date": "2026-08-06",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "100 on the bar; 3x7 + rep-out 11"
     }
    ]
   },
@@ -2597,6 +2630,29 @@
       ]
      ],
      "note": "two-hand"
+    },
+    {
+     "date": "2026-08-05",
+     "kind": "sets",
+     "sets": [
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ]
+     ],
+     "note": "24 kg"
     }
    ]
   },
@@ -3465,6 +3521,28 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-08-05",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ]
+     ]
     }
    ]
   },
@@ -3846,6 +3924,17 @@
      "tmBefore": 115.0,
      "tmAfter": 116.7,
      "note": "went heavier: 90 total (45/side) vs 82.5 total prescribed"
+    },
+    {
+     "date": "2026-08-06",
+     "kind": "main",
+     "weight": null,
+     "reps": 15,
+     "target": null,
+     "dev": null,
+     "tmBefore": 116.7,
+     "tmAfter": 116.7,
+     "note": "90 total (45/side); 3x9 + rep-out 15"
     }
    ]
   },
@@ -4010,6 +4099,24 @@
       [
        null,
        7
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-06",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
       ]
      ]
     }
@@ -4526,6 +4633,33 @@
       ]
      ],
      "note": "3x8 bodyweight, then 4x4 weighted with 16 kg KB (35 lb)"
+    },
+    {
+     "date": "2026-08-05",
+     "kind": "sets",
+     "sets": [
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ],
+      [
+       35,
+       4
+      ]
+     ],
+     "note": "weighted, 16 kg KB (35 lb)"
     }
    ]
   },
@@ -4542,6 +4676,17 @@
      "tmBefore": 65.0,
      "tmAfter": 65.0,
      "note": "24 kg bell (53 lb); rep-out approximate"
+    },
+    {
+     "date": "2026-08-05",
+     "kind": "main",
+     "weight": null,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 65.0,
+     "tmAfter": 65.0,
+     "note": "standing, 24 kg bell (53 lb); 3x7 + rep-out 10"
     }
    ]
   },
@@ -4657,6 +4802,30 @@
       ]
      ],
      "note": "bilateral HS machine (not the iso-lateral); per-side load, 45+25 = 70/side, 140 total"
+    }
+   ]
+  },
+  "EZ Bar Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-06",
+     "kind": "sets",
+     "sets": [
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       13
+      ]
+     ],
+     "note": "cable stack with EZ attachment, not the barbell"
     }
    ]
   }
