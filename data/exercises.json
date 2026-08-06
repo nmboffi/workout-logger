@@ -763,6 +763,22 @@
       "notes": "~70 plate load x8"
     },
     {
+      "id": "cable-ez-curls",
+      "name": "Cable EZ Bar Curls",
+      "pattern": "pull",
+      "movement": "biceps",
+      "roles": [
+        "accessory"
+      ],
+      "equipment": "cable",
+      "muscles": [
+        "biceps"
+      ],
+      "accessoryPool": "Biceps",
+      "supersetTag": "arms",
+      "notes": "cable stack with EZ attachment (distinct from barbell EZ curls); ~50 x10"
+    },
+    {
       "id": "straight-bar-curls",
       "name": "Straight Bar Curls",
       "pattern": "pull",
