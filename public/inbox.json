@@ -1203,6 +1203,124 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-05-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-05",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "Out-of-order catch-up week; incline stood in for the bench slot.",
+            "exercises": [
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "155 on the bar; 3x9 + rep-out 11"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 },
+                  { "weight": 35, "reps": 4 }
+                ],
+                "notes": "weighted, 16 kg KB (35 lb)"
+              },
+              {
+                "exerciseName": "KB Press",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "notes": "standing, 24 kg bell (53 lb); 3x7 + rep-out 10"
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 }
+                ],
+                "notes": "24 kg"
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-08-06-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-06",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "Merged catch-up day: bench + OHP + hip thrusts in one session. Labeled OHP Day so the rotation serves Squat next.",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "170 on the bar; 3x7 + rep-out 11"
+              },
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "100 on the bar; 3x7 + rep-out 11"
+              },
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "notes": "90 total (45/side); 3x9 + rep-out 15"
+              },
+              {
+                "exerciseName": "EZ Bar Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 50, "reps": 10 },
+                  { "weight": 50, "reps": 10 },
+                  { "weight": 50, "reps": 13 }
+                ],
+                "notes": "cable stack with EZ attachment, not the barbell"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
