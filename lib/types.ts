@@ -294,6 +294,10 @@ export interface GeneratedSlot {
   calibration: boolean;
   locked: boolean;
   order: number;
+  // Exercise ids already shown by successive rerolls of this slot in the
+  // current cycle — rerolls exclude these so repeated presses walk the whole
+  // candidate list instead of flip-flopping between the two LRU lifts.
+  rerollHistory?: string[];
 }
 
 export interface GeneratedWorkout {

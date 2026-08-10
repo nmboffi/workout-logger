@@ -623,24 +623,39 @@ export function rerollWorkout(
   });
 }
 
-// Single-slot reroll: every other slot is kept; the current occupant is
-// excluded so the reroll visibly changes when the pool allows it.
+// Single-slot reroll: every other slot is kept. Successive rerolls of the
+// same slot accumulate an exclusion history — without it, deterministic LRU
+// selection makes repeated presses flip-flop between the two least-recently
+// used lifts and nothing else ever surfaces. With it, each press serves the
+// next-least-recently-used candidate until the eligible list is exhausted;
+// the relaxation ladder then ignores the history (the pick lands on an
+// already-seen id), which we detect and treat as the start of a new cycle.
+// Manual swaps (setSlotExercise) reset the cycle.
 export function rerollSlot(
   gw: GeneratedWorkout,
   slotKey: string,
   inputs: GeneratorInputs
 ): GeneratedWorkout {
   const current = gw.slots.find((s) => s.slot === slotKey);
-  return generate({
+  const excludeIds = [
+    ...(current?.exerciseId ? [current.exerciseId] : []),
+    ...(current?.rerollHistory ?? []).filter((id) => id !== current?.exerciseId),
+  ];
+  const next = generate({
     dayType: gw.dayType,
     ...inputs,
     anchor: gw.anchorPattern,
     anchorIsOverride: gw.anchorOverride,
     keep: gw.slots.filter((s) => s.slot !== slotKey),
-    exclude: current?.exerciseId
-      ? { slotKey, ids: [current.exerciseId] }
-      : null,
+    exclude: excludeIds.length > 0 ? { slotKey, ids: excludeIds } : null,
   });
+  const landed = next.slots.find((s) => s.slot === slotKey);
+  if (landed?.exerciseId) {
+    landed.rerollHistory = excludeIds.includes(landed.exerciseId)
+      ? (current?.exerciseId ? [current.exerciseId] : [])
+      : excludeIds;
+  }
+  return next;
 }
 
 // Manual anchor override: main + aux slots regenerate (they are
@@ -686,6 +701,7 @@ export function setSlotExercise(
         : null,
       calibration: useTM && !hasTM,
       locked: true,
+      rerollHistory: undefined,
     };
   });
   // Re-pair supersets: the swapped-in exercise may create or break a pairing,
