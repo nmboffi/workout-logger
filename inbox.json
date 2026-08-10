@@ -1321,6 +1321,159 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-09-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-09",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Reroll bug (flip-flopping between a few lifts) made the generated plan unusable — went from memory. One cable exercise done 'as usual' — not identified, not logged.",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "70 total on the Smith (35/side) — dictated as '70/side' but 70 total matches the prescription and 7-rep sets; 3x7 + rep-out 12"
+              },
+              {
+                "exerciseName": "Iso-Lateral Row",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 80, "reps": 8 },
+                  { "weight": 80, "reps": 8 },
+                  { "weight": 80, "reps": 8 },
+                  { "weight": 80, "reps": 12 }
+                ],
+                "notes": "per-side load (45+35 = 80/side, 160 total), continued at previous session's weight; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "DB Bench Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 7 },
+                  { "weight": 60, "reps": 7 },
+                  { "weight": 60, "reps": 7 }
+                ],
+                "notes": "aux slot, 60/DB, straight sets with no rep-out — logged as sets so autoregulation doesn't fire"
+              },
+              {
+                "exerciseName": "GHR",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 45, "reps": 7 },
+                  { "weight": 45, "reps": 7 },
+                  { "weight": 45, "reps": 7 },
+                  { "weight": 45, "reps": 7 }
+                ],
+                "notes": "+45"
+              },
+              {
+                "exerciseName": "KB Clean",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 }
+                ],
+                "notes": "24 kg"
+              },
+              {
+                "exerciseName": "Reverse Flyes",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 }
+                ],
+                "notes": "pec deck machine"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-08-10-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-10",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "175 on the bar; 3x6 + rep-out 11"
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "notes": "single-leg, 100 on the stack; 3x8 + rep-out 10"
+              },
+              {
+                "exerciseName": "Seated OHP",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "notes": "55s per DB; 4x7 + rep-out 10"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 50, "reps": 10 },
+                  { "weight": 50, "reps": 10 },
+                  { "weight": 50, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 }
+                ]
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 60, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
