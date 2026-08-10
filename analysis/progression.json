@@ -375,6 +375,17 @@
      "tmBefore": 220.8,
      "tmAfter": 220.8,
      "note": "170 on the bar; 3x7 + rep-out 11"
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 220.8,
+     "tmAfter": 220.8,
+     "note": "175 on the bar; 3x6 + rep-out 11"
     }
    ]
   },
@@ -691,6 +702,17 @@
      "tmBefore": 80.0,
      "tmAfter": 81.2,
      "note": "went heavier: 70 total (35/side) on the Smith vs 60 prescribed; TM reseeded after"
+    },
+    {
+     "date": "2026-08-09",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 90.0,
+     "tmAfter": 90.0,
+     "note": "70 total on the Smith (35/side) \u2014 dictated as '70/side' but 70 total matches the prescription and 7-rep sets; 3x7 + rep-out 12"
     }
    ]
   },
@@ -2515,6 +2537,17 @@
      "tmBefore": 59.4,
      "tmAfter": 59.4,
      "note": "50s per DB; 3x9 + rep-out 11"
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "main",
+     "weight": null,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 59.4,
+     "tmAfter": 59.4,
+     "note": "55s per DB; 4x7 + rep-out 10"
     }
    ]
   },
@@ -3582,6 +3615,17 @@
      "tmBefore": 125.0,
      "tmAfter": 126.2,
      "note": "single-leg; used 100 (machine increments) vs 90 prescribed"
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "main",
+     "weight": null,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "single-leg, 100 on the stack; 3x8 + rep-out 10"
     }
    ]
   },
@@ -3747,6 +3791,28 @@
        11
       ]
      ]
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -3841,6 +3907,28 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -3865,6 +3953,29 @@
       ],
       [
        70,
+       10
+      ]
+     ],
+     "note": "pec deck machine"
+    },
+    {
+     "date": "2026-08-09",
+     "kind": "sets",
+     "sets": [
+      [
+       95,
+       10
+      ],
+      [
+       95,
+       10
+      ],
+      [
+       95,
+       10
+      ],
+      [
+       95,
        10
       ]
      ],
@@ -3897,6 +4008,29 @@
       ]
      ],
      "note": "sub for rows; 45+35 per side"
+    },
+    {
+     "date": "2026-08-09",
+     "kind": "sets",
+     "sets": [
+      [
+       80,
+       8
+      ],
+      [
+       80,
+       8
+      ],
+      [
+       80,
+       8
+      ],
+      [
+       80,
+       12
+      ]
+     ],
+     "note": "per-side load (45+35 = 80/side, 160 total), continued at previous session's weight; 3x8 + rep-out 12"
     }
    ]
   },
@@ -4249,6 +4383,28 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -4359,6 +4515,25 @@
      "tmBefore": 80.0,
      "tmAfter": 81.2,
      "note": "per DB; straight sets done at 9"
+    },
+    {
+     "date": "2026-08-09",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       7
+      ],
+      [
+       60,
+       7
+      ],
+      [
+       60,
+       7
+      ]
+     ],
+     "note": "aux slot, 60/DB, straight sets with no rep-out \u2014 logged as sets so autoregulation doesn't fire"
     }
    ]
   },
@@ -4414,6 +4589,24 @@
       ]
      ],
      "note": "EZ bar, working up"
+    },
+    {
+     "date": "2026-08-10",
+     "kind": "sets",
+     "sets": [
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4826,6 +5019,62 @@
       ]
      ],
      "note": "cable stack with EZ attachment, not the barbell"
+    }
+   ]
+  },
+  "GHR": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-09",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ]
+     ],
+     "note": "+45"
+    }
+   ]
+  },
+  "KB Clean": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-09",
+     "kind": "sets",
+     "sets": [
+      [
+       53,
+       7
+      ],
+      [
+       53,
+       7
+      ],
+      [
+       53,
+       7
+      ],
+      [
+       53,
+       7
+      ]
+     ],
+     "note": "24 kg"
     }
    ]
   }
