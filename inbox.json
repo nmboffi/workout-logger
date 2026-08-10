@@ -1366,10 +1366,10 @@
                 "exerciseName": "GHR",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 45, "reps": 7 },
-                  { "weight": 45, "reps": 7 },
-                  { "weight": 45, "reps": 7 },
-                  { "weight": 45, "reps": 7 }
+                  { "weight": 45, "reps": 10 },
+                  { "weight": 45, "reps": 10 },
+                  { "weight": 45, "reps": 10 },
+                  { "weight": 45, "reps": 10 }
                 ],
                 "notes": "+45"
               },
@@ -1377,10 +1377,10 @@
                 "exerciseName": "KB Clean",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 }
+                  { "weight": 53, "reps": 7 },
+                  { "weight": 53, "reps": 7 },
+                  { "weight": 53, "reps": 7 },
+                  { "weight": 53, "reps": 7 }
                 ],
                 "notes": "24 kg"
               },
