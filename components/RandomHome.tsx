@@ -5,15 +5,9 @@ import { useStore } from "../lib/store";
 import { workingWeight } from "../lib/sbs";
 import { repTargetsFor, nextCycleAnchor } from "../lib/generator";
 import { getLastPerformance, lastPerformanceLine } from "../lib/history";
-import { colors, spacing, radius, font, shadow, DB_EXERCISES } from "../lib/theme";
+import { colors, spacing, radius, font, shadow } from "../lib/theme";
+import { formatWeight } from "../lib/format";
 import type { GeneratedSlot, MovementPattern } from "../lib/types";
-
-function formatWeight(weight: number, exerciseName: string): string {
-  if (DB_EXERCISES.has(exerciseName)) {
-    return `${weight * 2} lbs (${weight} ea)`;
-  }
-  return `${weight} lbs`;
-}
 
 const PATTERN_META: Record<string, { label: string; color: string }> = {
   squat: { label: "Squat", color: "#C17A4A" },

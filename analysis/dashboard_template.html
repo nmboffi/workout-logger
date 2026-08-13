@@ -95,20 +95,20 @@ const DATA = /*__DATA__*/null;
 const PER_DB = new Set(["DB Incline Press","DB RDL","DB rows","DB Hammer Curls","DB Bench Press","Reverse Twisting Lunge","Walking Lunge","Seated OHP"]);
 // Plate-loaded machines: how the TM is counted, plus the converted figure.
 const UNITS = {
-  "Hip Thrusts":                   {suffix: " total", label: "total load", conv: tm => fmt(tm/2) + " /side"},
+  "Hip Thrusts":                   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Chest Press":   {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Iso-Lateral Row":               {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Hack Squat":    {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Low Row":       {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
   "Hammer Strength Incline Press": {suffix: " /side", label: "per side", conv: tm => fmt(tm*2) + " total"},
-  "Bulgarian Split Squat":         {suffix: " total", label: "Smith plate total", conv: tm => fmt(tm/2) + " /side"},
+  "Bulgarian Split Squat":         {suffix: " /side", label: "Smith plates per side", conv: tm => fmt(tm*2) + " total"},
   "Leg Press":                     {suffix: " /leg",  label: "per leg", conv: tm => fmt(tm/2) + " /side of sled"},
 };
 const NOTES = {
-  "Bulgarian Split Squat": "Points before Jul 2026 are per-dumbbell; current points are Smith-machine plate load (total on the bar, half per side).",
+  "Bulgarian Split Squat": "Points before Jul 2026 are per-dumbbell; Jul-2026 points are Smith bar totals. Convention flipped to plates-per-side Aug 13, 2026 (TM 90 total → 45/side).",
   "Leg Press": "Points before Jul 2026 are bilateral sled totals; current points are per-leg (single-leg).",
   "Leg Extensions": "Current points are single-leg.",
-  "Hip Thrusts": "Deadlift-slot main since Jul 23, 2026 (trap bar retired). TM is TOTAL machine load, half per side (convention fixed Jul 29 — was briefly mislabeled per-side).",
+  "Hip Thrusts": "Deadlift-slot main since Jul 23, 2026 (trap bar retired). Convention flipped to per-side Aug 13, 2026 (TM 70/side = 140 total, reseeded from 55/side x12); points before then are totals.",
   "Trap Bar Deadlift": "Retired Jul 23, 2026 (low back). Posterior chain volume now comes from hip thrusts, hyperextensions, single-leg DB RDLs, KB swings, and leg curls.",
   "Hammer Strength Chest Press": "Added Jul 23, 2026 as a bench aux. TM is per-side plate load. Reseeded 142.5 → 102.5/side on Aug 13, 2026: the ramp-day seed overshot the actual working range (80/side x13).",
   "Hammer Strength Incline Press": "Convention flipped to per-side Aug 13, 2026 (TM 186.2 total → 93.1/side). Points before then are total machine load.",

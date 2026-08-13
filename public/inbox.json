@@ -1614,6 +1614,18 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-13-per-side-tms-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [],
+        "trainingMaxes": {
+          "Hip Thrusts": 70,
+          "Bulgarian Split Squat": 45
+        }
+      }
     }
   ]
 }

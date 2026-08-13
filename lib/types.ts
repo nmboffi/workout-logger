@@ -206,6 +206,10 @@ export interface PoolExercise {
   name: string;
   pattern: MovementPattern;
   movement: Movement;
+  // How this lift's load is counted, shown next to every prescribed weight:
+  // "/side" (plate-loaded, double for total), "/leg" (per-leg sled). Per-DB
+  // lifts are covered by DB_EXERCISES instead.
+  loadLabel?: string;
   roles: SlotRole[];
   equipment: Equipment;
   muscles: string[];

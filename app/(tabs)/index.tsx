@@ -2,15 +2,9 @@ import { View, Text, ScrollView, TouchableOpacity, Platform, StyleSheet } from "
 import { useRouter } from "expo-router";
 import { useStore } from "../../lib/store";
 import { prescribeExercise } from "../../lib/sbs";
-import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS, DB_EXERCISES } from "../../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, MAIN_LIFTS } from "../../lib/theme";
+import { formatWeight } from "../../lib/format";
 import RandomHome from "../../components/RandomHome";
-
-function formatWeight(weight: number, exerciseName: string): string {
-  if (DB_EXERCISES.has(exerciseName)) {
-    return `${weight * 2} lbs (${weight} ea)`;
-  }
-  return `${weight} lbs`;
-}
 
 export default function WorkoutTab() {
   const router = useRouter();

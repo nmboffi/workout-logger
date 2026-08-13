@@ -11,15 +11,9 @@ import {
 import { useRouter } from "expo-router";
 import { useStore } from "../lib/store";
 import { getLastPerformance, lastPerformanceLine } from "../lib/history";
-import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES, DB_EXERCISES } from "../lib/theme";
+import { colors, spacing, radius, font, shadow, EXERCISE_CATEGORIES } from "../lib/theme";
+import { formatWeight, rxWeightParts } from "../lib/format";
 import type { ExerciseFeel } from "../lib/types";
-
-function formatWeight(weight: number, exerciseName: string): string {
-  if (DB_EXERCISES.has(exerciseName)) {
-    return `${weight * 2} lbs (${weight} ea)`;
-  }
-  return `${weight} lbs`;
-}
 
 const FEEL_OPTIONS: { value: ExerciseFeel; label: string; emoji: string }[] = [
   { value: "easy", label: "Easy", emoji: "🟢" },
@@ -176,11 +170,7 @@ function ExerciseCard({ exercise }: { exercise: any }) {
 
         {/* Prescription */}
         <View style={styles.rxGrid}>
-          <RxItem
-            label={DB_EXERCISES.has(exercise.exerciseName) ? "Total" : "Weight"}
-            value={DB_EXERCISES.has(exercise.exerciseName) && exercise.prescribedWeight ? `${exercise.prescribedWeight * 2}` : `${exercise.prescribedWeight}`}
-            unit={DB_EXERCISES.has(exercise.exerciseName) && exercise.prescribedWeight ? `(${exercise.prescribedWeight} ea)` : "lbs"}
-          />
+          <RxItem {...rxWeightParts(exercise.prescribedWeight, exercise.exerciseName)} />
           <RxItem label="Reps" value={`${exercise.prescribedReps}`} />
           <RxItem label="Sets" value={`${exercise.sets}`} />
           <RxItem label="Rep Out" value={`${exercise.repOutTarget}`} accent />
