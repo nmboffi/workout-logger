@@ -1474,6 +1474,146 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-12-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "Hammer Strength Chest Press": 102.5,
+          "Hammer Strength Incline Press": 93.1
+        },
+        "workouts": [
+          {
+            "date": "2026-08-12",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "Two accessories not recalled — not logged. HS conventions: chest press TM reseeded to 102.5/side (old 142.5 seed overshot); incline press flipped to per-side (93.1/side).",
+            "exercises": [
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "up to 110 total (55/side); 3x7 + rep-out 12"
+              },
+              {
+                "exerciseName": "Reverse Twisting Lunge",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "60/hand; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Hammer Strength Chest Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "notes": "up to 80/side (160 total); 3x9 + rep-out 13; TM reseeded from this session"
+              },
+              {
+                "exerciseName": "Hammer Strength Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 }
+                ],
+                "notes": "per-side load (70/side, 140 total)"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-08-13-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-13",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "Aux picks felt off — plan was generated before the unlogged previous day (stale-recency issue, fixed in app 2026-08-13).",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "notes": "100 on the bar; 3x6 + rep-out 13"
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 },
+                  { "weight": 53, "reps": 10 }
+                ],
+                "notes": "24 kg"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 26, "reps": 5 },
+                  { "weight": 26, "reps": 5 },
+                  { "weight": 26, "reps": 5 },
+                  { "weight": 26, "reps": 5 },
+                  { "weight": 26, "reps": 5 }
+                ],
+                "notes": "weighted, 12 kg KB (26 lb)"
+              },
+              {
+                "exerciseName": "Dips",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "DB Hammer Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 55, "reps": 8 },
+                  { "weight": 55, "reps": 8 },
+                  { "weight": 55, "reps": 8 },
+                  { "weight": 55, "reps": 8 }
+                ]
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 },
+                  { "weight": null, "reps": 8 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
