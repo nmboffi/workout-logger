@@ -7,9 +7,9 @@
   "DB Incline Press": 75.0,
   "DB RDL": 77.5,
   "Goblet Squat": 72.9,
-  "Hammer Strength Chest Press": 142.5,
+  "Hammer Strength Chest Press": 102.5,
   "Hammer Strength Hack Squat": 87.5,
-  "Hammer Strength Incline Press": 186.2,
+  "Hammer Strength Incline Press": 93.1,
   "Hip Thrusts": 116.7,
   "Incline Press": 184.3,
   "KB Press": 65.0,
@@ -2162,6 +2162,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "100 on the bar; 3x7 + rep-out 11"
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "main",
+     "weight": null,
+     "reps": 13,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "100 on the bar; 3x6 + rep-out 13"
     }
    ]
   },
@@ -2668,6 +2679,33 @@
      "date": "2026-08-05",
      "kind": "sets",
      "sets": [
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ],
+      [
+       53,
+       10
+      ]
+     ],
+     "note": "24 kg"
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "sets",
+     "sets": [
+      [
+       53,
+       10
+      ],
       [
        53,
        10
@@ -3455,6 +3493,17 @@
      "tmBefore": 73.2,
      "tmAfter": 73.2,
      "note": "55/hand; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 73.2,
+     "tmAfter": 73.2,
+     "note": "60/hand; 3x9 + rep-out 12"
     }
    ]
   },
@@ -3557,6 +3606,28 @@
     },
     {
      "date": "2026-08-05",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-13",
      "kind": "sets",
      "sets": [
       [
@@ -4069,6 +4140,17 @@
      "tmBefore": 116.7,
      "tmAfter": 116.7,
      "note": "90 total (45/side); 3x9 + rep-out 15"
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 116.7,
+     "tmAfter": 116.7,
+     "note": "up to 110 total (55/side); 3x7 + rep-out 12"
     }
    ]
   },
@@ -4253,6 +4335,28 @@
        8
       ]
      ]
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ]
+     ]
     }
    ]
   },
@@ -4337,6 +4441,17 @@
       ]
      ],
      "note": "per-side load; sub for DB bench (superset convenience); exploratory ramp, middle-set reps approximate"
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "main",
+     "weight": null,
+     "reps": 13,
+     "target": null,
+     "dev": null,
+     "tmBefore": 102.5,
+     "tmAfter": 102.5,
+     "note": "up to 80/side (160 total); 3x9 + rep-out 13; TM reseeded from this session"
     }
    ]
   },
@@ -4561,6 +4676,32 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4713,6 +4854,28 @@
        7
       ]
      ]
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "sets",
+     "sets": [
+      [
+       55,
+       8
+      ],
+      [
+       55,
+       8
+      ],
+      [
+       55,
+       8
+      ],
+      [
+       55,
+       8
+      ]
+     ]
     }
    ]
   },
@@ -4853,6 +5016,33 @@
       ]
      ],
      "note": "weighted, 16 kg KB (35 lb)"
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "sets",
+     "sets": [
+      [
+       26,
+       5
+      ],
+      [
+       26,
+       5
+      ],
+      [
+       26,
+       5
+      ],
+      [
+       26,
+       5
+      ],
+      [
+       26,
+       5
+      ]
+     ],
+     "note": "weighted, 12 kg KB (26 lb)"
     }
    ]
   },
@@ -4995,6 +5185,29 @@
       ]
      ],
      "note": "bilateral HS machine (not the iso-lateral); per-side load, 45+25 = 70/side, 140 total"
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "per-side load (70/side, 140 total)"
     }
    ]
   },
