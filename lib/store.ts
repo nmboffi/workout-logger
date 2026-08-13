@@ -32,6 +32,7 @@ import {
   setWorkoutAnchor,
   setSlotExercise,
   repTargetsFor,
+  buildRecency,
   type GeneratorInputs,
 } from "./generator";
 import {
@@ -1140,6 +1141,21 @@ export const useStore = create<AppState>((set, get) => ({
 
     if (!dryRun && (result.imported.length > 0 || tmsSet)) {
       const exerciseGroups = buildExerciseGroups(tms);
+      // Imported logs change recency. A pending plan generated before they
+      // arrived couldn't see those sessions, so it repeats their aux and
+      // accessory picks (same LRU state) and its anchor may be off-cycle.
+      // Reroll it against the updated history — locked slots and any manual
+      // anchor override survive, and the anchor re-derives from the newly
+      // imported labels.
+      if (pending) {
+        const recency = buildRecency(logs, exercisePool);
+        if (recency.trainingDayCount !== pending.trainingDayIndex) {
+          pending = rerollWorkout(
+            pending,
+            makeGeneratorInputs(logs, tms, get().excludedExercises)
+          );
+        }
+      }
       set({
         workoutLogs: logs,
         trainingMaxes: tms,
