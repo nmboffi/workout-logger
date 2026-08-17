@@ -386,6 +386,17 @@
      "tmBefore": 220.8,
      "tmAfter": 220.8,
      "note": "175 on the bar; 3x6 + rep-out 11"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 220.8,
+     "tmAfter": 220.8,
+     "note": "165 on the bar; 3x9 + rep-out 12"
     }
    ]
   },
@@ -3055,6 +3066,29 @@
       ]
      ],
      "note": "+70 held (45+25)"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ]
+     ],
+     "note": "+70 held"
     }
    ]
   },
@@ -3598,6 +3632,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       140,
+       10
+      ],
+      [
+       160,
+       7
+      ],
+      [
+       160,
+       7
+      ],
+      [
+       160,
+       7
+      ]
+     ],
+     "note": "worked up: 140x10 then 3x7 at 160"
     }
    ]
   },
@@ -3741,6 +3798,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "single-leg, 100 on the stack; 3x8 + rep-out 10"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "single-leg, 110 on the stack (dictated '11'); 3x8 + rep-out 12"
     }
    ]
   },
@@ -4044,6 +4112,28 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4292,6 +4382,25 @@
       ]
      ],
      "note": "barbell preacher, 20/side = 40 total plate load; thicker/heavier bar than usual, went by feel"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       8
+      ],
+      [
+       65,
+       8
+      ],
+      [
+       65,
+       8
+      ]
+     ],
+     "note": "Hammer Strength machine, 65 plate load (dictated 'hammer strength curls')"
     }
    ]
   },
@@ -4607,6 +4716,28 @@
       [
        60,
        9
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
       ]
      ]
     }
