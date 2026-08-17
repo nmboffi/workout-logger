@@ -1719,6 +1719,88 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-17-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-17",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "165 on the bar; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "single-leg, 110 on the stack (dictated '11'); 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Hyperextensions",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 },
+                  { "weight": 70, "reps": 9 }
+                ],
+                "notes": "+70 held"
+              },
+              {
+                "exerciseName": "Pull-downs",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 140, "reps": 10 },
+                  { "weight": 160, "reps": 7 },
+                  { "weight": 160, "reps": 7 },
+                  { "weight": 160, "reps": 7 }
+                ],
+                "notes": "worked up: 140x10 then 3x7 at 160"
+              },
+              {
+                "exerciseName": "Preacher Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 8 },
+                  { "weight": 65, "reps": 8 },
+                  { "weight": 65, "reps": 8 }
+                ],
+                "notes": "Hammer Strength machine, 65 plate load (dictated 'hammer strength curls')"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 },
+                  { "weight": 65, "reps": 10 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
