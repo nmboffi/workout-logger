@@ -399,7 +399,6 @@
       "pattern": "bench",
       "movement": "horizontal-press",
       "roles": [
-        "main",
         "aux"
       ],
       "equipment": "barbell",
