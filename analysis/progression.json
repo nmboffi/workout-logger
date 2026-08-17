@@ -713,6 +713,17 @@
      "tmBefore": 90.0,
      "tmAfter": 90.0,
      "note": "70 total on the Smith (35/side) \u2014 dictated as '70/side' but 70 total matches the prescription and 7-rep sets; 3x7 + rep-out 12"
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 45.0,
+     "tmAfter": 45.0,
+     "note": "35/side (70 total) on the Smith; 3x6 + rep-out 12"
     }
    ]
   },
@@ -1433,6 +1444,17 @@
      "tmBefore": 184.3,
      "tmAfter": 184.3,
      "note": "155 on the bar; 3x9 + rep-out 11"
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "main",
+     "weight": null,
+     "reps": 9,
+     "target": null,
+     "dev": null,
+     "tmBefore": 184.3,
+     "tmAfter": 184.3,
+     "note": "155 on the bar; 3x6 + rep-out 9"
     }
    ]
   },
@@ -2910,6 +2932,28 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       9
+      ],
+      [
+       135,
+       15
+      ]
+     ]
     }
    ]
   },
@@ -4051,6 +4095,29 @@
       ]
      ],
      "note": "pec deck machine"
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       95,
+       10
+      ],
+      [
+       95,
+       10
+      ],
+      [
+       95,
+       10
+      ],
+      [
+       95,
+       10
+      ]
+     ],
+     "note": "pec deck machine"
     }
    ]
   },
@@ -4357,6 +4424,28 @@
        6
       ]
      ]
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ]
+     ]
     }
    ]
   },
@@ -4567,6 +4656,29 @@
       ]
      ],
      "note": "overhead DB tricep extension"
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ],
+      [
+       60,
+       9
+      ]
+     ],
+     "note": "DB overhead tricep extensions"
     }
    ]
   },
@@ -4827,6 +4939,28 @@
       ]
      ],
      "note": "+10 from last session (90 -> ~100), weight approximate; rep-out 13"
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       95,
+       9
+      ],
+      [
+       95,
+       9
+      ],
+      [
+       95,
+       9
+      ],
+      [
+       95,
+       12
+      ]
+     ]
     }
    ]
   },
@@ -4921,6 +5055,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-16",
+     "kind": "sets",
+     "sets": [
+      [
+       30,
+       9
+      ],
+      [
+       30,
+       9
+      ],
+      [
+       30,
+       9
+      ],
+      [
+       30,
+       9
+      ]
+     ],
+     "note": "30s per DB"
     }
    ]
   },
