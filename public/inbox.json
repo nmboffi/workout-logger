@@ -1626,6 +1626,99 @@
           "Bulgarian Split Squat": 45
         }
       }
+    },
+    {
+      "inboxId": "2026-08-16-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-16",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Self-programmed day (generator was serving repeats — variety fix shipped same day).",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "35/side (70 total) on the Smith; 3x6 + rep-out 12"
+              },
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 9,
+                "notes": "155 on the bar; 3x6 + rep-out 9"
+              },
+              {
+                "exerciseName": "Leg Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 95, "reps": 9 },
+                  { "weight": 95, "reps": 9 },
+                  { "weight": 95, "reps": 9 },
+                  { "weight": 95, "reps": 12 }
+                ]
+              },
+              {
+                "exerciseName": "Barbell rows",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 9 },
+                  { "weight": 135, "reps": 15 }
+                ]
+              },
+              {
+                "exerciseName": "Reverse Flyes",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 },
+                  { "weight": 95, "reps": 10 }
+                ],
+                "notes": "pec deck machine"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 },
+                  { "weight": null, "reps": 6 }
+                ]
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 30, "reps": 9 },
+                  { "weight": 30, "reps": 9 },
+                  { "weight": 30, "reps": 9 },
+                  { "weight": 30, "reps": 9 }
+                ],
+                "notes": "30s per DB"
+              },
+              {
+                "exerciseName": "French Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 },
+                  { "weight": 60, "reps": 9 }
+                ],
+                "notes": "DB overhead tricep extensions"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
