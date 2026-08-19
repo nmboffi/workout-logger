@@ -16,7 +16,7 @@
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
   "Leg Extensions": 126.2,
-  "Leg Press": 114.8,
+  "Leg Press": 180.0,
   "Overhead Press": 126.2,
   "Reverse Twisting Lunge": 73.2,
   "Seated OHP": 59.4,
@@ -1782,6 +1782,29 @@
      "tmBefore": 114.8,
      "tmAfter": 114.8,
      "note": "single-leg; 110 total sled (45+10 per side) \u2014 dictation ambiguous, 100 if the extra 10 was one side only; 3x9 + rep-out 13"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "sets",
+     "sets": [
+      [
+       90,
+       8
+      ],
+      [
+       110,
+       8
+      ],
+      [
+       130,
+       8
+      ],
+      [
+       150,
+       10
+      ]
+     ],
+     "note": "single-leg calibration ramp, sled totals (45/side start); TM reseeded from 150x10"
     }
    ]
   },
@@ -3925,6 +3948,29 @@
       ]
      ],
      "note": "low-to-high; weight not recorded, ~26/side assumed from last session"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "sets",
+     "sets": [
+      [
+       30,
+       10
+      ],
+      [
+       30,
+       10
+      ],
+      [
+       30,
+       10
+      ],
+      [
+       30,
+       10
+      ]
+     ],
+     "note": "high-to-low this time (usually low-to-high); 30/side"
     }
    ]
   },
@@ -4308,6 +4354,17 @@
      "tmBefore": 116.7,
      "tmAfter": 116.7,
      "note": "up to 110 total (55/side); 3x7 + rep-out 12"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 70.0,
+     "tmAfter": 70.0,
+     "note": "55/side (110 total); 3x6 + rep-out 12"
     }
    ]
   },
@@ -4857,6 +4914,29 @@
       ]
      ],
      "note": "machine max"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "sets",
+     "sets": [
+      [
+       85,
+       10
+      ],
+      [
+       85,
+       10
+      ],
+      [
+       85,
+       10
+      ],
+      [
+       85,
+       10
+      ]
+     ],
+     "note": "machine maxed out"
     }
    ]
   },
@@ -5331,6 +5411,29 @@
       ]
      ],
      "note": "weighted, 12 kg KB (26 lb)"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "sets",
+     "sets": [
+      [
+       35,
+       5
+      ],
+      [
+       35,
+       5
+      ],
+      [
+       35,
+       5
+      ],
+      [
+       35,
+       5
+      ]
+     ],
+     "note": "weighted, 16 kg KB (35 lb)"
     }
    ]
   },
@@ -5358,6 +5461,17 @@
      "tmBefore": 65.0,
      "tmAfter": 65.0,
      "note": "standing, 24 kg bell (53 lb); 3x7 + rep-out 10"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "main",
+     "weight": null,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 65.0,
+     "tmAfter": 65.0,
+     "note": "24 kg (53 lb); 3x7 + rep-out 10"
     }
    ]
   },
@@ -5576,6 +5690,30 @@
       ]
      ],
      "note": "24 kg"
+    }
+   ]
+  },
+  "Cable Reverse Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-19",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not dictated"
     }
    ]
   }
