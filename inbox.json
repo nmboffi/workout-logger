@@ -515,21 +515,45 @@
                 "exerciseName": "Trap Bar RDL",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 155, "reps": 9 }
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 155,
+                    "reps": 9
+                  }
                 ],
-                "notes": "sub for Trap Bar Deadlift (main slot); rough on low back even light — last trap bar session"
+                "notes": "sub for Trap Bar Deadlift (main slot); rough on low back even light \u2014 last trap bar session"
               },
               {
                 "exerciseName": "Pull-ups",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 25, "reps": 5 },
-                  { "weight": 25, "reps": 5 },
-                  { "weight": 25, "reps": 5 },
-                  { "weight": 25, "reps": 5 }
+                  {
+                    "weight": 25,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 25,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 25,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 25,
+                    "reps": 5
+                  }
                 ],
                 "notes": "weighted +25, varied grip; unweighted warm-up sets before"
               },
@@ -547,10 +571,22 @@
                 "exerciseName": "Hammer Strength Chest Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 45, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 90, "reps": 9 },
-                  { "weight": 115, "reps": 11 }
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 115,
+                    "reps": 11
+                  }
                 ],
                 "notes": "per-side load; sub for DB bench (superset convenience); exploratory ramp, middle-set reps approximate"
               },
@@ -558,9 +594,18 @@
                 "exerciseName": "Pullovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 }
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  }
                 ],
                 "notes": "DB pullovers"
               },
@@ -568,9 +613,18 @@
                 "exerciseName": "French Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 }
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  }
                 ],
                 "notes": "DB tricep extensions"
               },
@@ -578,9 +632,18 @@
                 "exerciseName": "Cable Crunches",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 85, "reps": 9 },
-                  { "weight": 85, "reps": 9 },
-                  { "weight": 85, "reps": 12 }
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 12
+                  }
                 ],
                 "notes": "machine max 85; final set rep-out 12"
               }
@@ -627,10 +690,22 @@
                 "exerciseName": "Barbell rows",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 145, "reps": 9 },
-                  { "weight": 145, "reps": 9 }
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 145,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 145,
+                    "reps": 9
+                  }
                 ]
               },
               {
@@ -657,30 +732,66 @@
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 }
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  }
                 ]
               },
               {
                 "exerciseName": "Dips",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 }
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  }
                 ]
               },
               {
                 "exerciseName": "Reverse Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 30, "reps": 9 },
-                  { "weight": 40, "reps": 9 },
-                  { "weight": 50, "reps": 9 },
-                  { "weight": 40, "reps": 12 }
+                  {
+                    "weight": 30,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 40,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 40,
+                    "reps": 12
+                  }
                 ],
                 "notes": "EZ bar, working up"
               }
@@ -726,10 +837,22 @@
                 "exerciseName": "Iso-Lateral Pulldown",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 12 }
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 12
+                  }
                 ],
                 "notes": "HS machine, per-side load (45+25 = 70/side, 140 total)"
               },
@@ -737,10 +860,22 @@
                 "exerciseName": "Leg Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 90, "reps": 9 },
-                  { "weight": 90, "reps": 9 },
-                  { "weight": 90, "reps": 9 },
-                  { "weight": 90, "reps": 9 }
+                  {
+                    "weight": 90,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 9
+                  }
                 ],
                 "notes": "lying leg curl"
               },
@@ -748,31 +883,64 @@
                 "exerciseName": "DB Hammer Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 55, "reps": 7 },
-                  { "weight": 55, "reps": 7 },
-                  { "weight": 55, "reps": 7 },
-                  { "weight": 55, "reps": 7 }
+                  {
+                    "weight": 55,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 7
+                  }
                 ]
               },
               {
                 "exerciseName": "Lateral Raise",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 27.5, "reps": 8 },
-                  { "weight": 30, "reps": 8 },
-                  { "weight": 30, "reps": 8 }
+                  {
+                    "weight": 27.5,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 8
+                  }
                 ]
               },
               {
                 "exerciseName": "Crunch Machine",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 105, "reps": 9 },
-                  { "weight": 105, "reps": 9 },
-                  { "weight": 105, "reps": 9 },
-                  { "weight": 105, "reps": 9 }
+                  {
+                    "weight": 105,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 105,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 105,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 105,
+                    "reps": 9
+                  }
                 ],
-                "notes": "~105, too light — needs loading recalibration"
+                "notes": "~105, too light \u2014 needs loading recalibration"
               }
             ]
           }
@@ -817,13 +985,34 @@
                 "exerciseName": "Chin-ups",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 }
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  }
                 ],
                 "notes": "3x8 bodyweight, then 4x4 weighted with 16 kg KB (35 lb)"
               },
@@ -851,10 +1040,22 @@
                 "exerciseName": "Push-Downs",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 }
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  }
                 ],
                 "notes": "rope; weight approximate (~65)"
               },
@@ -862,10 +1063,22 @@
                 "exerciseName": "Cable Crunches",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 85, "reps": 9 },
-                  { "weight": 85, "reps": 9 },
-                  { "weight": 85, "reps": 9 },
-                  { "weight": 85, "reps": 9 }
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 9
+                  }
                 ],
                 "notes": "machine max"
               },
@@ -873,10 +1086,22 @@
                 "exerciseName": "Cable Crossovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 26, "reps": 9 },
-                  { "weight": 26, "reps": 9 },
-                  { "weight": 26, "reps": 9 },
-                  { "weight": 26, "reps": 9 }
+                  {
+                    "weight": 26,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 9
+                  }
                 ],
                 "notes": "low-to-high; weight not recorded, ~26/side assumed from last session"
               }
@@ -932,30 +1157,66 @@
                 "exerciseName": "Low Row",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 160, "reps": 10 },
-                  { "weight": 160, "reps": 10 },
-                  { "weight": 160, "reps": 10 },
-                  { "weight": 160, "reps": 10 }
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Ab Wheel Rollouts",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 },
-                  { "weight": null, "reps": 9 }
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  }
                 ]
               },
               {
                 "exerciseName": "Cable Lateral Raise",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 17.5, "reps": 9 },
-                  { "weight": 17.5, "reps": 9 },
-                  { "weight": 17.5, "reps": 9 },
-                  { "weight": 17.5, "reps": 9 }
+                  {
+                    "weight": 17.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 17.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 17.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 17.5,
+                    "reps": 9
+                  }
                 ],
                 "notes": "stack setting 17.5"
               },
@@ -963,10 +1224,22 @@
                 "exerciseName": "Preacher Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 45, "reps": 9 },
-                  { "weight": 45, "reps": 9 },
-                  { "weight": 45, "reps": 9 },
-                  { "weight": 45, "reps": 9 }
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  }
                 ],
                 "notes": "HS machine, 45 plate load"
               }
@@ -986,7 +1259,7 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "OHP Day",
-            "notes": "Date approximate (dictated later as 'end of last week'). A few additional exercises at the end not recalled — not logged.",
+            "notes": "Date approximate (dictated later as 'end of last week'). A few additional exercises at the end not recalled \u2014 not logged.",
             "exercises": [
               {
                 "exerciseName": "Overhead Press",
@@ -1010,20 +1283,44 @@
                 "exerciseName": "DB rows",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 11 }
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 11
+                  }
                 ]
               },
               {
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 }
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
                 ],
                 "notes": "dictated once as 'calf raises(?)', corrected recap says obliques"
               }
@@ -1050,11 +1347,26 @@
                 "category": "accessory",
                 "calibration": true,
                 "accessorySets": [
-                  { "weight": 45, "reps": 9 },
-                  { "weight": 55, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 12 }
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 12
+                  }
                 ],
                 "notes": "NEW lift; per-side plate load, sled not counted (top set 70/side = 140 total)"
               },
@@ -1062,10 +1374,22 @@
                 "exerciseName": "Hyperextensions",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 }
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
                 ],
                 "notes": "+70 held (45+25)"
               },
@@ -1073,10 +1397,22 @@
                 "exerciseName": "Hammer Strength Low Row",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 12 }
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 12
+                  }
                 ],
                 "notes": "bilateral HS machine (not the iso-lateral); per-side load, 45+25 = 70/side, 140 total"
               },
@@ -1090,20 +1426,44 @@
                 "exerciseName": "Pullovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 65, "reps": 9 },
-                  { "weight": 65, "reps": 9 }
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  }
                 ]
               },
               {
                 "exerciseName": "Preacher Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 40, "reps": 8 },
-                  { "weight": 40, "reps": 8 },
-                  { "weight": 40, "reps": 8 },
-                  { "weight": 40, "reps": 8 }
+                  {
+                    "weight": 40,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 40,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 40,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 40,
+                    "reps": 8
+                  }
                 ],
                 "notes": "barbell preacher, 20/side = 40 total plate load; thicker/heavier bar than usual, went by feel"
               },
@@ -1111,10 +1471,22 @@
                 "exerciseName": "Hanging Leg Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 7 },
-                  { "weight": null, "reps": 7 },
-                  { "weight": null, "reps": 7 },
-                  { "weight": null, "reps": 7 }
+                  {
+                    "weight": null,
+                    "reps": 7
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7
+                  }
                 ]
               }
             ]
@@ -1133,13 +1505,13 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "Squat Day",
-            "notes": "Ran squat-type work two days in a row by mistake — this was supposed to be Bench Day. Labeled Squat Day so the rotation serves Bench next; plan is Bench Day, then a merged Deadlift+OHP day.",
+            "notes": "Ran squat-type work two days in a row by mistake \u2014 this was supposed to be Bench Day. Labeled Squat Day so the rotation serves Bench next; plan is Bench Day, then a merged Deadlift+OHP day.",
             "exercises": [
               {
                 "exerciseName": "Leg Press",
                 "category": "main",
                 "repsOnLastSet": 13,
-                "notes": "single-leg; 110 total sled (45+10 per side) — dictation ambiguous, 100 if the extra 10 was one side only; 3x9 + rep-out 13"
+                "notes": "single-leg; 110 total sled (45+10 per side) \u2014 dictation ambiguous, 100 if the extra 10 was one side only; 3x9 + rep-out 13"
               },
               {
                 "exerciseName": "DB Incline Press",
@@ -1151,20 +1523,44 @@
                 "exerciseName": "Pull-downs",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 140, "reps": 10 },
-                  { "weight": 140, "reps": 10 },
-                  { "weight": 140, "reps": 10 },
-                  { "weight": 140, "reps": 10 }
+                  {
+                    "weight": 140,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Leg Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 100, "reps": 9 },
-                  { "weight": 100, "reps": 9 },
-                  { "weight": 100, "reps": 9 },
-                  { "weight": 100, "reps": 13 }
+                  {
+                    "weight": 100,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 100,
+                    "reps": 13
+                  }
                 ],
                 "notes": "+10 from last session (90 -> ~100), weight approximate; rep-out 13"
               },
@@ -1172,20 +1568,44 @@
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 }
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "French Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 }
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
                 ],
                 "notes": "overhead DB tricep extension"
               },
@@ -1193,10 +1613,22 @@
                 "exerciseName": "Lateral Raise",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 27.5, "reps": 10 },
-                  { "weight": 27.5, "reps": 10 },
-                  { "weight": 27.5, "reps": 10 },
-                  { "weight": 27.5, "reps": 10 }
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  }
                 ]
               }
             ]
@@ -1227,11 +1659,26 @@
                 "exerciseName": "Chin-ups",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 },
-                  { "weight": 35, "reps": 4 }
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 4
+                  }
                 ],
                 "notes": "weighted, 16 kg KB (35 lb)"
               },
@@ -1245,10 +1692,22 @@
                 "exerciseName": "KB Swings",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 }
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  }
                 ],
                 "notes": "24 kg"
               },
@@ -1256,10 +1715,22 @@
                 "exerciseName": "Ab Wheel Rollouts",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 }
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  }
                 ]
               }
             ]
@@ -1302,9 +1773,18 @@
                 "exerciseName": "EZ Bar Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 50, "reps": 10 },
-                  { "weight": 50, "reps": 10 },
-                  { "weight": 50, "reps": 13 }
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 13
+                  }
                 ],
                 "notes": "cable stack with EZ attachment, not the barbell"
               },
@@ -1312,9 +1792,18 @@
                 "exerciseName": "Hanging Leg Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 }
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  }
                 ]
               }
             ]
@@ -1333,22 +1822,34 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "Squat Day",
-            "notes": "Reroll bug (flip-flopping between a few lifts) made the generated plan unusable — went from memory. One cable exercise done 'as usual' — not identified, not logged.",
+            "notes": "Reroll bug (flip-flopping between a few lifts) made the generated plan unusable \u2014 went from memory. One cable exercise done 'as usual' \u2014 not identified, not logged.",
             "exercises": [
               {
                 "exerciseName": "Bulgarian Split Squat",
                 "category": "main",
                 "repsOnLastSet": 12,
-                "notes": "70 total on the Smith (35/side) — dictated as '70/side' but 70 total matches the prescription and 7-rep sets; 3x7 + rep-out 12"
+                "notes": "70 total on the Smith (35/side) \u2014 dictated as '70/side' but 70 total matches the prescription and 7-rep sets; 3x7 + rep-out 12"
               },
               {
                 "exerciseName": "Iso-Lateral Row",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 80, "reps": 8 },
-                  { "weight": 80, "reps": 8 },
-                  { "weight": 80, "reps": 8 },
-                  { "weight": 80, "reps": 12 }
+                  {
+                    "weight": 80,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 12
+                  }
                 ],
                 "notes": "per-side load (45+35 = 80/side, 160 total), continued at previous session's weight; 3x8 + rep-out 12"
               },
@@ -1356,20 +1857,41 @@
                 "exerciseName": "DB Bench Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 7 },
-                  { "weight": 60, "reps": 7 },
-                  { "weight": 60, "reps": 7 }
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  }
                 ],
-                "notes": "aux slot, 60/DB, straight sets with no rep-out — logged as sets so autoregulation doesn't fire"
+                "notes": "aux slot, 60/DB, straight sets with no rep-out \u2014 logged as sets so autoregulation doesn't fire"
               },
               {
                 "exerciseName": "GHR",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 45, "reps": 10 },
-                  { "weight": 45, "reps": 10 },
-                  { "weight": 45, "reps": 10 },
-                  { "weight": 45, "reps": 10 }
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  }
                 ],
                 "notes": "+45"
               },
@@ -1377,10 +1899,22 @@
                 "exerciseName": "KB Clean",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 53, "reps": 7 },
-                  { "weight": 53, "reps": 7 },
-                  { "weight": 53, "reps": 7 },
-                  { "weight": 53, "reps": 7 }
+                  {
+                    "weight": 53,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 7
+                  }
                 ],
                 "notes": "24 kg"
               },
@@ -1388,10 +1922,22 @@
                 "exerciseName": "Reverse Flyes",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 }
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  }
                 ],
                 "notes": "pec deck machine"
               }
@@ -1435,39 +1981,84 @@
                 "exerciseName": "DB rows",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 }
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Reverse Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 50, "reps": 10 },
-                  { "weight": 50, "reps": 10 },
-                  { "weight": 50, "reps": 10 }
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Pullovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 }
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  }
                 ]
               },
               {
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 60, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 }
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
                 ]
               }
             ]
@@ -1490,7 +2081,7 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "Deadlift Day",
-            "notes": "Two accessories not recalled — not logged. HS conventions: chest press TM reseeded to 102.5/side (old 142.5 seed overshot); incline press flipped to per-side (93.1/side).",
+            "notes": "Two accessories not recalled \u2014 not logged. HS conventions: chest press TM reseeded to 102.5/side (old 142.5 seed overshot); incline press flipped to per-side (93.1/side).",
             "exercises": [
               {
                 "exerciseName": "Hip Thrusts",
@@ -1514,10 +2105,22 @@
                 "exerciseName": "Hammer Strength Low Row",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 }
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
                 ],
                 "notes": "per-side load (70/side, 140 total)"
               },
@@ -1525,10 +2128,22 @@
                 "exerciseName": "Hanging Leg Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 }
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  }
                 ]
               }
             ]
@@ -1547,7 +2162,7 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "OHP Day",
-            "notes": "Aux picks felt off — plan was generated before the unlogged previous day (stale-recency issue, fixed in app 2026-08-13).",
+            "notes": "Aux picks felt off \u2014 plan was generated before the unlogged previous day (stale-recency issue, fixed in app 2026-08-13).",
             "exercises": [
               {
                 "exerciseName": "Overhead Press",
@@ -1559,11 +2174,26 @@
                 "exerciseName": "KB Swings",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 },
-                  { "weight": 53, "reps": 10 }
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 10
+                  }
                 ],
                 "notes": "24 kg"
               },
@@ -1571,11 +2201,26 @@
                 "exerciseName": "Chin-ups",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 26, "reps": 5 },
-                  { "weight": 26, "reps": 5 },
-                  { "weight": 26, "reps": 5 },
-                  { "weight": 26, "reps": 5 },
-                  { "weight": 26, "reps": 5 }
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  }
                 ],
                 "notes": "weighted, 12 kg KB (26 lb)"
               },
@@ -1583,31 +2228,70 @@
                 "exerciseName": "Dips",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "DB Hammer Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 55, "reps": 8 },
-                  { "weight": 55, "reps": 8 },
-                  { "weight": 55, "reps": 8 },
-                  { "weight": 55, "reps": 8 }
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  }
                 ]
               },
               {
                 "exerciseName": "Ab Wheel Rollouts",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 },
-                  { "weight": null, "reps": 8 }
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  }
                 ]
               }
             ]
@@ -1638,7 +2322,7 @@
             "mode": "random",
             "dayType": "full",
             "dayLabel": "Squat Day",
-            "notes": "Self-programmed day (generator was serving repeats — variety fix shipped same day).",
+            "notes": "Self-programmed day (generator was serving repeats \u2014 variety fix shipped same day).",
             "exercises": [
               {
                 "exerciseName": "Bulgarian Split Squat",
@@ -1656,30 +2340,66 @@
                 "exerciseName": "Leg Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 95, "reps": 9 },
-                  { "weight": 95, "reps": 9 },
-                  { "weight": 95, "reps": 9 },
-                  { "weight": 95, "reps": 12 }
+                  {
+                    "weight": 95,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 12
+                  }
                 ]
               },
               {
                 "exerciseName": "Barbell rows",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 9 },
-                  { "weight": 135, "reps": 15 }
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 135,
+                    "reps": 15
+                  }
                 ]
               },
               {
                 "exerciseName": "Reverse Flyes",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 },
-                  { "weight": 95, "reps": 10 }
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 95,
+                    "reps": 10
+                  }
                 ],
                 "notes": "pec deck machine"
               },
@@ -1687,20 +2407,44 @@
                 "exerciseName": "Hanging Leg Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 },
-                  { "weight": null, "reps": 6 }
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  }
                 ]
               },
               {
                 "exerciseName": "Lateral Raise",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 30, "reps": 9 },
-                  { "weight": 30, "reps": 9 },
-                  { "weight": 30, "reps": 9 },
-                  { "weight": 30, "reps": 9 }
+                  {
+                    "weight": 30,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 9
+                  }
                 ],
                 "notes": "30s per DB"
               },
@@ -1708,10 +2452,22 @@
                 "exerciseName": "French Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 },
-                  { "weight": 60, "reps": 9 }
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 9
+                  }
                 ],
                 "notes": "DB overhead tricep extensions"
               }
@@ -1749,10 +2505,22 @@
                 "exerciseName": "Hyperextensions",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 },
-                  { "weight": 70, "reps": 9 }
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  }
                 ],
                 "notes": "+70 held"
               },
@@ -1760,10 +2528,22 @@
                 "exerciseName": "Pull-downs",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 140, "reps": 10 },
-                  { "weight": 160, "reps": 7 },
-                  { "weight": 160, "reps": 7 },
-                  { "weight": 160, "reps": 7 }
+                  {
+                    "weight": 140,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 7
+                  }
                 ],
                 "notes": "worked up: 140x10 then 3x7 at 160"
               },
@@ -1771,9 +2551,18 @@
                 "exerciseName": "Preacher Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 8 },
-                  { "weight": 65, "reps": 8 },
-                  { "weight": 65, "reps": 8 }
+                  {
+                    "weight": 65,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 8
+                  }
                 ],
                 "notes": "Hammer Strength machine, 65 plate load (dictated 'hammer strength curls')"
               },
@@ -1781,20 +2570,44 @@
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 }
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Pullovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 },
-                  { "weight": 65, "reps": 10 }
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
                 ]
               }
             ]
@@ -1828,10 +2641,22 @@
                 "exerciseName": "Leg Press",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 90, "reps": 8 },
-                  { "weight": 110, "reps": 8 },
-                  { "weight": 130, "reps": 8 },
-                  { "weight": 150, "reps": 10 }
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 110,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 130,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 150,
+                    "reps": 10
+                  }
                 ],
                 "notes": "single-leg calibration ramp, sled totals (45/side start); TM reseeded from 150x10"
               },
@@ -1839,10 +2664,22 @@
                 "exerciseName": "Chin-ups",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 35, "reps": 5 },
-                  { "weight": 35, "reps": 5 },
-                  { "weight": 35, "reps": 5 },
-                  { "weight": 35, "reps": 5 }
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  }
                 ],
                 "notes": "weighted, 16 kg KB (35 lb)"
               },
@@ -1856,10 +2693,22 @@
                 "exerciseName": "Cable Crunches",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 85, "reps": 10 },
-                  { "weight": 85, "reps": 10 },
-                  { "weight": 85, "reps": 10 },
-                  { "weight": 85, "reps": 10 }
+                  {
+                    "weight": 85,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 85,
+                    "reps": 10
+                  }
                 ],
                 "notes": "machine maxed out"
               },
@@ -1867,10 +2716,22 @@
                 "exerciseName": "Cable Crossovers",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 30, "reps": 10 },
-                  { "weight": 30, "reps": 10 },
-                  { "weight": 30, "reps": 10 },
-                  { "weight": 30, "reps": 10 }
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  }
                 ],
                 "notes": "high-to-low this time (usually low-to-high); 30/side"
               },
@@ -1878,11 +2739,20 @@
                 "exerciseName": "Cable Reverse Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  }
                 ],
-                "notes": "weight not dictated"
+                "notes": "~45 on the stack (anchor, Nick unsure \u2014 will confirm next time)"
               }
             ]
           }
