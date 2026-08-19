@@ -19,6 +19,7 @@ export function formatWeight(weight: number, exerciseName: string): string {
   }
   const label = labelByName.get(exerciseName);
   if (label === "/side") return `${weight}/side (${weight * 2} total)`;
+  if (label === "/sled") return `${weight} sled total (${weight / 2}/side, 1 leg)`;
   if (label) return `${weight} lbs ${label}`;
   return `${weight} lbs`;
 }
@@ -35,8 +36,8 @@ export function rxWeightParts(
   if (label === "/side") {
     return { label: "Per side", value: `${weight}`, unit: `(${weight! * 2} total)` };
   }
-  if (label === "/leg") {
-    return { label: "Per leg", value: `${weight}`, unit: "lbs" };
+  if (label === "/sled") {
+    return { label: "Sled total", value: `${weight}`, unit: `(${weight! / 2}/side · 1 leg)` };
   }
   return { label: "Weight", value: `${weight}`, unit: "lbs" };
 }

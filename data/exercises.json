@@ -229,7 +229,7 @@
       "name": "Leg Press",
       "pattern": "squat",
       "movement": "knee-dominant",
-      "loadLabel": "/leg",
+      "loadLabel": "/sled",
       "roles": [
         "aux"
       ],
@@ -242,7 +242,7 @@
         0.725,
         0.775
       ],
-      "notes": "single-leg; TM = per-leg sled load (half per side of the sled)"
+      "notes": "single-leg; TM = TOTAL plate load on the sled (half per side), pressed one leg at a time. Display fixed 2026-08-19 after '/leg' misread. TM reseeded 114.8 -> 180 from 150x10 ramp top set"
     },
     {
       "id": "bench-press",
@@ -1231,6 +1231,22 @@
         "biceps"
       ],
       "accessoryPool": "Forearms"
+    },
+    {
+      "id": "cable-reverse-curls",
+      "name": "Cable Reverse Curls",
+      "pattern": "pull",
+      "movement": "forearms",
+      "roles": [
+        "accessory"
+      ],
+      "equipment": "cable",
+      "muscles": [
+        "forearms",
+        "biceps"
+      ],
+      "accessoryPool": "Forearms",
+      "notes": "cable variant, distinct from EZ-bar Reverse Curls (cable variants get their own entries per 2026-08-17 convention)"
     },
     {
       "id": "wrist-curls",
