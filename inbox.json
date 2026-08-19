@@ -1801,6 +1801,93 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-19-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "Leg Press": 180
+        },
+        "workouts": [
+          {
+            "date": "2026-08-19",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "Leg press '/leg' label misread at the machine (fixed in app same day); ramped to find true working weight, TM reseeded 114.8 -> 180. 20 min sauna after.",
+            "exercises": [
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "55/side (110 total); 3x6 + rep-out 12"
+              },
+              {
+                "exerciseName": "Leg Press",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 90, "reps": 8 },
+                  { "weight": 110, "reps": 8 },
+                  { "weight": 130, "reps": 8 },
+                  { "weight": 150, "reps": 10 }
+                ],
+                "notes": "single-leg calibration ramp, sled totals (45/side start); TM reseeded from 150x10"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 35, "reps": 5 },
+                  { "weight": 35, "reps": 5 },
+                  { "weight": 35, "reps": 5 },
+                  { "weight": 35, "reps": 5 }
+                ],
+                "notes": "weighted, 16 kg KB (35 lb)"
+              },
+              {
+                "exerciseName": "KB Press",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "notes": "24 kg (53 lb); 3x7 + rep-out 10"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 85, "reps": 10 },
+                  { "weight": 85, "reps": 10 },
+                  { "weight": 85, "reps": 10 },
+                  { "weight": 85, "reps": 10 }
+                ],
+                "notes": "machine maxed out"
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 30, "reps": 10 },
+                  { "weight": 30, "reps": 10 },
+                  { "weight": 30, "reps": 10 },
+                  { "weight": 30, "reps": 10 }
+                ],
+                "notes": "high-to-low this time (usually low-to-high); 30/side"
+              },
+              {
+                "exerciseName": "Cable Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ],
+                "notes": "weight not dictated"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
