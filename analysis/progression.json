@@ -2229,6 +2229,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "100 on the bar; 3x6 + rep-out 13"
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 126.2,
+     "tmAfter": 126.2,
+     "note": "95 on the bar; 3x9 + rep-out 11"
     }
    ]
   },
@@ -4042,6 +4053,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "70/DB \u2014 up from 65"
     }
    ]
   },
@@ -4972,6 +5006,17 @@
       ]
      ],
      "note": "aux slot, 60/DB, straight sets with no rep-out \u2014 logged as sets so autoregulation doesn't fire"
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "main",
+     "weight": null,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 81.2,
+     "tmAfter": 81.2,
+     "note": "60/DB; 3x8 + rep-out 11"
     }
    ]
   },
@@ -5023,6 +5068,28 @@
       [
        null,
        10
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
       ]
      ]
     }
@@ -5559,6 +5626,29 @@
       ]
      ],
      "note": "NEW lift; per-side plate load, sled not counted (top set 70/side = 140 total)"
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       8
+      ],
+      [
+       45,
+       8
+      ],
+      [
+       55,
+       8
+      ],
+      [
+       55,
+       8
+      ]
+     ],
+     "note": "per-side; worked back in below the ~65/side prescription \u2014 first session since calibration"
     }
    ]
   },
@@ -5634,6 +5724,29 @@
       ]
      ],
      "note": "cable stack with EZ attachment, not the barbell"
+    },
+    {
+     "date": "2026-08-20",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       8
+      ],
+      [
+       70,
+       8
+      ],
+      [
+       70,
+       8
+      ],
+      [
+       80,
+       8
+      ]
+     ],
+     "note": "barbell, worked up 60-80 plate load"
     }
    ]
   },
@@ -5701,19 +5814,47 @@
      "kind": "sets",
      "sets": [
       [
-       null,
+       45,
        10
       ],
       [
-       null,
+       45,
        10
       ],
       [
-       null,
+       45,
        10
       ]
      ],
-     "note": "weight not dictated"
+     "note": "~45 on the stack (anchor, Nick unsure \u2014 will confirm next time)"
+    }
+   ]
+  },
+  "Weighted Sit-Ups": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-08-20",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ]
+     ],
+     "note": "+45 plate"
     }
    ]
   }
