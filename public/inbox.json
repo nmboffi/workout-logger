@@ -2758,6 +2758,150 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-20-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-20",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "95 on the bar; 3x9 + rep-out 11"
+              },
+              {
+                "exerciseName": "DB Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "notes": "60/DB; 3x8 + rep-out 11"
+              },
+              {
+                "exerciseName": "Hammer Strength Hack Squat",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 45,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 8
+                  }
+                ],
+                "notes": "per-side; worked back in below the ~65/side prescription \u2014 first session since calibration"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "70/DB \u2014 up from 65"
+              },
+              {
+                "exerciseName": "Dips",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "EZ Bar Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 8
+                  }
+                ],
+                "notes": "barbell, worked up 60-80 plate load"
+              },
+              {
+                "exerciseName": "Weighted Sit-Ups",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  }
+                ],
+                "notes": "+45 plate"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

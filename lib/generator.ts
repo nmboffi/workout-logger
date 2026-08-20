@@ -221,6 +221,20 @@ function slotCategory(
   return "accessory";
 }
 
+// Within-week freshness: at the strictest relaxation rung, anything used in
+// the last RECENT_WINDOW training days is not a candidate. With ~4 sessions a
+// week this makes "no repeats this week" the default while thin pools still
+// relax gracefully.
+const RECENT_WINDOW = 3;
+
+interface Relax {
+  noRecentWindow: boolean;
+  noExclude: boolean;
+  noDistinctPool: boolean;
+  anyRelation: boolean;
+  noConsecutive: boolean;
+}
+
 function candidatesForSlot(
   slot: TemplateSlot,
   anchor: MovementPattern | null,
@@ -231,7 +245,7 @@ function candidatesForSlot(
   excludeIds: Set<string>,
   recency: RecencyState,
   pool: ExercisePoolFile,
-  relax: { noExclude: boolean; noDistinctPool: boolean; anyRelation: boolean; noConsecutive: boolean }
+  relax: Relax
 ): PoolExercise[] {
   const relation = relax.anyRelation ? "any" : slot.relation ?? "same-pattern";
   return pool.exercises.filter((ex) => {
@@ -244,6 +258,10 @@ function candidatesForSlot(
     if (!relax.noExclude && excludeIds.has(ex.id)) return false;
     // Hard constraint: never the same exact lift on consecutive training days.
     if (!relax.noConsecutive && gapFor(ex.id, recency) === 1) return false;
+    // Soft constraint (first rung only): nothing used within the last
+    // RECENT_WINDOW training days — keeps rerolls and fresh generations from
+    // serving this week's lifts while alternatives exist.
+    if (!relax.noRecentWindow && gapFor(ex.id, recency) < RECENT_WINDOW) return false;
 
     if (slot.role === "main") {
       if (anchor && ex.pattern !== anchor) return false;
@@ -297,15 +315,19 @@ function pickForSlot(
   pool: ExercisePoolFile,
   rng: () => number
 ): PoolExercise | null {
-  const ladder = [
-    { noExclude: false, noDistinctPool: false, anyRelation: false, noConsecutive: false },
-    { noExclude: true, noDistinctPool: false, anyRelation: false, noConsecutive: false },
-    { noExclude: true, noDistinctPool: true, anyRelation: false, noConsecutive: false },
-    { noExclude: true, noDistinctPool: true, anyRelation: true, noConsecutive: false },
+  const ladder: Relax[] = [
+    // 1: fully strict — fresh lifts only (nothing from the last 3 training days)
+    { noRecentWindow: false, noExclude: false, noDistinctPool: false, anyRelation: false, noConsecutive: false },
+    // 2: allow recent (but never consecutive-day) lifts
+    { noRecentWindow: true, noExclude: false, noDistinctPool: false, anyRelation: false, noConsecutive: false },
+    // 3+: progressively drop reroll-history, pool-distinctness, aux relation
+    { noRecentWindow: true, noExclude: true, noDistinctPool: false, anyRelation: false, noConsecutive: false },
+    { noRecentWindow: true, noExclude: true, noDistinctPool: true, anyRelation: false, noConsecutive: false },
+    { noRecentWindow: true, noExclude: true, noDistinctPool: true, anyRelation: true, noConsecutive: false },
   ];
   // Optional slots drop rather than relax their pattern relation — a second
   // aux should never duplicate a pattern just to fill the slot.
-  const rungs = slot.optional ? ladder.slice(0, 3) : ladder;
+  const rungs = slot.optional ? ladder.slice(0, 4) : ladder;
   for (const relax of rungs) {
     const candidates = candidatesForSlot(
       slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, relax
@@ -332,6 +354,7 @@ function pickForSlot(
   // Last resort: allow a consecutive-day repeat, choosing the least-recently
   // used candidate.
   const candidates = candidatesForSlot(slot, anchor, picked, pickedPatterns, usedPools, excluded, excludeIds, recency, pool, {
+    noRecentWindow: true,
     noExclude: true,
     noDistinctPool: true,
     anyRelation: true,
@@ -782,7 +805,7 @@ export function swapCandidates(
     new Set(current?.exerciseId ? [current.exerciseId] : []),
     recency,
     inputs.pool,
-    { noExclude: false, noDistinctPool: true, anyRelation: true, noConsecutive: true }
+    { noRecentWindow: true, noExclude: false, noDistinctPool: true, anyRelation: true, noConsecutive: true }
   )
     .filter((ex) => !sameIds.has(ex.id))
     .sort(byGap);
