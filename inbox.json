@@ -2902,6 +2902,140 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-23-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-23",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Two unfamiliar cable machines (lateral raise, pushdowns) \u2014 weights by feel, not recorded.",
+            "exercises": [
+              {
+                "exerciseName": "Hammer Strength Hack Squat",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "notes": "45/side (90 total); 3x8 + rep-out 15 \u2014 still below prescription, big rep-out"
+              },
+              {
+                "exerciseName": "DB RDL",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "60/DB; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 9,
+                "notes": "155 on the bar; 3x7 + rep-out 9"
+              },
+              {
+                "exerciseName": "Iso-Lateral Pulldown",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "per-side (140 total)"
+              },
+              {
+                "exerciseName": "Cable Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "different machine than usual, weight by feel"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "70 \u2014 up from 65"
+              },
+              {
+                "exerciseName": "Push-Downs",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "unfamiliar machine, weight by feel"
+              },
+              {
+                "exerciseName": "Cable Reverse Flyes",
+                "category": "accessory",
+                "done": true,
+                "notes": "sets/weight not dictated \u2014 new cable variant"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
