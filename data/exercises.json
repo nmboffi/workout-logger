@@ -1028,6 +1028,23 @@
       "supersetTag": "shoulders"
     },
     {
+      "id": "cable-reverse-flyes",
+      "name": "Cable Reverse Flyes",
+      "pattern": "pull",
+      "movement": "rear-delt",
+      "roles": [
+        "accessory"
+      ],
+      "equipment": "cable",
+      "muscles": [
+        "rear-delts",
+        "upper-back"
+      ],
+      "accessoryPool": "Shoulder Accessories",
+      "supersetTag": "shoulders",
+      "notes": "cable variant, distinct from DB/pec-deck Reverse Flyes"
+    },
+    {
       "id": "shrugs",
       "name": "Shrugs",
       "pattern": "pull",
