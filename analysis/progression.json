@@ -1220,6 +1220,17 @@
      "tmBefore": 77.5,
      "tmAfter": 77.5,
      "note": "65/DB, single-leg; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 77.5,
+     "tmAfter": 77.5,
+     "note": "60/DB; 3x8 + rep-out 12"
     }
    ]
   },
@@ -1466,6 +1477,17 @@
      "tmBefore": 184.3,
      "tmAfter": 184.3,
      "note": "155 on the bar; 3x6 + rep-out 9"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "main",
+     "weight": null,
+     "reps": 9,
+     "target": null,
+     "dev": null,
+     "tmBefore": 184.3,
+     "tmAfter": 184.3,
+     "note": "155 on the bar; 3x7 + rep-out 9"
     }
    ]
   },
@@ -4214,6 +4236,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "70 \u2014 up from 65"
     }
    ]
   },
@@ -4539,6 +4584,29 @@
       ]
      ],
      "note": "stack setting 17.5"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "different machine than usual, weight by feel"
     }
    ]
   },
@@ -5166,6 +5234,29 @@
       ]
      ],
      "note": "HS machine, per-side load (45+25 = 70/side, 140 total)"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "per-side (140 total)"
     }
    ]
   },
@@ -5567,6 +5658,29 @@
       ]
      ],
      "note": "rope; weight approximate (~65)"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "unfamiliar machine, weight by feel"
     }
    ]
   },
@@ -5649,6 +5763,17 @@
       ]
      ],
      "note": "per-side; worked back in below the ~65/side prescription \u2014 first session since calibration"
+    },
+    {
+     "date": "2026-08-23",
+     "kind": "main",
+     "weight": null,
+     "reps": 15,
+     "target": null,
+     "dev": null,
+     "tmBefore": 87.5,
+     "tmAfter": 87.5,
+     "note": "45/side (90 total); 3x8 + rep-out 15 \u2014 still below prescription, big rep-out"
     }
    ]
   },
