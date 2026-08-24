@@ -3036,6 +3036,127 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-24-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-24",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "20 min sauna after.",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "165 on the bar; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Leg Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "notes": "140 sled total (70/side), single-leg; 3x7 + rep-out 12 \u2014 first session on reseeded TM 180"
+              },
+              {
+                "exerciseName": "Seated OHP",
+                "category": "main",
+                "repsOnLastSet": 14,
+                "notes": "45s per DB; 3x9 + rep-out 14"
+              },
+              {
+                "exerciseName": "Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
+                ],
+                "notes": "EZ bar forearm (reverse) curls"
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
