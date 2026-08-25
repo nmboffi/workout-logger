@@ -3157,6 +3157,56 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-08-25-custom-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-08-25",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Custom Day",
+            "notes": "By-feel recovery day after a rough night \u2014 weights not tracked. Sauna 20m + meditation after.",
+            "exercises": [
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "done": true
+              },
+              {
+                "exerciseName": "Pull-ups",
+                "category": "pull",
+                "done": true,
+                "notes": "weighted"
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "done": true
+              },
+              {
+                "exerciseName": "DB Hammer Curls",
+                "category": "accessory",
+                "done": true,
+                "notes": "'curls' \u2014 variant assumed, by feel"
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "done": true
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "done": true
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
