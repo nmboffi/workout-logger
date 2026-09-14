@@ -958,7 +958,27 @@
         "hamstrings"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "~100x8 baseline; machine, back-safe hamstring volume",
+      "notes": "seated/other machine (the lying machine is its own entry: Lying Leg Curls, split 2026-09-14); ~100x8 baseline; back-safe hamstring volume",
+      "intensityBand": [
+        0.725,
+        0.775
+      ]
+    },
+    {
+      "id": "lying-leg-curls",
+      "name": "Lying Leg Curls",
+      "pattern": "deadlift",
+      "movement": "hinge",
+      "roles": [
+        "aux",
+        "accessory"
+      ],
+      "equipment": "machine",
+      "muscles": [
+        "hamstrings"
+      ],
+      "accessoryPool": "Leg Accessories",
+      "notes": "lying machine, distinct from Leg Curls (seated/other machine); TM seeded 120 from Leg Curls on split 2026-09-14 (90 x 3x9 + rep-out 13)",
       "intensityBand": [
         0.725,
         0.775

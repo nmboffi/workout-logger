@@ -115,6 +115,8 @@ const NOTES = {
   "DB RDL": "Single-leg going forward (easier on the low back); weight is per dumbbell.",
   "Hammer Strength Hack Squat": "Added Aug 2, 2026 (calibration day). TM is per-side plate load, sled not counted; top calibration set 70/side = 140 total x12.",
   "Hammer Strength Low Row": "Bilateral HS machine, distinct from the Iso-Lateral Row. Load is per side — 70/side = 140 total.",
+  "Lying Leg Curls": "Split from Leg Curls on Sep 14, 2026 (lying machine; Leg Curls now means the seated/other machine). TM seeded 120 from Leg Curls.",
+  "Leg Curls": "Since Sep 14, 2026 this is the seated/other machine; the lying machine logs as Lying Leg Curls. Earlier points may be either machine.",
 };
 const tmOrder = Object.keys(DATA.currentTMs);
 const withData = Object.keys(DATA.lifts).filter(n => (DATA.lifts[n].history.length + DATA.lifts[n].recent.length) > 0);
