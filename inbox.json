@@ -3207,6 +3207,128 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-14-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "Lying Leg Curls": 120
+        },
+        "workouts": [
+          {
+            "date": "2026-09-14",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "First logged session after ~1.5 untracked weeks. Prescriptions included explicitly so main lifts autoregulate even if the app's pending workout is stale.",
+            "exercises": [
+              {
+                "exerciseName": "Hammer Strength Hack Squat",
+                "category": "main",
+                "repsOnLastSet": 14,
+                "prescribedWeight": 65,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "65/side (130 total); 3x8 + rep-out 14"
+              },
+              {
+                "exerciseName": "Lying Leg Curls",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 90,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "90 on the stack; 3x9 + rep-out 13. First session under the new lying-specific entry (TM seeded 120 from Leg Curls)"
+              },
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 140,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "140 on the bar; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Cable Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 9
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 27.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 12
+                  }
+                ],
+                "notes": "27.5/DB"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
