@@ -8,15 +8,16 @@
   "DB RDL": 77.5,
   "Goblet Squat": 72.9,
   "Hammer Strength Chest Press": 102.5,
-  "Hammer Strength Hack Squat": 87.5,
+  "Hammer Strength Hack Squat": 89.2,
   "Hammer Strength Incline Press": 93.1,
   "Hip Thrusts": 70.0,
-  "Incline Press": 184.3,
+  "Incline Press": 186.2,
   "KB Press": 65.0,
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
   "Leg Extensions": 126.2,
   "Leg Press": 180.0,
+  "Lying Leg Curls": 121.2,
   "Overhead Press": 126.2,
   "Reverse Twisting Lunge": 73.2,
   "Seated OHP": 59.4,
@@ -397,6 +398,17 @@
      "tmBefore": 220.8,
      "tmAfter": 220.8,
      "note": "165 on the bar; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 220.8,
+     "tmAfter": 220.8,
+     "note": "165 on the bar; 3x8 + rep-out 12"
     }
    ]
   },
@@ -1488,6 +1500,17 @@
      "tmBefore": 184.3,
      "tmAfter": 184.3,
      "note": "155 on the bar; 3x7 + rep-out 9"
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "main",
+     "weight": 140,
+     "reps": 12,
+     "target": 10,
+     "dev": 2,
+     "tmBefore": 184.3,
+     "tmAfter": 186.2,
+     "note": "140 on the bar; 3x8 + rep-out 12"
     }
    ]
   },
@@ -1827,6 +1850,17 @@
       ]
      ],
      "note": "single-leg calibration ramp, sled totals (45/side start); TM reseeded from 150x10"
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "main",
+     "weight": null,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 180.0,
+     "tmAfter": 180.0,
+     "note": "140 sled total (70/side), single-leg; 3x7 + rep-out 12 \u2014 first session on reseeded TM 180"
     }
    ]
   },
@@ -2648,6 +2682,17 @@
      "tmBefore": 59.4,
      "tmAfter": 59.4,
      "note": "55s per DB; 4x7 + rep-out 10"
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "main",
+     "weight": null,
+     "reps": 14,
+     "target": null,
+     "dev": null,
+     "tmBefore": 59.4,
+     "tmAfter": 59.4,
+     "note": "45s per DB; 3x9 + rep-out 14"
     }
    ]
   },
@@ -4714,6 +4759,50 @@
        6
       ]
      ]
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ]
+     ]
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ]
+     ]
     }
    ]
   },
@@ -4880,6 +4969,28 @@
     },
     {
      "date": "2026-08-17",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
+    },
+    {
+     "date": "2026-08-24",
      "kind": "sets",
      "sets": [
       [
@@ -5206,6 +5317,25 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ]
+     ],
+     "note": "EZ bar forearm (reverse) curls"
     }
    ]
   },
@@ -5447,6 +5577,29 @@
       ]
      ],
      "note": "30s per DB"
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "sets",
+     "sets": [
+      [
+       27.5,
+       9
+      ],
+      [
+       27.5,
+       9
+      ],
+      [
+       27.5,
+       9
+      ],
+      [
+       27.5,
+       12
+      ]
+     ],
+     "note": "27.5/DB"
     }
    ]
   },
@@ -5708,6 +5861,28 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "sets",
+     "sets": [
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -5774,6 +5949,17 @@
      "tmBefore": 87.5,
      "tmAfter": 87.5,
      "note": "45/side (90 total); 3x8 + rep-out 15 \u2014 still below prescription, big rep-out"
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "main",
+     "weight": 65,
+     "reps": 14,
+     "target": 10,
+     "dev": 4,
+     "tmBefore": 87.5,
+     "tmAfter": 89.2,
+     "note": "65/side (130 total); 3x8 + rep-out 14"
     }
    ]
   },
@@ -5952,6 +6138,28 @@
       ]
      ],
      "note": "~45 on the stack (anchor, Nick unsure \u2014 will confirm next time)"
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ],
+      [
+       45,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -5980,6 +6188,22 @@
       ]
      ],
      "note": "+45 plate"
+    }
+   ]
+  },
+  "Lying Leg Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-09-14",
+     "kind": "main",
+     "weight": 90,
+     "reps": 13,
+     "target": 11,
+     "dev": 2,
+     "tmBefore": 120.0,
+     "tmAfter": 121.2,
+     "note": "90 on the stack; 3x9 + rep-out 13. First session under the new lying-specific entry (TM seeded 120 from Leg Curls)"
     }
    ]
   }
