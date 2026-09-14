@@ -24,6 +24,7 @@ import {
   roundWeight,
   workingWeight,
   singleAt8Weight,
+  findClosestIntensity,
 } from "./sbs";
 import {
   generateWorkout,
@@ -1073,6 +1074,33 @@ export const useStore = create<AppState>((set, get) => ({
 
       if (!entries) {
         entries = w.exercises.map((e, i) => buildImportEntry(e, i));
+        // Random-mode recaps that didn't attach to the pending plan (already
+        // rerolled for the next day, consumed, or never generated) used to
+        // land with repOutTarget = null, so the rep-out never moved the TM.
+        // Derive the prescription from the TM instead: the intensity is the
+        // dictated weight / TM when a weight was given, else the middle of
+        // the lift's band.
+        if (mode === "random") {
+          for (const entry of entries) {
+            if (entry.category !== "main" || entry.repOutTarget != null) continue;
+            if (entry.repsOnLastSet == null || entry.calibration) continue;
+            const tm = tms[entry.exerciseName];
+            const poolEx = poolByName.get(entry.exerciseName);
+            if (tm == null || tm <= 0 || !poolEx) continue;
+            const band = poolEx.intensityBand ?? exercisePool.defaults.intensityBand;
+            const intensity =
+              entry.prescribedWeight != null && entry.prescribedWeight > 0
+                ? entry.prescribedWeight / tm
+                : (band[0] + band[1]) / 2;
+            const level = findClosestIntensity(intensity, exercisePool.intensityLevels);
+            const rx = repTargetsFor(level, exercisePool);
+            entry.prescribedWeight =
+              entry.prescribedWeight ?? roundWeight(tm * level, program.config.rounding);
+            entry.prescribedReps = entry.prescribedReps ?? rx.reps;
+            entry.repOutTarget = rx.repOutTarget;
+            entry.sets = entry.sets ?? exercisePool.defaults.sets;
+          }
+        }
         // SBS recaps with a week number: recompute missing prescriptions so
         // autoregulation still applies.
         if (mode === "sbs" && w.weekNumber) {
