@@ -3329,6 +3329,367 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-17-bench-deadlift-days-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "GHR": 70,
+          "Hyperextensions": 70,
+          "DB Incline Press": 82.5
+        },
+        "workouts": [
+          {
+            "date": "2026-09-15",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "Date assumed (dictated 2026-09-17 as 'bench day' after the 09-14 squat day). GHR TM seeded 70 from 55 x12; Hyperextensions TM set to 70 by extension.",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 175,
+                "prescribedReps": 7,
+                "repOutTarget": 9,
+                "sets": 4,
+                "notes": "175 on the bar; 3x7 + rep-out 13"
+              },
+              {
+                "exerciseName": "Pull-downs",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 160,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 9
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 95,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "single-leg; did the recommended weight, rep-out 3 over target. Weight/target reconstructed at band midpoint (TM 126.2 x 0.75), actual plan may differ by a level"
+              },
+              {
+                "exerciseName": "GHR",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 55,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 12
+                  }
+                ],
+                "notes": "+55 held; 3x10 + 12. TM seeded 70 from this session"
+              },
+              {
+                "exerciseName": "Pullovers",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "EZ Bar Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Shrugs",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 10
+                  }
+                ],
+                "notes": "60/DB"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-17",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "DB Incline Press TM reseeded 75 -> 82.5 (Epley x0.9 from 65/DB x12; old TM prescribed ~55s). Reverse flyes, cable lateral raise and cable crunch weights not dictated.",
+            "exercises": [
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 55,
+                "prescribedReps": 9,
+                "repOutTarget": 11,
+                "sets": 4,
+                "notes": "55/side (110 total); 3x9 + rep-out 13"
+              },
+              {
+                "exerciseName": "Reverse Twisting Lunge",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  },
+                  {
+                    "weight": 60,
+                    "reps": 7
+                  }
+                ],
+                "notes": "60/hand; straight sets, no rep-out dictated, so logged as sets (no autoreg)"
+              },
+              {
+                "exerciseName": "DB Incline Press",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 12
+                  }
+                ],
+                "notes": "65/DB; 3x9 + rep-out 12. Logged as sets: this session reseeds the TM (75 -> 82.5) rather than autoregulating the stale one"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 12
+                  }
+                ],
+                "notes": "70/DB; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Reverse Flyes",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  }
+                ],
+                "notes": "rear-delt flyes, weight not dictated"
+              },
+              {
+                "exerciseName": "Cable Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  }
+                ],
+                "notes": "weight not dictated"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10,
+                    "done": true
+                  }
+                ],
+                "notes": "seated cable crunch machine, weight not dictated"
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "EZ bar, 70"
+              },
+              {
+                "exerciseName": "Push-Downs",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 10
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
