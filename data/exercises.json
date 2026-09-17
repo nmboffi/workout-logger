@@ -943,7 +943,7 @@
         "glutes"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "TM = added load held (plate/DB), bodyweight not counted; seeded 70 on 2026-09-17 from 55 x12 (Epley x0.9). Now aux-eligible so the app prescribes it.",
+      "notes": "TM = added load held (plate/DB), bodyweight not counted; set to 85 on 2026-09-17 (Nick's call; Epley from 55 x12 gave 70). Aux-eligible so the app prescribes it.",
       "intensityBand": [
         0.725,
         0.775
@@ -1004,7 +1004,7 @@
         "glutes"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "TM = added load held, bodyweight not counted; seeded 70 on 2026-09-17 by extension from GHR (own history 70 x9-10 would imply ~85). Now aux-eligible so the app prescribes it.",
+      "notes": "TM = added load held, bodyweight not counted; set to 85 on 2026-09-17 (matches own history of 70 x9-10). Aux-eligible so the app prescribes it.",
       "intensityBand": [
         0.725,
         0.775

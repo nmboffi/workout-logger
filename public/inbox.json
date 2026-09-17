@@ -3690,6 +3690,17 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-17-ghr-hyper-tm-85-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "GHR": 85,
+          "Hyperextensions": 85
+        }
+      }
     }
   ]
 }
