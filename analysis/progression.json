@@ -1,21 +1,23 @@
 {
  "generated": "2026-07-20",
  "currentTMs": {
-  "Bench Press": 220.8,
+  "Bench Press": 225.2,
   "Bulgarian Split Squat": 45.0,
   "DB Bench Press": 81.2,
-  "DB Incline Press": 75.0,
+  "DB Incline Press": 82.5,
   "DB RDL": 77.5,
+  "GHR": 70.0,
   "Goblet Squat": 72.9,
   "Hammer Strength Chest Press": 102.5,
   "Hammer Strength Hack Squat": 89.2,
   "Hammer Strength Incline Press": 93.1,
-  "Hip Thrusts": 70.0,
+  "Hip Thrusts": 70.7,
+  "Hyperextensions": 70.0,
   "Incline Press": 186.2,
   "KB Press": 65.0,
   "KB Swings": 60.0,
   "Leg Curls": 120.0,
-  "Leg Extensions": 126.2,
+  "Leg Extensions": 128.1,
   "Leg Press": 180.0,
   "Lying Leg Curls": 121.2,
   "Overhead Press": 126.2,
@@ -409,6 +411,17 @@
      "tmBefore": 220.8,
      "tmAfter": 220.8,
      "note": "165 on the bar; 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "main",
+     "weight": 175,
+     "reps": 13,
+     "target": 9,
+     "dev": 4,
+     "tmBefore": 220.8,
+     "tmAfter": 225.2,
+     "note": "175 on the bar; 3x7 + rep-out 13"
     }
    ]
   },
@@ -999,6 +1012,29 @@
      "tmBefore": 75.0,
      "tmAfter": 75.0,
      "note": "60s per DB; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       12
+      ]
+     ],
+     "note": "65/DB; 3x9 + rep-out 12. Logged as sets: this session reseeds the TM (75 -> 82.5) rather than autoregulating the stale one"
     }
    ]
   },
@@ -3683,6 +3719,25 @@
      "tmBefore": 73.2,
      "tmAfter": 73.2,
      "note": "60/hand; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       7
+      ],
+      [
+       60,
+       7
+      ],
+      [
+       60,
+       7
+      ]
+     ],
+     "note": "60/hand; straight sets, no rep-out dictated, so logged as sets (no autoreg)"
     }
    ]
   },
@@ -3756,6 +3811,28 @@
       ]
      ],
      "note": "worked up: 140x10 then 3x7 at 160"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       160,
+       9
+      ],
+      [
+       160,
+       9
+      ],
+      [
+       160,
+       9
+      ],
+      [
+       160,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -3910,6 +3987,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "single-leg, 110 on the stack (dictated '11'); 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "main",
+     "weight": 95,
+     "reps": 13,
+     "target": 10,
+     "dev": 3,
+     "tmBefore": 126.2,
+     "tmAfter": 128.1,
+     "note": "single-leg; did the recommended weight, rep-out 3 over target. Weight/target reconstructed at band midpoint (TM 126.2 x 0.75), actual plan may differ by a level"
     }
    ]
   },
@@ -4143,6 +4231,29 @@
       ]
      ],
      "note": "70/DB \u2014 up from 65"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       9
+      ],
+      [
+       70,
+       12
+      ]
+     ],
+     "note": "70/DB; 3x9 + rep-out 12"
     }
    ]
   },
@@ -4304,6 +4415,24 @@
       ]
      ],
      "note": "70 \u2014 up from 65"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4378,6 +4507,29 @@
       ]
      ],
      "note": "pec deck machine"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "rear-delt flyes, weight not dictated"
     }
    ]
   },
@@ -4489,6 +4641,17 @@
      "tmBefore": 70.0,
      "tmAfter": 70.0,
      "note": "55/side (110 total); 3x6 + rep-out 12"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "main",
+     "weight": 55,
+     "reps": 13,
+     "target": 11,
+     "dev": 2,
+     "tmBefore": 70.0,
+     "tmAfter": 70.7,
+     "note": "55/side (110 total); 3x9 + rep-out 13"
     }
    ]
   },
@@ -4652,6 +4815,25 @@
       ]
      ],
      "note": "different machine than usual, weight by feel"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not dictated"
     }
    ]
   },
@@ -5010,6 +5192,24 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -5150,6 +5350,25 @@
       ]
      ],
      "note": "machine maxed out"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "seated cable crunch machine, weight not dictated"
     }
    ]
   },
@@ -5336,6 +5555,29 @@
       ]
      ],
      "note": "EZ bar forearm (reverse) curls"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "EZ bar, 70"
     }
    ]
   },
@@ -5834,6 +6076,28 @@
       ]
      ],
      "note": "unfamiliar machine, weight by feel"
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "sets",
+     "sets": [
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ],
+      [
+       50,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -6058,6 +6322,24 @@
       ]
      ],
      "note": "barbell, worked up 60-80 plate load"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -6086,6 +6368,29 @@
       ]
      ],
      "note": "+45"
+    },
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       55,
+       10
+      ],
+      [
+       55,
+       10
+      ],
+      [
+       55,
+       10
+      ],
+      [
+       55,
+       12
+      ]
+     ],
+     "note": "+55 held; 3x10 + 12. TM seeded 70 from this session"
     }
    ]
   },
@@ -6204,6 +6509,30 @@
      "tmBefore": 120.0,
      "tmAfter": 121.2,
      "note": "90 on the stack; 3x9 + rep-out 13. First session under the new lying-specific entry (TM seeded 120 from Leg Curls)"
+    }
+   ]
+  },
+  "Shrugs": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-09-15",
+     "kind": "sets",
+     "sets": [
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ],
+      [
+       60,
+       10
+      ]
+     ],
+     "note": "60/DB"
     }
    ]
   }
