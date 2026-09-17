@@ -934,6 +934,7 @@
       "pattern": "deadlift",
       "movement": "hinge",
       "roles": [
+        "aux",
         "accessory"
       ],
       "equipment": "bodyweight",
@@ -942,7 +943,11 @@
         "glutes"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "+45, adaptive"
+      "notes": "TM = added load held (plate/DB), bodyweight not counted; seeded 70 on 2026-09-17 from 55 x12 (Epley x0.9). Now aux-eligible so the app prescribes it.",
+      "intensityBand": [
+        0.725,
+        0.775
+      ]
     },
     {
       "id": "leg-curls",
@@ -990,6 +995,7 @@
       "pattern": "deadlift",
       "movement": "hinge",
       "roles": [
+        "aux",
         "accessory"
       ],
       "equipment": "bodyweight",
@@ -998,7 +1004,11 @@
         "glutes"
       ],
       "accessoryPool": "Leg Accessories",
-      "notes": "45-70 x8"
+      "notes": "TM = added load held, bodyweight not counted; seeded 70 on 2026-09-17 by extension from GHR (own history 70 x9-10 would imply ~85). Now aux-eligible so the app prescribes it.",
+      "intensityBand": [
+        0.725,
+        0.775
+      ]
     },
     {
       "id": "lateral-raise",
