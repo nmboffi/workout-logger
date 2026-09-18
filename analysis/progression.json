@@ -20,7 +20,7 @@
   "Leg Extensions": 128.1,
   "Leg Press": 180.0,
   "Lying Leg Curls": 121.2,
-  "Overhead Press": 126.2,
+  "Overhead Press": 127.5,
   "Reverse Twisting Lunge": 73.2,
   "Seated OHP": 59.4,
   "Trap Bar Deadlift": 235.0,
@@ -2332,6 +2332,17 @@
      "tmBefore": 126.2,
      "tmAfter": 126.2,
      "note": "95 on the bar; 3x9 + rep-out 11"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "main",
+     "weight": 95,
+     "reps": 12,
+     "target": 10,
+     "dev": 2,
+     "tmBefore": 126.2,
+     "tmAfter": 127.5,
+     "note": "95 on the bar; 3x8 + rep-out 12"
     }
    ]
   },
@@ -2891,6 +2902,29 @@
       [
        53,
        10
+      ]
+     ],
+     "note": "24 kg"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "sets",
+     "sets": [
+      [
+       53,
+       9
+      ],
+      [
+       53,
+       9
+      ],
+      [
+       53,
+       9
+      ],
+      [
+       53,
+       9
       ]
      ],
      "note": "24 kg"
@@ -4137,6 +4171,25 @@
       ]
      ],
      "note": "high-to-low this time (usually low-to-high); 30/side"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "sets",
+     "sets": [
+      [
+       30,
+       10
+      ],
+      [
+       30,
+       10
+      ],
+      [
+       30,
+       10
+      ]
+     ],
+     "note": "~30/side, weight approximate"
     }
    ]
   },
@@ -4966,6 +5019,28 @@
     },
     {
      "date": "2026-09-14",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ],
+      [
+       null,
+       7
+      ]
+     ]
+    },
+    {
+     "date": "2026-09-18",
      "kind": "sets",
      "sets": [
       [
@@ -5987,6 +6062,37 @@
       ]
      ],
      "note": "weighted, 16 kg KB (35 lb)"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       26.5,
+       5
+      ],
+      [
+       26.5,
+       5
+      ],
+      [
+       35,
+       3
+      ],
+      [
+       35,
+       3
+      ]
+     ],
+     "note": "2x8 bodyweight, 2x5 +12 kg, 2x3 +16 kg"
     }
    ]
   },
@@ -6533,6 +6639,34 @@
       ]
      ],
      "note": "60/DB"
+    }
+   ]
+  },
+  "Cable EZ Bar Curls": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-09-18",
+     "kind": "sets",
+     "sets": [
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ],
+      [
+       45,
+       10
+      ]
+     ],
+     "note": "'cable curls', ~45, weight approximate"
     }
    ]
   }
