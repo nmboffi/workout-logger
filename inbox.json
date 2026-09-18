@@ -3701,6 +3701,158 @@
           "Hyperextensions": 85
         }
       }
+    },
+    {
+      "inboxId": "2026-09-18-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-18",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 95,
+                "prescribedReps": 8,
+                "repOutTarget": 10,
+                "sets": 4,
+                "notes": "95 on the bar; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 53,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 53,
+                    "reps": 9
+                  }
+                ],
+                "notes": "24 kg"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 26.5,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26.5,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 3
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 3
+                  }
+                ],
+                "notes": "2x8 bodyweight, 2x5 +12 kg, 2x3 +16 kg"
+              },
+              {
+                "exerciseName": "Cable EZ Bar Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 45,
+                    "reps": 10
+                  }
+                ],
+                "notes": "'cable curls', ~45, weight approximate"
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 10
+                  }
+                ],
+                "notes": "~30/side, weight approximate"
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "reps": 7,
+                    "done": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
