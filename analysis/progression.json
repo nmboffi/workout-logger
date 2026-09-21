@@ -760,6 +760,17 @@
      "tmBefore": 45.0,
      "tmAfter": 45.0,
      "note": "35/side (70 total) on the Smith; 3x6 + rep-out 12"
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "main",
+     "weight": 32.5,
+     "reps": 15,
+     "target": null,
+     "dev": null,
+     "tmBefore": 45.0,
+     "tmAfter": 45.0,
+     "note": "32.5/side on the Smith; 3x9 + rep-out 15"
     }
    ]
   },
@@ -1547,6 +1558,17 @@
      "tmBefore": 184.3,
      "tmAfter": 186.2,
      "note": "140 on the bar; 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "main",
+     "weight": 145,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 186.2,
+     "tmAfter": 186.2,
+     "note": "145 on the bar; 3x7 + rep-out 11"
     }
    ]
   },
@@ -4634,6 +4656,29 @@
       ]
      ],
      "note": "per-side load (45+35 = 80/side, 160 total), continued at previous session's weight; 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "sets",
+     "sets": [
+      [
+       80,
+       10
+      ],
+      [
+       80,
+       10
+      ],
+      [
+       80,
+       10
+      ],
+      [
+       80,
+       10
+      ]
+     ],
+     "note": "per-side load (45+35 = 80/side)"
     }
    ]
   },
@@ -5444,6 +5489,29 @@
       ]
      ],
      "note": "seated cable crunch machine, weight not dictated"
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not recalled"
     }
    ]
   },
@@ -5917,6 +5985,24 @@
       ]
      ],
      "note": "27.5/DB"
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "sets",
+     "sets": [
+      [
+       27.5,
+       10
+      ],
+      [
+       27.5,
+       10
+      ],
+      [
+       27.5,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -6204,6 +6290,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-09-20",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "cable; weight not recalled"
     }
    ]
   },
@@ -6667,6 +6776,30 @@
       ]
      ],
      "note": "'cable curls', ~45, weight approximate"
+    }
+   ]
+  },
+  "Chest supported rows": {
+   "history": [],
+   "recent": [
+    {
+     "date": "2026-09-20",
+     "kind": "sets",
+     "sets": [
+      [
+       90,
+       8
+      ],
+      [
+       90,
+       8
+      ],
+      [
+       90,
+       8
+      ]
+     ],
+     "note": "HS machine, per-side load (90/side)"
     }
    ]
   }
