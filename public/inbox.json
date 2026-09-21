@@ -3853,6 +3853,92 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-20-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-20",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Skipped leg curls (hamstrings fried).",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "prescribedWeight": 32.5,
+                "sets": 4,
+                "notes": "32.5/side on the Smith; 3x9 + rep-out 15"
+              },
+              {
+                "exerciseName": "Incline Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "prescribedWeight": 145,
+                "sets": 4,
+                "notes": "145 on the bar; 3x7 + rep-out 11"
+              },
+              {
+                "exerciseName": "Iso-Lateral Row",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 80, "reps": 10 },
+                  { "weight": 80, "reps": 10 },
+                  { "weight": 80, "reps": 10 },
+                  { "weight": 80, "reps": 10 }
+                ],
+                "notes": "per-side load (45+35 = 80/side)"
+              },
+              {
+                "exerciseName": "Chest supported rows",
+                "category": "pull",
+                "accessorySets": [
+                  { "weight": 90, "reps": 8 },
+                  { "weight": 90, "reps": 8 },
+                  { "weight": 90, "reps": 8 }
+                ],
+                "notes": "HS machine, per-side load (90/side)"
+              },
+              {
+                "exerciseName": "Push-Downs",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ],
+                "notes": "cable; weight not recalled"
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 27.5, "reps": 10 },
+                  { "weight": 27.5, "reps": 10 },
+                  { "weight": 27.5, "reps": 10 }
+                ]
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ],
+                "notes": "weight not recalled"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
