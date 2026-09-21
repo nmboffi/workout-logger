@@ -3939,6 +3939,91 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-21-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-21",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "prescribedWeight": 185,
+                "sets": 4,
+                "notes": "185 on the bar; 3x8 + rep-out 11"
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 95,
+                "sets": 4,
+                "notes": "single-leg; 95 on the stack; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Lying Leg Curls",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 95,
+                "sets": 4,
+                "notes": "95 lbs; 3x8 + rep-out 12"
+              },
+              {
+                "exerciseName": "Reverse Flyes",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ],
+                "notes": "weight not recalled"
+              },
+              {
+                "exerciseName": "EZ Bar Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 },
+                  { "weight": null, "reps": 10 }
+                ],
+                "notes": "cable stack; weight not recalled (unlabeled machine)"
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 }
+                ],
+                "notes": "EZ bar"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 },
+                  { "weight": 70, "reps": 10 }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
