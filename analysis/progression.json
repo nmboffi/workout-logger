@@ -422,6 +422,17 @@
      "tmBefore": 220.8,
      "tmAfter": 225.2,
      "note": "175 on the bar; 3x7 + rep-out 13"
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "main",
+     "weight": 185,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 225.2,
+     "tmAfter": 225.2,
+     "note": "185 on the bar; 3x8 + rep-out 11"
     }
    ]
   },
@@ -4054,6 +4065,17 @@
      "tmBefore": 126.2,
      "tmAfter": 128.1,
      "note": "single-leg; did the recommended weight, rep-out 3 over target. Weight/target reconstructed at band midpoint (TM 126.2 x 0.75), actual plan may differ by a level"
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "main",
+     "weight": 95,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 128.1,
+     "tmAfter": 128.1,
+     "note": "single-leg; 95 on the stack; 3x8 + rep-out 12"
     }
    ]
   },
@@ -4508,6 +4530,28 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4605,6 +4649,29 @@
       ]
      ],
      "note": "rear-delt flyes, weight not dictated"
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not recalled"
     }
    ]
   },
@@ -5721,6 +5788,29 @@
       ]
      ],
      "note": "EZ bar, 70"
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "EZ bar"
     }
    ]
   },
@@ -6555,6 +6645,29 @@
        10
       ]
      ]
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "cable stack; weight not recalled (unlabeled machine)"
     }
    ]
   },
@@ -6724,6 +6837,17 @@
      "tmBefore": 120.0,
      "tmAfter": 121.2,
      "note": "90 on the stack; 3x9 + rep-out 13. First session under the new lying-specific entry (TM seeded 120 from Leg Curls)"
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "main",
+     "weight": 95,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 121.2,
+     "tmAfter": 121.2,
+     "note": "95 lbs; 3x8 + rep-out 12"
     }
    ]
   },
