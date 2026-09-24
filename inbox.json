@@ -4207,6 +4207,176 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-24-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "Hip Thrusts": 112.5
+        },
+        "workouts": [
+          {
+            "date": "2026-09-24",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 100,
+                "sets": 4,
+                "notes": "100 on the bar; 3x7 + rep-out 12"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 3
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 3
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  }
+                ],
+                "notes": "2x8 bodyweight, then +16 kg (35 lb): 2x3, 1x5"
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  }
+                ],
+                "notes": "23 kg, one-handed, 9 per side"
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "weight not dictated"
+              },
+              {
+                "exerciseName": "Cable Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "weight not dictated"
+              },
+              {
+                "exerciseName": "Push-Downs",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "weight not dictated"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
