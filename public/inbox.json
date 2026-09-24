@@ -3887,10 +3887,22 @@
                 "exerciseName": "Iso-Lateral Row",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 80, "reps": 10 },
-                  { "weight": 80, "reps": 10 },
-                  { "weight": 80, "reps": 10 },
-                  { "weight": 80, "reps": 10 }
+                  {
+                    "weight": 80,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 80,
+                    "reps": 10
+                  }
                 ],
                 "notes": "per-side load (45+35 = 80/side)"
               },
@@ -3898,9 +3910,18 @@
                 "exerciseName": "Chest supported rows",
                 "category": "pull",
                 "accessorySets": [
-                  { "weight": 90, "reps": 8 },
-                  { "weight": 90, "reps": 8 },
-                  { "weight": 90, "reps": 8 }
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  }
                 ],
                 "notes": "HS machine, per-side load (90/side)"
               },
@@ -3908,10 +3929,22 @@
                 "exerciseName": "Push-Downs",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
                 ],
                 "notes": "cable; weight not recalled"
               },
@@ -3919,19 +3952,40 @@
                 "exerciseName": "Lateral Raise",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 27.5, "reps": 10 },
-                  { "weight": 27.5, "reps": 10 },
-                  { "weight": 27.5, "reps": 10 }
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 10
+                  }
                 ]
               },
               {
                 "exerciseName": "Cable Crunches",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
                 ],
                 "notes": "weight not recalled"
               }
@@ -3981,10 +4035,22 @@
                 "exerciseName": "Reverse Flyes",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
                 ],
                 "notes": "weight not recalled"
               },
@@ -3992,10 +4058,22 @@
                 "exerciseName": "EZ Bar Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 },
-                  { "weight": null, "reps": 10 }
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
                 ],
                 "notes": "cable stack; weight not recalled (unlabeled machine)"
               },
@@ -4003,10 +4081,22 @@
                 "exerciseName": "Reverse Curls",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 }
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
                 ],
                 "notes": "EZ bar"
               },
@@ -4014,11 +4104,104 @@
                 "exerciseName": "Oblique Raises",
                 "category": "accessory",
                 "accessorySets": [
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 },
-                  { "weight": 70, "reps": 10 }
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
                 ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-09-24-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-24",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "Skipped squat-slot lift (legs sore). Did a curl variation and one other accessory, not recalled.",
+            "exercises": [
+              {
+                "exerciseName": "Hip Thrusts",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 90,
+                "feel": "easy",
+                "notes": "per-side; ramped from 55/side adding 10/side per set up to 90/side, rep-out 12; felt light"
+              },
+              {
+                "exerciseName": "Dips",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "bodyweight"
+              },
+              {
+                "exerciseName": "Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  },
+                  {
+                    "weight": null,
+                    "reps": 10
+                  }
+                ],
+                "notes": "weight not recalled"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "done": true
               }
             ]
           }
