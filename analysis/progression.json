@@ -11,7 +11,7 @@
   "Hammer Strength Chest Press": 102.5,
   "Hammer Strength Hack Squat": 89.2,
   "Hammer Strength Incline Press": 93.1,
-  "Hip Thrusts": 70.7,
+  "Hip Thrusts": 112.5,
   "Hyperextensions": 85.0,
   "Incline Press": 186.2,
   "KB Press": 65.0,
@@ -2376,6 +2376,17 @@
      "tmBefore": 126.2,
      "tmAfter": 127.5,
      "note": "95 on the bar; 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "main",
+     "weight": 100,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 127.5,
+     "tmAfter": 127.5,
+     "note": "100 on the bar; 3x7 + rep-out 12"
     }
    ]
   },
@@ -2961,6 +2972,29 @@
       ]
      ],
      "note": "24 kg"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ]
+     ],
+     "note": "23 kg, one-handed, 9 per side"
     }
    ]
   },
@@ -3993,6 +4027,28 @@
        8
       ]
      ]
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ]
     }
    ]
   },
@@ -4234,6 +4290,29 @@
       ]
      ],
      "note": "~30/side, weight approximate"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not dictated"
     }
    ]
   },
@@ -6307,6 +6386,33 @@
       ]
      ],
      "note": "2x8 bodyweight, 2x5 +12 kg, 2x3 +16 kg"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       35,
+       3
+      ],
+      [
+       35,
+       3
+      ],
+      [
+       35,
+       5
+      ]
+     ],
+     "note": "2x8 bodyweight, then +16 kg (35 lb): 2x3, 1x5"
     }
    ]
   },
@@ -6441,6 +6547,29 @@
       ]
      ],
      "note": "cable; weight not recalled"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not dictated"
     }
    ]
   },
@@ -6854,6 +6983,29 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ],
+      [
+       null,
+       10
+      ]
+     ],
+     "note": "weight not dictated"
     }
    ]
   },
