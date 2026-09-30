@@ -4626,6 +4626,129 @@
         },
         "workouts": []
       }
+    },
+    {
+      "inboxId": "2026-09-30-deadlift-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-30",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Deadlift Day",
+            "notes": "Hip thrust machine taken; subbed hyperextensions as the hinge.",
+            "exercises": [
+              {
+                "exerciseName": "Hyperextensions",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 70,
+                "sets": 4,
+                "notes": "+70 held; 3x9 + rep-out 12; sub for Hip Thrusts (machine taken)"
+              },
+              {
+                "exerciseName": "Reverse Twisting Lunge",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 55,
+                "sets": 4,
+                "notes": "55/hand; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "DB Incline Press",
+                "category": "main",
+                "repsOnLastSet": 9,
+                "prescribedWeight": 65,
+                "sets": 4,
+                "notes": "65/DB; 3x7 + rep-out 9"
+              },
+              {
+                "exerciseName": "DB rows",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 15
+                  }
+                ],
+                "notes": "65/DB; 3x9 + 15"
+              },
+              {
+                "exerciseName": "Rope Hammer Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 50,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 27.5,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 27.5,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Hanging Leg Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  },
+                  {
+                    "weight": null,
+                    "reps": 6
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
