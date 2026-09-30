@@ -4377,6 +4377,106 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-27-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-27",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Leg Press",
+                "category": "main",
+                "repsOnLastSet": 13,
+                "prescribedWeight": 140,
+                "sets": 4,
+                "notes": "single-leg; 70/side = 140 sled total; 3x9 + rep-out 13"
+              },
+              {
+                "exerciseName": "Hammer Strength Chest Press",
+                "category": "main",
+                "repsOnLastSet": 15,
+                "prescribedWeight": 90,
+                "sets": 4,
+                "feel": "easy",
+                "notes": "90/side (180 total), big jump up; 3x8 + rep-out 15, easy"
+              },
+              {
+                "exerciseName": "Leg Curls",
+                "category": "main",
+                "repsOnLastSet": 14,
+                "prescribedWeight": 90,
+                "sets": 4,
+                "notes": "90 lbs; 3x9 + rep-out 14"
+              },
+              {
+                "exerciseName": "Iso-Lateral Row",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 90,
+                    "reps": 8
+                  }
+                ],
+                "notes": "per-side load (90/side)"
+              },
+              {
+                "exerciseName": "KB Clean",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 55,
+                    "reps": 6
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 6
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 6
+                  },
+                  {
+                    "weight": 55,
+                    "reps": 6
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Cable Lateral Raise",
+                "category": "accessory",
+                "done": true,
+                "notes": "by feel"
+              },
+              {
+                "exerciseName": "Cable Crunches",
+                "category": "accessory",
+                "done": true,
+                "notes": "by feel"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
