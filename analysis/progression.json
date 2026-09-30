@@ -1068,6 +1068,17 @@
       ]
      ],
      "note": "65/DB; 3x9 + rep-out 12. Logged as sets: this session reseeds the TM (75 -> 82.5) rather than autoregulating the stale one"
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "main",
+     "weight": 65,
+     "reps": 9,
+     "target": null,
+     "dev": null,
+     "tmBefore": 82.5,
+     "tmAfter": 82.5,
+     "note": "65/DB; 3x7 + rep-out 9"
     }
    ]
   },
@@ -3371,6 +3382,17 @@
       ]
      ],
      "note": "+70 held"
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "main",
+     "weight": 70,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 85.0,
+     "tmAfter": 85.0,
+     "note": "+70 held; 3x9 + rep-out 12; sub for Hip Thrusts (machine taken)"
     }
    ]
   },
@@ -3883,6 +3905,17 @@
       ]
      ],
      "note": "60/hand; straight sets, no rep-out dictated, so logged as sets (no autoreg)"
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "main",
+     "weight": 55,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 73.2,
+     "tmAfter": 73.2,
+     "note": "55/hand; 3x9 + rep-out 12"
     }
    ]
   },
@@ -4252,6 +4285,24 @@
        8
       ]
      ]
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "sets",
+     "sets": [
+      [
+       50,
+       8
+      ],
+      [
+       50,
+       8
+      ],
+      [
+       50,
+       8
+      ]
+     ]
     }
    ]
   },
@@ -4504,6 +4555,29 @@
       ]
      ],
      "note": "70/DB; 3x9 + rep-out 12"
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       15
+      ]
+     ],
+     "note": "65/DB; 3x9 + 15"
     }
    ]
   },
@@ -5379,6 +5453,28 @@
       [
        null,
        7
+      ]
+     ]
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
+      ],
+      [
+       null,
+       6
       ]
      ]
     }
@@ -6367,6 +6463,24 @@
       [
        27.5,
        10
+      ]
+     ]
+    },
+    {
+     "date": "2026-09-30",
+     "kind": "sets",
+     "sets": [
+      [
+       27.5,
+       8
+      ],
+      [
+       27.5,
+       8
+      ],
+      [
+       27.5,
+       8
       ]
      ]
     }
