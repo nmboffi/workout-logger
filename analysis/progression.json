@@ -1930,6 +1930,17 @@
      "tmBefore": 180.0,
      "tmAfter": 180.0,
      "note": "140 sled total (70/side), single-leg; 3x7 + rep-out 12 \u2014 first session on reseeded TM 180"
+    },
+    {
+     "date": "2026-09-27",
+     "kind": "main",
+     "weight": 140,
+     "reps": 13,
+     "target": null,
+     "dev": null,
+     "tmBefore": 180.0,
+     "tmAfter": 180.0,
+     "note": "single-leg; 70/side = 140 sled total; 3x9 + rep-out 13"
     }
    ]
   },
@@ -4825,6 +4836,29 @@
       ]
      ],
      "note": "per-side load (45+35 = 80/side)"
+    },
+    {
+     "date": "2026-09-27",
+     "kind": "sets",
+     "sets": [
+      [
+       90,
+       8
+      ],
+      [
+       90,
+       8
+      ],
+      [
+       90,
+       8
+      ],
+      [
+       90,
+       8
+      ]
+     ],
+     "note": "per-side load (90/side)"
     }
    ]
   },
@@ -5357,6 +5391,17 @@
      "tmBefore": 102.5,
      "tmAfter": 102.5,
      "note": "up to 80/side (160 total); 3x9 + rep-out 13; TM reseeded from this session"
+    },
+    {
+     "date": "2026-09-27",
+     "kind": "main",
+     "weight": 90,
+     "reps": 15,
+     "target": null,
+     "dev": null,
+     "tmBefore": 102.5,
+     "tmAfter": 102.5,
+     "note": "90/side (180 total), big jump up; 3x8 + rep-out 15, easy"
     }
    ]
   },
@@ -6052,6 +6097,17 @@
        12
       ]
      ]
+    },
+    {
+     "date": "2026-09-27",
+     "kind": "main",
+     "weight": 90,
+     "reps": 14,
+     "target": null,
+     "dev": null,
+     "tmBefore": 120.0,
+     "tmAfter": 120.0,
+     "note": "90 lbs; 3x9 + rep-out 14"
     }
    ]
   },
@@ -6937,6 +6993,28 @@
       ]
      ],
      "note": "24 kg"
+    },
+    {
+     "date": "2026-09-27",
+     "kind": "sets",
+     "sets": [
+      [
+       55,
+       6
+      ],
+      [
+       55,
+       6
+      ],
+      [
+       55,
+       6
+      ],
+      [
+       55,
+       6
+      ]
+     ]
     }
    ]
   },
