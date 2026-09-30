@@ -4615,6 +4615,17 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-30-hs-chest-press-tm-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "trainingMaxes": {
+          "Hammer Strength Chest Press": 122.5
+        },
+        "workouts": []
+      }
     }
   ]
 }
