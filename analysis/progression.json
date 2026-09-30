@@ -8,7 +8,7 @@
   "DB RDL": 77.5,
   "GHR": 85.0,
   "Goblet Squat": 72.9,
-  "Hammer Strength Chest Press": 102.5,
+  "Hammer Strength Chest Press": 122.5,
   "Hammer Strength Hack Squat": 89.2,
   "Hammer Strength Incline Press": 93.1,
   "Hip Thrusts": 112.5,
@@ -433,6 +433,17 @@
      "tmBefore": 225.2,
      "tmAfter": 225.2,
      "note": "185 on the bar; 3x8 + rep-out 11"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "main",
+     "weight": 170,
+     "reps": 11,
+     "target": null,
+     "dev": null,
+     "tmBefore": 225.2,
+     "tmAfter": 225.2,
+     "note": "170 on the bar; 3x9 + rep-out 11"
     }
    ]
   },
@@ -3214,6 +3225,28 @@
        15
       ]
      ]
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "sets",
+     "sets": [
+      [
+       135,
+       10
+      ],
+      [
+       155,
+       8
+      ],
+      [
+       155,
+       8
+      ],
+      [
+       155,
+       8
+      ]
+     ]
     }
    ]
   },
@@ -4143,6 +4176,17 @@
      "tmBefore": 128.1,
      "tmAfter": 128.1,
      "note": "single-leg; 95 on the stack; 3x8 + rep-out 12"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "main",
+     "weight": 100,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 128.1,
+     "tmAfter": 128.1,
+     "note": "single-leg; 100 on the stack; 3x7 + rep-out 12"
     }
    ]
   },
@@ -4324,6 +4368,25 @@
       ]
      ],
      "note": "weight not dictated"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ],
+      [
+       null,
+       9
+      ]
+     ],
+     "note": "weight by feel"
     }
    ]
   },
@@ -4639,6 +4702,28 @@
       ],
       [
        70,
+       10
+      ]
+     ]
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
+       10
+      ],
+      [
+       65,
        10
       ]
      ]
@@ -5602,6 +5687,24 @@
       ]
      ],
      "note": "DB overhead tricep extensions"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "sets",
+     "sets": [
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ],
+      [
+       65,
+       9
+      ]
+     ]
     }
    ]
   },
@@ -6507,6 +6610,29 @@
      "tmBefore": 65.0,
      "tmAfter": 65.0,
      "note": "24 kg (53 lb); 3x7 + rep-out 10"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "sets",
+     "sets": [
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ],
+      [
+       51,
+       9
+      ]
+     ],
+     "note": "23 kg (51 lb) bell; straight sets, no rep-out, so logged as sets (no autoreg). KB sizes are unevenly spaced, prescription can't be matched exactly"
     }
    ]
   },
