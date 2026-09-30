@@ -4477,6 +4477,144 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-09-28-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-09-28",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 11,
+                "prescribedWeight": 170,
+                "sets": 4,
+                "notes": "170 on the bar; 3x9 + rep-out 11"
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 100,
+                "sets": 4,
+                "notes": "single-leg; 100 on the stack; 3x7 + rep-out 12"
+              },
+              {
+                "exerciseName": "KB Press",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 51,
+                    "reps": 9
+                  }
+                ],
+                "notes": "23 kg (51 lb) bell; straight sets, no rep-out, so logged as sets (no autoreg). KB sizes are unevenly spaced, prescription can't be matched exactly"
+              },
+              {
+                "exerciseName": "Barbell rows",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 135,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 155,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 155,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 155,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "French Press",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 9
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Cable Crossovers",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  },
+                  {
+                    "weight": null,
+                    "reps": 9
+                  }
+                ],
+                "notes": "weight by feel"
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 65,
+                    "reps": 10
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
