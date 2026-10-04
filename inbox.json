@@ -4749,6 +4749,103 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-10-01-ohp-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-10-01",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "OHP Day",
+            "notes": "App was down; freelanced. Also did a few accessories not recalled in detail.",
+            "exercises": [
+              {
+                "exerciseName": "Overhead Press",
+                "category": "main",
+                "accessorySets": [
+                  {
+                    "weight": 125,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 125,
+                    "reps": 5
+                  }
+                ],
+                "notes": "ramped up to 2x5 at 125; no rep-out, logged as sets (no autoreg)"
+              },
+              {
+                "exerciseName": "Chin-ups",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": null,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 26,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  },
+                  {
+                    "weight": 35,
+                    "reps": 5
+                  }
+                ],
+                "notes": "2x8 bodyweight, 2x5 +12 kg, 2x5 +16 kg"
+              },
+              {
+                "exerciseName": "KB Swings",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 49,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 49,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 49,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 49,
+                    "reps": 8
+                  }
+                ],
+                "notes": "22 kg, one-handed, 8 per side"
+              },
+              {
+                "exerciseName": "Ab Wheel Rollouts",
+                "category": "accessory",
+                "done": true
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "done": true
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
