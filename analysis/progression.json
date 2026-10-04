@@ -2420,6 +2420,21 @@
      "tmBefore": 127.5,
      "tmAfter": 127.5,
      "note": "100 on the bar; 3x7 + rep-out 12"
+    },
+    {
+     "date": "2026-10-01",
+     "kind": "sets",
+     "sets": [
+      [
+       125,
+       5
+      ],
+      [
+       125,
+       5
+      ]
+     ],
+     "note": "ramped up to 2x5 at 125; no rep-out, logged as sets (no autoreg)"
     }
    ]
   },
@@ -3028,6 +3043,29 @@
       ]
      ],
      "note": "23 kg, one-handed, 9 per side"
+    },
+    {
+     "date": "2026-10-01",
+     "kind": "sets",
+     "sets": [
+      [
+       49,
+       8
+      ],
+      [
+       49,
+       8
+      ],
+      [
+       49,
+       8
+      ],
+      [
+       49,
+       8
+      ]
+     ],
+     "note": "22 kg, one-handed, 8 per side"
     }
    ]
   },
@@ -6686,6 +6724,37 @@
       ]
      ],
      "note": "2x8 bodyweight, then +16 kg (35 lb): 2x3, 1x5"
+    },
+    {
+     "date": "2026-10-01",
+     "kind": "sets",
+     "sets": [
+      [
+       null,
+       8
+      ],
+      [
+       null,
+       8
+      ],
+      [
+       26,
+       5
+      ],
+      [
+       26,
+       5
+      ],
+      [
+       35,
+       5
+      ],
+      [
+       35,
+       5
+      ]
+     ],
+     "note": "2x8 bodyweight, 2x5 +12 kg, 2x5 +16 kg"
     }
    ]
   },
