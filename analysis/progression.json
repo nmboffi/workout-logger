@@ -444,6 +444,17 @@
      "tmBefore": 225.2,
      "tmAfter": 225.2,
      "note": "170 on the bar; 3x9 + rep-out 11"
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "main",
+     "weight": 175,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 225.2,
+     "tmAfter": 225.2,
+     "note": "175 on the bar; 3x8 + rep-out 10"
     }
    ]
   },
@@ -793,6 +804,17 @@
      "tmBefore": 45.0,
      "tmAfter": 45.0,
      "note": "32.5/side on the Smith; 3x9 + rep-out 15"
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "main",
+     "weight": 35,
+     "reps": 10,
+     "target": null,
+     "dev": null,
+     "tmBefore": 45.0,
+     "tmAfter": 45.0,
+     "note": "35/side on the Smith; 3x7 + rep-out 10 (35/45 TM = 77.5% -> 7s, matches)"
     }
    ]
   },
@@ -2832,6 +2854,17 @@
      "tmBefore": 59.4,
      "tmAfter": 59.4,
      "note": "45s per DB; 3x9 + rep-out 14"
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "main",
+     "weight": 45,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 59.4,
+     "tmAfter": 59.4,
+     "note": "45s per DB; 3x10 + rep-out 12"
     }
    ]
   },
@@ -3431,6 +3464,29 @@
      "tmBefore": 85.0,
      "tmAfter": 85.0,
      "note": "+70 held; 3x9 + rep-out 12; sub for Hip Thrusts (machine taken)"
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ],
+      [
+       70,
+       10
+      ]
+     ],
+     "note": "+70 held; straight sets"
     }
    ]
   },
@@ -4049,6 +4105,28 @@
        9
       ]
      ]
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "sets",
+     "sets": [
+      [
+       140,
+       8
+      ],
+      [
+       140,
+       8
+      ],
+      [
+       160,
+       8
+      ],
+      [
+       160,
+       8
+      ]
+     ]
     }
    ]
   },
@@ -4258,6 +4336,17 @@
      "tmBefore": 128.1,
      "tmAfter": 128.1,
      "note": "single-leg; 100 on the stack; 3x7 + rep-out 12"
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "main",
+     "weight": 95,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 128.1,
+     "tmAfter": 128.1,
+     "note": "single-leg; 95 on the stack; 3x9 + rep-out 12"
     }
    ]
   },
@@ -4837,6 +4926,24 @@
       [
        65,
        10
+      ]
+     ]
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       8
+      ],
+      [
+       70,
+       8
+      ],
+      [
+       70,
+       8
       ]
      ]
     }
@@ -6210,6 +6317,25 @@
       ]
      ],
      "note": "EZ bar"
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "sets",
+     "sets": [
+      [
+       70,
+       8
+      ],
+      [
+       70,
+       8
+      ],
+      [
+       70,
+       8
+      ]
+     ],
+     "note": "EZ bar"
     }
    ]
   },
@@ -6345,6 +6471,17 @@
      "tmBefore": 120.0,
      "tmAfter": 120.0,
      "note": "90 lbs; 3x9 + rep-out 14"
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "main",
+     "weight": 95,
+     "reps": 12,
+     "target": null,
+     "dev": null,
+     "tmBefore": 120.0,
+     "tmAfter": 120.0,
+     "note": "95 lbs; 3x8 + rep-out 12 (machine not specified; assumed seated)"
     }
    ]
   },
@@ -6518,6 +6655,24 @@
       ],
       [
        27.5,
+       8
+      ]
+     ]
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "sets",
+     "sets": [
+      [
+       30,
+       8
+      ],
+      [
+       30,
+       8
+      ],
+      [
+       30,
        8
       ]
      ]
@@ -7007,6 +7162,28 @@
       ]
      ],
      "note": "weight not recalled"
+    },
+    {
+     "date": "2026-10-07",
+     "kind": "sets",
+     "sets": [
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ],
+      [
+       160,
+       10
+      ]
+     ]
     }
    ]
   },
