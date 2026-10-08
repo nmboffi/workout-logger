@@ -4846,6 +4846,204 @@
           }
         ]
       }
+    },
+    {
+      "inboxId": "2026-10-05-squat-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-10-05",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Squat Day",
+            "notes": "Also did an accessory circuit, not recalled.",
+            "exercises": [
+              {
+                "exerciseName": "Bulgarian Split Squat",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "prescribedWeight": 35,
+                "sets": 4,
+                "notes": "35/side on the Smith; 3x7 + rep-out 10 (35/45 TM = 77.5% -> 7s, matches)"
+              },
+              {
+                "exerciseName": "Pull-downs",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 140,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Hyperextensions",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 10
+                  }
+                ],
+                "notes": "+70 held; straight sets"
+              },
+              {
+                "exerciseName": "Seated OHP",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 45,
+                "sets": 4,
+                "notes": "45s per DB; 3x10 + rep-out 12"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inboxId": "2026-10-07-bench-day-v1",
+      "payload": {
+        "kind": "workout-logger-import",
+        "version": 1,
+        "workouts": [
+          {
+            "date": "2026-10-07",
+            "mode": "random",
+            "dayType": "full",
+            "dayLabel": "Bench Day",
+            "notes": "",
+            "exercises": [
+              {
+                "exerciseName": "Bench Press",
+                "category": "main",
+                "repsOnLastSet": 10,
+                "prescribedWeight": 175,
+                "sets": 4,
+                "notes": "175 on the bar; 3x8 + rep-out 10"
+              },
+              {
+                "exerciseName": "Low Row",
+                "category": "pull",
+                "accessorySets": [
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  },
+                  {
+                    "weight": 160,
+                    "reps": 10
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Leg Extensions",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 95,
+                "sets": 4,
+                "notes": "single-leg; 95 on the stack; 3x9 + rep-out 12"
+              },
+              {
+                "exerciseName": "Leg Curls",
+                "category": "main",
+                "repsOnLastSet": 12,
+                "prescribedWeight": 95,
+                "sets": 4,
+                "notes": "95 lbs; 3x8 + rep-out 12 (machine not specified; assumed seated)"
+              },
+              {
+                "exerciseName": "Reverse Curls",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  }
+                ],
+                "notes": "EZ bar"
+              },
+              {
+                "exerciseName": "Lateral Raise",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 30,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 30,
+                    "reps": 8
+                  }
+                ]
+              },
+              {
+                "exerciseName": "Oblique Raises",
+                "category": "accessory",
+                "accessorySets": [
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  },
+                  {
+                    "weight": 70,
+                    "reps": 8
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
